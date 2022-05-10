@@ -29,12 +29,14 @@ const features = `
     'RxJS_',
     'Higher-Order-Mapping-ftns',
     'Forms',
-    'ngrx_CRUD',
     'ViewDOM',
     'ContentDOM',
     'Content-Projection',
     'HTTP_HttpClient',
     '@Input_@Output',
+    'Cusom Libraries',
+    'Nx Nrwl',
+    'ngrx_CRUD',
     'Git_distd-VCS',
     'Testing_unit',
     'Security',
@@ -84,12 +86,12 @@ const subTopics = [
      ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance','LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
      '- ngAfterContentChecked()', '- ngAfterViewInit()', '- ngAfterViewChecked()','- ngOnDestroy()'],
     ['ComponentRouter', '- URLs', 'Routes path:\'x\' - component', '<base href=\/"\">', '-- HTML5 Urls', '- router-outlet', '- routerLink', 
-    ' -- ','- Routes','- RouterModule', '-- @angular/router','--- forRoot()','--- forChild()',
+    ' -- ','- Routes','- RouterModule', '-- @angular/router','--- forRoot()','--- forChild()','--- Nested Routes',
     ' -- ', '- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
     ' -- ','- Router Guards', '-- Componentless-routes', '-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad',
     ' -- ','- history','- history.pushState','- older browsers','-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
     ' -- ','Route Resolver', '- new Comp --routing','-- Lazy Loading'],
-   
+  
     ['Lazy Loading','- Modules','- browser URL','- forChild','- children', 
     '-- Feature Modules','-- Shared Modules','--- PreLoading Modules','-- preloadingStrategy: PreloadAllModules',
     ' -- ','Load Components','--- async await', '--- await import','-- simplified Ang13'],
@@ -120,12 +122,14 @@ const subTopics = [
     ' -- ',
     '  -- Reactive Validation' 
   ],
-    ['State Management','BehaviorSubject','- appn State', 'uni-directional','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Entity', '-- Data', 'ComponentStore'],
     ['Whats View DOM', '- ViewChild', '- ViewChildren'],
     ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
     ['Whats transclusion', 'ng-content','- Single Slot','- Multi-Slot','- Conditional'],
     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+    ['appns vers custom libraries','Appns','Custom Libraries'],
+    ['Nx Nrwl'],  
+    ['State Management','BehaviorSubject','- appn State', 'uni-directional','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Entity', '-- Data', 'ComponentStore'],
     ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
     ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
@@ -147,7 +151,14 @@ const subTopics = [
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
     ['Ang Material', 'Ang CDK'],
     ['Flex-layout', 'display:flex'],
-    ['Why PWA','- Service Workers'],
+    ['PWA', '- SWs', '- manifests', '- Web-platform features','- Progressive Enhancement ','--- native apps','---- Works Offline',
+    ' -- ','- Requirements','-- Responsive', '-- Auto-updated','-- Secure','-- Reliably Connected', '-- Progresve','-- Searchable','-- Shareable  ', '.. User Exprience','-- installable', '-- Regularly Communicate',
+    ' -- ','- Service Workers','-- HTTPS','-- Caching','-- SW Manifest','--- Updating cache','---- Fast loading', 
+    '-- Push Notifications',  '--- interfaces','---- PushEvent','---- PushManager','---- PushMessageData','---- PushSubscription','---- PushSubscriptionOptions', 
+    '-- Background Sync', '--- defer actions','---- Store when offline','----- browser cache','----- indexedDB', '----- Sync when online',  
+   '-- Network proxy','--- intercepts HTTP outputs','--- various responses',
+   '--- mobile or other'
+    ],
     ['Why Angular Elements','- Custom Elements','- Web Components', '- Framework Agnostic','polyfills',
       'CustomElementRegistry','- createCustomElement() API','NgElementConstructor i/f()','customElements.define()',  '-- CD ftn', '-- data binding','bootstrap to DOM'
     ,'-- Dynamic Content','NgElements class','WithProperties()'],
@@ -160,13 +171,18 @@ const subTopics = [
     ['- new WWW -','', '']
 ];
 
-
 const subTopicsInfo = [
   [`JavaScript Framework for devpment of client side mobile web desktop appns -
   <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces - ts files are then transpiled down to JS code to run in the browser 
+  <br/>rendering pages in the DOM in response to user actions - Angular uses View DOM in the template HTML and Content DOM inside other Components
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
   <br/>Components Directives Pipes Services and Modules and Change Detection to id when events occur 
-  <br/>Observables and the RxJS operators can manipulate them and use Subjects to aid working with them
+  <br/>Observables and the RxJS operators can manipulate streams of data over time and use Subjects to aid working with them 
+  <br/>simplifying subscription and allow multi-casting events around the application. 
+  <br/>Angular appns vs Angular custom libraries
+  <br/>Special files - package.json (diff libraries used) - angular.json - tsconfig.json - main/index.htmls and main/main.ts file 
+  <br/>Special folders - node_modules for the large libraries used in project and librares 
+  <br/>ng build gives the dist folder - ang13-training/favicon.ico | index.html | main.js 300kb | polyfill.js | runtime.js
   `,
   'mobile-laptop-desktop', '- primarily used for writing Front End Appns written in TypeScript which are then transpiled to JS to run on the browser',
   'Angular CLI (Command Line Interface) uses Webpack - generate parts - build appn or serve browser','-- Components - Directives - Pipes - Services - Modules - classes Change Detection - ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI',
@@ -265,7 +281,7 @@ const subTopicsInfo = [
      '- ngAfterViewInit() - (called once after ngAfterContentChecked) Responds after Ang Initialises Comp View + Child Views      ', 
      '- ngAfterViewChecked() - Responds after Ang checks Comp View + Child Views - (After every ngAfterContentChecked + ngAfterViewInit()_',
      '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '],  
-     ['ComponentRouter - to handle the navigation from 1 view to the next -','- interprets a browser URL to change View', 'routes:Routes = [{path:"first-comp",component: FirstComponent}]','<base href=\/"\">', '-- HTML5 Urls', '- <router-outlet></router-outlet> location where the router links will go', '- <a routerLink="/first_comp">link</a>', 
+     ['ComponentRouter - to handle the navigation from 1 view to the next -','- interprets a browser URL to change View', 'routes:Routes = [{path:"first-comp",component: FirstComponent}]','<base href=\/"\">', '-- HTML5 Urls', '- <router-outlet></router-outlet> location where the router links will go', '- <a routerLink="/first_comp">link</a>','--- Nested Routing', 
      ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)','RouterModule.forChild(routes) - lazy load the Component or Module',
      ' -- ','- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
      ' -- ','- Router Guards','Componentless-routes','-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad', 
@@ -327,7 +343,16 @@ const subTopicsInfo = [
     '- Reactive Forms','-- direct access to Object Model','-- Synchronous data flow','simpler test setup','-- simpler validation','-- Data','= new FormControl("")',
     ' -- ',
     '--- Reactive Validation'
-  ],
+  ], 
+    ['Whats View DOM', '- ViewChild', '- ViewChildren'],
+    ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
+    ['Whats transclusion', 'ng-content','- Single Slot','- Multi-Slot','- Conditional'],
+    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
+    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+    ['appns vers custom libraries',
+    'Appns',
+    'Custom Libraries'],
+    ['Nx Nrwl'],  
     ['State Management - Reactive State for Angular - a group of angular libraries for Reactive extensions - inspired by the Redux pattern - derives state using RxJS - helps simplify appns with many user interactions and multiple data sources',
     'BehaviorSubject',
     'appn State',
@@ -342,11 +367,6 @@ const subTopicsInfo = [
      '--- if the state is confined to one Component then this can be used',
     'implementation of ngrx ', '- Auth0 SDK'
     ], 
-    ['Whats View DOM', '- ViewChild', '- ViewChildren'],
-    ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
-    ['Whats transclusion', 'ng-content','- Single Slot','- Multi-Slot','- Conditional'],
-    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
-    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
     ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
    
@@ -390,8 +410,31 @@ const subTopicsInfo = [
    ['Ang Material', 'Ang CDK'],
     ['Flex-layout', 
         'display:flex'],
-    ['Progressive Web Applications - ',
-      '- Service Workers'
+    ['Progressive Web Appn - are Web appns that use Service Workers - manifests - caching - progressive appns - to give a similar exp with a native appn - apps leverage modern browser capabilities - even with no Network or sparse Networks', 
+    '- Service Workers', '- manifests', '- other Web-platform features','- Progressive Enhancement ','--- native apps ','---- Works Offline',
+    ' -- ','- Requirements',
+    '-- Runs on almost every desktop | mobile | tablet', 
+    '-- Due to SW - keeps it always updated',
+    '-- due to HTTPS - secure',
+    '-- SWs to make it work offline and on sparse networks',
+    '-- employs modern web capabilities to produce an app-like experrience',
+    '-- via SE due to web app manifest',
+    '-- does not require downloading - easily shared via simple link or URL', 
+    '-- engages same interaction methodology as a native app  ',
+    '-- fully installable on users mobile home screen (no App Store)',
+    '-- up to date via Push Notification - offers latest updates', 
+    ' -- ',
+    '- Service Workers - is a script runs in Web browser to manage and manages caching of appn',
+    '-- For SW to be registered it requires HTTPS', 
+    '-- Caching is like installing a native appn - appn is cached as 1 unit - all files updated together ',
+    '-- SW loads Manifest file - ngsw.json from Server using CLI generated config file- ngsw-tsconfig.json - (not the Web App Manifest file) - Caching - describes resources to cache - includes hashes of every files content',
+    '--- Update to appn deployed - Contents of manifest changes - hence new ver of appn should be downloaded and cached - Updates happen in background quickly after changes are published',
+    '-- SW is preserved after user closes tab - next time browser loads appn - it loads SW first - appn very fast - intercepts every resource request - no need for Network',    
+    '-- interactions are handled using the SwPush service - ensure protect against CSRF/XSRF   attacks ',
+    '--- interfaces','---- PushEvent','---- PushManager','---- PushMessageData','---- PushSubscription','---- PushSubscriptionOptions',
+    '-- Background Sync - ','--- defer actions','---- Store when offline','----- caches small static assets','----- for storing large assets', '----- Sync when online',
+    '-- SW work as a Network proxy - intercept all outgoing HTTP requests made by appn and can choose how to respond to them - query a local cache | deliver cached response| request new data from Server','--- interupts HTTP output requests','--- ',
+    '-- mobile or other'
     ],
     ['let us Mix languages together - eg Angular and React','- Custom Elements','- Web Components', '- Framework Agnostic','polyfills',
     'CustomElementRegistry','- createCustomElement() API','NgElementConstructor i/f()','customElements.define()',  '-- CD ftn', '-- data binding','bootstrap to DOM'
@@ -402,7 +445,6 @@ const subTopicsInfo = [
     ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
     ['RESTitutional file transfer','- Swagger', '- GraphQL'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
-
     ['- new WWW -','', ''] 
 ];
  
