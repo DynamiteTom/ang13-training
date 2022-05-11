@@ -39,6 +39,8 @@ const features = `
     'ngrx_CRUD',
     'Git_distd-VCS',
     'Testing_unit',
+    'Design Patterns',
+    'TDD/BDD',
     'Security',
     'Authorization/Authentication',
     'Node.js',
@@ -57,8 +59,9 @@ const features = `
     'Angular Performance',
     'REST_APIs_Swagger',
     'Micro Frontends',
-    'Web 3'
-`;
+    'Web 3',
+    'Angular Versions'
+ `;
 
 const subTopics = [
     ['JavaScript Framework','mobile-laptop-desktop',
@@ -147,6 +150,15 @@ const subTopics = [
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
     ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
     '- Integration','-- Shallow','-- Deep', '- End to End', '-- Protractor', '-- Cypress'],
+    ['Why Design', 'SOLID Principles','-- Single Responsibility','-- Open-Closed','-- Liskov Substn','-- Interface Segn','-- Dep Inv', 
+    ' -- ','DRY',
+    ' -- ', 'DIP',  
+    ' -- ','Singleton Pattern',  
+    ' -- ','Factory Pattern',  
+    ' -- ','Decorator Pattern',  
+   ' -- ','Lazy',
+   ' -- ','Composition'],
+    ['Test Driven Devt','Behavoral Driven Design'],
     ['Security','- XSS','-- auto-escaping{{}}',
     '-- CSRF - XSRF', '--- CSRF token','--- HttpClientXsrfModule', 
     '- Output Encoding', 
@@ -185,7 +197,8 @@ const subTopics = [
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
     ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],
-    ['- new WWW -','', '']
+    ['- new WWW -','', ''],
+    ['- Ang Versions','Ang 14','Ang 13', 'Ang 12','Ang 11','Ang 10','Ang 09','Ang 08','Ang 07',]
 ];
 
 const subTopicsInfo = [
@@ -452,9 +465,26 @@ const subTopicsInfo = [
     ], 
   ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
-   
     ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
     '- Integration','-- Shallow','-- Deep', '- End to End', '-- Protractor', '-- Cypress'],
+    ['Why Design', '- SOLID','-- A Class should have 1 and only 1 (Job) reason to change',
+    '-- Open for extension but Closed for modification',
+    '-- Every subclass - Generics - should be able to replace the base (Parent class)',
+    '-- Never imp an Interface you dont use - nor methods they dont use',
+    '-- Entities must depend on the abstraction (not Concreations)   ', 
+    ' -- ','Dont Repeat Yourself', 
+    ' -- ',' Dep Injection is important for Scalability - large appns - Services injected into many Components', 
+    ' -- ',
+    `- ensure there is onl 1 instance of the class - getInstance or DI system 
+     <br/> Services defined in the root (not those in Components which are instantiated for each Component)
+    `,  
+    ' -- ','- Instantiate diff child objects - of same parent Class dept on conditions - <br/>Object Creation Interface',    
+    ' -- ','- alternative to Subclasses for extending an Object - Composition instead of Inheritance<br/>An object which wraps another Object',  
+    ' -- ','Lazy Pattern',
+    ' -- ','Composition Pattern'],
+    ['Test Driven Devt',
+    ' -- ',
+    'Behavoral Driven Design','- eases conversion of user features specns to code reqd to imp them'],
     ['Security', 
     '- XSS (Cross Site Scripting Vulnerability) - allows attacker to control users appn in browser',
     '-- Angular auto-escaping for {{}} interpolation', 
@@ -532,7 +562,19 @@ const subTopicsInfo = [
     ' -- ','- a Query Language for your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
     ],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
-    ['- new WWW -','', ''] 
+    ['- new WWW -','', ''],
+    ['- Ang Versions','Ang 14',
+    'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
+    'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
+    'Ang 11 TS 4.0 - Font inlining - ESLint - Stricter types - HMR Hot Module Replacement - Partial Compilation - Linker - no ngcc - Webpack 5 Moduoe Fedn',  
+    'Ang 10 TS 3.9 - major release - new default browser config - Ivy Ngcc - optional strict - Perf improvements - ModuleWithProviders<T>',
+    `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size 
+        ModuleWithProviders - Language Service - Faster Testing with ComponentHarness - 
+    `,
+    'Ang 08 TS 3.4',
+    'Ang 07 TS 3.1  '
+  ],
+    
 ];
  
 
