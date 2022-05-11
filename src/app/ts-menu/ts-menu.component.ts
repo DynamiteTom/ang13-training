@@ -65,21 +65,26 @@ const subTopics = [
     '- Front End appns','- Angular/  CLI','- main parts','TypeScript','TS Libraries',
     'Server Side Angular',
     '-- Add ons'],
-    ['Why Components - ', '- class', '- template','Decorators','- @Component({})', '-= selector', '-- templateUrl', '-- styleUrl', '- LC-hooks','-- Component Tree','- Change detection',
+    ['Why Components - ', '- class', '- template','Decorators','- @Component({})', '-= selector', '-- templateUrl', '-- styleUrl','- Data Binding', '- LC-hooks','-- Component Tree','- Change detection',
     'this', '- ng g c xyz'],
     ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
     '- Components'],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'],
     ['Why Services','wrt Components','Reuse','- DI - dep Injection','class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks','- Providing a Service', '-- providedIn root','providers'], 
-    ['Decorators','- Metadata','- Annotations', '- Class', 'Decorator examples'], 
+    ['Decorators','- Metadata','- Annotations', '- Class', 'Decorator examples',
+    '-- Types of decorators','--- Class','--- Property','--- Event','--- Attribute'
+    
+  ], 
     ['Interfaces', '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
-    ['tsc', '- .ts files', '- tsconfig.json', '- JS files', '- ngc'],
-    ['- package.json', '- angular.json', '-- dist folder','-- node_modules folder' ],
-    ['- String interpolation {{x}}','- property binding[]','- event binding()', '- 2-way data binding'],
+    ['TypeScript',
+    'tsc', '- .ts files', '- tsconfig.json', '- JS files', '- ngc'],
+    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder' ],
+    ['Data Binding','- String interpolation {{x}}','ex','- property binding[]','ex','- event binding()','ex', '- 2-way data binding','ex'],
     ['Why Style - color-size-position', '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','content',
-     'inline - ext', 'ngStyle','ngClass', 
-        '- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
+    ' -- ',     
+    'inline - ext', 'ngStyle','ngClass', 
+     ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
        'ViewEncapsulation'],
      ['Angular/CLI','- Building', '- Serving the Browser port'],
     ['Modules','NgModule', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','min 1 Module','Lazy Loading'],
@@ -113,7 +118,7 @@ const subTopics = [
     '- Errors','- Multi-cast','- Filters','- Transform'],
     ['- ConcatMap','- MergeMap','- SwitchMap','- ExhaustMap'],
     ['Why forms',
-    ' -- ',
+    ' -- ',  
     '- Template Forms', '-- Template directives','-- ngForm', '-- complex test setup','-- complex validation', '-- [(ngModel)]',
     ' -- ',
     ' -- Template Validation', 
@@ -124,11 +129,19 @@ const subTopics = [
   ],
     ['Whats View DOM', '- ViewChild', '- ViewChildren'],
     ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
-    ['Whats transclusion', 'ng-content','- Single Slot','- Multi-Slot','- Conditional'],
+    ['Whats transclusion',
+    '- ex of content projection', 
+    '-- ng-content',
+    '--- Single Slot',
+    '--- Multi-Slot',
+    '--- Conditional',
+    ' -- ',
+    '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
+  ],
     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
-    ['appns vers custom libraries','Appns','Custom Libraries'],
-    ['Nx Nrwl'],  
+    ['appns vers custom libraries','Appns','Custom Libraries','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
+    ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management','BehaviorSubject','- appn State', 'uni-directional','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Entity', '-- Data', 'ComponentStore'],
     ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
@@ -166,7 +179,11 @@ const subTopics = [
     ['Why Angular Universal','- SSR - Server Side Rendering'],
     ['How - Angular Performance - ','largest contentful paint', '',
          'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'],
-    ['RESTitutional file transfer','- Swagger', '- GraphQL'],
+    ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
+    '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+    ' -- ','- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','-- RESTful APIs','-- JSON','-- CRUD methods', 
+    ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
+    ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],
     ['- new WWW -','', '']
 ];
@@ -192,7 +209,18 @@ const subTopicsInfo = [
     angular/elements - angular/webWorkers - Angular Universal - Angular Material - angular/flex-layout
     ` 
   ], 
-  ['Components are the most important part of an Ang App', 
+  [`Components are the most important part of an Ang appn - they have a @Component decorator with a selector - template and optional style
+    <br/>The class can have constructor - properties - methods - events 
+    <br/>Can import services into the constructor using DI 
+    <br/>Data binding - interpolation {{}} | property [] | event () | [( ngModel )]  
+    <br/>Can have child Components and use @Input() / @Output() with EventEmitter()
+    <br/>Life Cycle Hooks - ngOnInit() define how the Component operates from creation to destruction
+    <br/>Component Tree - each component has a ChangeDetector - to react to changes and ensure View is correct
+    <br/>Style of the parts of the data - 
+    <br/>Best to store Component data as immutable Observables which can then be manipulated using RxJS library
+    <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
+    <br/>can use this to ref data or methods in the Component - 
+  `, 
       'defines the properties and methods including constructor and events of a Component - Directive - Pipe - Service - Module', 
       'name of the External HTML file or inline HTML <br/>  templateUrl: \'./ts-menu.component.html\' or "Hello World" - Note directives dont have a template file',
       'Decorators - eg @Component - define metadata for Angular annotations to class',
@@ -200,6 +228,7 @@ const subTopicsInfo = [
       '-- tag which can be used to install the Component', 
       '-- HTML part of the Component', 
       '-- styles of the Component', 
+      '-- Interpolation {{}} - Property [] - Event () - [( )]',
       `- ngOnChanges() - ngOnInit() most popular - ngDoCheck()- ngAfterContentInit() 
       - ngAfterContentChecked() - ngAfterViewInit() - ngAfterViewChecked() - ngOnDestroy()`,
       '-- Component Tree - is all components in the appn in a tree branching structure with each Component having a CD mechanism',
@@ -207,7 +236,10 @@ const subTopicsInfo = [
       'this refs all properties or methods or events of a Component',
       'generate a new Component'
     ],
-    ['Directives let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates',
+    [`Directives let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
+    - <br/> decorator @Decorator({}) 
+    - <br/> 3 types - attribute | template | Components -  
+    `,
       '@Directive({})',
       '- attribute-directives', 
       '- template-directives *ngIf - *nfFor() ',
@@ -215,24 +247,39 @@ const subTopicsInfo = [
          '<div *nfFor="x of List"></div>',
          '<div *ngSwitch with case statements',
       '- Components are a form of Directive but have a template'],
-    ['Why Pipes', 
+    ['Why Pipes - pure and impure - decoraor - @Pipe() - used in a template HTML to modify data - Custom Pipes - @PipeTransform with transform()', 
       'transform data for display',
       '- only applied in template',
-      '-- template',
-     '- Pure', 
-     '- Impure',
+      '-- used in a template',
+     '- Pure - ', 
+     '- Impure - ',
     'Custom Pipes', 
     '@Pipe({})','-- custom transformation',
     'Date - UpperCase - LowerCase - Currency - Decimal - Percentage - Async'],
-    ['- implemented as a class with @Injectable decorator','simplifies Components',
+    [`Services - implemented as a simple class with @Injectable({}) decorator - 
+      - <br/>ng g s my-service
+      - <br/>can be reused in several different Components so data can be shared 
+      - <br/>We can have nested services -    
+    `,
+    'simplifies Components',
     'Reuseability in other Components',
-     '- Services are injected into Components via the constructor', '@Injectable({})', '- Module or Component','nesting services','- Sharing',
-      'fetching data from a server - logging - validating user input ', 'class with injectable decorator','@Injectable({providedIn: \'root\'})','other values','privders:[MyService]'], 
-    ['Decorators',
-     '- Metadata',
-     '- Annotations', 
-     '- Class',
-     '- @Component - @Directive @Pipe @Injectable  @NgModule - @Input @Output @ViewChild @ContentChild '
+    '- constructor(private x: MyService){}', 
+    '- Services are injected into Components via the constructor', 
+     '@Injectable({})', 
+     '- Module or Component',
+     'nesting services',
+     '- Sharing',
+     'fetching data from a server - logging - validating user input ', 
+     'class with injectable decorator',
+     '@Injectable({providedIn: \'root\'})',
+     'other values',
+     'privders:[MyService]'], 
+    ['Decorators - add metadata to a class | objects or methods -  which defines annotations - used by TypeScript compiler tsc',
+     '- Metadata - describes other data',
+     '- Annotations - are hard coded language features - set on a class - reflect metadata library', 
+     '- Class - ',
+     '- @Component - @Directive @Pipe @Injectable  @NgModule - @Input @Output @ViewChild @ContentChild ',
+     '-- Types of decorators','@Component','@Input or @Output','@HostListener','@Injectable'
     ], 
     ['Interfaces - define a contract with properties and or methods -', 
     ' - export interface IGame{ gameId: number, gameName: string, gameCode: string, etc. }', 
@@ -242,7 +289,13 @@ const subTopicsInfo = [
       '- methods - functions on the class', 
       '- events - ', 
       '-- this to ref the class object properties and methods'],
-    ['- TypeScript Compiler - MS - transpiles ts with type information to js files', 
+
+    [`TypeScript - data types - number | string | boolean - strongly typed and uses inferred types - interfaces and types   
+      <br/>tsc transpiles ts down to .js files - 
+      <br/>uses tsconfig.json - transpiles .ts files dwn to .js files to run in the browser 
+      <br/>tooling - auto-completion | navigation | refactoring - 
+      `,
+      '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
     '- .ts files - files with Type Infon - makes data TypeSafe', 
     '- tsconfig.json - file with this ids root path - CompilerOptions - AngularCompilerOptions', 
     '-- CompilerOptions',
@@ -250,19 +303,28 @@ const subTopicsInfo = [
     '- JS files - ES5 files - with std JavaScript' , 
     '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files'],
     ['- package.json', 
-    '- angular.json', 
-    '-- dist folder',
-    '-- node_modules folder' ],
-    ['- String interpolation {{x}}',
-    '- property binding[]',
-    '- event binding()', 
-    '- 2-way data binding'],
+     '- angular.json',  
+     '-- dist folder',
+     '-- node_modules folder' ],
+    [`Data binding - is a technique where data stays in sync between the Component and the View
+    <br/>- When user updates data in the view - Ang updates the Component
+    <br/>- When Component gets new data - Ang updates the View
+    `,
+    '- String interpolation {{x}} - from data source to target view','-- {{ val }}',
+    '- Property binding - [] - Properties are features of DOM nodes - from view target to data source','-- <img [alt]="hero.name" [src]="heroImageUrl">',
+    '- Class binding - [class]="classExpression"',
+    '- Style binding - <nav [style]=\'navStyle\'>',
+    '- Attribute binding - <button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>',
+    '- event binding - () - from view target to data source ','<button type="button" (click)="onSave()">Save</button>', 
+    '- 2-way data binding - Banana in a box - [(target)]', '-- [(ngModel)] = "name"'],
     ['Why Style - color-size-position', 
     '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','-- content',
+    ' -- ',
     'inline - ext', 
     'ngStyle',
     'ngClass', 
+    ' -- ',
     '- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance',
     'ViewEncapsulation'],
     ['Angular/CLI','- Building', '- Serving the Browser port'],
@@ -344,15 +406,36 @@ const subTopicsInfo = [
     ' -- ',
     '--- Reactive Validation'
   ], 
-    ['Whats View DOM', '- ViewChild', '- ViewChildren'],
-    ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
-    ['Whats transclusion', 'ng-content','- Single Slot','- Multi-Slot','- Conditional'],
-    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
+    ['- is within the tempalte of the Component', '- Queries one child', '- Queries multiple Children'],
+    ['- is within a Component tags', '- Queries one child', '- Queries multiple children'],
+    [`transclusion is Content Projection - a pattern to insert/project content to use inside another Component - lets a Directive to make use of templates + add content to DOM - lets Directives generate dynamice data driven DOM instns 
+      you can make reusable components - for scalable appns by inserting content into already created Comps/Dirs 
+    `, 
+    '-- eg a Component projecting data into a CardComponent',
+     '<ng-content></ng-content>',
+     '- <ng-content select=".single-slot">',
+     `- <ng-content select=".part-1"></ng-content>
+        <ng-content select=".part-2"></ng-content>
+      `,
+     '- <ng-content select="."> - creates component into which conditionally into 1+ slots',
+     ' -- ',
+     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
+     ],
+     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
     ['appns vers custom libraries',
     'Appns',
-    'Custom Libraries'],
-    ['Nx Nrwl'],  
+    'use ng g library - ng-packagr','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
+    ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
+    '- Nrwl/Nx',
+    '-- smart', 
+    '-- fast',
+    '-- extensible',
+    '-- nrwl/angular', 
+    '-- nx monorepo', 
+    '-- nx cli',
+    '-- nx build', 
+    '-- nx serve'],  
     ['State Management - Reactive State for Angular - a group of angular libraries for Reactive extensions - inspired by the Redux pattern - derives state using RxJS - helps simplify appns with many user interactions and multiple data sources',
     'BehaviorSubject',
     'appn State',
@@ -365,9 +448,9 @@ const subTopicsInfo = [
     '-- Entity - data - ',
     '-- Data - Simplifying the case for many CRUD operations',
      '--- if the state is confined to one Component then this can be used',
-    'implementation of ngrx ', '- Auth0 SDK'
+    'implementation of ngrx ', '- Au   th0 SDK'
     ], 
-    ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
+  ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
    
     ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
@@ -407,7 +490,7 @@ const subTopicsInfo = [
     'Plugins'],
     ['- AWS - Amazon Web Services', '- Azure'],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
-   ['Ang Material', 'Ang CDK'],
+    ['Ang Material', 'Ang CDK'],
     ['Flex-layout', 
         'display:flex'],
     ['Progressive Web Appn - are Web appns that use Service Workers - manifests - caching - progressive appns - to give a similar exp with a native appn - apps leverage modern browser capabilities - even with no Network or sparse Networks', 
@@ -443,7 +526,11 @@ const subTopicsInfo = [
       ''],
     ['Angular Universal is a UI Framework - Accessability - mobile friendly','- SSR - Server Side Rendering'],
     ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
-    ['RESTitutional file transfer','- Swagger', '- GraphQL'],
+    ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+    ' -- ','- IDL for RESTful APIs expressed using JSON', '-- design & Doc APIs','-- ','-- Interface Defn Language','-- RESTful APIs','-- JSON','-- CRUD methods', 
+    ' -- ','- an API platform for building and using APIs -','-- simplifies each step of the API lifecycle','-- streamlines collaboation with team members',
+    ' -- ','- a Query Language for your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
+    ],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
     ['- new WWW -','', ''] 
 ];
