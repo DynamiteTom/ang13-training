@@ -17,6 +17,8 @@ const features = `
     'modules',   
     'life-cycle-hooks',
     'routing_router',
+    '@Input_@Output',
+    ' -- ',
     'lazy-loading', 
     'Change Detection',
     'AoT-compilation', 
@@ -33,10 +35,10 @@ const features = `
     'ContentDOM',
     'Content-Projection',
     'HTTP_HttpClient',
-    '@Input_@Output',
     'Cusom Libraries',
     'Nx Nrwl',
     'ngrx_CRUD',
+    ' -- ',
     'Git_distd-VCS',
     'Testing_unit',
     'Design Patterns',
@@ -46,18 +48,28 @@ const features = `
     'Node.js',
     'npm',
     'express',
+    'VS-Code',
+    'Angular Language Service',
     'CI_CD_Jenkins',
     'Webpack',
     'Cloud_AWS_Azure',
     'Accessability',
+    ' -- ',
+    'Schematics',
     'Angular Material',
     'Flex Layout',
     'PWA - Service Workers',
     'Angular Elements',
     'Web Workers',
     'Angular Universal',
+    'Stand alone Components',
+    ' -- ',
+    'Agile',
+    'Jira/Atlassian',
+    'Azure',
     'Angular Performance',
     'REST_APIs_Swagger',
+    'Ag-grid',
     'Micro Frontends',
     'Web 3',
     'Angular Versions'
@@ -81,7 +93,7 @@ const subTopics = [
     ['Interfaces', '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
     ['TypeScript',
     'tsc', '- .ts files', '- tsconfig.json', '- JS files', '- ngc'],
-    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder' ],
+    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' ],
     ['Data Binding','- String interpolation {{x}}','ex','- property binding[]','ex','- event binding()','ex', '- 2-way data binding','ex'],
     ['Why Style - color-size-position', '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','content',
@@ -99,7 +111,8 @@ const subTopics = [
     ' -- ','- Router Guards', '-- Componentless-routes', '-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad',
     ' -- ','- history','- history.pushState','- older browsers','-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
     ' -- ','Route Resolver', '- new Comp --routing','-- Lazy Loading'],
-  
+    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+    [' -- '],
     ['Lazy Loading','- Modules','- browser URL','- forChild','- children', 
     '-- Feature Modules','-- Shared Modules','--- PreLoading Modules','-- preloadingStrategy: PreloadAllModules',
     ' -- ','Load Components','--- async await', '--- await import','-- simplified Ang13'],
@@ -142,14 +155,18 @@ const subTopics = [
     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
   ],
     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
-    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
     ['appns vers custom libraries','Appns','Custom Libraries','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
     ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management','BehaviorSubject','- appn State', 'uni-directional','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Entity', '-- Data', 'ComponentStore'],
-    ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
-    'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
-    ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
-    '- Integration','-- Shallow','-- Deep', '- End to End', '-- Protractor', '-- Cypress'],
+    [' -- '],
+    ['GIT',
+    '- Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
+    '- Commands - ','- Add','- fetch','- branch','- checkout', '- commit','- init','- push','- pull','- log','- status',
+    '- GitHub'
+    ], 
+    ['Testing', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
+    '- Integration','-- Shallow','-- Deep', 
+    '- End to End', '-- Protractor', '-- Cypress'],
     ['Why Design', 'SOLID Principles','-- Single Responsibility','-- Open-Closed','-- Liskov Substn','-- Interface Segn','-- Dep Inv', 
     ' -- ','DRY',
     ' -- ', 'DIP',  
@@ -170,11 +187,42 @@ const subTopics = [
     '- add|delete|modify db','- tasks exec on events','- event - server port','- files initiated on server', '--*.js'],
     ['npm'],
     ['express','express impn','-- get()','-- listen()'],
+    ['VS-Code'],
+    ['Angular Language Service'],
     ['Why CI/CD', '- CI - Continuous Integration','- CD - Continuous Development', '- CD - Continuous Delivery', '-- Jenkins'],
     ['Webpack', 'module bundler','Terser plugin', 'Entry Points -', '-- Entry','-- Output', 'Loaders','Plugins'],
-    ['Whats the Cloud?', '- AWS - Amazon Web Services', '- Azure'],
+    ['Whats the Cloud?','- 3 reasons for the cloud are', 
+    ' -- ',
+    '- AWS - Amazon Web Services',
+    '- S3 - Simple Storage Service',
+    '- EC2 - Elastic Compute Cloud',
+    '- Amazon Connect',
+    '- AWS Lambda',    
+    ' -- ', 
+    '- MS Azure',
+    '- services - ',
+    '-- virtual m/c - IaaS',
+    '-- App Services - PaaS',
+    '-- Websites - ',
+    '-- WebJobs - ',
+    '- Identity',
+    '-- AAD ',
+    '-- AAD - B2C',
+    '-- AAD Domain Services  ',
+    '-- Azure Info Protn',
+    '- location',
+    '-- on-premise - ',
+    '-- hybrid -',
+    '-- multicloud -',
+    '-- at the edge -'
+  
+  ],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
-    ['Ang Material', 'Ang CDK'],
+    [' -- '],
+    ['Schematics'],
+    ['Ang Material', 
+    ' -- ',
+    'Ang CDK'],
     ['Flex-layout', 'display:flex'],
     ['PWA', '- SWs', '- manifests', '- Web-platform features','- Progressive Enhancement ','--- native apps','---- Works Offline',
     ' -- ','- Requirements','-- Responsive', '-- Auto-updated','-- Secure','-- Reliably Connected', '-- Progresve','-- Searchable','-- Shareable  ', '.. User Exprience','-- installable', '-- Regularly Communicate',
@@ -189,6 +237,25 @@ const subTopics = [
     ,'-- Dynamic Content','NgElements class','WithProperties()'],
     ['Why Web Workers', 'Threading', ''],
     ['Why Angular Universal','- SSR - Server Side Rendering'],
+    ['Stand alone Components', '- @Component standalone: true', '- Backwards compatability','- '],
+
+    [' -- '],
+    ['Agile', '- Iterative', '- Team','- Respond to Change'],
+    ['Jira',
+    '- teamwork',
+    '- Boards',
+    '-- Create an Agile Board'  ,
+    ' -- ',
+    '--- Team Management Board','---- Simplified board',
+    ' -- ',
+    '--- Scrum Board','---- Sprints + Backlog',
+    ' -- ',
+    '--- Kanban Board', '---- WIP (Work In Progress)', 
+    '----- What is WIP',
+    ' -- ',
+    '- Agile project management tool'
+  ],
+  [' - Azure'],
     ['How - Angular Performance - ','largest contentful paint', '',
          'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'],
     ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
@@ -196,6 +263,7 @@ const subTopics = [
     ' -- ','- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','-- RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
     ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
+    [' - Ag-grid'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],
     ['- new WWW -','', ''],
     ['- Ang Versions','Ang 14','Ang 13', 'Ang 12','Ang 11','Ang 10','Ang 09','Ang 08','Ang 07',]
@@ -318,7 +386,7 @@ const subTopicsInfo = [
     ['- package.json', 
      '- angular.json',  
      '-- dist folder',
-     '-- node_modules folder' ],
+     '-- node_modules folder','- primary entry point for @angular/core lib' ],
     [`Data binding - is a technique where data stays in sync between the Component and the View
     <br/>- When user updates data in the view - Ang updates the Component
     <br/>- When Component gets new data - Ang updates the View
@@ -363,7 +431,9 @@ const subTopicsInfo = [
      ' -- ','- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center',
      '-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
      ' -- ','-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
-    ['Lazy Loading - ', '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
+     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+     [' -- '],
+     ['Lazy Loading - ', '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
     'children', '- Feature Modules','- Shared Modules','-- PreloadingStrategy','--- PreloadAllModules - to initially fetch all modules', 
     ' -- ','-- Lazy Load Components (not Modules)','- async-await is used for lazy loading Components','---  async getLazy2() {this.viewContainerRef.clear(); const { Lazy2Component } = await import(\'./lazy2.component\'); this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}','--- Simplified in Angular 13'],
     ['Change Detection is a builtin framework feature that ensures auto sync between changes to data and the view','- ngZone', '- manual CD', 
@@ -376,12 +446,15 @@ const subTopicsInfo = [
     ['Remove dead code from the bundle - unused bits', 
     'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
     'View Engine tree-shakes - Static analysis of code and then compiles whats left'],  
-     ['APF - Ang Package Format', 
+     [`APF - Ang Package Format - is an Angular specific specn for the structure and format of npm packages used by all Angular packages @angular/core and Angular libraries etc.
+     <br/>compatable with all tooling offere by the Angular team + JS ecosystem + 3rd party developers  
+     <br/>Developers can rely on the CLI and ng-packagr to produce packages in the APF 
+     `, 
     'npm packages',
     'Tooling support',
     'ES versions',
     'Angular CLI',
-    'ng-packagr',   
+    'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
     '.d.ts files',
     '-  package.json - "type": "module" - No CommonJS Modules',
@@ -435,7 +508,6 @@ const subTopicsInfo = [
      '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
      ],
      ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
-    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
     ['appns vers custom libraries',
     'Appns',
     'use ng g library - ng-packagr','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
@@ -463,9 +535,46 @@ const subTopicsInfo = [
      '--- if the state is confined to one Component then this can be used',
     'implementation of ngrx ', '- Au   th0 SDK'
     ], 
-  ['Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
-    'Commands - ','- Add','- fetch','- commit','- init','- push','- pull','- log','- status',''], 
-    ['Why Test', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
+    [' -- '],
+    [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) designed to handle small to large projects with speed and efficiency
+    <br/>- has 3 parts - 1: Working tree 2: Staging area 3: Local repository + Remote repository - 
+    <br/> - Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
+    <br/> - Forking - creates a indept copy of a Git repository - 
+    <br/> - git clone - creates a linked copy that will continue to sync with the target repo
+
+    <br/> - Stashing - lets you change to a diff project and store the current staged file info 
+    <br/>- Staging and Committing -  
+    `,
+      'Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository',
+      'Branches - ',
+      'Fork - ',
+      'stash - ',
+    'Commands - ',
+    '- Add - ',
+    '- fetch - ',
+    '- branch - ',
+    '- checkout -',
+    '- commit - ',
+    '- init - ',
+    '- push - ',
+    '- pull - ',
+    '- log - ',
+    '- status -',
+    ''], 
+    [`Testing is very important to ensure the validity of your programs and that there are no problems with the code!
+      <br/>There are three forms of test 1: Unit 2: Integration 3: End 2 End
+      <br/>Unit testing is the simplest and most important type of testing. It normally involves Jasmine and the Karma (Test runner)
+      <br/>Jasmine spies are very useful for mocking parts of the Angular Component structure 
+      <br/>TestBed is used to create dummy components etc 
+      <br/>Integration testing - has 2 types - shallow and deep 
+      <br/>Shallow integration testing - is where the child components are simple
+      <br/>Deep integration testing is where child components have dependecies like services
+      <br/>End to End testing is not so important but using Protractor and the more modern Cypress
+      <br/>Protractor has a page object to be shared across diff components - 
+    `, 
+    '- Unit', 
+    '-- spec.ts', 
+    '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
     '- Integration','-- Shallow','-- Deep', '- End to End', '-- Protractor', '-- Cypress'],
     ['Why Design', '- SOLID','-- A Class should have 1 and only 1 (Job) reason to change',
     '-- Open for extension but Closed for modification',
@@ -504,7 +613,9 @@ const subTopicsInfo = [
     ['- Node Package Manager'],
     ['- Most popular Web framework - A backend web appn for Node.js for building Web appns and APIs - provides mechanisms for writing handlers for requests with diff HTTP verbs at diff URL Paths- routes ',
     '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
-  ],
+    ],
+    ['VS-Code'],
+    ['Angular Language Service'],
     ['Why CI/CD', 
   '- CI - Continuous Integration',
   '- CD - Continuous Development', 
@@ -518,9 +629,52 @@ const subTopicsInfo = [
     '-- Output', 
     'Loaders',
     'Plugins'],
-    ['- AWS - Amazon Web Services', '- Azure'],
+    [`The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
+      Cloud Servers are located all over the World
+      <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
+    `,
+    ' - 3 reasons 1: File Storage - store all types of info in the cloud 2: File Sharing - Makes it easy to share files simultaneously 3: Backing up Data - simplifies backing up and protecting your files', 
+    ' -- ',
+    `- AWS - Amazon Web Services - offers reliable | scalable | cheap Cloud Computing Services 
+      <br/>provides distributed computing processing capacity and S/W tools via AWS server farms - S3 and EC2  
+      <br/>AWS are accessed over HTTP using the REST architecture style (JSON for newer APIs) and SOAP (for older APIs)
+      `,
+    '- S3 - Simple Storage Service - ',
+    '- EC2 - Elastic Compute Cloud -   ',
+    '- Amazon Connect - ',
+    '- AWS Lambda - a serverless ftn enabling ETL wrt EC2 and S3',    
+    ' -- ',
+    `- Azure - MS - Cloud computing - for appn management via MS-managed data centers
+      <br/>
+    `,
+    '- services - ',
+    '-- virtual m/c - IaaS (Infrastrucure as a Service) - lets users launch GP Windows and Linxu VMs - Linux on Azure',
+    '-- App Services - PaaS (Platform as a Service) - letting devs easily publsh and manage websites',
+    '-- Websites - allow devs to develop using a raft of Server side langs - ',
+    '-- WebJobs - apps can be deployed to an App Service envt to imp background processing on a schedule|on demand| run continuously ',
+    '- Identity',
+    '-- AAD (Azure Active Directory) - sync on premisees directories + enables SSO',
+    '-- AAD (Azure Active Directory) B2C - use of consumer identity and access management',
+    '-- AAD (Azure Active Directory) Domain Services - join Azure virtual machines to a domain',
+    '-- Azure Info Protn - used to protect sensitive info',
+    '- location',
+    '-- on-premise - ',
+    '-- hybrid -',
+    '-- multicloud -',
+    '-- at the edge -'  
+],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
-    ['Ang Material', 'Ang CDK'],
+    [' -- '],
+    [`Schematics is a template based code generator - that supports complex logic 
+      <br/>A set of instructions for transforming a S/W project by generating or modifying code  
+      <br/>packaged into collections and installed by npm 
+      <br/>Angular CLI uses schematics to apply transforms to a web-project - modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
+      <br/>Added in the @schematis/angular colln - ng g and ng add  `
+    
+    ],
+    ['Ang Material', 
+    ' -- ',
+    'Ang CDK'],
     ['Flex-layout', 
         'display:flex'],
     ['Progressive Web Appn - are Web appns that use Service Workers - manifests - caching - progressive appns - to give a similar exp with a native appn - apps leverage modern browser capabilities - even with no Network or sparse Networks', 
@@ -555,12 +709,44 @@ const subTopicsInfo = [
     ['Web Workers permit multithreading in Angular', 'Threading', 
       ''],
     ['Angular Universal is a UI Framework - Accessability - mobile friendly','- SSR - Server Side Rendering'],
+    [`
+      Stand alone Components - @Component standalone: true and its backwards compatible in both directions - 
+      <br/> Not owned by anyone or anything - but can be imported into other components and modules
+      <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
+      <br/> We mjust update Angular Schematics 
+    `, '- @Component standalone: true','- Backwards compatability','- '],
+    [' -- '],
+    ['Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster with fewer headaches - suite of Agile work management solutions powering collaboration - across all teams',
+    '- iterative means small incremental changes',
+    '- (no bigbang) - delivers work in small, but consumable, increments - ',
+    '- Requirements | Plans| Results are evaluated continuously so teams have a natural mechanisms for responding to change'
+  ],
+    ['Jira S/W - provides Scrum and Kanban boards - are task management hubs - where tasks are mapped to customizable workflows', 
+     '- provide transparency across teamwork + visibility into the status of every work item.', 
+     '- Boards - displays issues 1+ projects so you can view | manage | report on work',
+     
+     '-- View all boards - click Create board - Scrum|Kanban', 
+     ' -- ',
+    '--- Team management board - Simplified board - teams new to agile - lets you incrementally inc power',
+    '---- Simplified Board',
+    ' -- ',
+    '--- Scrum Board - for teams that use sprints - includes a backlog - is the tool that unites Agile teams around a single goal + promotes iterative incremental delivery',
+    '---- Sprints + Backlog ----- short time based period when a scrum team works to complete a set amount of work (eg 2 weeks)',
+    ' -- ',
+    '--- Kanban Board - management + constraining WIP - includes option of Kanban backlog - fully extendable - with custom extensions and Backlog management',
+    '---- designed to visualise work - limit WIP - maximize efficiency or flow',
+    '----- used in supply chain management - for cost of unfinished goods the manufacturing process',
+    ' -- ',
+    '- help Agile + DevOps'
+  ],
+  ['Azure - Cloud'],
     ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
     ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     ' -- ','- IDL for RESTful APIs expressed using JSON', '-- design & Doc APIs','-- ','-- Interface Defn Language','-- RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- an API platform for building and using APIs -','-- simplifies each step of the API lifecycle','-- streamlines collaboation with team members',
     ' -- ','- a Query Language for your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
     ],
+    ['ag-grid'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
     ['- new WWW -','', ''],
     ['- Ang Versions','Ang 14',
