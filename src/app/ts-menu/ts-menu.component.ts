@@ -50,6 +50,8 @@ const features = `
     'express',
     'VS-Code',
     'Angular Language Service',
+    'TSServer',
+    'ESLint',
     'CI_CD_Jenkins',
     'Webpack',
     'Cloud_AWS_Azure',
@@ -102,8 +104,10 @@ const subTopics = [
      ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
        'ViewEncapsulation'],
      ['Angular/CLI','- Building', '- Serving the Browser port'],
-    ['Modules','NgModule', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','min 1 Module','Lazy Loading'],
-     ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance','LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
+    ['Modules','NgModule', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
+     ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance',
+     '- imports @angular/core',
+     'LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
      '- ngAfterContentChecked()', '- ngAfterViewInit()', '- ngAfterViewChecked()','- ngOnDestroy()'],
     ['ComponentRouter', '- URLs', 'Routes path:\'x\' - component', '<base href=\/"\">', '-- HTML5 Urls', '- router-outlet', '- routerLink', 
     ' -- ','- Routes','- RouterModule', '-- @angular/router','--- forRoot()','--- forChild()','--- Nested Routes',
@@ -122,8 +126,8 @@ const subTopics = [
     ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
        'Angular 13 APF','- Node package exports', '- es2020 support', '- Ivy partial compilation'
     ],
-    ['Ivy new', 'Locality','Incremental DOM','-- Instructions', 'Libraries', '- ngcc', '- Linker   instead', 'Ang Language Service','Compilaion of changes','Ivy - Advantages'],
-    ['- ViewEngine old', '- Renderer2', '3 parts -', ' -1: Template Parsing', ' 2: Tree Shaking',' 3: Compilation' , '- Interpreter', '--metadata.json file','ngFactory.js files','JIT or AOT'],
+    ['Ivy new', 'Locality','Incremental DOM','-- Instructions', 'Libraries', '- ngcc', '- Linker   instead', 'Ang Language Service','Compilaion of changes','Ivy - Advantages','no EntryComponents'],
+    ['- ViewEngine old', '- Renderer2', '3 parts -', ' -1: Template Parsing', ' 2: Tree Shaking',' 3: Compilation' , '- Interpreter', '--metadata.json file','ngFactory.js files','JIT or AOT','EntryComponent'],
     ['Promises', '- then()', '- future tasks', '- (resolve, reject)','- asynchronous','- catch',' -- ', 
      'Observables','- streams', '- time', '- next()','- Observer','- subscribe','- async pipe','- hot-cold','- Sync or Async', '-- Marble Diagrams'],
     ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
@@ -154,10 +158,17 @@ const subTopics = [
     ' -- ',
     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
   ],
-    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
+    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular/InMemoryWebApi'],
     ['appns vers custom libraries','Appns','Custom Libraries','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
     ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
-    ['State Management','BehaviorSubject','- appn State', 'uni-directional','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Entity', '-- Data', 'ComponentStore'],
+    ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
+    '- 5 features ',
+    '-- Serializability', 
+    '-- TypeSafety',
+    '-- Encapsulation',   
+    '-- Testable',
+    '-- Performance',
+  '- SHARI principle','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Store Devtools','-- Entity', '-- Data', 'ComponentStore'],
     [' -- '],
     ['GIT',
     '- Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
@@ -188,11 +199,18 @@ const subTopics = [
     ['npm'],
     ['express','express impn','-- get()','-- listen()'],
     ['VS-Code'],
-    ['Angular Language Service'],
+    ['Angular Language Service','- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'],
+    ['TSServer-',''],  
+    ['ESLint', 'JS + TS', 'Static Analysis','VS Code + CI Pipeline',
+    'AST based pattern checker - JS',
+    '- enforce style | formatting| coding',
+    '-- ESLint 8.9 - ',
+    '-- ESLint 8.15 - '
+    ],
     ['Why CI/CD', '- CI - Continuous Integration','- CD - Continuous Development', '- CD - Continuous Delivery', '-- Jenkins'],
-    ['Webpack', 'module bundler','Terser plugin', 'Entry Points -', '-- Entry','-- Output', 'Loaders','Plugins'],
+    ['Webpack', '- module bundler','- Terser','-- Terser plugin', '- Entry Points -', '-- Entry','-- Output', '- Loaders','- Plugins'],
     ['Whats the Cloud?','- 3 reasons for the cloud are', 
-    ' -- ',
+    ' -- ',  
     '- AWS - Amazon Web Services',
     '- S3 - Simple Storage Service',
     '- EC2 - Elastic Compute Cloud',
@@ -270,8 +288,10 @@ const subTopics = [
 ];
 
 const subTopicsInfo = [
-  [`JavaScript Framework for devpment of client side mobile web desktop appns -
-  <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces - ts files are then transpiled down to JS code to run in the browser 
+  [`
+  JavaScript Framework for development of client side mobile web desktop appns -
+  <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces 
+  <br/>- ts files are then transpiled down to JS code to run in the browser 
   <br/>rendering pages in the DOM in response to user actions - Angular uses View DOM in the template HTML and Content DOM inside other Components
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
   <br/>Components Directives Pipes Services and Modules and Change Detection to id when events occur 
@@ -339,9 +359,19 @@ const subTopicsInfo = [
     'Date - UpperCase - LowerCase - Currency - Decimal - Percentage - Async'],
     [`Services - implemented as a simple class with @Injectable({}) decorator - 
       - <br/>ng g s my-service
-      - <br/>can be reused in several different Components so data can be shared 
-      - <br/>We can have nested services -    
-    `,
+      - <br/>can be reussssed in several different Components so data can be shared 
+      - <br/>We can have nested services - 
+      - <br/>A provider is an instruction to the DI (Dep Injection) system on how to obtain a value for a dependency
+      - <br/>- most of the time these dependencies are services that you create and provide
+      - <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
+      - <br/>- ng g s my-service
+      - <br/> - providedIn? - determines which injectors will provide the injectable 
+      - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+      - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+      - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
+      - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+      `,
+
     'simplifies Components',
     'Reuseability in other Components',
     '- constructor(private x: MyService){}', 
@@ -354,7 +384,9 @@ const subTopicsInfo = [
      'class with injectable decorator',
      '@Injectable({providedIn: \'root\'})',
      'other values',
-     'privders:[MyService]'], 
+     'privders:[MyService]'
+    ], 
+     
     ['Decorators - add metadata to a class | objects or methods -  which defines annotations - used by TypeScript compiler tsc',
      '- Metadata - describes other data',
      '- Annotations - are hard coded language features - set on a class - reflect metadata library', 
@@ -409,13 +441,39 @@ const subTopicsInfo = [
     '- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance',
     'ViewEncapsulation'],
     ['Angular/CLI','- Building', '- Serving the Browser port'],
-    ['Modules', 'NgModule configure the injector and the compiler and help organize related things together', 
+ 
+    [`Modules - @NgModule({}) - Angular loads a colln of JS Modules - library modules - @angular/core etc.
+    <br/>ng g m xyz
+    <br/>modules are a great way to organise an appn and extend it with capabilities from ext libraries eg. FormsModule
+    <br/>lets you group related components | directives | pipes | services - 
+    <br/>Launch appn by bootstrapping the root NgModule
+    <br/>There are Routing Modules - 
+    <br/>Std modules are loaded eagerly
+    <br/>Lazy loading modules - lets us use Feature Modules and Shared Modules
+    `, 
+    'NgModule configure the injector and the compiler and help organize related things together', 
     '@NgModule({}) decorator',
-    '- declares relavent Components', '- imports Modules','exports Modules', 
-    '- Can define Service Providers',
+    '- declares relavent Components', 
+    '- imports Modules','exports Modules', 
+    '- Can define Service Providers - providers',
+    '- bootstrap: [AppComponent]',
     '- required by every Ang appn',
-    '- Lazy Loading - uses Feature Modules and Shared Modules'],
-    ['Life Cycle Hooks - ','- instantiates class', '- renders view + child views','- CD','- updates View + Component Instance','Parts -',
+    '- Lazy Loading - uses Feature Modules and Shared Modules'
+  ],
+ 
+    [`Life Cycle Hooks - A component has a life-cycle that starts when 
+    <br/>Angular instantiates the Component class 
+    <br/>and renders the Component view and child views -
+    <br/>We can fine tune the hehavior of our components during creatin | update | destruction
+    <br/>ngOnInit - the most common LCH contains initialisation logic for the Component
+    <br/>ngOnChanges - details which properties have changed and how theyve changed  
+    <br/>ngOnDestroy - which is where we place the cleanup logic for the Component
+    `,'- instantiates class', 
+    '- renders view + child views',
+    '- CD',
+    '- updates View + Component Instance',
+    '-- import from @angular/core',
+    'Parts -',
      '- ngOnChanges(changes: SimpleChanges) - called many times - when Ang sets/resets data bound Input properties - changes to input properties', 
      '- ngOnInit() most popular (called only once!) C- Initializes the Comp/Directive after Ang 1st displays data bound properties + sets Input property  ',
      '- ngDoCheck() - Detect and Act upon changes that Ang cant detect on its own - Called immed after ngOnChanges() on every CD run + after ngOnInt() on 1st run', 
@@ -424,7 +482,17 @@ const subTopicsInfo = [
      '- ngAfterViewInit() - (called once after ngAfterContentChecked) Responds after Ang Initialises Comp View + Child Views      ', 
      '- ngAfterViewChecked() - Responds after Ang checks Comp View + Child Views - (After every ngAfterContentChecked + ngAfterViewInit()_',
      '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '],  
-     ['ComponentRouter - to handle the navigation from 1 view to the next -','- interprets a browser URL to change View', 'routes:Routes = [{path:"first-comp",component: FirstComponent}]','<base href=\/"\">', '-- HTML5 Urls', '- <router-outlet></router-outlet> location where the router links will go', '- <a routerLink="/first_comp">link</a>','--- Nested Routing', 
+     [`ComponentRouter - to handle the navigation from 1 view to the next - Interpreting browser URLs as an instn to change view -
+     ng new ang-app --routing --defaults using the Angular CLI to generate a basic Ang appn with routing enabled 
+     <br/>We can use ActivatedRoute and to get data about the Routes
+    <br/><router-outlet></router-outlet> lets us position the routing infon in our Component template -
+    <br/>   
+     <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
+     <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
+     <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
+     
+     `,
+     '- interprets a browser URL to change View', 'routes:Routes = [{path:"first-comp",component: FirstComponent}]','<base href=\/"\">', '-- HTML5 Urls', '- <router-outlet></router-outlet> location where the router links will go', '- <a routerLink="/first_comp">link</a>','--- Nested Routing', 
      ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)','RouterModule.forChild(routes) - lazy load the Component or Module',
      ' -- ','- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
      ' -- ','- Router Guards','Componentless-routes','-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad', 
@@ -452,8 +520,13 @@ const subTopicsInfo = [
      `, 
     'npm packages',
     'Tooling support',
-    'ES versions',
-    'Angular CLI',
+    'ES versions -',
+    `Angular CLI - is a Command Line Interface tool - used to initialize | develop | scaffold and maintain Angular appns directly from a command shell
+    <br/>npm install -g @angular/cli - ng new - ng help - ng build - ng serve - ng test 
+    <br/>uses schematics to apply transforms to a web-project - modify these schematics | define new  one (update code |  
+      fix breaking changes in a dep | add new confign | add a framewok)  
+    <br/>Added in the @schematis/angular colln - ng g   and ng add     
+    `,
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
     '.d.ts files',
@@ -467,9 +540,15 @@ const subTopicsInfo = [
     ' - single file compilation - components dont need to know about dependencies',
     'Incremental DOM - every component gets compiled to a series of instructions - create DOM trees - updated mutably inplace - comprising the compiler',
     '-- Instructions', 'Libraries', '- ngcc', '- Linker instead', 'Ang Language Service','only recompiles Components that have changed',
-    '- adv Tree Shakeable - Reduced size - faster compilation - enhanced testing + debugging - easier dyn comp loading - mobile exp'],
+    '- adv Tree Shakeable - Reduced size - faster compilation - enhanced testing + debugging - easier dyn comp loading - mobile exp',
+    'EntryComponents - are no longer required'],
     ['- ViewEngine old - required to transpile .ts to .js', '- abstract base class - to render template to DOM - can be overridden for Custom Rendering - RendererFactory2', '3 parts -', ' -1: Template Parsing + creating Data Structure', ' 2: passing sructure into Interpreter + Tree Shaking'  ,' 3: Compilation' , '- Interpreter', '--metadata.json file',
-    'contains the static repn of code in a Component','JIT or AOT'],
+    'contains the static repn of code in a Component','JIT or AOT',
+    `EntryComponent is any component that Angular loads imperatively - not refd in the template - by type 
+    <br/>you bootstrap the component in an NgModule - or including it in a routing defn
+    <br/>- 1: Bootstrapped Component
+    <br/>- 2: A Component you specify in a route defn
+    `],
     ['Promises',  '- then()', '- future tasks', '- new Promise(resolve, reject)','- asynchronous','Promise.resolve(\'done\').then((val) => {throw new Error("fail")}).then((val) => console.log(val)).catch((err) => console.error(err));',' -- ',
      'Observables','- next()','- Observer','- subscribe','- async pipe','hot - runs all the time without req subscribe()  - cold - requires subscribe ','-- bubbles which identify parts in the timestream'],
     ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
@@ -482,7 +561,35 @@ const subTopicsInfo = [
     '- (alias FlatMap) Parallel opn - Multiple simultaneous active inner subscriptions - possible memory leaks - subscribes immed to inner Observables -  map to Observable with inner timer or a stream of DOM events',
     '-- map to Observable - complete previous inner Observable - emit values - immed cancel prev opn and emit new one - can have a cancelling operator - ',
     '- ExhaustMap - projects each source value to an Observale which is merged in the o/p Observable only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust'],
-    ['Why forms - to handle user input - eg Login - Register',
+    [`Why forms - to handle user input - eg Login - Register
+    <br/>Both Template and Reactive forms - track value changes between form Input elements and form data in the Component Model
+    <br/>sharing common building blocks but differ how to create + manage common form-control instances 
+    2 types of Forms - 
+      <br/>Template Forms - for simple forms - not as reusable or scalable
+      <br/>use async data flow between the View and data model - 
+      <br/>Most of the code is using NgModel and template directives - 
+      <br/>uses ngForm - 
+      <br/>rely on mutability with 2 way data binding to update the data model in the Comp as changes are made in the template
+
+      <br/>Testing is reliant on mangular CD - to run properly and require more setup
+      <br/>FormsModule - 
+      <br/>
+      <br/>Reactive Forms - more scalable and reusable and use Observable streams - explicit and immutable approach to managing the state of a form at a given point in time
+      <br/>Most of the code is in the class (not the template) 
+      <br/>provides a Model-driven approach to handling form inputs whose values change over time
+      <br/>FormControl instance always return a new value when the controls - Each change to form state returns a new state - 
+      <br/> maintains the integrity of the model between changes - 
+      <br/>where form inputs and values are provided as streams of input values which can be accessed asynchronously 
+      <br/>provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
+      <br/>FormModel is the source of truth
+      <br/>FormControl instance emits the new value via the valueChanges observable 
+      <br/>ReactiveFormsModule - 
+      <br/>
+      <br/>Validation is an integral part of managing any type of forms 
+      <br/>Angular provides a set of built-in validators + ability to create custom validators
+      
+      
+      `,
     ' -- ',
     '- Template Forms', '-- Template directives for object Model','-- ngForm', 'more complex test setup','-- complex validation','',
     ' -- ',
@@ -507,10 +614,20 @@ const subTopicsInfo = [
      ' -- ',
      '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
      ],
-     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular-web-api-'],
+     ['HTTP CRUD - Create | Read| Update | Delete - operations which the HTTP can use to manipulate data from a server', 
+     'HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http',      
+     `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses and modify them the way we wish 
+     HttpClientInMemoryWebApiModule - angular-in-memory-web-api - for Angular demos and tests that emulates CRUD opns over a RESTify API -      
+      is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
+      and redirects them to an in-memory data store - that you control on the frontend.
+       <br/>angular/in-memory-web-api -  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})   
+  `
+  ],
     ['appns vers custom libraries',
     'Appns',
-    'use ng g library - ng-packagr','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
+    'use ng g library - ng-packagr - ng g library x -- angular.json- ng-packagr -- package.json - ref to build path-- tsconfig.json',
+    '- lib sources in project/x'
+    ],
     ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
     '- Nrwl/Nx',
     '-- smart', 
@@ -521,18 +638,49 @@ const subTopicsInfo = [
     '-- nx cli',
     '-- nx build', 
     '-- nx serve'],  
-    ['State Management - Reactive State for Angular - a group of angular libraries for Reactive extensions - inspired by the Redux pattern - derives state using RxJS - helps simplify appns with many user interactions and multiple data sources',
-    'BehaviorSubject',
+    [`State Management - Reactive State for Angular 
+    - a group of angular libraries for Reactive extensions 
+    - inspired by the Redux pattern - derives state using RxJS and Observables
+    - helps simplify appns with many user interactions and multiple data sources
+    - Features 
+    1: Serializability 
+    2: TypeSafety - using tsc (TypeScript compiler)
+    3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
+    4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
+    5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
+    <br/>SHARI   
+    `,
+    'based around the RxJS library and Observables to make the data immutable',
+    'BehaviorSubject - ngrx is based around the behaviorSubject',
     'appn State',
     '- enforces a unidirectional sequence of operations ',
-    '- ngrx/Store is a library for managing the main appn State - A reactive state mgmt library powered by RxJS - manages flow of data through appn - actions dispatched - reducers act on them and mutate the Store',
+    '- 5 features - Serializablity | TypeSafety | Encapsulation | Testable | Performance',
+    '-- Serializability', 
+    '-- TypeSafety - using tsc (TypeScript compiler)',
+    '-- Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP',   
+    '-- Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc',
+    '-- Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations',
+    `- SHARI -<br/> 
+      S: - Shared state that is accessed by many components and services
+      H: - Hydrated state that is persisted and rehydrated from external storage 
+      A: - Available state that must be available when reentering routes
+      R: - Retrieved state that must be retrieved with a side effect
+      I: - Impacted state that is impacted by Actions from other sources
+      `,
+    '- ngrx/Store is a library for managing the main appn State - uses StoreModule from @ngrx/store - StoreModule.forRoot({ spinner: reducer }),',
+    ' A reactive state mgmt library powered by RxJS - manages flow of data through appn - actions dispatched - reducers act on them and mutate the Store',
     '- Reducer are pure functions which take an action and output data to state or on to Effects (if async)',
-    '- Action - acts as input to Reducer to produce new State',
+    '- Action - express state changes - acts as input to Reducer to produce new State and if async then to feed the effects library'
+    ,
     '- Selector - Read state data - are pure functions for getting slices of the state from the Store - how appns listen to State Changes', 
     '- Effects - (side Effects - commn with ext API HTTP or dispatching another action  ) asynchronous parts of code which take effect after Reducer functions - DJ of the NGRX dancefloor', 
+    `-- Store Devtools - @ngrx/store-devtools - provides dev tools and instrumentation for Store - npm install @ngrx/store-devtools - StoreDevtoolsModule -  
+    <br/>StoreDevtoolsModule.instrument({name: 'NgRx Demo App',logOnly: environment.production})     
+    
+    `,
     '-- Entity - data - ',
     '-- Data - Simplifying the case for many CRUD operations',
-     '--- if the state is confined to one Component then this can be used',
+    '--- if the state is confined to one Component then this can be used',
     'implementation of ngrx ', '- Au   th0 SDK'
     ], 
     [' -- '],
@@ -541,7 +689,6 @@ const subTopicsInfo = [
     <br/> - Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
     <br/> - Forking - creates a indept copy of a Git repository - 
     <br/> - git clone - creates a linked copy that will continue to sync with the target repo
-
     <br/> - Stashing - lets you change to a diff project and store the current staged file info 
     <br/>- Staging and Committing -  
     `,
@@ -594,7 +741,9 @@ const subTopicsInfo = [
     ['Test Driven Devt',
     ' -- ',
     'Behavoral Driven Design','- eases conversion of user features specns to code reqd to imp them'],
-    ['Security', 
+    [`Angular Security -   
+    
+    `, 
     '- XSS (Cross Site Scripting Vulnerability) - allows attacker to control users appn in browser',
     '-- Angular auto-escaping for {{}} interpolation', 
     '- CSRF = XSRF (Cross Site Request Forgery) exploits users security by sending an unwanted request to server wrt cookies',
@@ -615,20 +764,67 @@ const subTopicsInfo = [
     '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
     ],
     ['VS-Code'],
-    ['Angular Language Service'],
+    [`Angular Language Service - provides code editors - eg VS Code with a way to get 
+    Completions | Errors | Hints | Navigation inside Angular templates
+    <br/>It goes straight to your config files and finds out about all the templates in your project and provides adequate support as you open a template 
+    `,'- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'
+    ],
+    [`TSServer (Stand alone Server) - is a Node executable that executes the tsc (TypeScript Compiler) and Language Services and exposes them through a JSON protocol
+    <br/>used in Code editors and IDE support - VS Code - uses tsserver written in TypeScript     
+    `], 
+    [`ESLint - statically analyses your code to quickly find problems 
+    <br/>- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
+    <br/>- is a JavaScript Linter to lint either JS + TS code (TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>- is built into most Web Editors VS Code or as part of your CI pipeline  -
+    <br/>- enables you to enforce a set of style | formatting | coding stds for your codebase  
+    <br/>ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
+    <br/>ESLint8.15 - May 2022 - 
+   
+    `,
+    'ESLint is a JavaScript Linter to lint either JS + TS code', 
+    'Static Analysis',
+    'VS Code + CI Pipeline',
+    'AST based pattern checker - JS',
+    '- lets you enforce a set of style | formatting | coding stds for your codebase',
+    'ESLint 8.09 (7th Feb 2022) -  ',
+    'ESLint 8.15 (7th May 2022) -  ',
+    ],
     ['Why CI/CD', 
   '- CI - Continuous Integration',
   '- CD - Continuous Development', 
   '- CD - Continuous Delivery', 
   '-- Jenkins'],
-    ['Webpack', 
-    'module bundler',
-    'Terser plugin', 
+    [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
+     <br/>Once installed you can interact with webpack either with CLI and API
+     <br/>A tool that lets you compile JS modules It generates 1 file (or a few files) to run your app
+     <br/>npm install --save-dev webpack 
+     <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
+     <br/>- performs clever static analysis of the AST of your code - 
+     <br/>- has an evaluation engine to evaluate simple expressions - supports most libraries out of the box
+     <br/>Code Splitting - lets you split your codebase - into multiple chunks 
+     <br/> - Chunks are loaded asynchronously at runtime - Reduces the initial loading time
+     <br/>Optimizations - Webpack can do many optns to reduce the output size of your JS by dedup freq used modules - minifying and giving you full control of what is loaded initially
+     <br/>- and what is loaded at runtime through code splitting 
+     <br/>- It can also make your code chunks cache friendly by using hashes  
+     <br/>Has a rich plugin interface - very flexible - 
+     <br/>Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
+     <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
+    `, 
+    'module bundler - which lets you bundle JS modules together',
+    `- Terser is an industry std minifier for JS code - 
+    <br/>Webpack performs minification mode using Terser by default 
+    <br/> It minifies JS + HTML + CSS - requires loaders + plugins 
+    `,
+    `Terser plugin - TerserWebpackPlugin - 3rd party package - plugin uses terser to minify your JS  
+    <br/>- Webpack v5 has latest terser-webpack-plugin out of the box
+    <br/>- const TerserPlugin = require("terser-webpack-plugin");
+    `, 
     'Entry Points -', 
     '-- Entry',
     '-- Output', 
     'Loaders',
-    'Plugins'],
+    'Plugins'
+    ],
     [`The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
       Cloud Servers are located all over the World
       <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
@@ -668,9 +864,10 @@ const subTopicsInfo = [
     [`Schematics is a template based code generator - that supports complex logic 
       <br/>A set of instructions for transforming a S/W project by generating or modifying code  
       <br/>packaged into collections and installed by npm 
-      <br/>Angular CLI uses schematics to apply transforms to a web-project - modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
-      <br/>Added in the @schematis/angular colln - ng g and ng add  `
-    
+      <br/>Angular CLI uses schematics to apply transforms to a web-project - 
+      modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
+      <br/>Added in the @schematis/angular colln - ng g and ng add  
+      `
     ],
     ['Ang Material', 
     ' -- ',
@@ -714,7 +911,13 @@ const subTopicsInfo = [
       <br/> Not owned by anyone or anything - but can be imported into other components and modules
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
       <br/> We mjust update Angular Schematics 
-    `, '- @Component standalone: true','- Backwards compatability','- '],
+    `, '- @Component standalone: true','- Backwards compatability',
+     `Advantages - 
+     <br/>1: Reduces boilerplate in many appns eg SCAM (Single Component Angular Module) pattern
+     <br/>2: Simplifies learning Angular by removing NgModule from coding
+     <br/>3: Allows us to offer more streamlined APIs for common use cases      
+     `,
+      'SCAM (Single Component Angular Module) - one Module for each Component'],
     [' -- '],
     ['Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster with fewer headaches - suite of Agile work management solutions powering collaboration - across all teams',
     '- iterative means small incremental changes',
@@ -757,12 +960,28 @@ const subTopicsInfo = [
     `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size 
         ModuleWithProviders - Language Service - Faster Testing with ComponentHarness - 
     `,
-    'Ang 08 TS 3.4',
-    'Ang 07 TS 3.1  '
+    `Ang 08 TS 3.4 - Differenctial Loading - ES5 | ES2015 - 
+    <br/>new lazy loading syntax - uses dynamic import syntax -    
+    <br/>Simplifies Web Worker creation -   ng g 
+    <br/>new APIs 
+    <br/>bazel and Ivy are coming - 
+    `,
+    `Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
+      <br/>Performance improvements -reflect-metadata polyfill - 
+      <br/> CLI prompts       '
+      <br/>Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
+      <br/>new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
+      <br/>Angular Error handling - 
+      <br/>Angular Elements - 
+      <br/>ative Script - 
+    `  
   ],
     
 ];
- 
+/*
+    
+
+*/
 
 @Component({
   selector: 'app-ts-menu',
