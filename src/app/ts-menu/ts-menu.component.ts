@@ -39,6 +39,7 @@ const features = `
     'Nx Nrwl',
     'ngrx_CRUD',
     ' -- ',
+    'Ang main libraries',
     'Git_distd-VCS',
     'Testing_unit',
     'Design Patterns',
@@ -117,10 +118,22 @@ const subTopics = [
     ' -- ','Route Resolver', '- new Comp --routing','-- Lazy Loading'],
     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
     [' -- '],
-    ['Lazy Loading','- Modules','- browser URL','- forChild','- children', 
-    '-- Feature Modules','-- Shared Modules','--- PreLoading Modules','-- preloadingStrategy: PreloadAllModules',
-    ' -- ','Load Components','--- async await', '--- await import','-- simplified Ang13'],
-    ['Why Change Detection?','- ngZone', '- manual CD', '- automatic CD','- onPush', '- without ngZone'],
+    ['Lazy Loading','- Modules','-- browser URL','-- forChild','-- children', 
+    '--- Feature Modules',
+    '---- generating modules',
+    '---- generating comps in modules',
+    '--- Shared Modules',
+    '---- PreLoading Modules',
+    '----- PreloadAllModules',
+    ' -- ',
+    'Lazy Load Components',
+    '--- async await', '--- await import','-- simplified Ang13'
+    ],
+    ['Why Change Detection?',
+    '- zone.js',
+    '- ChangeDetectorRef',
+    '- ngZone', '- manual CD', 
+    '- automatic CD','- onPush', '- without ngZone'],
     ['Why AOT','Compile time build', 'No need for Compiler','3 Phases','- 1:Code Analysis','- 2:Code generation','- 3:Template type checking','Benefits'],
     ['Why TreeShake', 'treeshaking in Ivy', 'treeShaking in VE'],
     ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
@@ -159,7 +172,14 @@ const subTopics = [
     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
   ],
     ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular/InMemoryWebApi'],
-    ['appns vers custom libraries','Appns','Custom Libraries','- ng g library x','-- angular.json','- ng-packagr','-- package.json', '- ref to build path','-- tsconfig.json','- lib sources in project/x'],
+    ['appns vers custom libraries',
+    'Appns',
+    'Custom Libraries',
+    '- ng g library x','-- angular.json',
+    '- ng-packagr','-- package.json', 
+    '- ref to build path','-- tsconfig.json','- lib sources in project/x',
+    'Ivy and ngcc',
+    'Ang11 - Partial compilation'],
     ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
     '- 5 features ',
@@ -170,6 +190,24 @@ const subTopics = [
     '-- Performance',
   '- SHARI principle','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Store Devtools','-- Entity', '-- Data', 'ComponentStore'],
     [' -- '],
+    [`Core libraries`,
+      '- @angular/core',
+      '- @angular/compiler',
+      '- @angular/browser',
+      '- @angular/common',
+      '- @angular/router',
+      '- @angular/platform-browser',
+      '- @angular/platform-browser-dynamic',
+      '- @angular/forms',
+      '- @angular/animations',
+      '- @angular/material',
+      '- @angular/cdk',
+      '--',
+      '- @angular/cli',
+      '- @angular/compiler/cli',
+      '- @angular-devkit/build-angular',
+      
+    ],
     ['GIT',
     '- Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
     '- Commands - ','- Add','- fetch','- branch','- checkout', '- commit','- init','- push','- pull','- log','- status',
@@ -502,10 +540,82 @@ const subTopicsInfo = [
      ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
      [' -- '],
      ['Lazy Loading - ', '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
-    'children', '- Feature Modules','- Shared Modules','-- PreloadingStrategy','--- PreloadAllModules - to initially fetch all modules', 
-    ' -- ','-- Lazy Load Components (not Modules)','- async-await is used for lazy loading Components','---  async getLazy2() {this.viewContainerRef.clear(); const { Lazy2Component } = await import(\'./lazy2.component\'); this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}','--- Simplified in Angular 13'],
-    ['Change Detection is a builtin framework feature that ensures auto sync between changes to data and the view','- ngZone', '- manual CD', 
-    '- compares the template expression values before + after an event - for all components of the Component tree','- onPush', '- without ngZone'],
+    'children', 
+    '- Feature Modules - import CommonModule instead of BrowserModule (imported once in the root)',
+    `ng g m CustFeature - creates a Module called CustFeatureModule 
+    <br/>
+    import { NgModule } from '@angular/core';
+    import { CommonModule } from '@angular/common';
+    
+    @NgModule({
+      imports: [
+        CommonModule
+      ],  
+      declarations: []
+    })
+    export class CustFeatureModule[}
+    `,
+    `Component in a Feature Module - 
+    <br/>ng g c cust-feature/CustFeature
+    <br/>
+    import { CustFeatureComponent } from './cust-feature/cust-feature.component';
+
+    @NgModule({
+      imports: [
+        CommonModule
+      ],
+      declarations: [
+        CustFeatureComponent
+      ]
+    })
+    `,
+    '- Shared Modules','-- PreloadingStrategy',
+    '--- PreloadAllModules - to initially fetch all modules', 
+    ' -- ',
+    '-- Lazy Load Components (not Modules)',
+    '- async-await is used for lazy loading Components',
+    `---  async getLazy2() {this.viewContainerRef.clear(); 
+      const { Lazy2Component } = await import(\'./lazy2.component\'); 
+      this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}
+      `,
+      `--- Simplified in Angular 13
+    <br/>Ivy creates the Component in ViewContainerRef (without a factory)
+    <br/>
+    export class AppComponent {
+      @ViewChild("formComponent", { read: ViewContainerRef })
+      formComponent!: ViewContainerRef;
+    
+      constructor() {}
+    
+      async loadForm() {
+        const { LazyFormComponent } = await import("./lazy-form.component");
+        this.formComponent.clear();
+        this.formComponent.createComponent(LazyFormComponent);
+      }    
+    `],
+    [`Change Detection is a builtin framework feature that ensures auto sync between changes to data and the view
+      <br/>zone.js but has a class ngZone to help with CD properties and methods
+      <br/>The ChangeDetectionRef is base class that provides CD ftns - A CD tree for changed views
+      <br/>We can also run via ChangeDetectionStrategy.onPush() to inc performance and just check a branch 
+    `,
+    '- zone.js - ',
+    `- ChangeDetectorRef - base class that provides CD functionality 
+      <br/>A change detection tree collects all views that are to be checked for changes
+      <br/>Use methods to add | remove views from the tree | initiate CD | explicit mark views as dirty - changed
+      <br/>Input changed | events -
+      <br/>markForCheck()<br/>detach()<br/>detectChanges()<br/>checkNoChanges()<br/>reattach() 
+    `,
+    `- ngZone - an injectable service for executing for work inside or outside of the Angular zone  
+    <br/>optimizes performance when starting a work consisting of 1+ async tasks that dont require UI updates or error handling to be handled by Angular
+    <br/>runOutsideAngular() - kicks off but then run inside Angular with run()
+    <br/>isInAngularZone() - assertInAngularZone() - assertNotInAngularZone()
+    <br/>properties - hasPendingMacroTasks() - hasPendingMicroTasks() - isStable()- onStable() onError()
+    <br/>methods - run() runTask() - runGuarded() - runOutsideAngular()
+    `, 
+    '- manual CD', 
+    '- compares the template expression values before + after an event - for all components of the Component tree',
+    '- ChangeDetectionStrategy.onPush()', 
+    '- without ngZone'],
     ['AoT is better due to - ','Compile time build', 'No need for Compiler', '3 Phases - 1:Code Analysis- 2:Code generation- 3:Template type checking',
     '-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file',
     '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
@@ -529,7 +639,7 @@ const subTopicsInfo = [
     `,
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
-    '.d.ts files',
+    '.d.ts files',  
     '-  package.json - "type": "module" - No CommonJS Modules',
     'Angular 13 new improved version - Node package exports - es2020 support Ivy partial compilation',
      '- not rely on Internal APIs - using the Node.js - sub-path pattern feature - displaying multiple outputs at each entry point', 
@@ -625,8 +735,16 @@ const subTopicsInfo = [
   ],
     ['appns vers custom libraries',
     'Appns',
-    'use ng g library - ng-packagr - ng g library x -- angular.json- ng-packagr -- package.json - ref to build path-- tsconfig.json',
-    '- lib sources in project/x'
+    '- use ng g library',
+    '- ng-packagr', 
+    '- ng g library', 
+    '-- angular.json',
+    'ng-packagr --',
+    'package.json - ref to build path--', 
+    'tsconfig.json',
+    '- lib sources in project/x',
+    'Ivy and ngcc (Compatability Compiler) ',
+    'Ang11 - Partial compilation - no need for ngcc'
     ],
     ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
     '- Nrwl/Nx',
@@ -684,6 +802,44 @@ const subTopicsInfo = [
     'implementation of ngrx ', '- Au   th0 SDK'
     ], 
     [' -- '],
+    [`Core libraries`,
+      `- @angular/core - imps Angular core functionality - low level services and utilities  
+        <br/>BrowserModule - included auto in root AppModule when create a new app with CLI
+        <br/>defines class structure for Components | view hierarchies | CD | Rendering | event handling
+        <br/>defines the decorators for metadata
+        <br/>defines infrastructure for DI | i18n | testing | debugging
+      `,
+      `- @angular/compiler - ngc - is the tool used to compile Angular appns and the Libraries
+       <br/>built on top of the TypeScript compiler (tsc) - extended for Angular decorators etc      
+        <br/>serves as a bridge between the developer and the runtime - ngc translaes the Ang code into efficient runtime instns
+       `,
+      '- @angular/browser - loaded into the root folder automatically when creata a project with ng new xxx',
+      `- @angular/common - imps basic Angular framework functionality 
+      <br/>directives | pipes | location services used in routing | HTTP services | localization support 
+      <br/>exports are re-exported by BrowserModule - included in the root AppModule wrt Ang CLI
+      `,
+      `- @angular/router - imps the Angular router service - enables navn from 1 view to the next wrt appn tasks
+      <br/>Defines the Route object that maps a URL path to a Component
+      <br/>and RouterOutlet directive - places a RoutedView in a template 
+      <br/>+ a complete API for configuring | querying | controlling router state  
+      <br/>import { RouterModule } to use the Router service in apps   
+      `,
+      `- @angular/platform-browser - supports exec of Ang apps on diff browsers 
+      <br/>library for using Angular in a web browser
+      <br/>BrowserModule - included by default  
+      `,
+      `- @angular/platform-browser-dynamic - for using JIT with Angular in a web browser 
+      <br/>eg Bootstrapping 
+      `,
+      '- @angular/forms',
+      '- @angular/animations',
+      '- @angular/material',
+      '- @angular/cdk',
+      '--',
+      '- @angular/cli',
+      '- @angular/compiler/cli',
+      '- @angular-devkit/build-angular',
+    ],
     [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) designed to handle small to large projects with speed and efficiency
     <br/>- has 3 parts - 1: Working tree 2: Staging area 3: Local repository + Remote repository - 
     <br/> - Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
