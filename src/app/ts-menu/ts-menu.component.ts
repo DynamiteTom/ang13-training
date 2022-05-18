@@ -80,7 +80,7 @@ const features = `
 
 const subTopics = [
     ['JavaScript Framework','mobile-laptop-desktop',
-    '- Front End appns','- Angular/  CLI','- main parts','TypeScript','TS Libraries',
+    '- Front End appns','- Angular/CLI','- main parts','TypeScript','TS Libraries',
     'Server Side Angular',
     '-- Add ons'],
     ['Why Components - ', '- class', '- template','Decorators','- @Component({})', '-= selector', '-- templateUrl', '-- styleUrl','- Data Binding', '- LC-hooks','-- Component Tree','- Change detection',
@@ -88,14 +88,53 @@ const subTopics = [
     ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
     '- Components'],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'],
-    ['Why Services','wrt Components','Reuse','- DI - dep Injection','class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks','- Providing a Service', '-- providedIn root','providers'], 
+    ['Why Services','wrt Components','Reuse',
+    '- DI - dep Injection',
+    '- DI Tokens',
+    '-- Defining Providers',
+    '--- Providers with deps',
+    '---- aliasing class providers',
+    '---- aliasing class interface',
+    '---- aliasing multi class i/fs',
+    '---- injecting an Object',
+    '---- injecting a config Object',
+    '---- InjectionToken object',
+    '---- interfaces and DI',
+    '---- Using factory providers',
+    'class +',
+    '@Injectable({})', 
+    '- declare locn', 
+    '- nesting',
+    '- Sharing',
+    'typical tasks',
+    '- Providing a Service', 
+    '-- @injectable({ providedIn: \'root\'})',
+    '--- providedIn: \'root\'',
+    '--- providedIn: \'platform\'',
+    '--- providedIn: \'any\'',
+    '--- providedIn: \'<T>\'',
+    'providers'
+    ], 
     ['Decorators','- Metadata','- Annotations', '- Class', 'Decorator examples',
     '-- Types of decorators','--- Class','--- Property','--- Event','--- Attribute'
     
   ], 
     ['Interfaces', '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
     ['TypeScript',
-    'tsc', '- .ts files', '- tsconfig.json', '- JS files', '- ngc'],
+    '- Strong Data Types',
+    '-- Inferred Types',
+    '- interfaces | classes',
+    '- tooling -     ',
+    '- tsc', 
+    '- .ts files', 
+    '-- transpilation', 
+    '- tsconfig.json',
+    '-- compilerOptions',
+    '-- angularCompilerOptions', 
+    '- JS files', '- ngc',
+    '- Barrels (index.ts)',
+    '-- index.ts'
+  ],
     ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' ],
     ['Data Binding','- String interpolation {{x}}','ex','- property binding[]','ex','- event binding()','ex', '- 2-way data binding','ex'],
     ['Why Style - color-size-position', '- CSS', 
@@ -105,7 +144,8 @@ const subTopics = [
      ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
        'ViewEncapsulation'],
      ['Angular/CLI','- Building', '- Serving the Browser port'],
-    ['Modules','NgModule', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
+    ['Modules','NgModule', 
+    '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
      ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance',
      '- imports @angular/core',
      'LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
@@ -246,7 +286,11 @@ const subTopics = [
     '-- ESLint 8.15 - '
     ],
     ['Why CI/CD', '- CI - Continuous Integration','- CD - Continuous Development', '- CD - Continuous Delivery', '-- Jenkins'],
-    ['Webpack', '- module bundler','- Terser','-- Terser plugin', '- Entry Points -', '-- Entry','-- Output', '- Loaders','- Plugins'],
+    ['Webpack', 
+    '- CLI build process',
+    '-- TS to JS',
+    '-- SASS files to CSS',
+    '- module bundler','- Terser','-- Terser plugin', '- Entry Points -', '-- Entry','-- Output', '- Loaders','- Plugins'],
     ['Whats the Cloud?','- 3 reasons for the cloud are', 
     ' -- ',  
     '- AWS - Amazon Web Services',
@@ -293,7 +337,14 @@ const subTopics = [
     ,'-- Dynamic Content','NgElements class','WithProperties()'],
     ['Why Web Workers', 'Threading', ''],
     ['Why Angular Universal','- SSR - Server Side Rendering'],
-    ['Stand alone Components', '- @Component standalone: true', '- Backwards compatability','- '],
+    ['Optional Modules', 
+    '- standalone: true', 
+    '- bootstrapApplication(AppComponent)',
+    '-- Compatability',
+    '-- Architecture',
+    '- Problem with Schematics'
+  
+  ],
 
     [' -- '],
     ['Agile', '- Iterative', '- Team','- Respond to Change'],
@@ -412,6 +463,30 @@ const subTopicsInfo = [
 
     'simplifies Components',
     'Reuseability in other Components',
+    `- DI (Dependency Injection) - is a design pattern - in which a class requests deps from external sources - (wrt creatng them) 
+     <br/>provides dependencies to a class upon instantiation 
+     <br/>- is used to increase flexibility + modularity in your appns
+    `,
+    '- DI Tokens',
+    '-- Defining Providers',
+    '--- Providers with deps',
+    '---- aliasing class providers',
+    '---- aliasing class interface',
+    '---- aliasing multi class i/fs',
+    '---- injecting an Object',
+    '---- injecting a config Object',
+    '---- InjectionToken object',
+    '---- interfaces and DI  ',
+    '---- Using factory providers',
+   
+    'class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks',
+    '- Providing a Service', 
+    '-- @injectable({ providedIn: \'root\'})',
+    '--- providedIn: \'root\'',
+    '--- providedIn: \'platform\'',
+    '--- providedIn: \'any\'',
+    '--- providedIn: <T>\'',
+    'providers',
     '- constructor(private x: MyService){}', 
     '- Services are injected into Components via the constructor', 
      '@Injectable({})', 
@@ -421,6 +496,10 @@ const subTopicsInfo = [
      'fetching data from a server - logging - validating user input ', 
      'class with injectable decorator',
      '@Injectable({providedIn: \'root\'})',
+     '-- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn',     
+     '-- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page',    
+     '-- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance', 
+     '-- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types',       
      'other values',
      'privders:[MyService]'
     ], 
@@ -446,13 +525,27 @@ const subTopicsInfo = [
       <br/>uses tsconfig.json - transpiles .ts files dwn to .js files to run in the browser 
       <br/>tooling - auto-completion | navigation | refactoring - 
       `,
+      '- Strong Data Types - number | string | boolean | ',
+      '-- Inferred Types - TS determines the types',
+      '- interfaces | classes - helps structure Angular structures',
+      '- tooling - auto-completion | navigation | refactoring',  
       '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
-    '- .ts files - files with Type Infon - makes data TypeSafe', 
-    '- tsconfig.json - file with this ids root path - CompilerOptions - AngularCompilerOptions', 
+    '- .ts files - files with Type Infon - makes data TypeSafe',
+    '-- transpilation ts files down to JavaScript files', 
+    `- tsconfig.json - identifies the project or appn as a TypeScript appn 
+     - <br/> - with this ids root path - CompilerOptions - AngularCompilerOptions
+    `, 
     '-- CompilerOptions',
     '-- AngularCompilerOptions',
     '- JS files - ES5 files - with std JavaScript' , 
-    '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files'],
+    '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files',
+    `- Barrels - (index.ts) is a way to rollup exports from several modules into one convenient module
+    <br/>The barrel itself is a module file that re-exports selected exports of other modules
+    <br/> - module file which provides a centralised place for exporting 
+    <br/> -- components | interfaces | services | directives | pipes
+    `,
+      '-- index.ts'
+    ],
     ['- package.json', 
      '- angular.json',  
      '-- dist folder',
@@ -479,7 +572,7 @@ const subTopicsInfo = [
     '- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance',
     'ViewEncapsulation'],
     ['Angular/CLI','- Building', '- Serving the Browser port'],
- 
+       
     [`Modules - @NgModule({}) - Angular loads a colln of JS Modules - library modules - @angular/core etc.
     <br/>ng g m xyz
     <br/>modules are a great way to organise an appn and extend it with capabilities from ext libraries eg. FormsModule
@@ -489,7 +582,13 @@ const subTopicsInfo = [
     <br/>Std modules are loaded eagerly
     <br/>Lazy loading modules - lets us use Feature Modules and Shared Modules
     `, 
-    'NgModule configure the injector and the compiler and help organize related things together', 
+    `NgModule - is a class marked by the @NgModule decorator 
+    <br/>takes a metadata object that describes how to compile a components template 
+    <br/>and how to create an injector at runtime 
+    <br/> 
+    <br/>configure the injector and the compiler and help organize related things together
+    `, 
+    'Ang Libraries are NgModules - FormsModule | HttpClientModule| RouterModule',
     '@NgModule({}) decorator',
     '- declares relavent Components', 
     '- imports Modules','exports Modules', 
@@ -951,8 +1050,10 @@ const subTopicsInfo = [
   '- CD - Continuous Delivery', 
   '-- Jenkins'],
     [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
-     <br/>Once installed you can interact with webpack either with CLI and API
-     <br/>A tool that lets you compile JS modules It generates 1 file (or a few files) to run your app
+     <br/>Once installed you can interact with webpack either with CLI or API
+     <br/>A tool that lets you compile JS modules
+     <br/> 
+     <br/>It generates 1 file (or a few files) to run your app
      <br/>npm install --save-dev webpack 
      <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
      <br/>- performs clever static analysis of the AST of your code - 
@@ -966,6 +1067,9 @@ const subTopicsInfo = [
      <br/>Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
      <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
     `, 
+    '- Angular CLI build process uses Webpack behind the scenes for',
+    '-- transpile TS to JS',
+    '-- transform SASS files to CSS',
     'module bundler - which lets you bundle JS modules together',
     `- Terser is an industry std minifier for JS code - 
     <br/>Webpack performs minification mode using Terser by default 
@@ -1062,18 +1166,25 @@ const subTopicsInfo = [
     ['Web Workers permit multithreading in Angular', 'Threading', 
       ''],
     ['Angular Universal is a UI Framework - Accessability - mobile friendly','- SSR - Server Side Rendering'],
-    [`
-      Stand alone Components - @Component standalone: true and its backwards compatible in both directions - 
+    [`Optional Modules - Standalone Components | Pipes | Directives
+      <br/>adding strandalone : true
+      <br/>Stand alone Components - @Component standalone: true and its backwards compatible in both directions - 
       <br/> Not owned by anyone or anything - but can be imported into other components and modules
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
-      <br/> We mjust update Angular Schematics 
-    `, '- @Component standalone: true','- Backwards compatability',
+      <br/> We just update Angular Schematics 
+    `, '- @Component standalone: true',
+    '- bootstrapApplication(AppComponent)',
+    '-- Backwards compatability -',
+    '-- Architecture -',
      `Advantages - 
      <br/>1: Reduces boilerplate in many appns eg SCAM (Single Component Angular Module) pattern
      <br/>2: Simplifies learning Angular by removing NgModule from coding
      <br/>3: Allows us to offer more streamlined APIs for common use cases      
      `,
+     '',
       'SCAM (Single Component Angular Module) - one Module for each Component'],
+      '- Problem with Schematics - which search for your AppModule - Libs should update schematics    ',
+      
     [' -- '],
     ['Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster with fewer headaches - suite of Agile work management solutions powering collaboration - across all teams',
     '- iterative means small incremental changes',
@@ -1087,7 +1198,8 @@ const subTopicsInfo = [
      '-- View all boards - click Create board - Scrum|Kanban', 
      ' -- ',
     '--- Team management board - Simplified board - teams new to agile - lets you incrementally inc power',
-    '---- Simplified Board',
+    '-',
+    '--- Simplified Board',
     ' -- ',
     '--- Scrum Board - for teams that use sprints - includes a backlog - is the tool that unites Agile teams around a single goal + promotes iterative incremental delivery',
     '---- Sprints + Backlog ----- short time based period when a scrum team works to complete a set amount of work (eg 2 weeks)',
