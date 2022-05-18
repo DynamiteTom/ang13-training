@@ -36,9 +36,12 @@ const features = `
     'Content-Projection',
     'HTTP_HttpClient',
     'Cusom Libraries',
+    'Caching',
+    'Storage mechanisms',
     'Nx Nrwl',
     'ngrx_CRUD',
     ' -- ',
+    'install app from github',
     'Ang main libraries',
     'Git_distd-VCS',
     'Testing_unit',
@@ -70,7 +73,11 @@ const features = `
     'Agile',
     'Jira/Atlassian',
     'Azure',
+    'Debugging Angular',
+    '- Time Travelling Debugger',
+    '- Chrome Developer Tools',
     'Angular Performance',
+    '- SourceMap Explorer',  
     'REST_APIs_Swagger',
     'Ag-grid',
     'Micro Frontends',
@@ -91,15 +98,19 @@ const subTopics = [
     ['Why Services','wrt Components','Reuse',
     '- DI - dep Injection',
     '- DI Tokens',
+    '-- DI parts',
+    '-- Dependency Provider',
     '-- Defining Providers',
-    '--- Providers with deps',
-    '---- aliasing class providers',
-    '---- aliasing class interface',
-    '---- aliasing multi class i/fs',
-    '---- injecting an Object',
-    '---- injecting a config Object',
-    '---- InjectionToken object',
-    '---- interfaces and DI',
+    '--- provide example',
+    '--- provider-definition key',
+    '-- Providers with deps',
+    '--- aliasing class providers',
+    '--- aliasing class interface',
+    '--- aliasing multi class i/fs',
+    '--- injecting an Object',
+    '--- injecting a config Object',
+    '--- InjectionToken object',
+    '--- interfaces and DI',
     '---- Using factory providers',
     'class +',
     '@Injectable({})', 
@@ -220,16 +231,53 @@ const subTopics = [
     '- ref to build path','-- tsconfig.json','- lib sources in project/x',
     'Ivy and ngcc',
     'Ang11 - Partial compilation'],
+    ['Caching',
+    ' -- ',
+    '- Browser Limits',
+    ' -- ', 
+    '- Browser Cache',
+    '-- Cache Headers ',
+    ' -- ', 
+    '- HTTP Cache',
+    '-- Cache Control',
+    ' -- ',  
+    '- Service Worker Caching',
+    '-- Cache Control',
+    '--- AppCache',
+    ],
+    ['- Storage mechanisms',
+    '- indexedDB','-- blobs','- Web Storage', '- cookies', '- Cloud Storage'],
     ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
+    ' -- ',
     '- 5 features ',
     '-- Serializability', 
     '-- TypeSafety',
     '-- Encapsulation',   
     '-- Testable',
     '-- Performance',
-  '- SHARI principle','- Store','- Reducer','- Action','- Selector', '- Effects', '-- Store Devtools','-- Entity', '-- Data', 'ComponentStore'],
+    ' -- ',
+  '- SHARI principle',
+  '-- Shared',
+  '-- Hydrated',
+  '-- Available',
+  '-- Retreived',
+  '-- Impacted',
+  ' -- ',
+  'ngrx Parts',
+  '- Store',
+  '-- state data',
+  '- Reducer','- Action','- Selector', '- Effects',  
+  ' -- ',
+  '-- Store Devtools',
+  '--- Action Log',
+  '--- State inspector',
+  '--- Time Travelling Debugger',
+  '---- Installation',
+  ' -- ',
+  '-- Entity', '-- Data', 'ComponentStore'],
     [' -- '],
+    ['install from Github', 'npm install'],
     [`Core libraries`,
       '- @angular/core',
       '- @angular/compiler',
@@ -254,8 +302,8 @@ const subTopics = [
     '- GitHub'
     ], 
     ['Testing', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
-    '- Integration','-- Shallow','-- Deep', 
-    '- End to End', '-- Protractor', '-- Cypress'],
+    ' -- ','- Integration','-- Shallow','-- Deep', 
+    ' -- ','- End to End', '-- Protractor', '-- Cypress'],
     ['Why Design', 'SOLID Principles','-- Single Responsibility','-- Open-Closed','-- Liskov Substn','-- Interface Segn','-- Dep Inv', 
     ' -- ','DRY',
     ' -- ', 'DIP',  
@@ -339,15 +387,16 @@ const subTopics = [
     ['Why Angular Universal','- SSR - Server Side Rendering'],
     ['Optional Modules', 
     '- standalone: true', 
-    '- bootstrapApplication(AppComponent)',
+    '- bootstrapApplication(x)',
     '-- Compatability',
     '-- Architecture',
+    '-- Advantages of Schematics',
     '- Problem with Schematics'
   
   ],
 
     [' -- '],
-    ['Agile', '- Iterative', '- Team','- Respond to Change'],
+    ['Agile', '- Iterative', '- Incemental', '- Teams','- Respond to Change'],
     ['Jira',
     '- teamwork',
     '- Boards',
@@ -363,9 +412,14 @@ const subTopics = [
     '- Agile project management tool'
   ],
   [' - Azure'],
-    ['How - Angular Performance - ','largest contentful paint', '',
-         'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'],
-    ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
+  ['Debugging Angular', 'webpack- '],
+  ['- Time Travelling Debugger', '-- WinDbg preview app','--- Dump File','---- Analyze Link'],
+  ['- Chrome Developer Tools', '- Elements','- Console', '- Sources', '- Network', '- Performance','- Memory', '- Application', '- Security'],
+  ['How - Angular Performance - ','largest contentful paint', '',
+         'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
+    ],
+  ['SourceMap Explorer', 'sourceMaps: true'], 
+  ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
     '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     ' -- ','- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','-- RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
@@ -426,13 +480,14 @@ const subTopicsInfo = [
       'this refs all properties or methods or events of a Component',
       'generate a new Component'
     ],
-    [`Directives let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
+    [`Directives are classes that add extra behavior to elements in Angular appns 
+      <br/>let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
     - <br/> decorator @Decorator({}) 
     - <br/> 3 types - attribute | template | Components -  
     `,
       '@Directive({})',
-      '- attribute-directives', 
-      '- template-directives *ngIf - *nfFor() ',
+      '- Attribute-directives - change the appearance or behavior of an element | component | directive', 
+      '- Template-directives *ngIf - *nfFor() ',
          '<div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
          '<div *nfFor="x of List"></div>',
          '<div *ngSwitch with case statements',
@@ -467,17 +522,46 @@ const subTopicsInfo = [
      <br/>provides dependencies to a class upon instantiation 
      <br/>- is used to increase flexibility + modularity in your appns
     `,
-    '- DI Tokens',
-    '-- Defining Providers',
+    `- DI Tokens - When you configure an injector with a provider - you are associating that provider with a DI token
+    <br/>The injector lets Angular create a map of any internal dependencies.
+    <br/>The DI token - acts as a key to that map - 
+    <br/>The dep value is an instance & the class type serves as a look up key 
+    <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
+    <br/>constructor(private heroService: HeroService){}  
+    `,
+    '-- DI Parts - injector | provide | dependency provider | provide defn key',
+    `-- Dependency Provider - configures provider with a DI token 
+    <br/>which that injector uses to provide the runtime version of a dep value
+    `,
+    `-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
+    <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
+    <br/>Above is a class provider syntax for providing a Logger class in the providers array
+    <br/>Note the provide property holds the token - key for locating a dep value and config injector
+    <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
+    `,
+    '-- [Logger] same as [{provide: Logger, useClass: Logger}]',
+    `-- provider defn key - useClass | useExisting | useValue | useFactory
+    <br/> to configure the injector - keys for tokens
+    `,
     '--- Providers with deps',
-    '---- aliasing class providers',
-    '---- aliasing class interface',
+    `---- aliasing class providers - useClass
+    <br/>[{ provide: Logger, useClass: BetterLogger }]
+    `,
+    '---- aliasing class interface - useExisting',
     '---- aliasing multi class i/fs',
-    '---- injecting an Object',
+    `---- injecting an Object - configure with a useValue option
+      <br/>[{provide: Logger, useValue: SilentLogger}]
+    `,
     '---- injecting a config Object',
     '---- InjectionToken object',
     '---- interfaces and DI  ',
-    '---- Using factory providers',
+    `---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
+    <br/>export const heroServiceProvider =
+    { provide: HeroService,
+      useFactory: heroServiceFactory,
+      deps: [Logger, UserService]
+    };  
+    `,
    
     'class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks',
     '- Providing a Service', 
@@ -527,7 +611,7 @@ const subTopicsInfo = [
       `,
       '- Strong Data Types - number | string | boolean | ',
       '-- Inferred Types - TS determines the types',
-      '- interfaces | classes - helps structure Angular structures',
+      '- interfaces | classes - helps structure Angular structures - note JS does not have interfaces',
       '- tooling - auto-completion | navigation | refactoring',  
       '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
     '- .ts files - files with Type Infon - makes data TypeSafe',
@@ -825,12 +909,14 @@ const subTopicsInfo = [
      ],
      ['HTTP CRUD - Create | Read| Update | Delete - operations which the HTTP can use to manipulate data from a server', 
      'HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http',      
-     `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses and modify them the way we wish 
-     HttpClientInMemoryWebApiModule - angular-in-memory-web-api - for Angular demos and tests that emulates CRUD opns over a RESTify API -      
+     `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses and modify them the way we wish
+      can cache HTTP requests and responses - 
+     `,
+     `HttpClientInMemoryWebApiModule - angular-in-memory-web-api - for Angular demos and tests that emulates CRUD opns over a RESTify API -      
       is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
       and redirects them to an in-memory data store - that you control on the frontend.
        <br/>angular/in-memory-web-api -  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})   
-  `
+      `
   ],
     ['appns vers custom libraries',
     'Appns',
@@ -845,6 +931,60 @@ const subTopicsInfo = [
     'Ivy and ngcc (Compatability Compiler) ',
     'Ang11 - Partial compilation - no need for ngcc'
     ],
+    [`Caching - was initally developed to reduce the access time between the CPU and RAM 
+    <br/>Cache memory is faster to access by the CPU wrt RAM because its physically stored inside the CPU
+    <br/>Diff ways to implement caching  
+    <br/> - WebStorage
+    <br/> - ngrx store for states
+    <br/> - array that holds values
+    <br/> - HTTP Cache (Browser Cache) - browser uses cache but if nothing found then it goes to the server to fetch the resource  
+    <br/> - Service Workers in PWAs (Programmable Web Appns)
+    `,
+    ' -- ',
+    `- Http Caching (Browser Cache) - varies from browser to browser - 
+      <br/>Google < 80MB - IE < 50MB Firefox < 50MB Safari < 20MB
+    `,
+    ` Browser Cache - saves content on your computer - and is controlled by the browser
+    `,
+    '-- Response Headers',
+    '-- Cache expiry logic',
+    ' -- ', 
+    `- HTTP Cache - stores the response from a server and reuses the stored response for subsequent requests 
+       - but when data on server is updated the data is stale and must be requested via HTTP again
+      `,
+    `-- Cache Control - HTTP header - requests and responses  `,
+    ' -- ',
+    `- Service Worker Caching - fixes many problems of AppCache - 
+      <br/>
+    `,
+    `--- AppCache - file used by many web browsers to access web apps when no network is available
+    <br/>- contains copies of resources needed by your appn - even when Refresh is pressed 
+      <br/>but it made many assumptions and breaks if not what it expects 
+      <br/>fixed by using Service Workers
+    `,
+    '---- HTML 5 Cache Manifest - 2014 - Obsolete '
+    ],
+      ['indexedDB and Cache', 
+    `IndexedDB (client side storage - on local disk - low level API for large amts of data - files and blobs) - 
+    <br/>lets you persistently store data inside a user\'s browser 
+    <br/>gives you rich (High Perf) query capabilities on and offline - indept of network      
+    <br/>Is a transactional DB system - JS based Object Oriented DB - 
+    <br/>Store and Retrieve objects - asynchronously - indexed with a key  
+    <br/>Only limit is users disk size and OS - 
+    `,
+    '-- Blob objects - are simpler as we dont need to base64 encode them',
+    `Web Storage - localStorage/sessionStorage - smaller amounts of data - less structured
+    <br/>W3C and WHATWG and supported by all major browsers
+    <br/>slightly faster than indexedDB 
+    <br/>localStorage has a max memory of 5MB but sessionStorage is only ltd by the system memory -      
+    `,
+    `Cookies - the original way to store small amts of application data on a browser -
+    <br/>main problem with Cookies was Security - search and browser history can be tracked - 
+    <br/>max size of Cookie is 4KB but you can have 30 to 50 cookies stored - 120KB to 200KB     
+    `,
+    `Cloud Storage - lets you store digital data in an online space with multiple servers and locations - HDDs or SSDs  
+    `
+  ],
     ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
     '- Nrwl/Nx',
     '-- smart', 
@@ -871,12 +1011,14 @@ const subTopicsInfo = [
     'BehaviorSubject - ngrx is based around the behaviorSubject',
     'appn State',
     '- enforces a unidirectional sequence of operations ',
+    ' -- ',
     '- 5 features - Serializablity | TypeSafety | Encapsulation | Testable | Performance',
     '-- Serializability', 
     '-- TypeSafety - using tsc (TypeScript compiler)',
     '-- Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP',   
     '-- Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc',
     '-- Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations',
+    ' -- ',
     `- SHARI -<br/> 
       S: - Shared state that is accessed by many components and services
       H: - Hydrated state that is persisted and rehydrated from external storage 
@@ -884,23 +1026,44 @@ const subTopicsInfo = [
       R: - Retrieved state that must be retrieved with a side effect
       I: - Impacted state that is impacted by Actions from other sources
       `,
-    '- ngrx/Store is a library for managing the main appn State - uses StoreModule from @ngrx/store - StoreModule.forRoot({ spinner: reducer }),',
-    ' A reactive state mgmt library powered by RxJS - manages flow of data through appn - actions dispatched - reducers act on them and mutate the Store',
+      '-- Shared',
+      '-- Hydrated',
+      '-- Available',
+      '-- Retreived',
+      '-- Impacted',
+  ' -- ',
+  ' - Parts - Store | Reducer | Action | Selector | Effects',
+      `- ngrx/Store is a library for managing the main appn State - uses StoreModule from @ngrx/store - StoreModule.forRoot({ spinner: reducer }),',
+      <br/> A reactive state mgmt library powered by RxJS - manages flow of data through appn - actions dispatched - reducers act on them and mutate the Store
+     `,
+     '-- stores the data in an RxJS Observable inside an Angular Service called Store',
+
     '- Reducer are pure functions which take an action and output data to state or on to Effects (if async)',
     '- Action - express state changes - acts as input to Reducer to produce new State and if async then to feed the effects library'
     ,
     '- Selector - Read state data - are pure functions for getting slices of the state from the Store - how appns listen to State Changes', 
     '- Effects - (side Effects - commn with ext API HTTP or dispatching another action  ) asynchronous parts of code which take effect after Reducer functions - DJ of the NGRX dancefloor', 
+    ' -- ',
     `-- Store Devtools - @ngrx/store-devtools - provides dev tools and instrumentation for Store - npm install @ngrx/store-devtools - StoreDevtoolsModule -  
     <br/>StoreDevtoolsModule.instrument({name: 'NgRx Demo App',logOnly: environment.production})     
-    
+    <br/> - Key benefit of Devtools is it gives us some immediate visual indication about what the appn is doing at all times  
     `,
+    '--- Action Log - gives a good understanding of how appn works and which parts are trigered by which actions',
+    '--- State inspector - easily inspect memory store state',
+    '--- Time Travelling Debugger - Play button and timeline at the bottom - replay any action at a given pt in debugging session - nav gate through multiple screens  ',
+    `---- Installation of ngrx/schematics 1st and then the ngrx/devtools
+    <br/>- ng config cli.defaultCollection @ngrx/schematics 
+    <br/>- then
+    <br/>-- ng generate store AppState --root --module app.module.ts
+    `,
+    ' -- ',  
     '-- Entity - data - ',
     '-- Data - Simplifying the case for many CRUD operations',
     '--- if the state is confined to one Component then this can be used',
     'implementation of ngrx ', '- Au   th0 SDK'
     ], 
     [' -- '],
+    ['install from GitHub', 'npm install to create the node_modules folder'],
     [`Core libraries`,
       `- @angular/core - imps Angular core functionality - low level services and utilities  
         <br/>BrowserModule - included auto in root AppModule when create a new app with CLI
@@ -935,9 +1098,11 @@ const subTopicsInfo = [
       '- @angular/material',
       '- @angular/cdk',
       '--',
-      '- @angular/cli',
-      '- @angular/compiler/cli',
-      '- @angular-devkit/build-angular',
+      '- @angular/cli - CLI tool for Angular - initialize | develop | scaffold | maintain Ang apps',
+      '- @angular/compiler-cli - Compiler CLI for Node.js',
+      `- @angular-devkit/build-angular - Webpack build facade - 
+      <br/>package contains Architect builders used to build + test Ang Appns + libraries
+      `,    
     ],
     [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) designed to handle small to large projects with speed and efficiency
     <br/>- has 3 parts - 1: Working tree 2: Staging area 3: Local repository + Remote repository - 
@@ -977,7 +1142,10 @@ const subTopicsInfo = [
     '- Unit', 
     '-- spec.ts', 
     '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
-    '- Integration','-- Shallow','-- Deep', '- End to End', '-- Protractor', '-- Cypress'],
+    ' -- ',
+    '- Integration','-- Shallow','-- Deep', 
+    ' -- ',
+    '- End to End', '-- Protractor', '-- Cypress'],
     ['Why Design', '- SOLID','-- A Class should have 1 and only 1 (Job) reason to change',
     '-- Open for extension but Closed for modification',
     '-- Every subclass - Generics - should be able to replace the base (Parent class)',
@@ -1181,16 +1349,16 @@ const subTopicsInfo = [
      <br/>2: Simplifies learning Angular by removing NgModule from coding
      <br/>3: Allows us to offer more streamlined APIs for common use cases      
      `,
-     '',
-      'SCAM (Single Component Angular Module) - one Module for each Component'],
-      '- Problem with Schematics - which search for your AppModule - Libs should update schematics    ',
-      
+      'SCAM (Single Component Angular Module) - one Module for each Component',
+      '- Problem with Schematics - which search for your AppModule - Libs should update schematics'
+    ], 
     [' -- '],
     ['Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster with fewer headaches - suite of Agile work management solutions powering collaboration - across all teams',
     '- iterative means small incremental changes',
     '- (no bigbang) - delivers work in small, but consumable, increments - ',
+    '- Teams can easily work together and ... ',
     '- Requirements | Plans| Results are evaluated continuously so teams have a natural mechanisms for responding to change'
-  ],
+    ],
     ['Jira S/W - provides Scrum and Kanban boards - are task management hubs - where tasks are mapped to customizable workflows', 
      '- provide transparency across teamwork + visibility into the status of every work item.', 
      '- Boards - displays issues 1+ projects so you can view | manage | report on work',
@@ -1211,11 +1379,25 @@ const subTopicsInfo = [
     '- help Agile + DevOps'
   ],
   ['Azure - Cloud'],
-    ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
-    ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+  ['Debugging Angular','- Webpack'],
+  ['- Time Travelling Debugger', '- WinDbg preview app','- Dump File','-- Analyze Link'],
+  ['Chrome Developer Tools', 
+  '- Elements - gives ability to view and change the DOM and refd CSS - inspect or tweak pages without needing to change source code - find unused CSS - view animations',
+  '- Console - interact with Web page using Cmd prompt CLI - execute code dir in browser for trouble shooting and debugging', 
+  '- Sources - range of features to help id and manage refd objects called by Web page - lets you debug code | create breakpoints | find unused JS',       
+  '- Network - record network requests - measures time taken for each object to render in web page- ids bottlenecks wrt resource loading - slow page loads', 
+  '- Performance - helps optomize website speed - measures els like loading | scripting | rendering | painting + calc render time for each ',
+  '- Memory - ChromeDev Tools feature helps troubleshoot + debug memory related problems - track memory use over time + check memory allocn by element()', 
+  '- Application - inspect all loaded resources - including indexedDB + Web SQL DBs | local/session storage | appn cache | images | fonts | stylesheets',
+  '- Security related info about the pages - checks + verifies security of certificate + connection - Also unencrypted resources'
+  ],
+  ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
+  ['SourceMap Explorer', 'sourceMaps: true'],
+   
+  ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     ' -- ','- IDL for RESTful APIs expressed using JSON', '-- design & Doc APIs','-- ','-- Interface Defn Language','-- RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- an API platform for building and using APIs -','-- simplifies each step of the API lifecycle','-- streamlines collaboation with team members',
-    ' -- ','- a Query Language for your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
+    ' -- ','- a Query Language for   your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
     ],
     ['ag-grid'],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
