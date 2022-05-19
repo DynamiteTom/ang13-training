@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "tsc-transpiles-js.component.scss"
+    ],
+    "names": [],
+    "file": "tsc-transpiles-js.component.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "destructuring-types.component.scss"
+    ],
+    "names": [],
+    "file": "destructuring-types.component.css"
+}

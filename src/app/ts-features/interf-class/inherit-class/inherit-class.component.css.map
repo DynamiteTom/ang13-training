@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "inherit-class.component.scss"
+    ],
+    "names": [],
+    "file": "inherit-class.component.css"
+}

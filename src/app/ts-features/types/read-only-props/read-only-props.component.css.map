@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "read-only-props.component.scss"
+    ],
+    "names": [],
+    "file": "read-only-props.component.css"
+}

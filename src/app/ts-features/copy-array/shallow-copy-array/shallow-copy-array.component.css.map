@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "shallow-copy-array.component.scss"
+    ],
+    "names": [],
+    "file": "shallow-copy-array.component.css"
+}

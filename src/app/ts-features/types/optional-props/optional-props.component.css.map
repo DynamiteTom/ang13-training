@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "optional-props.component.scss"
+    ],
+    "names": [],
+    "file": "optional-props.component.css"
+}

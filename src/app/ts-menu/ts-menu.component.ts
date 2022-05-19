@@ -46,7 +46,7 @@ const features = `
     'Git_distd-VCS',
     'Testing_unit',
     'Design Patterns',
-    'TDD/BDD',
+    'TDD/BDD/DDD',
     'Security',
     'Authorization/Authentication',
     'Node.js',
@@ -247,7 +247,7 @@ const subTopics = [
     ],
     ['- Storage mechanisms',
     '- indexedDB','-- blobs','- Web Storage', '- cookies', '- Cloud Storage'],
-    ['Nx Nrwl','- Nrwl/Nx','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
+    ['Nx Nrwl','- Nrwl/Nx','-- Nx Monorepo','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
     ' -- ',
     '- 5 features ',
@@ -312,7 +312,21 @@ const subTopics = [
     ' -- ','Decorator Pattern',  
    ' -- ','Lazy',
    ' -- ','Composition'],
-    ['Test Driven Devt','Behavoral Driven Design'],
+    ['TDD Test Driven Devt', '- Test First fail','- refactor','--- pass',
+    ' -- ',
+    'BDD Behavoral Driven Design', '- businss', '-- agile','--- Cucumber',
+    '-- Rapid Iterations',
+    '-- 3 Step Practice',
+    '---1: Small change', '---2: document examples','---3: implement Behavior',
+    '-- or ','--- User Story','--- Discovery ', '--- Formulation','--- Automation','--- Working S/W',
+    ' -- ',
+    'DDD Domain Driven Design', '- Business Domain', '-- Object Oriented', '-- evolving model',
+    '- Goals',
+    '-- domain and domain logic',
+    '-- complex design',
+    '-- init creative collabn - refine',
+    
+  ],
     ['Security','- XSS','-- auto-escaping{{}}',
     '-- CSRF - XSRF', '--- CSRF token','--- HttpClientXsrfModule', 
     '- Output Encoding', 
@@ -987,6 +1001,7 @@ const subTopicsInfo = [
   ],
     ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
     '- Nrwl/Nx',
+    '-- Nx Monorepo',
     '-- smart', 
     '-- fast',
     '-- extensible',
@@ -1161,9 +1176,35 @@ const subTopicsInfo = [
     ' -- ','- alternative to Subclasses for extending an Object - Composition instead of Inheritance<br/>An object which wraps another Object',  
     ' -- ','Lazy Pattern',
     ' -- ','Composition Pattern'],
-    ['Test Driven Devt',
+    ['TDD Test Driven Devt', '- Test First fail','- refactor','--- pass',
     ' -- ',
-    'Behavoral Driven Design','- eases conversion of user features specns to code reqd to imp them'],
+    `Behavoral Driven Design - eases conversion of user features specns to code reqd to imp them
+    <br/>
+    `,
+    '-- narrows gap between Business features and S/W impn',
+    '-- assumes team is agile - enhances existing agile processes',
+    '-- Cucumber',
+    '-- Rapid Iterations',
+    '-- 3 Step Practice',
+    '---1: Small change to system - User Story - discuss',
+    '---2: document change - examples',
+    '---3: implement Behavior in S/W - start with automated test to guide devt',
+    '-- or ',
+    '--- User Story',
+    '--- Discovery - what it could do', 
+    '--- Formulation - what it should do',
+    '--- Automation- what it actually does','--- Working S/W',
+    ' -- ',   
+    `DDD Domain Driven Design - S/W design focusing on modeling S/W to match a domain wrt input from business experts
+    <br/>
+    `,'- Business Domain',
+    '-- OO (Object Oriented) class | properties | methods - match business names',
+    '-- connects impn to an evolving model',
+    '- Goals',
+    '-- primary focus on domain and domain logic',
+    '-- base complex design on domain model',
+    '-- init creative collabn between technical and domain experts to iteratively refine a model wrt domain problems',
+    ],
     [`Angular Security -   
     
     `, 
@@ -1453,7 +1494,10 @@ export class TsMenuComponent implements OnInit {
 
   tsInfo: string = ``;
 
-  constructor() { }
+  constructor() { 
+
+
+  }
 
   ngOnInit(): void {
       console.log('ngOnInit()');
@@ -1471,5 +1515,6 @@ export class TsMenuComponent implements OnInit {
 
   showTSFeatures(inx: number){
       this.tsFeatureIndex = inx;
+      this.getInfo(inx, 0);
   }
 }

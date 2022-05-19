@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "getter-setter.component.scss"
+    ],
+    "names": [],
+    "file": "getter-setter.component.css"
+}

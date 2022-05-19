@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "strict-null-checks.component.scss"
+    ],
+    "names": [],
+    "file": "strict-null-checks.component.css"
+}

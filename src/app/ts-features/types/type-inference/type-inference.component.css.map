@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "type-inference.component.scss"
+    ],
+    "names": [],
+    "file": "type-inference.component.css"
+}

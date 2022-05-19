@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "tsconfig-json.component.scss"
+    ],
+    "names": [],
+    "file": "tsconfig-json.component.css"
+}

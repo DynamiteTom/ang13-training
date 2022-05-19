@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "var-glob.component.scss"
+    ],
+    "names": [],
+    "file": "var-glob.component.css"
+}

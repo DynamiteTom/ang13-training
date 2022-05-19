@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "read-only-tuples.component.scss"
+    ],
+    "names": [],
+    "file": "read-only-tuples.component.css"
+}

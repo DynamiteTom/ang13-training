@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "partial-types.component.scss"
+    ],
+    "names": [],
+    "file": "partial-types.component.css"
+}

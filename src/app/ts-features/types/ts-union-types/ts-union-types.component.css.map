@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "ts-union-types.component.scss"
+    ],
+    "names": [],
+    "file": "ts-union-types.component.css"
+}
