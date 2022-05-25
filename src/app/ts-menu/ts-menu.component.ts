@@ -10,11 +10,13 @@ const features = `
     'decorators', 
     'interf_class',
     'typeScript',
+    'lodash',
     'important-files',
     'Data-binding',
     'Styles_CSS_SCSS',
     'ng-build_ng-serve',
     'modules',   
+    '- Bootstrapping',
     'life-cycle-hooks',
     'routing_router',
     '@Input_@Output',
@@ -35,7 +37,7 @@ const features = `
     'ContentDOM',
     'Content-Projection',
     'HTTP_HttpClient',
-    'Cusom Libraries',
+    'Cusom Libraries',  
     'Caching',
     'Storage mechanisms',
     'Nx Nrwl',
@@ -86,14 +88,21 @@ const features = `
  `;
 
 const subTopics = [
-    ['JavaScript Framework','mobile-laptop-desktop',
-    '- Front End appns','- Angular/CLI','- main parts','TypeScript','TS Libraries',
-    'Server Side Angular',
-    '-- Add ons'],
+   ['JavaScript Framework','- SPA', 
+   '- mobile-laptop-desktop',
+    '- Front End appns','- Angular/CLI','- main parts',
+    'TypeScript',
+    'TS Libraries',
+    '- DI (Dependency Injection)',
+    'Angular Universal',
+    '- Server Side Angular',
+    '-- Add ons'
+    ],
     ['Why Components - ', '- class', '- template','Decorators','- @Component({})', '-= selector', '-- templateUrl', '-- styleUrl','- Data Binding', '- LC-hooks','-- Component Tree','- Change detection',
     'this', '- ng g c xyz'],
     ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
-    '- Components'],
+    '- Components'
+    ],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'],
     ['Why Services','wrt Components','Reuse',
     '- DI - dep Injection',
@@ -134,6 +143,8 @@ const subTopics = [
     ['TypeScript',
     '- Strong Data Types',
     '-- Inferred Types',
+    '--- Duck Typing',
+    '--- Composite Data Types',
     '- interfaces | classes',
     '- tooling -     ',
     '- tsc', 
@@ -141,23 +152,48 @@ const subTopics = [
     '-- transpilation', 
     '- tsconfig.json',
     '-- compilerOptions',
-    '-- angularCompilerOptions', 
+    '-- angularCompilerOptions',
+    '--- fullTemplateTypeCheck: true', 
     '- JS files', '- ngc',
     '- Barrels (index.ts)',
-    '-- index.ts'
-  ],
+    '-- index.ts',
+    '- Custom Objec Types'
+    ],
+    ['lodash',
+    '- simplifies JS ',
+    '- simplifies manipulating TS types',
+    '- ES6 replacements',
+    '-- Map | Filter |  Reduce'
+    ],
     ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' ],
     ['Data Binding','- String interpolation {{x}}','ex','- property binding[]','ex','- event binding()','ex', '- 2-way data binding','ex'],
     ['Why Style - color-size-position', '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','content',
     ' -- ',     
+    '-- Display property', '--- block','--- inline','--- none',
+    ' -- ',     
+    '-- Z-index', 
+    '--- position',
+    ' -- ',     
     'inline - ext', 'ngStyle','ngClass', 
      ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
-       'ViewEncapsulation'],
+     'ViewEncapsulation'
+     ],
      ['Angular/CLI','- Building', '- Serving the Browser port'],
     ['Modules','NgModule', 
     '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
-     ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance',
+    ['- Bootstrapping', '-- initializing/loading appn','--- angular.json file',
+     '--- Loading index.html etc.','---- 3rd party libs + appn',
+     '---- main.ts',
+     '----- platformBrowserDynamic',
+     '------ AppModule',
+     '------- BrowserModule',  
+     '------- AppRoutingModule',  
+     '------- AppComponent',  
+     '---- root Module/Component',    
+     '-- webpack --- 2 dep graphs','---- 1: app.js','---- 2: vender.js'
+    ],
+    ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance',
      '- imports @angular/core',
      'LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
      '- ngAfterContentChecked()', '- ngAfterViewInit()', '- ngAfterViewChecked()','- ngOnDestroy()'],
@@ -167,7 +203,10 @@ const subTopics = [
     ' -- ','- Router Guards', '-- Componentless-routes', '-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad',
     ' -- ','- history','- history.pushState','- older browsers','-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
     ' -- ','Route Resolver', '- new Comp --routing','-- Lazy Loading'],
-    ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+   ['Parent Child communication', 
+    '- @Input() decorator','-- Property Binding - []', '--- ngOnChanges()',
+    '- @Output()','-- Event Binding - ()', '-- EventEmitter()', '--- [()]', 
+   ], 
     [' -- '],
     ['Lazy Loading','- Modules','-- browser URL','-- forChild','-- children', 
     '--- Feature Modules',
@@ -189,9 +228,47 @@ const subTopics = [
     ['Why TreeShake', 'treeshaking in Ivy', 'treeShaking in VE'],
     ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
        'Angular 13 APF','- Node package exports', '- es2020 support', '- Ivy partial compilation'
+    ],  
+    ['Ivy new', 
+    '- enableIvy: true',
+    '- Complete rewrite of RE',
+    '- Very fast loading',
+    '- operates Very fast',
+    '- reduced bundle size',
+    '-- Tree Sh  akeable',
+    '- Comp compilation independently',
+    '- Locality',
+    '-- Single file',
+    '--- own local infon',
+    '--- Recompiles partial changes',
+    '- Incremental DOM',
+    '-- Decorators - static props',
+    '--- ngComponentDef in .d.ts files', 
+    '--- no complete code-analysis',   
+    '---- @NgModule metadaa',
+    '-- Global Compilation problem',
+    '-- Template Instructions', 
+    '-- no-metadata',
+    '- AOT by default',  
+     '',
+    'Libraries', '- ngcc', '-- Linker instead', '-- Partial Compilation',
+    'Ang Language Service','Compilaion of changes',
+    'Ivy - Advantages',
+    'no EntryComponents'
     ],
-    ['Ivy new', 'Locality','Incremental DOM','-- Instructions', 'Libraries', '- ngcc', '- Linker   instead', 'Ang Language Service','Compilaion of changes','Ivy - Advantages','no EntryComponents'],
-    ['- ViewEngine old', '- Renderer2', '3 parts -', ' -1: Template Parsing', ' 2: Tree Shaking',' 3: Compilation' , '- Interpreter', '--metadata.json file','ngFactory.js files','JIT or AOT','EntryComponent'],
+    ['- ViewEngine old', 
+    '- Renderer2', 
+    '- JIT by default',
+    '3 parts -', 
+    ' -1: Template Parsing',
+    '-- Interpreter', 
+    '--metadata.json file', 
+    ' -2: Tree Shaking',
+    ' -3: Compilation' ,
+    '-- application.json', 
+    '-- ngFactory.js file',
+    'JIT or AOT',
+    'EntryComponent'],
     ['Promises', '- then()', '- future tasks', '- (resolve, reject)','- asynchronous','- catch',' -- ', 
      'Observables','- streams', '- time', '- next()','- Observer','- subscribe','- async pipe','- hot-cold','- Sync or Async', '-- Marble Diagrams'],
     ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
@@ -203,14 +280,14 @@ const subTopics = [
     ['- ConcatMap','- MergeMap','- SwitchMap','- ExhaustMap'],
     ['Why forms',
     ' -- ',  
-    '- Template Forms', '-- Template directives','-- ngForm', '-- complex test setup','-- complex validation', '-- [(ngModel)]',
+    '- Template Forms', '-- Template directives','-- ngForm', '-- Asynchronous data flow', '-- complex test setup','-- complex validation', '-- [(ngModel)]',
     ' -- ',
     ' -- Template Validation', 
     ' -- ',
     '- Reactive Forms','-- direct access','-- Synchronous data flow','-- simpler test setup','-- simpler validation', '-- new FormControl("")','FormBuilder',  
     ' -- ',
     '  -- Reactive Validation' 
-  ],
+    ],
     ['Whats View DOM', '- ViewChild', '- ViewChildren'],
     ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
     ['Whats transclusion',
@@ -222,7 +299,14 @@ const subTopics = [
     ' -- ',
     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
   ],
-    ['CRUD', 'HttpClient', 'HttpInterceptors', 'Angular/InMemoryWebApi'],
+    ['CRUD', 
+    '- HttpClient', 
+    '-- Commn with remote Http Server',
+    '-- HttpClientModule - ',
+     ' -- ',
+     'HttpInterceptors', 
+     ' -- ',
+     'Angular/InMemoryWebApi'],
     ['appns vers custom libraries',
     'Appns',
     'Custom Libraries',
@@ -301,7 +385,8 @@ const subTopics = [
     '- Commands - ','- Add','- fetch','- branch','- checkout', '- commit','- init','- push','- pull','- log','- status',
     '- GitHub'
     ], 
-    ['Testing', '- Unit', '-- spec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
+    ['Testing', '- PoC',
+    '- Unit', '-- s  pec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
     ' -- ','- Integration','-- Shallow','-- Deep', 
     ' -- ','- End to End', '-- Protractor', '-- Cypress'],
     ['Why Design', 'SOLID Principles','-- Single Responsibility','-- Open-Closed','-- Liskov Substn','-- Interface Segn','-- Dep Inv', 
@@ -333,9 +418,23 @@ const subTopics = [
     '- Sanitization', '-- DomSanitizer','-- bypassSecurityTrustHTML', 
     '- Immutable Code', '- JWTs', '- OWASP', '- SNYK'],
     ['Auhtorization', 'Authentication', '- Auth0', '- OAuth2'],
-    ['Node.js','http://nodejs.org', '- JS runtime', 'Chrome V8 JS Engine','-- backend JS runtime',
-     '- can generate dynamic pages','- can CRUD + close files','- collect form data',
-    '- add|delete|modify db','- tasks exec on events','- event - server port','- files initiated on server', '--*.js'],
+    ['Node.js',
+    'http://nodejs.org', 
+    '- JS runtime env\'t',  
+    '- small | mid sized appns',
+    '- Chrome V8 JS Engine',
+    '-- Chrome',
+    '-- Node.js',
+    '- backend JS runtime',
+     '- can generate dynamic pages',
+     '- can CRUD + close files',
+     '- collect form data',
+    '- add|delete|modify db',
+    '- tasks exec on events',
+    '- event - server port',
+    '- files initiated on server', 
+    '--*.js'
+    ],
     ['npm'],
     ['express','express impn','-- get()','-- listen()'],
     ['VS-Code'],
@@ -352,6 +451,8 @@ const subTopics = [
     '- CLI build process',
     '-- TS to JS',
     '-- SASS files to CSS',
+    '-- transpile HTML to JS',
+    '--- bundles HTML | css | ts/js',
     '- module bundler','- Terser','-- Terser plugin', '- Entry Points -', '-- Entry','-- Output', '- Loaders','- Plugins'],
     ['Whats the Cloud?','- 3 reasons for the cloud are', 
     ' -- ',  
@@ -406,9 +507,7 @@ const subTopics = [
     '-- Architecture',
     '-- Advantages of Schematics',
     '- Problem with Schematics'
-  
   ],
-
     [' -- '],
     ['Agile', '- Iterative', '- Incemental', '- Teams','- Respond to Change'],
     ['Jira',
@@ -435,10 +534,27 @@ const subTopics = [
   ['SourceMap Explorer', 'sourceMaps: true'], 
   ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
     '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
-    ' -- ','- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','-- RESTful APIs','-- JSON','-- CRUD methods', 
+    '--- REST Servers',
+    '---- json-server', ' --',
+    '---- http-server', ' -- ',
+    '- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','--   RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
     ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
-    [' - Ag-grid'],
+    [' - Ag-grid',
+    '- fully customizable',
+    '- ag-grid performance',  
+    '- no 3rd party deps',
+    '- integrates with Angular',
+    ' -- ',
+    '- ag-grid Features',
+      '-- Column-integration',
+      '-- Pagination',
+      '-- Sorting ',
+      '-- Row Selection',
+      ' -- ',
+      '- ag-grid data',
+      '-- ag-grid ex',
+    ],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],
     ['- new WWW -','', ''],
     ['- Ang Versions','Ang 14','Ang 13', 'Ang 12','Ang 11','Ang 10','Ang 09','Ang 08','Ang 07',]
@@ -449,9 +565,11 @@ const subTopicsInfo = [
   JavaScript Framework for development of client side mobile web desktop appns -
   <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces 
   <br/>- ts files are then transpiled down to JS code to run in the browser 
-  <br/>rendering pages in the DOM in response to user actions - Angular uses View DOM in the template HTML and Content DOM inside other Components
+  <br/>rendering pages in the DOM in response to user actions - 
+  Angular uses View DOM in the template HTML and Content DOM inside other Components
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
   <br/>Components Directives Pipes Services and Modules and Change Detection to id when events occur 
+  <br/>- Dependency Injection - 
   <br/>Observables and the RxJS operators can manipulate streams of data over time and use Subjects to aid working with them 
   <br/>simplifying subscription and allow multi-casting events around the application. 
   <br/>Angular appns vs Angular custom libraries
@@ -459,14 +577,24 @@ const subTopicsInfo = [
   <br/>Special folders - node_modules for the large libraries used in project and librares 
   <br/>ng build gives the dist folder - ang13-training/favicon.ico | index.html | main.js 300kb | polyfill.js | runtime.js
   `,
-  'mobile-laptop-desktop', '- primarily used for writing Front End Appns written in TypeScript which are then transpiled to JS to run on the browser',
-  'Angular CLI (Command Line Interface) uses Webpack - generate parts - build appn or serve browser','-- Components - Directives - Pipes - Services - Modules - classes Change Detection - ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI',
-  'TypeScript','TS Libraries  ',
-  ' - Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time',
+  `- SPA (Single Page Appn) Web Framework - 
+   `,
+  '- mobile-laptop-desktop', '- primarily used for writing Front End Appns written in TypeScript which are then transpiled to JS to run on the browser',
+  '- Angular CLI (Command Line Interface) uses Webpack - generate parts - build appn or serve browser','-- Components - Directives - Pipes - Services - Modules - classes Change Detection - ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI',
+  '- TypeScript','-- TS Libraries  ',
+  `- DI (Dependency Injection) - to avoid ext dependencies threats - 
+  <br/>-- aims to decouplle the impn of services from the components 
+  <br/>-- uses DI design to work efficiency that lets our component classes and modules to be interdept 
+  <br/>-- while maintaining consistency over ext deps injected in our app\'ns - 
+  <br/>-- reduces freq with which class/module base changes 
+  `,
+  '- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time',
+  '-- SSR (Server Side Rendering) - ',
   `-- Add ons - angular/pwa (Progressive Web Appns) and Service Workers - 
     angular/elements - angular/webWorkers - Angular Universal - Angular Material - angular/flex-layout
-    ` 
+    `,
   ], 
+  
   [`Components are the most important part of an Ang appn - they have a @Component decorator with a selector - template and optional style
     <br/>The class can have constructor - properties - methods - events 
     <br/>Can import services into the constructor using DI 
@@ -625,16 +753,45 @@ const subTopicsInfo = [
       `,
       '- Strong Data Types - number | string | boolean | ',
       '-- Inferred Types - TS determines the types',
-      '- interfaces | classes - helps structure Angular structures - note JS does not have interfaces',
+      `- duck typing - powerful feature which brings strong typing concepts in TS code  
+        <br/>type checking that focuses on the shape that values have - checks for properties instead of Objec type
+        `,
+        `- Composite data types - data types that have 1+ fields dynamically linked to fields in another data type
+          <br/>- useful for creating a single data type - refs info in > 1 data source or refs > 1 table or structure in a data source
+        `,
+        `-- Exs of Composite data types - sequence | set | list | Array | table | Record | ftn call | union | intersection   
+        `,  
+      `- Union types - A | B eg   let unionJack : number | string;
+      `,`- intersection types - expressiveness of type system - are composite data types - used to assign diff types to an object
+      <br/>useful for defining overloaded functions  
+      <br/>class Egg { private kind: "Egg" } and class Milk { private kind: "Milk" }
+      `,
+      `- product types - assigned to a tuple `,
+     
+      `- interfaces (custom Object types) - export interface Course{ title: string; descn: string; ageYears: number;} Type definition object   
+      <br/>We can make properties optional by adding a ? at end of property name
+      <br/>- note JS does not have interfaces
+      `,
+      '-- optional properties ageYear?: number - must be at the end of the interface defn export interface Course{ title: string; descn: string; ageYears?: number;}   ',
+      '-- readonly properties - export interface Course{ readonly title: string; descn: string; ageYears: number;}',
+      '--- const myIfObj: Course = { title: \'My Course\', descn:\'My Descn\'',
+      `- Type Aliases - eg can be used with union type - 
+      <br/>type CourseStatus = "draft"| "published" | "unpublished";
+      <br/>  let x: CourseStatus = "draft"; 
+      `,
+      `- classes - helps structure reusable Angular objects  
+        with multiple declarations for methods - properties - events 
+      `,
       '- tooling - auto-completion | navigation | refactoring',  
       '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
     '- .ts files - files with Type Infon - makes data TypeSafe',
     '-- transpilation ts files down to JavaScript files', 
     `- tsconfig.json - identifies the project or appn as a TypeScript appn 
      - <br/> - with this ids root path - CompilerOptions - AngularCompilerOptions
-    `, 
+    `,   
     '-- CompilerOptions',
     '-- AngularCompilerOptions',
+    '--- fullTemplateTypeCheck: true',
     '- JS files - ES5 files - with std JavaScript' , 
     '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files',
     `- Barrels - (index.ts) is a way to rollup exports from several modules into one convenient module
@@ -643,6 +800,39 @@ const subTopicsInfo = [
     <br/> -- components | interfaces | services | directives | pipes
     `,
       '-- index.ts'
+      
+    ],
+    [`lodash - we can easily use lodash in Angular
+      <br/>makes JS simpler and simplifies manipulating ES types 
+      <br/>We can replace lodash _ with ES6 methods - 
+      
+    `,'- simplifies JS ',
+      '- simplifies Array | numbers | objects | strings - manipn',
+      `- ES6 replacements for lodahs
+       - Map -    
+       - Filter
+       - Reduce -
+       -
+       - Head   
+       - Tail 
+       - Rest
+       - spread
+       -      
+       - Curry
+       - Partial 
+       - Operators
+       - Paths
+       - Pick
+       - Constant
+       - Identity
+       - Noop
+       - Chaining
+       - FLow   
+  `,`
+       - Map -    
+       - Filter
+       - Reduce -
+     `  
     ],
     ['- package.json', 
      '- angular.json',  
@@ -662,6 +852,22 @@ const subTopicsInfo = [
     ['Why Style - color-size-position', 
     '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','-- content',
+    ' -- ',     
+    `-- Display property - is the most impt property for displaying layout
+    <br/>Every HTML element has a default display value dept on type of element - normally block or inline
+    `, `--- block - Block level els always start on a new line and takes up the full width available Left and Right
+      <br/>Exs of blocks are div | h1 to h6 | p| form | header| footer| section
+    `,
+    `--- inline - An Inline display does not start on a new line and only takes up as much space as necessare
+    <br/>£xs of Inline are - span | a | img   
+    `,
+    `<br/>display:none - normally used with JS to hide/show els without deleting and recreating them `,
+    ' -- ',     
+    `-- Z-index - specifies the stack order of an element
+    <br/>Only works on positioned elements - 
+    <br/>position: absolute, relative, fixed, sticky - flex items
+    `,
+    '--- position: absolute, relative, fixed, sticky - flex items',
     ' -- ',
     'inline - ext', 
     'ngStyle',
@@ -694,9 +900,77 @@ const subTopicsInfo = [
     '- bootstrap: [AppComponent]',
     '- required by every Ang appn',
     '- Lazy Loading - uses Feature Modules and Shared Modules'
-  ],
- 
-    [`Life Cycle Hooks - A component has a life-cycle that starts when 
+   ],
+   [`- Bootstrapping
+         <br/>reads the angular.json -
+         <b/>Loads the index.html file - app-root 
+         <b/>Loads the main.ts file - ids the AppModule - ids the AppRoutingModule and AppComponent
+         webpack - dep graphs - app.js and vender.js
+    `, 
+    '-- initializing/loading appn - application.json file - loads index.html - app-root - main.ts - AppModule and AppComponent - webpack',
+    `--- angular.json file - 
+    <br/>1: Where to find source of appn 
+    <br/>2: How to build the appn 
+    <br/>3: Which files to refer to for testing -   
+    <br/>4: Where to find the main file (main.ts) - identifies which module to bootstrap  
+    `,
+     `--- Loading index.html etc.
+     <br/>---- first page to be loaded - 
+     <br/>---- <body><app-root></app-root></body>
+     `,
+     '---- 3rd party libs + appn',
+     `---- main.ts
+     <br/>
+
+import { enableProdMode } from \'@angular/core\';
+import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';
+
+import { AppModule } from \'./app/app.module\';
+import { environment } from \'./environments/environment\';
+
+if (environment.production) {
+  enableProdMode();
+}
+  
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+     `,
+     '----- plaformBrowserDynamic - JIT compiles AppModule',
+     `------ AppModule imports the 
+     <br/>BrowserModule (imported only once in the root folder) and 
+     <br/>AppRoutingModule ( imports RouterModule and identifies ComponentRoutes)
+     <br/>identifies which is the main Component - eg AppComponent
+      <br/>
+      @NgModule({
+        declarations: [
+          AppComponent,
+          HelloWorldComponent
+        ],
+        imports: [
+          BrowserModule,
+          AppRoutingModule
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+      })  
+      export class AppModule { }
+     `,
+     '------ BrowserModule - impored only once in the App root',
+     '------ AppRoutingModule - imports RouterModule and Routes and identifies Component Routes',
+     `------ AppComponent - identifies the root Component from which the other Components - Directives - Pipes - Services and other Modules are referenced
+     
+     `,
+     '---- root Module/Component',    
+      `-- Webpack - roams over your appn source code looking for import statements - building a dep graph and emitting 1+ bundles
+      <br/>It can preprocess and minify diff JS files - TS | HTML| CSS 
+      <br/>2 sep dep graphs - 
+      <br/>1: app.js (only appn code) 
+      <br/>2: vender.js (all the vendor deps) 
+      `,
+      '1: app.js',
+      '2: vender.js'
+    ],
+    [  `Life Cycle Hooks - A component has a life-cycle that starts when 
     <br/>Angular instantiates the Component class 
     <br/>and renders the Component view and child views -
     <br/>We can fine tune the hehavior of our components during creatin | update | destruction
@@ -734,7 +1008,36 @@ const subTopicsInfo = [
      ' -- ','- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center',
      '-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
      ' -- ','-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
-     ['Parent Child commn','- @Input()', '- @Output EventEmitter'],
+     [`Parent Child commn - is normally implemented using the @Input() and @Output() decorators.
+     <br/>to share info between a parent and one or more child components 
+     <br/>
+     <parent-component>
+         <child-component></child-component>
+     </parent-component>
+     <br/>
+     `,`- @Input() - lets a parent Component update a child component data 
+       <br/> 
+      `, 
+      `-- Property Binding [] - sets a property on a component class 
+      <br/>
+      `,
+      `--- ngOnChanges() - intercept input property changes 
+      <br/>import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+      <br/>ngOnChanges(changes: SimpleChanges) {
+      <br/>
+        `,
+     `- @Output() - lets a child send data to the parent component
+       <br/>
+    `,
+     `-- Event Binding - () to fire an event
+     
+     `,
+     `  --- EventEmitter() - should have a type of EventEmitter()
+     <br/>@Output() newItemEvent = new EventEmitter<string>()      
+     `,
+     `--- Combine Property and Event Binding by using Banana in a Box 
+     `
+    ], 
      [' -- '],
      ['Lazy Loading - ', '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
     'children', 
@@ -813,11 +1116,22 @@ const subTopicsInfo = [
     '- compares the template expression values before + after an event - for all components of the Component tree',
     '- ChangeDetectionStrategy.onPush()', 
     '- without ngZone'],
-    ['AoT is better due to - ','Compile time build', 'No need for Compiler', '3 Phases - 1:Code Analysis- 2:Code generation- 3:Template type checking',
-    '-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file',
+    [`AoT is better due to - the code is compiled at build time 
+      <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
+
+    `,'Compile time build', 'No need for Compiler', 
+    `3 Phases - 
+    1:Code Analysis- 2:Code generation- 3:Template type checking
+    `,
+    `-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
+   <br/>like a diagram of the overall structure of a decorator's metadata 
+    <br/>metadata is like an AST (Abstract Syntax Tree)      
+    `    ,
     '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
     '-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
-    'Benefits are 1: Executable code loaded - 2: inlines all ext HTML+CSS - 3: finds template errors - 4: Reduces injection attacks - 5: Reduces bundle load of Frmwk'],
+    `Benefits are 1: Executable code loaded - 
+    2: inlines all ext HTML+CSS - 3: finds template errors - 4: Reduces injection attacks - 5: Reduces bundle load of Frmwk
+    `],
     ['Remove dead code from the bundle - unused bits', 
     'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
     'View Engine tree-shakes - Static analysis of code and then compiles whats left'],  
@@ -843,14 +1157,87 @@ const subTopicsInfo = [
      '- BigInt - Dynamic Import - Nullish Coascing - Optional Chaining -   Promise.allSettled - string#matchAll - globalThis - Module Namespace exports - import.meta', 
      'for Libraries - publishing tsconfig.json - "angularCompilerOptions": {"compilationMode": "partial"}- no particular runtime version - '
   ],
-    ['Ivy is new Compilation and Rendering Pipeline using AoT Compilation', 
-    ' - single file compilation - components dont need to know about dependencies',
-    'Incremental DOM - every component gets compiled to a series of instructions - create DOM trees - updated mutably inplace - comprising the compiler',
-    '-- Instructions', 'Libraries', '- ngcc', '- Linker instead', 'Ang Language Service','only recompiles Components that have changed',
-    '- adv Tree Shakeable - Reduced size - faster compilation - enhanced testing + debugging - easier dyn comp loading - mobile exp',
-    'EntryComponents - are no longer required'],
-    ['- ViewEngine old - required to transpile .ts to .js', '- abstract base class - to render template to DOM - can be overridden for Custom Rendering - RendererFactory2', '3 parts -', ' -1: Template Parsing + creating Data Structure', ' 2: passing sructure into Interpreter + Tree Shaking'  ,' 3: Compilation' , '- Interpreter', '--metadata.json file',
-    'contains the static repn of code in a Component','JIT or AOT',
+  [`Ivy is new Compilation and Rendering Pipeline which creates template instructions to render info to the DOM
+  <br/>Does not need an interpreter or metadata.json file nor the ngFactory.js file
+  <br/>It just produces the appComponent.js file from the compilation step
+  <br/>using AoT Compilation by default`,
+  '- enableIvy: true',
+  '- complete rewrite of RE',
+  '- loading is very fast ',
+  '- operates very fast too',
+  '- smaller size',
+  '-- Much more Tree Shakeable',
+  '- compile comps more independently than before',
+  `Locality - single file compilation - components dont need to know about dependencies
+    <br/> - View Engine suffered from the Global Compilation Problem
+    `,
+    '-- Single file - with no other dependencies required ',
+    '-- Components own local infon is used',
+    '--- Recompiles partial changes',
+    `- Incremental DOM - every component gets compiled to a series of instructions - create DOM trees - updated mutably inplace 
+      <br/>
+      `,
+      '-- Decorators to Static Properties - ngComponentDef etc.',
+      '--- ngComponentDef in .d.ts files  ', 
+      '--- no complete code analysis - ',
+    '- Global Compilation problem - whole app needed to be recompiled when a change occurred!',
+    `-- Template instructions - replace the template data and runtime interpreter from the View Engine
+    <br/> - Create the correct DOM on their own  
+    <br/> - replace the ngFactory and metadata.json phase 
+      `,
+      `- no metadata - Renderer2 create a metadata.json file 
+      <br/>Angular ivy does not!
+    `,
+    '- AOT with Ivy is faster and should be used by default',
+    '',
+    `Libraries - used to use the ngcc (Angular Compatability Compiler) to create Angular libraries from View Engine format
+     <br/>ngcc would translate libraries to Ivy format     
+      `, 
+    '- ngcc', 
+    `- Linker can now be used instead of ngcc - since Angualr 11 and especially Ang 13 
+    <br/>
+    `, 
+    '- Partial Compilation - no need for ngcc (Angular 13)',   
+    'Ang Language Service',
+    'only recompiles Components that have changed',
+    `- adv Tree Shakeable 
+     - Reduced size - 
+     - faster compilation 
+     - locality -   
+     - enhanced testing + debugging - 
+     - easier dyn comp loading - 
+     - mobile exp
+     - backwards compaable - 
+    `,
+    'EntryComponents - are no longer required'
+  ], 
+    ['- ViewEngine old - required to transpile .ts to .js', 
+    '- tended to use JIT compilation by default',
+    `3 Phases - 
+    1:Code Analysis- 
+    2:Code generation- 
+    3:Template type checking
+    `,
+    `-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
+   <br/>like a diagram of the overall structure of a decorator's metadata 
+    <br/>metadata is like an AST (Abstract Syntax Tree)      
+    `,
+    '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
+    `-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
+      `,'- abstract base class - to render template to DOM - can be overridden for Custom Rendering - RendererFactory2', 
+    '3 parts -', 
+    '- 1: Template Parsing + creating Data Structure', 
+    '- 2: passing sructure into Interpreter + Tree Shaking'  ,
+    '-- Interpreter', 
+    '-- metadata.json file',
+ '- 3: Compilation', 
+    '-- 2 files generated',
+    '--- 1: Component.js',
+    `--- 2: ngFactory.js - static repn of code in Component.js
+      <br/> generation of this file takes a lot of time and processing
+    `,
+    'contains the static repn of code in a Component',
+    'JIT or AOT',
     `EntryComponent is any component that Angular loads imperatively - not refd in the template - by type 
     <br/>you bootstrap the component in an NgModule - or including it in a routing defn
     <br/>- 1: Bootstrapped Component
@@ -894,15 +1281,32 @@ const subTopicsInfo = [
       <br/>
       <br/>Validation is an integral part of managing any type of forms 
       <br/>Angular provides a set of built-in validators + ability to create custom validators
-      
-      
+      `,
+      `- Form Validation - a web form checks if the infon provided by a user is correct
+      <br/>a: User messed up and get an error message
+      <br/>b: Everything is ok and we can proceed with the regn process   
+      <br/> There is Client side validation (optional) and Server side validation (reqd)
+      `,
+      `-- Client side Validation - ensures all reqd form controls are filled out - in the correct format
+      <br/>important part of good user experience by catching errors on client side - User can fix right away
+      <br/>ensures the data submitted matches the reqts reqd in form controls 
+      `,
+      `-- Server side Validation - is a requirement to make sure the data is correct on the Server  
+      <br/>
       `,
     ' -- ',
-    '- Template Forms', '-- Template directives for object Model','-- ngForm', 'more complex test setup','-- complex validation','',
+    '- Template Forms', 
+    '-- Template directives for object Model',
+    '-- Asynchronous data flow',
+    '-- ngForm', 
+    '-- more complex test setup',
+    '-- complex validation','',
     ' -- ',
     ' --- Template Validation',
     ' -- ',
-    '- Reactive Forms','-- direct access to Object Model','-- Synchronous data flow','simpler test setup','-- simpler validation','-- Data','= new FormControl("")',
+    '- Reactive Forms',
+    '-- direct access to Object Model',
+    '-- Synchronous data flow','-- simpler test setup','-- simpler validation','-- Data','= new FormControl("")',
     ' -- ',
     '--- Reactive Validation'
   ], 
@@ -922,15 +1326,22 @@ const subTopicsInfo = [
      '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
      ],
      ['HTTP CRUD - Create | Read| Update | Delete - operations which the HTTP can use to manipulate data from a server', 
-     'HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http',      
+     `- HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http
+     `,      
+     '-- Angulars mechanism for Communication with a remote Server over HTTP',
+     '-- HttpClientModule - ',
+     ' -- ',
      `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses and modify them the way we wish
       can cache HTTP requests and responses - 
      `,
+     ' -- ',
      `HttpClientInMemoryWebApiModule - angular-in-memory-web-api - for Angular demos and tests that emulates CRUD opns over a RESTify API -      
       is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
       and redirects them to an in-memory data store - that you control on the frontend.
        <br/>angular/in-memory-web-api -  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})   
-      `
+      `,
+      '-- npm install angular-in-memory-web-api --save',
+      '--- HttpClientInMemoryWebApiModule'  
   ],
     ['appns vers custom libraries',
     'Appns',
@@ -1143,6 +1554,7 @@ const subTopicsInfo = [
     '- log - ',
     '- status -',
     ''], 
+
     [`Testing is very important to ensure the validity of your programs and that there are no problems with the code!
       <br/>There are three forms of test 1: Unit 2: Integration 3: End 2 End
       <br/>Unit testing is the simplest and most important type of testing. It normally involves Jasmine and the Karma (Test runner)
@@ -1154,6 +1566,7 @@ const subTopicsInfo = [
       <br/>End to End testing is not so important but using Protractor and the more modern Cypress
       <br/>Protractor has a page object to be shared across diff components - 
     `, 
+    'PoC - Proof of Concept',
     '- Unit', 
     '-- spec.ts', 
     '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
@@ -1222,8 +1635,32 @@ const subTopicsInfo = [
     '- OWASP - a foundation works to improve security of S/W ', 
     '- npm install -g snyk - snyk test - tracks over 23 security vulnerabilities for Angular related Modules'],
     ['Auhtorization', 'Authentication', '- Auth0', '- OAuth2'],
-    ['Node.js'],
-    ['- Node Package Manager'],
+    [`Node.js - 
+    - run time envt that allows us to load JS appns into the server directly
+    - for small and mid sized appns where the data matters 
+    `, 
+    'http://nodejs.org',
+    '- run time envt that allows us to load JS appns into the server directly',
+    `- for small and mid sized appns where the data matters`,
+    `- Chrome V8 JS Engine - is Googles open source high perf JS and WebAssembly engine written in C++
+      <br/>- used in Chrome and Node.js
+    `,
+      '-- Chrome',
+      '-- Node.js',
+    '-- backend JS runtime',
+     '- can generate dynamic pages',
+     '- can CRUD + close files',
+     '- collect form data',
+    '- add|delete|modify db',
+    '- tasks exec on events',
+    '- event - server port',
+    '- files initiated on server',   
+    '--*.js'
+    ],
+    [`npm (Node Package Manager) - 
+    
+    `,
+    `- Yarn`],
     ['- Most popular Web framework - A backend web appn for Node.js for building Web appns and APIs - provides mechanisms for writing handlers for requests with diff HTTP verbs at diff URL Paths- routes ',
     '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
     ],
@@ -1259,6 +1696,7 @@ const subTopicsInfo = [
   '- CD - Continuous Delivery', 
   '-- Jenkins'],
     [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
+     <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
      <br/>Once installed you can interact with webpack either with CLI or API
      <br/>A tool that lets you compile JS modules
      <br/> 
@@ -1279,6 +1717,7 @@ const subTopicsInfo = [
     '- Angular CLI build process uses Webpack behind the scenes for',
     '-- transpile TS to JS',
     '-- transform SASS files to CSS',
+    '-- transpile HTML to JS',
     'module bundler - which lets you bundle JS modules together',
     `- Terser is an industry std minifier for JS code - 
     <br/>Webpack performs minification mode using Terser by default 
@@ -1437,10 +1876,64 @@ const subTopicsInfo = [
    
   ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     ' -- ','- IDL for RESTful APIs expressed using JSON', '-- design & Doc APIs','-- ','-- Interface Defn Language','-- RESTful APIs','-- JSON','-- CRUD methods', 
+    '--- REST Servers',
+    `---- json-server - JS library for mocking REST APIs - npm install -g json-server
+      <br/> requires server.js and a db.json file for your database
+      <br/>(jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+    `,
+    ' -- ',
+    `---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
+      <br/>powerful enough for production usage - 
+      <br/>simple and hackable to be used for testing | local devt | learning
+    `,
     ' -- ','- an API platform for building and using APIs -','-- simplifies each step of the API lifecycle','-- streamlines collaboation with team members',
     ' -- ','- a Query Language for   your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
     ],
-    ['ag-grid'],
+    [`ag-grid - is a fully featured and highly customizable JS data grid - delivering outstanding performance
+    <br/>Fully customizable | ag-grid performance | no 3rd party deps - integrates with Angular
+    <br/>Features - 1: Column-integration - 2: Pagination - 3: Sortable  - 4: Row selection
+    <br/> - <ag-grid></ag-grid>
+    `,
+    `- fully customizable -   
+    `, `- Outstanding performance`,
+     `-- No 3rd party dependencies - `,
+     `-- Integrates with Angular as an Angular Component`,
+     ' -- ',
+     `- Features `,
+     '-- Column integration -   ',
+     '-- Pagination ',
+     '-- Sorting ',
+     '-- Row Selection -',
+     ' -- ',
+
+    `- ag-grid Data - 
+    <br/>
+    export class AppComponent {
+      title = 'app';
+    
+      columnDefs = [
+        {headerName: 'Make', field: 'make' },
+        {headerName: 'Model', field: 'model' },
+        {headerName: 'Price', field: 'price'}
+      ];
+    
+      rowData = [
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxster', price: 72000 }
+      ];
+    }
+    `,
+    `-- ag-grid example
+    <br/>
+    <ag-grid-angular 
+      	style="width: 500px; height: 500px;" 
+      	class="ag-theme-balham"
+      	[rowData]="rowData" 
+      	[columnDefs]="columnDefs">
+    </ag-grid-angular>
+    `
+    ],
     ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
     ['- new WWW -','', ''],
     ['- Ang Versions','Ang 14',
@@ -1464,15 +1957,10 @@ const subTopicsInfo = [
       <br/>new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
       <br/>Angular Error handling - 
       <br/>Angular Elements - 
-      <br/>ative Script - 
+      <br/>Native Script - 
     `  
-  ],
-    
+  ],  
 ];
-/*
-    
-
-*/
 
 @Component({
   selector: 'app-ts-menu',
@@ -1495,8 +1983,6 @@ export class TsMenuComponent implements OnInit {
   tsInfo: string = ``;
 
   constructor() { 
-
-
   }
 
   ngOnInit(): void {
