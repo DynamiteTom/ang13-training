@@ -225,7 +225,7 @@ const subTopics = [
     '- ngZone', '- manual CD', 
     '- automatic CD','- onPush', '- without ngZone'],
     ['Why AOT','Compile time build', 'No need for Compiler','3 Phases','- 1:Code Analysis','- 2:Code generation','- 3:Template type checking','Benefits'],
-    ['Why TreeShake', 'treeshaking in Ivy', 'treeShaking in VE'],
+    ['Why TreeShake', '- dead code', 'treeshaking in Ivy', 'treeShaking in VE'],
     ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
        'Angular 13 APF','- Node package exports', '- es2020 support', '- Ivy partial compilation'
     ],  
@@ -301,12 +301,28 @@ const subTopics = [
   ],
     ['CRUD', 
     '- HttpClient', 
+    '--- based on XHR - Ajax',
+    '-- Fetch API (2017)',
+    '--- based on Promises',
     '-- Commn with remote Http Server',
     '-- HttpClientModule - ',
+    
+    ' -- ',
+     'HttpInterceptors',
+     '- Service',      
+     '- intercepts HTTP Request | Response',
+     '- caches Http Requests | Responsee',
+     '-- Example of interceptor i/f',
+     '--- intercept()',
      ' -- ',
-     'HttpInterceptors', 
-     ' -- ',
-     'Angular/InMemoryWebApi'],
+     'Angular/InMemoryWebApi',
+     '- Angular Demos | Tests ',
+     '- Emulates CRUD ops wrt REST',
+     '- in-memory data store',
+     '-- npm install',
+     '-- HttpClientInMemoryWebApiModule',
+     '--- angular/in-memory-web-api'
+    ],
     ['appns vers custom libraries',
     'Appns',
     'Custom Libraries',
@@ -525,9 +541,18 @@ const subTopics = [
     '- Agile project management tool'
   ],
   [' - Azure'],
-  ['Debugging Angular', 'webpack- '],
+  ['Debugging Angular', '- Chrome Devtools', 'webpack- '],
   ['- Time Travelling Debugger', '-- WinDbg preview app','--- Dump File','---- Analyze Link'],
-  ['- Chrome Developer Tools', '- Elements','- Console', '- Sources', '- Network', '- Performance','- Memory', '- Application', '- Security'],
+  ['- Chrome Developer Tools', 
+  '- Elements','-- select elements','-- ',
+  '- Console', '-- cmd prompt','-- ',
+  '- Sources', '-- debugging','-- ',
+  '- Network', '-- measureing time for ', '-- ',
+  '- Performance','-- render time - CD', '-- ',
+  '- Memory', '-- debug memory over time', '-- ',
+  '- Application','-- inspect all loaded resources', '-- ', 
+  '- Security','-- security of cert + conn\'n'
+],
   ['How - Angular Performance - ','largest contentful paint', '',
          'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
     ],
@@ -1133,8 +1158,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     2: inlines all ext HTML+CSS - 3: finds template errors - 4: Reduces injection attacks - 5: Reduces bundle load of Frmwk
     `],
     ['Remove dead code from the bundle - unused bits', 
+    '- Dead code',
     'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
-    'View Engine tree-shakes - Static analysis of code and then compiles whats left'],  
+    'View Engine tree-shakes - Static analysis of code and then compiles whats left'
+    ],  
      [`APF - Ang Package Format - is an Angular specific specn for the structure and format of npm packages used by all Angular packages @angular/core and Angular libraries etc.
      <br/>compatable with all tooling offere by the Angular team + JS ecosystem + 3rd party developers  
      <br/>Developers can rely on the CLI and ng-packagr to produce packages in the APF 
@@ -1328,20 +1355,46 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      ['HTTP CRUD - Create | Read| Update | Delete - operations which the HTTP can use to manipulate data from a server', 
      `- HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http
      `,      
-     '-- Angulars mechanism for Communication with a remote Server over HTTP',
+     `-- based on XHR (XMLHttpRequest) - API consisting of an object - provided by the browser through its JS engine
+      <br/>-- which can be used to transfer data between a web browser and web server in async way
+      <br/>-- but without have to reload the whole page 
+     `,
+     `-- Fetch API (2017) - i/f for fetching resources (alt to XHR API) - more powerful + flexible way to   
+     <br/>--- based on Promises ( not callbacks) - we need to resolve the response object  
+     `,
+     '--- based on Promises',
+     '--- Angulars mechanism for Communication with a remote Server over HTTP',
      '-- HttpClientModule - ',
      ' -- ',
-     `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses and modify them the way we wish
-      can cache HTTP requests and responses - 
+     `HttpInterceptors - is a special Angular service - provides a way to intercept HTTP Requests and Responses 
+     <br/>and modify them the way we wish
+     <br/> can cache HTTP requests and responses - 
      `,
-     ' -- ',
+     '- Service',
+     '- intercepts an HttpRequest or HttpResponse',
+     '- caches HttpRequests | HttpResponsee',
+     `-- interface HttpInterceptor {
+              intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+         }
+      `,    
+      `--- intercept(HttpRequest<T>, HttpHandler): Observable<HttpEvent> - 
+      <br/>---- HttpRequest<T> - outgoing request object to handle,
+      <br/>---- HttpHandler - next intercepter in the chain (or Backend)
+      <br/>----- Objservable<HttpEvent> - Observable of event stream
+      `,
+      ' -- ',
      `HttpClientInMemoryWebApiModule - angular-in-memory-web-api - for Angular demos and tests that emulates CRUD opns over a RESTify API -      
       is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
       and redirects them to an in-memory data store - that you control on the frontend.
        <br/>angular/in-memory-web-api -  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})   
       `,
-      '-- npm install angular-in-memory-web-api --save',
-      '--- HttpClientInMemoryWebApiModule'  
+      '- Angular Demos | Tests ',
+      '- Emulates CRUD ops wrt REST',
+      '- in-memory data store',
+      '-- npm install angular-in-memory-web-api --save', 
+      '-- HttpClientInMemoryWebApiModule',
+      '--- angular/in-memory-web-api'
+      
   ],
     ['appns vers custom libraries',
     'Appns',
@@ -1859,19 +1912,93 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- help Agile + DevOps'
   ],
   ['Azure - Cloud'],
-  ['Debugging Angular','- Webpack'],
+  [`Debugging Angular - 
+  
+  `,
+  `- Chrome Devtools (Debugger for Chrome)  
+   - Added VS-Code extension - Devtools for Chrome - 
+   <br/>- Opens the Chrome Devtools as a dockable Webview    
+    
+  `,
+  '- Webpack'
+  ],
   ['- Time Travelling Debugger', '- WinDbg preview app','- Dump File','-- Analyze Link'],
   ['Chrome Developer Tools', 
-  '- Elements - gives ability to view and change the DOM and refd CSS - inspect or tweak pages without needing to change source code - find unused CSS - view animations',
-  '- Console - interact with Web page using Cmd prompt CLI - execute code dir in browser for trouble shooting and debugging', 
-  '- Sources - range of features to help id and manage refd objects called by Web page - lets you debug code | create breakpoints | find unused JS',       
-  '- Network - record network requests - measures time taken for each object to render in web page- ids bottlenecks wrt resource loading - slow page loads', 
-  '- Performance - helps optomize website speed - measures els like loading | scripting | rendering | painting + calc render time for each ',
-  '- Memory - ChromeDev Tools feature helps troubleshoot + debug memory related problems - track memory use over time + check memory allocn by element()', 
-  '- Application - inspect all loaded resources - including indexedDB + Web SQL DBs | local/session storage | appn cache | images | fonts | stylesheets',
-  '- Security related info about the pages - checks + verifies security of certificate + connection - Also unencrypted resources'
+  `- Elements - gives ability to view and change the DOM and refd CSS
+  <br/>- manipulate styles directly -  
+  <br/>- inspect or tweak pages without needing to change source code - 
+  <br/>find unused CSS - view animations
+  `,
+  '-- inspects - ','-- ',
+  `- Console - interact with Web page using Cmd prompt CLI 
+  <br/>-- execute code dir in browser for trouble shooting and debugging
+  `,
+  '-- command prompt','-- ', 
+  `- Sources - range of features to help id and manage refd objects called by Web page
+  <br/>- We land here when our debugger statement's are triggered 
+  <br/>-- Add waches and conditional breakpoints   
+  <br/>- lets you debug code | create breakpoints | find unused JS
+  `,
+  '-- debugging - watches | conditional breakpoints','-- ',       
+  `- Network - record network requests -    
+  <br/>-- measures time taken for each object to render in web page
+  <br/>-- ids bottlenecks wrt resource loading
+  <br/>-- slow page loads
+  `, 
+  '','-- ',
+  `- Performance - helps optomize website speed  
+  <br/>-- measures els like loading | scripting | rendering | painting 
+  <br/>-- + calc render time for each
+  `,
+  '-- calc rendering time','-- ',
+  `- Memory - ChromeDev Tools feature helps troubleshoot + debug memory related problems 
+  <br/>-- track memory use over time + check memory allocn by element()
+  `, 
+  '-- memory related problems','-- ',
+  `- Application - inspect all loaded resources 
+  <br/>-- including indexedDB + Web SQL DBs | local/session storage 
+  <br/>-- appn cache | images | fonts | stylesheets
+  `,
+  '-- inspects all loaded resources','-- ',
+  `- Security related info about the pages - 
+  <br/>-- checks + verifies security of certificate + connection
+  <br/>--  Also unencrypted resources
+  `,
+  `-- security of cert + conn'n`
   ],
-  ['How - Angular Performance - ','- sourceMap Explorer','LCP - largest Component Paint  ',' - Lazy Loading','- Angular Universal','- PWA-SW','- Ivy', '- AOT Compilation','- Tree-Shaking', '- Modern Angular'],
+  [`How - Angular Performance - 
+    <br/>-- Ivy 
+    <br/>-- AoT 
+    <br/>-- TypeScript 
+    <br/>-- ES2015 to 2022
+    <br/>-- OnPush CD   
+    <br/>-- Pure pipes
+    <br/>-- Unsubscribe from Observables
+    <br/>-- Lazy loading - 
+    <br/>-- Use trackBy option For Loop
+    <br/>-- Avoid computation in template files
+    <br/>-- Using of PWA - Service Workers 
+    <br/>-- Usage of Web Workers 
+    <br/>-- Webpack -   
+    <br/>-- ESBuild - super fast build tool perf with a super fast JS bundler- without needing cache
+    <br/>-- Terser -
+    <br/>-- cli.cache -   
+    <br/>-- Library - Linker Partial Compilation
+    <br/>-- Optional Modules - stand alone Components 
+    <br/>-- tree shaking - 
+   `,
+  `- sourceMap Explorer
+  <br/>-- 
+  `,
+  'LCP - largest Component Paint  ',
+  ' - Lazy Loading',
+  '- Angular Universal',
+  '- PWA-SW',
+  '- Ivy', 
+  '- AOT Compilation',
+  '- Tree-Shaking', 
+  '- Modern Angular'
+ ],
   ['SourceMap Explorer', 'sourceMaps: true'],
    
   ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
@@ -1934,7 +2061,16 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     </ag-grid-angular>
     `
     ],
-    ['Why Micro-FEs','- WebPack5', '- Module Federation'],  
+    [`Why Micro-FEs (MFEs) - are the idea that 1 SPA can be divided into sep specialised sections 
+      <br/>- that give indept teams E2E ownership  
+      <br/>- Gives dev teams the ability to complet their work independently
+      <br/>-
+    `,
+    `- WebPack5 - 
+    `, 
+    `-- Module Federation - 
+      
+    `],  
     ['- new WWW -','', ''],
     ['- Ang Versions','Ang 14',
     'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
