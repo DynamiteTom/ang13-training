@@ -84,6 +84,8 @@ const features = `
     'Ag-grid',
     'Micro Frontends',
     'Web 3',
+    'Docker',
+    'Kubernettes',
     'Angular Versions'
  `;
 
@@ -98,8 +100,34 @@ const subTopics = [
     '- Server Side Angular',
     '-- Add ons'
     ],
-    ['Why Components - ', '- class', '- template','Decorators','- @Component({})', '-= selector', '-- templateUrl', '-- styleUrl','- Data Binding', '- LC-hooks','-- Component Tree','- Change detection',
-    'this', '- ng g c xyz'],
+    ['Why Components - ', 
+    '- class',
+    '- constructor(){}',
+    '-- properties',
+    '-- methods',
+    '-- Services',
+    '-- Directives',
+    '--- Observables',
+    '--- Subjects',
+    ' -- ', 
+    '- template',
+    '-- pipes',
+    ' -- ', 
+    'Decorators','- @Component({})', 
+    '-= selector', '-- templateUrl', '-- styleUrl',
+    ' -- ', 
+    '- Data Binding', 
+    ' -- ', 
+    '- LC-hooks',
+    ' -- ', 
+    '-- Component Tree',
+    ' -- ', 
+    '- Change detection',
+    ' -- ', 
+    'this','globalThis', 
+    ' -- ', 
+    '- ng g c xyz'
+    ],
     ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
     '- Components'
     ],
@@ -139,7 +167,9 @@ const subTopics = [
     '-- Types of decorators','--- Class','--- Property','--- Event','--- Attribute'
     
   ], 
-    ['Interfaces', '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
+    ['Interfaces',    
+      '- export', 
+    '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
     ['TypeScript',
     '- Strong Data Types',
     '-- Inferred Types',
@@ -197,12 +227,55 @@ const subTopics = [
      '- imports @angular/core',
      'LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
      '- ngAfterContentChecked()', '- ngAfterViewInit()', '- ngAfterViewChecked()','- ngOnDestroy()'],
-    ['ComponentRouter', '- URLs', 'Routes path:\'x\' - component', '<base href=\/"\">', '-- HTML5 Urls', '- router-outlet', '- routerLink', 
-    ' -- ','- Routes','- RouterModule', '-- @angular/router','--- forRoot()','--- forChild()','--- Nested Routes',
-    ' -- ', '- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
-    ' -- ','- Router Guards', '-- Componentless-routes', '-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad',
-    ' -- ','- history','- history.pushState','- older browsers','-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
-    ' -- ','Route Resolver', '- new Comp --routing','-- Lazy Loading'],
+    ['ComponentRouter', 
+    '- URLs', 
+    'Routes path:\'x\' - component', 
+    '<base href=\/"\">', 
+    '-- HTML5 Urls', 
+    '- router-outlet', 
+    '- routerLink',  
+   
+    ' -- ',
+    '- Routes',
+    '- RouterModule', 
+    '-- @angular/router',
+    '--- forRoot()',
+    '--- forChild()',
+    '--- Nested Routes',
+    ' -- ', 
+    '- get Route Info',
+    '-- ActivatedRoute',
+    '-- ActivatedRouteSnapshot',
+    '-- RouterStateSnapshot',
+    '-- .snapshot.paramMap.get(\'id\') ',
+    '-- ParamMap',
+    '- Wildcard Routes **',
+    '-- PageNotFoundComponent','redirectTo()', 
+    ' -- ','- Router Guards', 
+    '-- Componentless-routes', 
+    '-- 5 Guard options',
+    '--- canActivate',
+    '--- canActivateChild',
+    '--- canDeactivate',
+    '--- Resolve',
+    '--- CanLoad',
+    ' -- ',
+    '-- ActivationStart',
+    '-- ActivationEnd',
+    '-- ChildActivationEnd', 
+    '- history',
+    '- history.pushState',
+    '- older browsers',
+    '-- LocationStrategy',
+    '--- PathLocationStrategy',
+    '---- HTML5 style navigation',
+    '--- HashLocationStrategy', 
+    '---- useHash:true',
+    ' -- ',
+    'Route Resolver', 
+    '- new Comp --routing',
+    '-- Lazy Loading'
+  ],
    ['Parent Child communication', 
     '- @Input() decorator','-- Property Binding - []', '--- ngOnChanges()',
     '- @Output()','-- Event Binding - ()', '-- EventEmitter()', '--- [()]', 
@@ -223,8 +296,13 @@ const subTopics = [
     '- zone.js',
     '- ChangeDetectorRef',
     '- ngZone', '- manual CD', 
-    '- automatic CD','- onPush', '- without ngZone'],
-    ['Why AOT','Compile time build', 'No need for Compiler','3 Phases','- 1:Code Analysis','- 2:Code generation','- 3:Template type checking','Benefits'],
+    '- automatic CD','- onPush', '- without ngZone'
+    ],
+    ['Why AOT',
+    'Compile time build', 
+    'No need for Compiler','3 Phases','- 1:Code Analysis','- 2:Code generation','- 3:Template type checking',
+    'Benefits'
+    ],
     ['Why TreeShake', '- dead code', 'treeshaking in Ivy', 'treeShaking in VE'],
     ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
        'Angular 13 APF','- Node package exports', '- es2020 support', '- Ivy partial compilation'
@@ -250,7 +328,7 @@ const subTopics = [
     '-- Template Instructions', 
     '-- no-metadata',
     '- AOT by default',  
-     '',
+    
     'Libraries', '- ngcc', '-- Linker instead', '-- Partial Compilation',
     'Ang Language Service','Compilaion of changes',
     'Ivy - Advantages',
@@ -258,7 +336,6 @@ const subTopics = [
     ],
     ['- ViewEngine old', 
     '- Renderer2', 
-    '- JIT by default',
     '3 parts -', 
     ' -1: Template Parsing',
     '-- Interpreter', 
@@ -397,8 +474,81 @@ const subTopics = [
       
     ],
     ['GIT',
-    '- Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository','Branches','Fork','stash',
-    '- Commands - ','- Add','- fetch','- branch','- checkout', '- commit','- init','- push','- pull','- log','- status',
+    '- Parts',
+    ' -- ',
+    '- Working tree (directory)',
+    '--- current work files',
+    '----- history files + changes',
+    '--- current state of project',
+    '----- including any changes',
+    '--- git init cmd',
+    '----- git folder - history',
+    '----- working directory - ',
+ ' -- ',   
+    '- Staging area',
+    '--- Git index',
+    '----- Prepare Commits',
+    '------- files for next commit',
+    '----- Git add',
+    '------- adds to Stage Area',
+    '------- hashes WT files',
+    '--------- stored as Objects',     
+    '----- Git commit -',
+    '------- Staged Changes',
+    '------- Name changes',
+    ' -- ',
+    '- Local Repository',
+    '--- Local computers',
+    '------ git Push',
+    ' -- ',
+    '- Remote Repository',
+    '--- Server for Team',
+    '------ git Pull',
+    ' -- ',  
+    '- Branches',
+    '--- lightweight movable ptr',   
+    '----- Commits',
+    '----- Snapshot of changes',
+    '------- New branch per change',
+    '--- default = master',
+    '----- MASTER',
+    '------- naming for Branch',
+    '----- after clone',
+    '------- Local Repo - Master',
+    '------- Repos default Branch',
+    '- View branches',      
+    '--- local - git branch',
+    '--- remote - git branch -r',
+    '--- all - git branch -a',
+    ' -- ',
+    '- git checkout',
+    '--- only 1 branch checked out',
+    '----- HEAD branch',
+    '------- active = current',
+    '--- navitate between branches',
+    '----- updates files Work Dir',
+    '------- work dir = branch',
+    '----- record all new commits',
+    '--- HEAD = branch name',
+    '----- attaches to master',
+    ' -- ',
+    '- Fork',
+    '--- completely indept copy',
+    ' -- ',
+    '--- git clone',
+    '----- server repo',
+    '----- linked copy of repo',
+    '------- hosting service',
+    '------- BitBucket',
+    ' -- ',
+    '- stash',
+    '--- temp Shelves changes',
+    '--- record work dir + index',
+    '--- Clean Working directory',
+    ' -- ',    
+    '- Commands - ',
+    '- Add','- fetch','- branch',
+    '- checkout', '- commit','- init','- push','- pull','- log','- status',
     '- GitHub'
     ], 
     ['Testing', '- PoC',
@@ -493,8 +643,24 @@ const subTopics = [
     '-- on-premise - ',
     '-- hybrid -',
     '-- multicloud -',
-    '-- at the edge -'
-  
+    '-- at the edge -',
+  ' -- ',
+  '- Serverless',
+  '-- Cloud based architecture',
+  '-- FAAS (Ftn as a Service)',
+  '-- Advantages',
+  '--- AWS S3',
+  '---- AWS Lambda',
+  '----- AWS Lambda Properties',
+  '----- AWS Lambda Reqts',
+  '----- AWS Lambda Users',
+  '----- AWS Lambda Uses',
+  '----- AWS Lambda Languaged',
+  '----- AWS Lambda Advantages',
+  '----- AWS Lambda Limitations',  
+  '--- Deployment', 
+  '--- Dynamic Data',
+  '--- Node.js'
   ],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
     [' -- '],
@@ -580,8 +746,49 @@ const subTopics = [
       '- ag-grid data',
       '-- ag-grid ex',
     ],
-    ['Why Micro-FEs','- WebPack5', '- Module Federation'],
-    ['- new WWW -','', ''],
+    ['Why Micro-FEs',
+     '- MicroService in a browser',
+     '- Multiple MFEs',
+     '- Shell',
+     '- Sep domains', 
+     '-- Diff teams', 
+     '- Idea- composition of features',
+     '-- slice larger appn up', 
+     ' -- ',
+     '- WebPack5', 
+     '-- Module Federation',
+     ' -- ',
+     '- Ang CLI | Webpack confign',
+     '-- webpack.config.js ',
+     '-- ModuleFederationPlugin',
+     '-- create mult sep builds', 
+     '-- loads MFEs at runtime',
+     ' -- ',  
+     '- Shell (Host)',
+     '--- Shell\'s webpack.config',
+     '--- Shell defines Shared libs',
+     '--- singleton|strictVersion',
+     '--- Dynamic imports- ESMs',
+     ' -- ',
+     '- MicroFrontEnd - Remote',
+     '-- MFE\'s webpack.config',
+     '-- exposes ESMs',
+     '-- remoteEntry.js',  
+     '-- metadata',
+     '--- shared libraries',
+     '- (not) dynamic imports',
+     ' -- ',
+     '- Dynamic MicroFrontEnds', 
+     '-- runtime',
+     '--- loadRemoteModule()',
+     '---- '
+    ],
+     ['Web 3 - new WWW -','- DApps', '- Blockchain technology', 
+    '-- Ethereum','--- Turing complete','--- inherent decentralization','--- native token ETH (Ether)  ',
+    '-- for Everyone'
+    ],
+    ['- Docker ', '-- Docker images', '-- Docker Container'],
+    ['- Kubernetties K8s', '-- Clusters', '-- Open source system', '--- automating deployment','--- scaling','--- management','---- containerized appns'],
     ['- Ang Versions','Ang 14','Ang 13', 'Ang 12','Ang 11','Ang 10','Ang 09','Ang 08','Ang 07',]
 ];
 
@@ -632,19 +839,41 @@ const subTopicsInfo = [
     <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
     <br/>can use this to ref data or methods in the Component - 
   `, 
-      'defines the properties and methods including constructor and events of a Component - Directive - Pipe - Service - Module', 
+      'A class - defines the properties and methods including constructor and events of a Component - Directive - Pipe - Service - Module', 
+      '- constructor(){}',
+      '-- properties',
+      '-- methods',
+      '-- Services',
+      '-- Directives',
+      '--- Observables',
+      '--- Subjects',
+      ' -- ',   
       'name of the External HTML file or inline HTML <br/>  templateUrl: \'./ts-menu.component.html\' or "Hello World" - Note directives dont have a template file',
-      'Decorators - eg @Component - define metadata for Angular annotations to class',
+      '- Pipes', 
+      ' -- ',   
+      'Decorators - eg @Component - define metadata for Angular annotations to class',  
       'decorator which defines the selector - template and styles of the Component', 
       '-- tag which can be used to install the Component', 
-      '-- HTML part of the Component', 
+     
+      '-- HTML part of the Component',
       '-- styles of the Component', 
+      ' -- ',   
       '-- Interpolation {{}} - Property [] - Event () - [( )]',
+      ' -- ',   
       `- ngOnChanges() - ngOnInit() most popular - ngDoCheck()- ngAfterContentInit() 
       - ngAfterContentChecked() - ngAfterViewInit() - ngAfterViewChecked() - ngOnDestroy()`,
+      ' -- ',   
       '-- Component Tree - is all components in the appn in a tree branching structure with each Component having a CD mechanism',
+      ' -- ',   
       '--- applied to every Component  to detect when the Component properties have changed ',
-      'this refs all properties or methods or events of a Component',
+      `this - used in browsers at the top level of your program to ref a global object 
+      <br/>- refs all properties or methods or events of a Component
+      <br/>- this.foo = 135;  console.log('object val foo is ', this.foo);   
+      `,
+      `globalThis - to combine things like the global object in different environments
+      <br/> browsers | Web Workers | 
+      <br/> this.foo === windows.foo is true      
+      `,
       'generate a new Component'
     ],
     [`Directives are classes that add extra behavior to elements in Angular appns 
@@ -762,7 +991,11 @@ const subTopicsInfo = [
      '- @Component - @Directive @Pipe @Injectable  @NgModule - @Input @Output @ViewChild @ContentChild ',
      '-- Types of decorators','@Component','@Input or @Output','@HostListener','@Injectable'
     ], 
-    ['Interfaces - define a contract with properties and or methods -', 
+    [`Interfaces - define a contract with a set of properties and or methods - to be implemented by a class
+      <br/>export interface IGame:{ prop1: number; prop2: string; prop3: number;}
+
+    `,
+    '- export', 
     ' - export interface IGame{ gameId: number, gameName: string, gameCode: string, etc. }', 
       'Classes - can implement interfaces and must bind by the contract - can have constructor| properties| methods| events',
       '- constructor - important for DI of services', 
@@ -1016,22 +1249,35 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      '- ngAfterViewInit() - (called once after ngAfterContentChecked) Responds after Ang Initialises Comp View + Child Views      ', 
      '- ngAfterViewChecked() - Responds after Ang checks Comp View + Child Views - (After every ngAfterContentChecked + ngAfterViewInit()_',
      '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '],  
-     [`ComponentRouter - to handle the navigation from 1 view to the next - Interpreting browser URLs as an instn to change view -
-     ng new ang-app --routing --defaults using the Angular CLI to generate a basic Ang appn with routing enabled 
+     [`ComponentRouter - to handle the navigation from 1 view to the next 
+     <br/>- Interpreting browser URLs as an instn to change view -
+     <br/>ng new ang-app --routing --defaults 
+     <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
      <br/>We can use ActivatedRoute and to get data about the Routes
     <br/><router-outlet></router-outlet> lets us position the routing infon in our Component template -
     <br/>   
      <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
      <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
      <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
-     
      `,
-     '- interprets a browser URL to change View', 'routes:Routes = [{path:"first-comp",component: FirstComponent}]','<base href=\/"\">', '-- HTML5 Urls', '- <router-outlet></router-outlet> location where the router links will go', '- <a routerLink="/first_comp">link</a>','--- Nested Routing', 
-     ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)','RouterModule.forChild(routes) - lazy load the Component or Module',
+     '- interprets a browser URL to change View', 
+     'routes:Routes = [{path:"first-comp",component: FirstComponent}]',
+     '<base href=\/"\">', 
+     '-- HTML5 Urls', 
+     '- <router-outlet></router-outlet> location where the router links will go', 
+     '- <a routerLink="/first_comp">link</a>',
+     ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)',
+     '-- RouterModule.forChild(routes) - lazy load the Component or Module',
+     '- Nested Routes - ',
      ' -- ','- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
-     ' -- ','- Router Guards','Componentless-routes','-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate','--- Resolve','--- CanLoad', 
-     ' -- ','- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center',
-     '-- LocationStrategy','--- PathLocationStrategy','---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
+     ' -- ','- Router Guards','Componentless-routes','-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate',
+     '--- Resolve',
+     '--- CanLoad', 
+     ' -- ',
+     `- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center
+     `,
+     '-- LocationStrategy','--- PathLocationStrategy',
+     '---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
      ' -- ','-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
      [`Parent Child commn - is normally implemented using the @Input() and @Output() decorators.
      <br/>to share info between a parent and one or more child components 
@@ -1064,9 +1310,12 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      `
     ], 
      [' -- '],
-     ['Lazy Loading - ', '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
+     [`Lazy Loading - 
+     `, 
+     '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
     'children', 
-    '- Feature Modules - import CommonModule instead of BrowserModule (imported once in the root)',
+    `- Feature Modules - import CommonModule instead of BrowserModule (imported once in the root)
+    `,
     `ng g m CustFeature - creates a Module called CustFeatureModule 
     <br/>
     import { NgModule } from '@angular/core';
@@ -1140,10 +1389,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- manual CD', 
     '- compares the template expression values before + after an event - for all components of the Component tree',
     '- ChangeDetectionStrategy.onPush()', 
-    '- without ngZone'],
+    '- without ngZone'
+  ],
     [`AoT is better due to - the code is compiled at build time 
       <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
-
     `,'Compile time build', 'No need for Compiler', 
     `3 Phases - 
     1:Code Analysis- 2:Code generation- 3:Template type checking
@@ -1238,23 +1487,34 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `,
     'EntryComponents - are no longer required'
   ], 
-    ['- ViewEngine old - required to transpile .ts to .js', 
+    [`- ViewEngine old - legacy compilation and rendering pipeline
+    <br/>
+    `, 
     '- tended to use JIT compilation by default',
-    `3 Phases - 
+    `- 3 Phases - 
     1:Code Analysis- 
     2:Code generation- 
     3:Template type checking
     `,
-    `-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
-   <br/>like a diagram of the overall structure of a decorator's metadata 
-    <br/>metadata is like an AST (Abstract Syntax Tree)      
+    `-- Code Analysis - 
+    -1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
+    <br/>like a diagram of the overall structure of a decorator's metadata 
+     <br/>metadata is like an AST (Abstract Syntax Tree)      
     `,
-    '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
-    `-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
-      `,'- abstract base class - to render template to DOM - can be overridden for Custom Rendering - RendererFactory2', 
-    '3 parts -', 
+    '--- Interpreter ',
+    '--- metadata.json file - ',
+    `-- 2 - Code Generation - 
+    --- Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector 
+      <br/>+ check for metadata errors 
+       <br/>passing sructure into Interpreter + Tree Shaking
+    `,
+    `-- Template Type Checking - 
+    -3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
+      `,`- abstract base class - to render template to DOM - 
+      can be overridden for Custom Rendering - 
+      RendererFactory2`, 
     '- 1: Template Parsing + creating Data Structure', 
-    '- 2: passing sructure into Interpreter + Tree Shaking'  ,
+    '- 2: '  ,
     '-- Interpreter', 
     '-- metadata.json file',
  '- 3: Compilation', 
@@ -1263,9 +1523,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `--- 2: ngFactory.js - static repn of code in Component.js
       <br/> generation of this file takes a lot of time and processing
     `,
-    'contains the static repn of code in a Component',
-    'JIT or AOT',
-    `EntryComponent is any component that Angular loads imperatively - not refd in the template - by type 
+    '--- application.js file',
+    'ngFactory.js file - contains the static repn of code in a Component',
+    '--- JIT or AOT',
+    `-- EntryComponent is any component that Angular loads imperatively - not refd in the template - by type 
     <br/>you bootstrap the component in an NgModule - or including it in a routing defn
     <br/>- 1: Bootstrapped Component
     <br/>- 2: A Component you specify in a route defn
@@ -1591,12 +1852,91 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/> - Stashing - lets you change to a diff project and store the current staged file info 
     <br/>- Staging and Committing -  
     `,
-      'Parts','- Working tree', '- Stage area','- Local Repository','- Remote Repository',
-      'Branches - ',
-      'Fork - ',
-      'stash - ',
-    'Commands - ',
-    '- Add - ',
+      `Parts - ---Working tree | Staging area | Local repository
+      `,
+      ' -- ',
+      '- Working directory', 
+      '--- current work files', 
+      '----- history of all the files + changes',
+      '--- current state of project',
+      '----- including any changes that have been made to files',
+      '--- git init cmd',
+      '----- git folder - history of project',
+      '----- working directory - ',
+   
+      ' -- ',  
+      `- Staging area - holds files to be used in the next commit 
+      <br/> -- lets git know what file changes will exist in next commit
+      `,
+      `--- Git index - a crucial Git data structure
+      <br/>---- Staging Area between files on Git filesystem and commit history 
+      `,
+      '--- Prepare Commits',
+      '----- files for next commit',
+      `--- Git add - adds a change in working directory to Staging Area
+        <br/>Nothing changes until the git commit 
+      `,
+      '----- adds to Staging Area',
+      '----- hashes WT files',
+       '------- stored as Objects in Staging Area',     
+      `--- Git commit - save Staged Changes to the local repository`,
+      '----- Staged changes',
+      '------- Name changes',
+      ' -- ',
+      '- Local Repository',
+      '-- Local computers',
+      '---- git Push',
+      ' -- ',
+      '- Remote Repository',
+      '-- Server for Team',
+      '---- git Pull', 
+      ' -- ', 
+       'Branches - ',
+       '--- lightweight movable ptr',   
+       '----- Commits',
+       '----- Snapshot of changes',
+       '------- New branch per change',
+       '--- default = master',
+       '----- MASTER',
+       '------- naming for Branch',
+       '----- after clone',
+       '------- Local Repo - Master',
+       '------- Repos default Branch',   
+       '--- View branches',      
+       '----- local - git branch',
+       '----- remote - git branch -r',
+         '----- all - git branch -a',
+         ' -- ',
+         '- git checkout',
+         '--- only 1 branch checked out',
+         '----- HEAD branch',
+         '------- active = current',
+         '--- navitate between branches',
+         '----- updates files Work Dir',
+         '------- work dir = branch',
+         '----- record all new commits',
+         '--- HEAD = branch name',
+         '----- attaches to master',
+         ' -- ',
+       `- Fork - is a copy of a repository 
+       `,
+       '--- completely indept copy of a repo (not linked)',
+       ' -- ',
+       `--- git clone - 
+           <br/>-- a git clone op exec on remote repo -  
+      `,
+       '----- server repo',
+       '----- linked copy of repo',
+       '------- hosting service',
+       '------- BitBucket',
+       ' -- ',
+       '- stash',
+       '--- temp Shelves changes',
+       '--- record work dir + index',
+       '--- Clean Working directory',
+       ' -- ',    
+       '- Commands - ',
+     '- Add - ',
     '- fetch - ',
     '- branch - ',
     '- checkout -',
@@ -1635,7 +1975,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ','Dont Repeat Yourself', 
     ' -- ',' Dep Injection is important for Scalability - large appns - Services injected into many Components', 
     ' -- ',
-    `- ensure there is onl 1 instance of the class - getInstance or DI system 
+    `- ensure there is only 1 instance of the class 
+    - getInstance or DI system 
      <br/> Services defined in the root (not those in Components which are instantiated for each Component)
     `,  
     ' -- ','- Instantiate diff child objects - of same parent Class dept on conditions - <br/>Object Creation Interface',    
@@ -1672,7 +2013,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- init creative collabn between technical and domain experts to iteratively refine a model wrt domain problems',
     ],
     [`Angular Security -   
-    
+       XSS | CSRF - Dom Sanitiser -   
     `, 
     '- XSS (Cross Site Scripting Vulnerability) - allows attacker to control users appn in browser',
     '-- Angular auto-escaping for {{}} interpolation', 
@@ -1818,7 +2159,88 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- on-premise - ',
     '-- hybrid -',
     '-- multicloud -',
-    '-- at the edge -'  
+    '-- at the edge -',
+    ' -- ',
+    `- Serverless - Angular - Cloud based architecture
+    <br/>-- FAAS (Function as a Service)
+    <br/>lets users to write + deploy code 
+    <br/>without worrying about underlying architecture  
+    <br/>- written using Node.js - dev'd for building appns on AWS Lamda - 
+    <br/> - no need to maintain your own servers  
+    `,
+    '-- Cloud based architecture',
+    '-- FAAS',
+    '-- Advantages',
+    `--- AWS S3 -   
+     Serverless S3 service - requires an AWS Account
+     <br/>5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
+     <br/>20000 get requests <br/>2000 put requests
+     <br/>
+     <br/>S3 Bucket name - unique amongst all AWS accounts  
+     <br/>Select region -  
+    `,
+    `--- Properties
+    <br/>Versioning
+    <br/>Server access logging
+    <br/>Static website hosting - entry page and error page  
+    <br/>Object level logging -
+    <br/>Default encryption -
+    <br/>Object lock
+    <br/>Tags - 
+    <br/>Transfer acceleration -
+    <br/>Events
+    <br/>Requester pays
+    `,
+     `-- AWS Lambda - Serverless Event driven compute service
+     <br/>--- lets you run code for virtually any type of app'n or backend service 
+     <br/>--- automatically manages the computing resources reqd 
+     <br/>--- without worrying about the infrastructure of servers or OS or clusters or Networking
+     `, `----- AWS Lambda Reqts - Computing Service | DB | HTTP Gateway Service 
+     <br/>------ DynamoDB and RDS is the bases of a Serverless soln    
+     `,
+     `--- AWS Lambda Users - create functions - self contained appns  
+     <br/>---- written in a supported language and runtimes 
+     <br/>---- uploaded to AWS Lambda for effic exection     
+     `,`--- AWS Lambda Uses  
+     <br/>---- Serving web pages
+     <br/>---- Processing streams of data 
+     <br/>---- Calling APIs 
+     <br/>---- Integrating with other AWS Services
+     `,
+     `--- AWS Lambda Languages - 
+     <br/>---- Node.js 8.1 | 10| 12| xxx
+     <br/>---- Python   
+     <br/>---- Ruby 
+     <br/>---- Java 8 | 11 
+     <br/>---- Go 1.x
+     <br/>---- C# Net Core 1.0 | 2.1   
+     <br/>---- Powershell Core 6.0
+     `,`--- AWS Lambda Advantages -
+     <br/>---- Pay per use
+     <br/>---- Fully managed infrastructure
+     <br/>---- Automatic scaling 
+     <br/>---- Tight integration with other AWS products
+     `,`--- AWS Lambda Limitations -
+     <br/>---- Cold Start Time
+     <br/>---- Function Limits
+     <br/>------ Execute time/run time 15 minutes       
+     <br/>------ Memory RAM - 128MB to 3008MB with 64MB Step   
+     <br/>------ Zipped package code size < 50MB - Unzipped < 250MB
+     <br/>------ Concurrency < 1000 
+     <br/>------ Payload Size < 10MB that API Gateway can handle            
+     <br/>---- Not always cost effective - 
+     <br/>----- Maybe AWS EC2 might be better in some cases  
+     <br/>---- Ltd number of supported runtimes
+     `,
+     `--- Deployment - 
+     
+     `,
+     `--- Dynamic Data 
+    
+    
+    `,`--- Node.js
+    
+    `  
 ],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
     [' -- '],
@@ -1911,7 +2333,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ',
     '- help Agile + DevOps'
   ],
-  ['Azure - Cloud'],
+  ['Azure - Cloud'
+
+
+  ],
   [`Debugging Angular - 
   
   `,
@@ -1962,7 +2387,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   '-- inspects all loaded resources','-- ',
   `- Security related info about the pages - 
   <br/>-- checks + verifies security of certificate + connection
-  <br/>--  Also unencrypted resources
+  <br/>-- Also unencrypted resources
   `,
   `-- security of cert + conn'n`
   ],
@@ -2014,11 +2439,24 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>simple and hackable to be used for testing | local devt | learning
     `,
     ' -- ','- an API platform for building and using APIs -','-- simplifies each step of the API lifecycle','-- streamlines collaboation with team members',
-    ' -- ','- a Query Language for   your API - provides a complete descn of data in the API','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
+    ' -- ',
+    `GraphQL-a Query Language for   your API 
+    <br/>- provides a complete descn of data in the API
+    `,
+    '-- Quey language for API',
+    '-- description of data in API',
+    '-- Server side runtime',
+    `--- exec queries`
     ],
-    [`ag-grid - is a fully featured and highly customizable JS data grid - delivering outstanding performance
-    <br/>Fully customizable | ag-grid performance | no 3rd party deps - integrates with Angular
-    <br/>Features - 1: Column-integration - 2: Pagination - 3: Sortable  - 4: Row selection
+    [`ag-grid - is a fully featured and highly customizable JS data grid 
+    <br/>- delivering outstanding performance
+    <br/>Fully customizable | ag-grid performance | no 3rd party deps 
+    - integrates with Angular
+    <br/>Features - 
+    1: Column-integration - 
+    2: Pagination - 
+    3: Sortable  - 
+    4: Row selection
     <br/> - <ag-grid></ag-grid>
     `,
     `- fully customizable -   
@@ -2062,40 +2500,150 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `
     ],
     [`Why Micro-FEs (MFEs) - are the idea that 1 SPA can be divided into sep specialised sections 
-      <br/>- that give indept teams E2E ownership  
-      <br/>- Gives dev teams the ability to complet their work independently
-      <br/>-
+    <br/>- Gives dev teams the ability to complete their work independently
+    <br/>- Shell (Host) - 
+    <br/> -- 
+    <br/>- MFE (MicroFrontEnd) - Remote -  
+    <br/>- that give indept teams E2E ownership  
+    <br/>- defines the Urls at compile time -
     `,
-    `- WebPack5 - 
+    '-- MicroService in a Browser',
+    '- Multiple MFEs (MicroFrontEnds)',
+    `- Shell - loads MFEs into a Shell appn on demand 
+    <br/>-- Webpack 5\'s Module Federation simplifies this wrt before 
+    `,
+    `- Sep domains`,
+    `-- Diff teams`,
+    '- idea - composition ',
+    '-- slice larger appn up', 
+    ' -- ',
+    `- WebPack5 - now has module Federation
+    <br/>lets us integrated multiple MFEs
     `, 
-    `-- Module Federation - 
-      
-    `],  
-    ['- new WWW -','', ''],
-    ['- Ang Versions','Ang 14',
+    `-- Module Federation (plugin) - lets us integrate multiple MFEs   
+    <br/>--- Libraries can be shared at runtime among the MFEs 
+    <br/>--- ng add @angular/architecture/module-federation  
+    `,
+    ' -- ',
+    `-- Angular CLI is generating most parts of the Webpack confign 
+      <br/>--- ModuleFederationPlugin that ships with Webpack
+    `,
+    '- webpack.config.js ',
+    '--- ModuleFederationPlugin - that ships with Webpack',
+    '--- create mult separate builds comprising 1 appn',
+    '--- loads MFEs at runtime',
+    ' -- ',
+    `-- Shell (Host)
+    <br/>Maps URLs in Webpack config
+    <br/>remotes: { mfe1: "mfe1"}
+    `,
+    `--- Shell\'s webpack.config.js - is simple
+     <br/>---- just define the shared libraries        
+    `,
+    '------ Shell defines Shared   libs',
+    `ModuleFederationPlugin - shared: share({
+       "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto'} 
+    }) `,
+    '------ Dynamic Imports for ESMs',
+    ' -- ',
+    `-- MFE (Remote)
+    <br/>Exposes files in webpack.config 
+    <br/>expose: { Cmp: './my.cmp.ts'}
+    `,
+    `--- MFE\'s webpack.config.js - is more complex
+    `,
+    `---- MFE - exposes ESMs (EcmaScript Modules) for the Host
+    `,
+    `----- fileName: "remoteEntry.js",exposes: {\'./AddressModule\': \'xxx/address.module.ts\',}
+    <br/> ---- The fileName points to a file - webpack generates when building the project
+    <br/> ---- The Remote Entry Point - remoteEntry.js 
+    <br/> ---- generates all the metadata - the shell needs to load the MFE
+    `,
+    '----- generates metadata',    
+    '--- shared libraries', 
+    `---- TypeScript Compiler doesn\'t know about file mfe1/AddressModule
+    <br/> ----- needed a type definition .d.ts 
+    `,
+
+    '- cant use dynamic imports',
+    ' -- ',
+    '- Dynamic MicroFrontEnds', 
+    '-- We can tell Module Federation about MFEs at runtime',
+    `--- loadRemoteModule() 
+      <br/> ---- @angular-architects/module-federation - 
+      <br/> ---- along with Lazy routes - 
+    `,
+    '---- ng serve shell',
+    '---- ng serve mfe1',
+    ],  
+    [`Web 3 - new WWW - based on blockchain technology
+    <br/>- based on decentralised Web and token based economics - 
+    <br/>- Ethereum decentralised apps (DApps) that run on the blockchain
+    <br/>- Allow anyone to participate without monitising personal data
+    <br/>
+    `,
+    `- DApps - 
+    <br/>
+    `,
+    `- based on blockchain technology
+    `, 
+    `-- Ethereum
+    `,
+    '--- Turing complete means you can program anything',
+    '--- Decentralised ',
+    '--- native token ETH (Ether) - has payments built in',
+    '--- Anyone welcome'],
+    [`Docker - open platform for developing | shipping | running appns 
+    <br/>- lets you separate appns from infrastructure - 
+    <br/>- so you can deliver S/W quickly 
+    <br/>- manage infrastructure like you manage your appns   
+    `,
+    `- Docker images - are usually very small - rapid delivery 
+    <br/>-- reduces time to deploy new application containers 
+    <br/>-- reduces effort and risk of problems with appn deps 
+     `,
+     `- Docker Container -  Build | Share | Run appn
+     <br/>-- an image is a lightweight | standalone | exec package of S/W
+     <br/>-- that includes everything needed to run an appn code | runtime | system tools | system libs | seettings
+     `
+  ],
+  [`- Kubernetties K8s
+  <br/>-- Cluster orchestration system  
+   
+  `,
+  `-- Clusters - 
+  `, 
+  `-- Open source system`, 
+  `--- automating deployment`,
+  `--- scaling`,
+  `--- management`,
+  `---- containerized appns`
+    ],
+    ['- Ang Versions',
+    'Ang 14',
     'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
     'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
-    'Ang 11 TS 4.0 - Font inlining - ESLint - Stricter types - HMR Hot Module Replacement - Partial Compilation - Linker - no ngcc - Webpack 5 Moduoe Fedn',  
-    'Ang 10 TS 3.9 - major release - new default browser config - Ivy Ngcc - optional strict - Perf improvements - ModuleWithProviders<T>',
-    `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size 
-        ModuleWithProviders - Language Service - Faster Testing with ComponentHarness - 
+    `Ang 11 TS 4.0 - Font inlining - ESLint - Stricter types - HMR Hot Module Replacement - Partial Compilation - Linker - no ngcc - Webpack 5 Moduoe Fedn
+    `,  
+    `Ang 10 TS 3.9 - major release - new default browser config - Ivy Ngcc - optional strict - Perf improvements - ModuleWithProviders<T>
+    `,
+    `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size
+        ModuleWithProviders - Language Service - Faster Testing with ComponentHarness
     `,
     `Ang 08 TS 3.4 - Differenctial Loading - ES5 | ES2015 - 
     <br/>new lazy loading syntax - uses dynamic import syntax -    
     <br/>Simplifies Web Worker creation -   ng g 
     <br/>new APIs 
     <br/>bazel and Ivy are coming - 
-    `,
-    `Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
+    `,`Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
       <br/>Performance improvements -reflect-metadata polyfill - 
-      <br/> CLI prompts       '
+      <br/> CLI prompts       
       <br/>Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
       <br/>new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
       <br/>Angular Error handling - 
       <br/>Angular Elements - 
       <br/>Native Script - 
-    `  
-  ],  
+  `],  
 ];
 
 @Component({
@@ -2127,7 +2675,7 @@ export class TsMenuComponent implements OnInit {
   }
 
   getInfo(i: number, j: number){
-      this.tsInfo = subTopicsInfo[i][j];       
+      this.tsInfo = subTopicsInfo[i][j] as string;       
       this.tsFeatureSubIndex = j;
   }
 
