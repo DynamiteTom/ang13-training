@@ -96,6 +96,7 @@ const subTopics = [
     'TypeScript',
     'TS Libraries',
     '- DI (Dependency Injection)',
+    '--- design pattern',
     'Angular Universal',
     '- Server Side Angular',
     '-- Add ons'
@@ -132,14 +133,22 @@ const subTopics = [
     '- Components'
     ],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'],
-    ['Why Services','wrt Components','Reuse',
-    '- DI - dep Injection',
-    '- DI Tokens',
+    [`Services - 
+    <br/> -  
+    `,
+    '-- wrt Components',
+    '-- Injector Hierarchy DI system',
+    '---- Injector Tree',
+    '------ Providers',
+    '----- Reuse',
+    '- DI - Dep Injection',
+    '--- Design pattern',
+    '--- DI Tokens',
     '-- DI parts',
-    '-- Dependency Provider',
-    '-- Defining Providers',
-    '--- provide example',
-    '--- provider-definition key',
+    '---- Dependency Provider',
+    '---- Defining Providers',
+    '------ provide example',
+    '------ provider-definition key',
     '-- Providers with deps',
     '--- aliasing class providers',
     '--- aliasing class interface',
@@ -695,20 +704,46 @@ const subTopics = [
     ['Jira',
     '- teamwork',
     '- Boards',
-    '-- Create an Agile Board'  ,
+    '-- Create an Agile Board',
     ' -- ',
-    '--- Team Management Board','---- Simplified board',
+    '--- Team Management Board',
+    '---- Simplified board',
     ' -- ',
-    '--- Scrum Board','---- Sprints + Backlog',
+    '--- Scrum Board',
+    '---- Sprints + Backlog',
     ' -- ',
-    '--- Kanban Board', '---- WIP (Work In Progress)', 
+    '--- Kanban Board', 
+    '---- WIP (Work In Progress)', 
     '----- What is WIP',
     ' -- ',
     '- Agile project management tool'
   ],
-  [' - Azure'],
-  ['Debugging Angular', '- Chrome Devtools', 'webpack- '],
-  ['- Time Travelling Debugger', '-- WinDbg preview app','--- Dump File','---- Analyze Link'],
+  [' - Azure'
+  ],
+  ['Debugging Angular', 
+    '- Chrome Devtools',
+    '--- Chrome extension',
+    '--- VS Code extension',  
+    '-- Call Stack',
+    '---- Stack of ftn calls',
+    '---- Restart from Frame', 
+    '-- Debugger',
+    '-- Conditional breakpoints',
+    '-- ng.probe($0).componentInstance',
+    '---- $0 - $4',
+    '-- ng.profiler.timeChangeDetection()',
+'---- Built in profiler',
+    '-- ',
+    '- Debugger - Source',
+    '- Network throttling',
+    '--- throttling CPU',
+    '-- ',
+    'webpack- source-maps'
+  ],
+  ['- Time Travelling Debugger', 
+    '-- WinDbg preview app',
+    '--- Dump File',
+    '---- Analyze Link'],
   ['- Chrome Developer Tools', 
   '- Elements','-- select elements','-- ',
   '- Console', '-- cmd prompt','-- ',
@@ -912,7 +947,26 @@ const subTopicsInfo = [
       - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
       `,
 
-    'simplifies Components',
+    '-- simplifies Components',
+    '-- Injector Hierarchy DI system',
+    `---- Injector Tree echoes the Component Tree
+    <br/> ------ every Component has its own injector
+    <br/> ------- When a Component requests a dependency 
+    <br/>------- Angular uses a Provider regd in the Components Injector
+    <br/>------- if Component injector has no provider - passes to parent Components Injector
+    <br/>
+    `,
+    '------- Injector Bubbling - ',
+    `--------- @Host() - limits the search for a matching provider
+    <br/> -  
+    `,
+    '----- Sandboxing',
+    '----- @Host()',
+    '----- @Optional()',
+    '----- @Self()',
+    '----- @SkipSelf()',
+    '----- ',
+    '------ Providers',
     'Reuseability in other Components',
     `- DI (Dependency Injection) - is a design pattern - in which a class requests deps from external sources - (wrt creatng them) 
      <br/>provides dependencies to a class upon instantiation 
@@ -1411,12 +1465,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
     'View Engine tree-shakes - Static analysis of code and then compiles whats left'
     ],  
-     [`APF - Ang Package Format - is an Angular specific specn for the structure and format of npm packages used by all Angular packages @angular/core and Angular libraries etc.
-     <br/>compatable with all tooling offere by the Angular team + JS ecosystem + 3rd party developers  
-     <br/>Developers can rely on the CLI and ng-packagr to produce packages in the APF 
+     [`APF - Ang Package Format - is an Angular specific specn for the structure and format of npm packages 
+     <br/>- used by all Angular packages @angular/core and Angular libraries etc.
+     <br/>- compatable with all tooling offere by the Angular team + JS ecosystem + 3rd party developers  
+     <br/>- Developers can rely on the CLI and ng-packagr to produce packages in the APF 
      `, 
-    'npm packages',
-    'Tooling support',
+    '- npm packages',
+    '- @angular/core | @angular/routing',
+    '- Tooling support',
     'ES versions -',
     `Angular CLI - is a Command Line Interface tool - used to initialize | develop | scaffold and maintain Angular appns directly from a command shell
     <br/>npm install -g @angular/cli - ng new - ng help - ng build - ng serve - ng test 
@@ -1433,7 +1489,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      '- BigInt - Dynamic Import - Nullish Coascing - Optional Chaining -   Promise.allSettled - string#matchAll - globalThis - Module Namespace exports - import.meta', 
      'for Libraries - publishing tsconfig.json - "angularCompilerOptions": {"compilationMode": "partial"}- no particular runtime version - '
   ],
-  [`Ivy is new Compilation and Rendering Pipeline which creates template instructions to render info to the DOM
+  [`Ivy - is new Compilation and Rendering Pipeline which creates template instructions to render info to the DOM
   <br/>Does not need an interpreter or metadata.json file nor the ngFactory.js file
   <br/>It just produces the appComponent.js file from the compilation step
   <br/>using AoT Compilation by default`,
@@ -1531,12 +1587,43 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- 1: Bootstrapped Component
     <br/>- 2: A Component you specify in a route defn
     `],
-    ['Promises',  '- then()', '- future tasks', '- new Promise(resolve, reject)','- asynchronous','Promise.resolve(\'done\').then((val) => {throw new Error("fail")}).then((val) => console.log(val)).catch((err) => console.error(err));',' -- ',
-     'Observables','- next()','- Observer','- subscribe','- async pipe','hot - runs all the time without req subscribe()  - cold - requires subscribe ','-- bubbles which identify parts in the timestream'],
-    ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
-    ['Reactive Extensions',
-    '- library','-- npm install rxjs', '-- asynchronous','-- Event based ops',
-    'imps Observable type','Utility ftns','- Convert async to Observables','- iterating over stream','- map vals to types','- filtering streams','- multiple streams',
+    [`Promises - 
+    
+    `,  
+    '- then()', 
+    '- future tasks', 
+    '- new Promise(resolve, reject)',
+    '- asynchronous',
+    '- Promise.resolve(\'done\').then((val) => {throw new Error("fail")}).then((val) => console.log(val)).catch((err) => console.error(err));',' -- ',
+     `Observables - 
+     `,
+     '- next()',
+     '- Observer',
+     '- subscribe',
+     '- async pipe',
+     '- hot - runs all the time without req subscribe()',  
+     '- cold - requires subscribe ',
+     '-- bubbles which identify parts in the timestream'
+    ],
+    [`Observables
+    `,
+    '- Subjects', 
+    '- behaviorSubject', 
+    '- asyncSubject', 
+    '- replaySubject'],
+    [`Reactive Extensions - 
+    
+    `,
+    '- library',
+    '-- npm install rxjs', 
+    '-- asynchronous',
+    '-- Event based ops',
+    '- imps Observable type',
+    'Utility ftns',
+    '- Convert async to Observables',
+    '- iterating over stream','- map vals to types',
+    '- filtering streams',
+    '- multiple streams',
     'Pipeable operators','- Combination','- Conditional','- Creation',
     '- Errors','- Multi-cast','- Filters','- Transform'],
     ['- Sequence opn (order of opns is important) - map values to inner Observable subscribe and emit in order - delayed subscribe to inner Observables',
@@ -1598,10 +1685,23 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ',
     '--- Reactive Validation'
   ], 
-    ['- is within the tempalte of the Component', '- Queries one child', '- Queries multiple Children'],
-    ['- is within a Component tags', '- Queries one child', '- Queries multiple children'],
-    [`transclusion is Content Projection - a pattern to insert/project content to use inside another Component - lets a Directive to make use of templates + add content to DOM - lets Directives generate dynamice data driven DOM instns 
-      you can make reusable components - for scalable appns by inserting content into already created Comps/Dirs 
+    [`@ViewChild - is within the tempalte of the Component
+    `, 
+    '- Queries one child', 
+    '- Queries multiple Children'
+    ],
+    [`@ContentChild - is within a Component tags
+    
+    `, 
+    '- Queries one child', 
+    '- Queries multiple children'
+  ],
+  [`transclusion is Content Projection 
+    - a pattern to insert/project content to use inside another Component 
+    - lets a Directive to make use of templates + add content to DOM 
+    - lets Directives generate dynamice data driven DOM instns 
+      you can make reusable components 
+      - for scalable appns by inserting content into already created Comps/Dirs 
     `, 
     '-- eg a Component projecting data into a CardComponent',
      '<ng-content></ng-content>',
@@ -1613,14 +1713,19 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      ' -- ',
      '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
      ],
-     ['HTTP CRUD - Create | Read| Update | Delete - operations which the HTTP can use to manipulate data from a server', 
-     `- HttpClient - performs HTTP requests -  uses HttpClientModule from @angular/common/http
+     [`HTTP CRUD - Create | Read| Update | Delete 
+     - operations which the HTTP can use to manipulate data from a server
+     `, 
+     `- HttpClient - performs HTTP requests 
+     -  uses HttpClientModule from @angular/common/http
      `,      
-     `-- based on XHR (XMLHttpRequest) - API consisting of an object - provided by the browser through its JS engine
+     `-- based on XHR (XMLHttpRequest) - API consisting of an object 
+     - provided by the browser through its JS engine
       <br/>-- which can be used to transfer data between a web browser and web server in async way
       <br/>-- but without have to reload the whole page 
      `,
-     `-- Fetch API (2017) - i/f for fetching resources (alt to XHR API) - more powerful + flexible way to   
+     `-- Fetch API (2017) - i/f for fetching resources (alt to XHR API) 
+     - more powerful + flexible way to   
      <br/>--- based on Promises ( not callbacks) - we need to resolve the response object  
      `,
      '--- based on Promises',
@@ -1703,8 +1808,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `,
     '---- HTML 5 Cache Manifest - 2014 - Obsolete '
     ],
-      ['indexedDB and Cache', 
-    `IndexedDB (client side storage - on local disk - low level API for large amts of data - files and blobs) - 
+    [`indexedDB and Cache
+    `, 
+    `- IndexedDB (client side storage - on local disk 
+      - low level API for large amts of data - files and blobs) - 
     <br/>lets you persistently store data inside a user\'s browser 
     <br/>gives you rich (High Perf) query capabilities on and offline - indept of network      
     <br/>Is a transactional DB system - JS based Object Oriented DB - 
@@ -1724,7 +1831,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `Cloud Storage - lets you store digital data in an online space with multiple servers and locations - HDDs or SSDs  
     `
   ],
-    ['- a smart fast extensible Build System - Nx is a next generation build system with 1st class monorepo support + powerful integrations',
+    [`- a smart fast extensible Build System 
+    - Nx is a next generation build system with 1st class monorepo support + powerful integrations
+    `,
     '- Nrwl/Nx',
     '-- Nx Monorepo',
     '-- smart', 
@@ -1734,8 +1843,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- nx monorepo', 
     '-- nx cli',
     '-- nx build', 
-    '-- nx serve'],  
-    [`State Management - Reactive State for Angular 
+    '-- nx serve'
+    ],  
+    [`ngrx - State Management - Reactive State for Angular 
     - a group of angular libraries for Reactive extensions 
     - inspired by the Redux pattern - derives state using RxJS and Observables
     - helps simplify appns with many user interactions and multiple data sources
@@ -1844,12 +1954,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>package contains Architect builders used to build + test Ang Appns + libraries
       `,    
     ],
-    [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) designed to handle small to large projects with speed and efficiency
+    [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
+    <br/>- designed to handle small to large projects with speed and efficiency
     <br/>- has 3 parts - 1: Working tree 2: Staging area 3: Local repository + Remote repository - 
-    <br/> - Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
-    <br/> - Forking - creates a indept copy of a Git repository - 
-    <br/> - git clone - creates a linked copy that will continue to sync with the target repo
-    <br/> - Stashing - lets you change to a diff project and store the current staged file info 
+    <br/>- Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
+    <br/>- Forking - creates a indept copy of a Git repository - 
+    <br/>- git clone - creates a linked copy that will continue to sync with the target repo
+    <br/>- Stashing - lets you change to a diff project and store the current staged file info 
     <br/>- Staging and Committing -  
     `,
       `Parts - ---Working tree | Staging area | Local repository
@@ -1967,7 +2078,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- Integration','-- Shallow','-- Deep', 
     ' -- ',
     '- End to End', '-- Protractor', '-- Cypress'],
-    ['Why Design', '- SOLID','-- A Class should have 1 and only 1 (Job) reason to change',
+    ['Why Design', 
+    '- SOLID',
+    '-- A Class should have 1 and only 1 (Job) reason to change',
     '-- Open for extension but Closed for modification',
     '-- Every subclass - Generics - should be able to replace the base (Parent class)',
     '-- Never imp an Interface you dont use - nor methods they dont use',
@@ -1983,7 +2096,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ','- alternative to Subclasses for extending an Object - Composition instead of Inheritance<br/>An object which wraps another Object',  
     ' -- ','Lazy Pattern',
     ' -- ','Composition Pattern'],
-    ['TDD Test Driven Devt', '- Test First fail','- refactor','--- pass',
+    [`TDD Test Driven Devt - 
+    `, 
+    '- Test First fail','- refactor','--- pass',
     ' -- ',
     `Behavoral Driven Design - eases conversion of user features specns to code reqd to imp them
     <br/>
@@ -2059,13 +2174,17 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
     ],
     ['VS-Code'],
-    [`Angular Language Service - provides code editors - eg VS Code with a way to get 
+    [`Angular Language Service - provides code editors 
+    <br/>- eg VS Code with a way to get 
     Completions | Errors | Hints | Navigation inside Angular templates
     <br/>It goes straight to your config files and finds out about all the templates in your project and provides adequate support as you open a template 
-    `,'- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'
+    `,
+    '- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'
     ],
-    [`TSServer (Stand alone Server) - is a Node executable that executes the tsc (TypeScript Compiler) and Language Services and exposes them through a JSON protocol
-    <br/>used in Code editors and IDE support - VS Code - uses tsserver written in TypeScript     
+    [`TSServer (Stand alone Server) - is a Node executable that executes the tsc (TypeScript Compiler) and Language Services 
+    <br/>- and exposes them through a JSON protocol
+    <br/>- used in Code editors and IDE support 
+    - VS Code - uses tsserver written in TypeScript     
     `], 
     [`ESLint - statically analyses your code to quickly find problems 
     <br/>- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
@@ -2131,7 +2250,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       Cloud Servers are located all over the World
       <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
     `,
-    ' - 3 reasons 1: File Storage - store all types of info in the cloud 2: File Sharing - Makes it easy to share files simultaneously 3: Backing up Data - simplifies backing up and protecting your files', 
+    ` - 3 reasons 1: File Storage - store all types of info in the cloud 2: File Sharing 
+    <br/>- Makes it easy to share files simultaneously 3: Backing up Data 
+    <br/>- simplifies backing up and protecting your files
+    `, 
     ' -- ',
     `- AWS - Amazon Web Services - offers reliable | scalable | cheap Cloud Computing Services 
       <br/>provides distributed computing processing capacity and S/W tools via AWS server farms - S3 and EC2  
@@ -2242,9 +2364,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     
     `  
 ],
-    ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
+    [`Accessability - 
+    
+    `,
+    '- ARIA attrbutes', 
+    '- WCAG', 
+    '- POUR'],
     [' -- '],
-    [`Schematics is a template based code generator - that supports complex logic 
+    [`Schematics - is a template based code generator - that supports complex logic 
       <br/>A set of instructions for transforming a S/W project by generating or modifying code  
       <br/>packaged into collections and installed by npm 
       <br/>Angular CLI uses schematics to apply transforms to a web-project - 
@@ -2252,14 +2379,30 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>Added in the @schematis/angular colln - ng g and ng add  
       `
     ],
-    ['Ang Material', 
+    [`Ang Material - 
+    
+    `, 
     ' -- ',
     'Ang CDK'],
-    ['Flex-layout', 
+    [`Flex-layout - 
+    
+    `, 
         'display:flex'],
-    ['Progressive Web Appn - are Web appns that use Service Workers - manifests - caching - progressive appns - to give a similar exp with a native appn - apps leverage modern browser capabilities - even with no Network or sparse Networks', 
-    '- Service Workers', '- manifests', '- other Web-platform features','- Progressive Enhancement ','--- native apps ','---- Works Offline',
-    ' -- ','- Requirements',
+    [`Progressive Web Appn - are Web appns that use Service Workers 
+    <br/>- manifests - caching - progressive appns - to give a similar exp with a native appn 
+    - apps leverage modern browser capabilities 
+    - even with no Network or sparse Networks
+    `, 
+    `- Service Workers -
+    
+    `, 
+    '- manifests', 
+    '- other Web-platform features',
+    '- Progressive Enhancement ',
+    '--- native apps ',
+    '---- Works Offline',
+    ' -- ',
+    '- Requirements',
     '-- Runs on almost every desktop | mobile | tablet', 
     '-- Due to SW - keeps it always updated',
     '-- due to HTTPS - secure',
@@ -2271,7 +2414,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- fully installable on users mobile home screen (no App Store)',
     '-- up to date via Push Notification - offers latest updates', 
     ' -- ',
-    '- Service Workers - is a script runs in Web browser to manage and manages caching of appn',
+    `- Service Workers 
+    <br/>- is a script runs in Web browser to manage and manages caching of appn
+    `,
     '-- For SW to be registered it requires HTTPS', 
     '-- Caching is like installing a native appn - appn is cached as 1 unit - all files updated together ',
     '-- SW loads Manifest file - ngsw.json from Server using CLI generated config file- ngsw-tsconfig.json - (not the Web App Manifest file) - Caching - describes resources to cache - includes hashes of every files content',
@@ -2283,19 +2428,37 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- SW work as a Network proxy - intercept all outgoing HTTP requests made by appn and can choose how to respond to them - query a local cache | deliver cached response| request new data from Server','--- interupts HTTP output requests','--- ',
     '-- mobile or other'
     ],
-    ['let us Mix languages together - eg Angular and React','- Custom Elements','- Web Components', '- Framework Agnostic','polyfills',
-    'CustomElementRegistry','- createCustomElement() API','NgElementConstructor i/f()','customElements.define()',  '-- CD ftn', '-- data binding','bootstrap to DOM'
-    ,'-- Dynamic Content','- NgElement class','-- let us add Type Infon to the NgElement class'],
+    [`Angular/Elements - let us Mix languages together 
+    - eg Angular and React
+    `,
+    '- Custom Elements',
+    '- Web Components', 
+    '- Framework Agnostic',
+    '- polyfills',
+    'CustomElementRegistry',
+    '- createCustomElement() API',
+    'NgElementConstructor i/f()',
+    'customElements.define()',  
+    '-- CD ftn', 
+    '-- data binding','bootstrap to DOM'
+    ,'-- Dynamic Content',
+    '- NgElement class',
+    '-- let us add Type Infon to the NgElement class'
+  ],
     ['Web Workers permit multithreading in Angular', 'Threading', 
       ''],
-    ['Angular Universal is a UI Framework - Accessability - mobile friendly','- SSR - Server Side Rendering'],
-    [`Optional Modules - Standalone Components | Pipes | Directives
+    [`Angular Universal - is a UI Framework - Accessability 
+    - mobile friendly`,
+    '- SSR - Server Side Rendering'
+  ],
+   [`Optional Modules - Standalone Components | Pipes | Directives
       <br/>adding strandalone : true
       <br/>Stand alone Components - @Component standalone: true and its backwards compatible in both directions - 
       <br/> Not owned by anyone or anything - but can be imported into other components and modules
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
       <br/> We just update Angular Schematics 
-    `, '- @Component standalone: true',
+    `, 
+    '- @Component standalone: true',
     '- bootstrapApplication(AppComponent)',
     '-- Backwards compatability -',
     '-- Architecture -',
@@ -2305,16 +2468,25 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/>3: Allows us to offer more streamlined APIs for common use cases      
      `,
       'SCAM (Single Component Angular Module) - one Module for each Component',
-      '- Problem with Schematics - which search for your AppModule - Libs should update schematics'
+      `- Problem with Schematics 
+      - which search for your AppModule - Libs should update schematics
+      `
     ], 
     [' -- '],
-    ['Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster with fewer headaches - suite of Agile work management solutions powering collaboration - across all teams',
+    [`Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster 
+    <br/>- with fewer headaches 
+    <br/>- suite of Agile work management solutions powering collaboration 
+    <be/>- across all teams
+    `,
     '- iterative means small incremental changes',
     '- (no bigbang) - delivers work in small, but consumable, increments - ',
     '- Teams can easily work together and ... ',
     '- Requirements | Plans| Results are evaluated continuously so teams have a natural mechanisms for responding to change'
     ],
-    ['Jira S/W - provides Scrum and Kanban boards - are task management hubs - where tasks are mapped to customizable workflows', 
+    [`Jira S/W - provides Scrum and Kanban boards 
+    - are task management hubs 
+    - where tasks are mapped to customizable workflows
+    `, 
      '- provide transparency across teamwork + visibility into the status of every work item.', 
      '- Boards - displays issues 1+ projects so you can view | manage | report on work',
      
@@ -2337,15 +2509,68 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 
   ],
-  [`Debugging Angular - 
+  [`Debugging Angular - Chrome Devtools (Debugger for Chrome) 
+   
+  <br/>- Webpack
   
   `,
   `- Chrome Devtools (Debugger for Chrome)  
    - Added VS-Code extension - Devtools for Chrome - 
-   <br/>- Opens the Chrome Devtools as a dockable Webview    
-    
+   <br/>- Opens the Chrome Devtools as a dockable Webview      
   `,
-  '- Webpack'
+  '--- Chrome extension',
+  '--- VS Code extension',
+  `- Call Stack - Chrome Devtools shows the Current CallStack
+  <br/> - gives info about the stack of ftn calls indicating 
+  <br/> - what triggered the execution of the ftn that is being executed          
+  <br/> - Quite a few would be from Angular libraries 
+  <br/> - but others from relatd to your code
+  <br/> - Also show HTML part of appn that triggered the ftn call
+  <br/> - You can also Right Click a frame and restart it   
+  <br/> -- It will restart the execution from the frame 
+  `,
+  '---- Stack of ftn calls',
+  '---- Restart from Frame',   
+  `- Debugger - can be used in Angular appns -     
+  <br/>- A debugger statement - when the Chrome Dev Tools is enabled 
+  <br/>- causes the appn to break where you placed the debugger statement
+  `,
+  `- Conditional breakpoints - on Chrome Devtools instead of Debugger statement
+  <br/>- and avoid waiting for appn to compile and refresh for debugger to apply
+  <br/>- It is also easy to enable + disable the breakpoints individually 
+  <br/>- Right click on line number in source file - when condn satisfiied 
+
+  `,
+  `- ng.probe($0).componentInstance
+  <br/>- This is a quirky cmd that we can use on the console 
+  <br/>- to see what the component state is 
+  <br/>- Simply select the component 
+  <br/>- you want to inspect from the Element tab 
+  <br/>- and execute ng.probe($0).componentInstance on the console  
+  <br/>-- $0 is a global variable (on Chrome Devtools) make available
+  <br/>---- most recent selected element
+  <br/>-      
+  `,
+  `--- $0 most recent selected element 
+  <br/>$1 most recent prev DOM els - $4 most recent fourth DOM els
+  <br/>-- inspect other info - parent of seld component | list of listeners 
+  `,
+  `-- ng.profiler.timeChangeDetection()
+  <br/>--- Angular has a built in profiler to profile appns 
+  <br/>--- TimeChangeDetection on the appn 
+  <br/>---- how long a round of state detection takes for current state of UI < 3ms  
+  `,
+  '--- Built in profiler',
+ ' -- ',
+  '- Debugger - Source',
+  `- Network throttling
+    <br/> - issues due to slow networks  
+  `,
+  '----- throttling CPU',
+  ' -- ', 
+  `- Webpack - module bundler
+  <br/> - provide - source maps 
+  `
   ],
   ['- Time Travelling Debugger', '- WinDbg preview app','- Dump File','-- Analyze Link'],
   ['Chrome Developer Tools', 
