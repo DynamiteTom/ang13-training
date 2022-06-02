@@ -7,6 +7,7 @@ const features = `
     'directive',
     'pipes',
     'services',
+    'Dependency Injection',
     'decorators', 
     'interf_class',
     'typeScript',
@@ -132,15 +133,55 @@ const subTopics = [
     ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
     '- Components'
     ],
-    ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'],
-    [`Services - 
-    <br/> -  
-    `,
+    ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
+  ],
+    ['Services and DI',
     '-- wrt Components',
+    '- A Service',
+    '--- @Injectable({})',
+    '----- providedIn: \'root\'',
+    '-- injectors',
+    '---- provider', 
+    '------ service',
+    '-- Reu  se',
+    '- providers section',
+    '--- Appn or Component',
+    '----- Appn - Module',
+    '-------- @NgModule({})',
+    '----- Component',
+    '-------- @Component({})',
+    '--- Injecting a Service',
+    '------- Component constructor',
+    ' -- ',
+    '- DI (Dependency Injection)',
+    '--- Application based DI',
+    '--- Component based DI',
+    '---- Providers',        
+    '----- dependency',
+    '------- Service Instance',
+    '- nesting',
+    '- Sharing',
+    'typical tasks',
+    '- Providing a Service', 
+    '-- @injectable({ providedIn: \'root\'})',
+    '--- providedIn: \'root\'',
+    '--- providedIn: \'platform\'',
+    '--- providedIn: \'any\'',
+    '--- providedIn: \'<T>\'',
+    'providers'
+    ], 
+    ['Dependency Injection',
     '-- Injector Hierarchy DI system',
-    '---- Injector Tree',
-    '------ Providers',
-    '----- Reuse',
+    '--- Injector Tree',
+    '----- Injector Bubbling - ',
+    '-------- Components local injector',
+    '-------- root injector',
+    '----- Sandboxing',
+    '------- Multiple Service Instances',
+    '----- @Host()',
+    '----- @Optional()',
+    '----- @Self()',
+    '----- @SkipSelf()',
     '- DI - Dep Injection',
     '--- Design pattern',
     '--- DI Tokens',
@@ -157,21 +198,8 @@ const subTopics = [
     '--- injecting a config Object',
     '--- InjectionToken object',
     '--- interfaces and DI',
-    '---- Using factory providers',
-    'class +',
-    '@Injectable({})', 
-    '- declare locn', 
-    '- nesting',
-    '- Sharing',
-    'typical tasks',
-    '- Providing a Service', 
-    '-- @injectable({ providedIn: \'root\'})',
-    '--- providedIn: \'root\'',
-    '--- providedIn: \'platform\'',
-    '--- providedIn: \'any\'',
-    '--- providedIn: \'<T>\'',
-    'providers'
-    ], 
+    '---- Using factory providers'
+  ],
     ['Decorators','- Metadata','- Annotations', '- Class', 'Decorator examples',
     '-- Types of decorators','--- Class','--- Property','--- Event','--- Attribute'
     
@@ -221,7 +249,17 @@ const subTopics = [
      ['Angular/CLI','- Building', '- Serving the Browser port'],
     ['Modules','NgModule', 
     '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
-    ['- Bootstrapping', '-- initializing/loading appn','--- angular.json file',
+    ['- Bootstrapping', 
+    '-- initializing/loading appn',
+    '---- platformBrowserDynamic()',
+    '------- bootstrapModule()',
+    '---------- root ModuleInjector',
+    '------------ hierarchy of injectors',
+    '---------- ElementInjector',
+    '------------ hier of Comp injectors', 
+    '------- NullInjector',    
+    ' -- ',
+    '--- angular.json file',
      '--- Loading index.html etc.','---- 3rd party libs + appn',
      '---- main.ts',
      '----- platformBrowserDynamic',
@@ -932,7 +970,8 @@ const subTopicsInfo = [
     'Custom Pipes', 
     '@Pipe({})','-- custom transformation',
     'Date - UpperCase - LowerCase - Currency - Decimal - Percentage - Async'],
-    [`Services - implemented as a simple class with @Injectable({}) decorator - 
+    [`Services and Dependency Injection 
+    <br/> - implemented as a simple class with @Injectable({}) decorator - 
       - <br/>ng g s my-service
       - <br/>can be reussssed in several different Components so data can be shared 
       - <br/>We can have nested services - 
@@ -945,86 +984,56 @@ const subTopicsInfo = [
       - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
       - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
       - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+      `,  
+      '-- simplifies Components',
+      `- A Service - is a TypeScript class - with shareable properties and methods 
+       <br/>--- decoratred with an @Injectable([]) decorator
+       `,
+       `----- @Injectable({ providedIn: 'root'}) - decorator provides metadata 
+       <br/>------ that allows Angular to inject it (service) into Component as a dependency 
+       <br/> 
+       `,
+       `-------- providedIn: 'root'
+       <br/>root - 
+       <br/>or platform - 
+       <br/>or none -
+       `,
+       `--- Injector - part of all Components (has injector tree matching Component tree) 
+        ----- creates dependencies 
+        <br/>and maintains a container of dependencies that it reuses
+       `,
+       '----- A provider - tells injector how to obtain or create a dependency',
+       '------- service',
+
+       '---- Reuseability in other Components',
+       '--- providers section',
+       '--- Appn or Component',
+       '----- Appn - Module',
+       '-------- @NgModule({})',
+       '----- Component',
+       '-------- @Component({})',
+       '- Services are injected into Components via the constructor', 
+       '------ constructor(private x: MyService){}', 
+       ' -- ',
+       `- DI (Dependency Injection) - is a design pattern 
+        <br/>-- in which a class requests dependencies from external sources 
+        - (wrt creatng them) 
+      <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+      <br/>---- First injector found - configured with a provider (matching) - supplies the dependency
+      `,
+      `--- Application based DI - 
+      
+      `,
+      `--- Component based DI
+        
       `,
 
-    '-- simplifies Components',
-    '-- Injector Hierarchy DI system',
-    `---- Injector Tree echoes the Component Tree
-    <br/> ------ every Component has its own injector
-    <br/> ------- When a Component requests a dependency 
-    <br/>------- Angular uses a Provider regd in the Components Injector
-    <br/>------- if Component injector has no provider - passes to parent Components Injector
-    <br/>
-    `,
-    '------- Injector Bubbling - ',
-    `--------- @Host() - limits the search for a matching provider
-    <br/> -  
-    `,
-    '----- Sandboxing',
-    '----- @Host()',
-    '----- @Optional()',
-    '----- @Self()',
-    '----- @SkipSelf()',
-    '----- ',
-    '------ Providers',
-    'Reuseability in other Components',
-    `- DI (Dependency Injection) - is a design pattern - in which a class requests deps from external sources - (wrt creatng them) 
-     <br/>provides dependencies to a class upon instantiation 
-     <br/>- is used to increase flexibility + modularity in your appns
-    `,
-    `- DI Tokens - When you configure an injector with a provider - you are associating that provider with a DI token
-    <br/>The injector lets Angular create a map of any internal dependencies.
-    <br/>The DI token - acts as a key to that map - 
-    <br/>The dep value is an instance & the class type serves as a look up key 
-    <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
-    <br/>constructor(private heroService: HeroService){}  
-    `,
-    '-- DI Parts - injector | provide | dependency provider | provide defn key',
-    `-- Dependency Provider - configures provider with a DI token 
-    <br/>which that injector uses to provide the runtime version of a dep value
-    `,
-    `-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
-    <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
-    <br/>Above is a class provider syntax for providing a Logger class in the providers array
-    <br/>Note the provide property holds the token - key for locating a dep value and config injector
-    <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
-    `,
-    '-- [Logger] same as [{provide: Logger, useClass: Logger}]',
-    `-- provider defn key - useClass | useExisting | useValue | useFactory
-    <br/> to configure the injector - keys for tokens
-    `,
-    '--- Providers with deps',
-    `---- aliasing class providers - useClass
-    <br/>[{ provide: Logger, useClass: BetterLogger }]
-    `,
-    '---- aliasing class interface - useExisting',
-    '---- aliasing multi class i/fs',
-    `---- injecting an Object - configure with a useValue option
-      <br/>[{provide: Logger, useValue: SilentLogger}]
-    `,
-    '---- injecting a config Object',
-    '---- InjectionToken object',
-    '---- interfaces and DI  ',
-    `---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
-    <br/>export const heroServiceProvider =
-    { provide: HeroService,
-      useFactory: heroServiceFactory,
-      deps: [Logger, UserService]
-    };  
-    `,
-   
-    'class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks',
-    '- Providing a Service', 
-    '-- @injectable({ providedIn: \'root\'})',
-    '--- providedIn: \'root\'',
-    '--- providedIn: \'platform\'',
-    '--- providedIn: \'any\'',
-    '--- providedIn: <T>\'',
-    'providers',
-    '- constructor(private x: MyService){}', 
-    '- Services are injected into Components via the constructor', 
-     '@Injectable({})', 
-     '- Module or Component',
+       `---- Provider - supplies the dependency 
+       <br>------ Service Instance or Value
+       `,
+       '-------- dependency - Service Instance or Value',
+       '---------- Service Instance',
+    
      'nesting services',
      '- Sharing',
      'fetching data from a server - logging - validating user input ', 
@@ -1037,7 +1046,86 @@ const subTopicsInfo = [
      'other values',
      'privders:[MyService]'
     ], 
-     
+    [`- DI (Dependency Injection) - is a design pattern 
+    <br/>-- in which a class requests dependencies from external sources 
+    - (wrt creatng them) 
+  <br/>---- provides dependencies to a class upon instantiation 
+  <br/>---- is used to increase flexibility + modularity in your appns
+  <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+  <br/>---- First injector found - configured with a provider (matching) - supplies the dependency
+  `,
+  '-- Injector Hierarchy DI system',
+  `---- Injector Tree echoes the Component Tree
+  <br/> ------ every Component has its own injector
+  <br/> ------- When a Component requests a dependency 
+  <br/>------- Angular uses a Provider regd in the Components Injector
+  <br/>------- if Component injector has no provider - passes to parent Components Injector
+  <br/>
+  `,
+  '------- Injector Bubbling - ',
+  '---------- Components local injector',
+  '---------- root injector',
+  `----- Sandboxing - Multiple service instances 
+  <br/> ------ at the same level of the Component
+  <br/> ------ eg A Service that holds state for its companion comp instance       
+  `,
+  '------- Multiple Service Instances',
+
+  `------ @Host() - limits the search for a matching provider
+  <br/>------- root injector -  
+  `,
+  '----- @Optional()',
+  '----- @Self()',    
+  '----- @SkipSelf()',
+  '----- ',
+  `- DI Tokens - When you configure an injector with a provider - you are associating that provider with a DI token
+  <br/>The injector lets Angular create a map of any internal dependencies.
+  <br/>The DI token - acts as a key to that map - 
+  <br/>The dep value is an instance & the class type serves as a look up key 
+  <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
+  <br/>constructor(private heroService: HeroService){}  
+  `,
+  '-- DI Parts - injector | provide | dependency provider | provide defn key',
+  `-- Dependency Provider - configures provider with a DI token 
+  <br/>which that injector uses to provide the runtime version of a dep value
+  `,
+  `-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
+  <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
+  <br/>Above is a class provider syntax for providing a Logger class in the providers array
+  <br/>Note the provide property holds the token - key for locating a dep value and config injector
+  <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
+  `,
+  '-- [Logger] same as [{provide: Logger, useClass: Logger}]',
+  `-- provider defn key - useClass | useExisting | useValue | useFactory
+  <br/> to configure the injector - keys for tokens
+  `,
+  '--- Providers with deps',
+  `---- aliasing class providers - useClass
+  <br/>[{ provide: Logger, useClass: BetterLogger }]
+  `,
+  '---- aliasing class interface - useExisting',
+  '---- aliasing multi class i/fs',
+  `---- injecting an Object - configure with a useValue option
+    <br/>[{provide: Logger, useValue: SilentLogger}]
+  `,
+  '---- injecting a config Object',
+  '---- InjectionToken object',
+  '---- interfaces and DI  ',
+  `---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
+  <br/>export const heroServiceProvider =
+  { provide: HeroService,
+    useFactory: heroServiceFactory,
+    deps: [Logger, UserService]
+  };  
+  `,
+  'class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks',
+  '- Providing a Service', 
+  '-- @injectable({ providedIn: \'root\'})',
+  '--- providedIn: \'root\'',
+  '--- providedIn: \'platform\'',
+  '--- providedIn: \'any\'',
+  `--- providedIn: <T>\'
+  ` ],
     ['Decorators - add metadata to a class | objects or methods -  which defines annotations - used by TypeScript compiler tsc',
      '- Metadata - describes other data',
      '- Annotations - are hard coded language features - set on a class - reflect metadata library', 
@@ -1213,20 +1301,48 @@ const subTopicsInfo = [
     '- required by every Ang appn',
     '- Lazy Loading - uses Feature Modules and Shared Modules'
    ],
-   [`- Bootstrapping
+   [`Bootstrapping
          <br/>reads the angular.json -
          <b/>Loads the index.html file - app-root 
          <b/>Loads the main.ts file - ids the AppModule - ids the AppRoutingModule and AppComponent
          webpack - dep graphs - app.js and vender.js
-    `, 
-    '-- initializing/loading appn - application.json file - loads index.html - app-root - main.ts - AppModule and AppComponent - webpack',
-    `--- angular.json file - 
-    <br/>1: Where to find source of appn 
-    <br/>2: How to build the appn 
-    <br/>3: Which files to refer to for testing -   
-    <br/>4: Where to find the main file (main.ts) - identifies which module to bootstrap  
     `,
-     `--- Loading index.html etc.
+    `-- initializing/loading appn - application.json file - 
+      <br/>--- loads index.html - 
+      <br/>------ app-root 
+      <br/>--- main.ts 
+      <br/>------ AppModule and AppComponent 
+      <br/>--- webpack
+      <br/>--- angular.json file - 
+         <br/>1: Where to find source of appn 
+         <br/>2: How to build the appn 
+         <br/>3: Which files to refer to for testing -   
+         <br/>4: Where to find the main file (main.ts) - identifies which module to bootstrap  
+      `, 
+    `--- platformBrowserDynamic().bootstrapModule(AppModule)
+    <br/>----- The platformBrowserDynamic() method - creates an injector 
+    <br/>------- configured by the PlatformModule - contains platform specific deps
+    <br/>------- allows multiple apps to share a platform confign
+    `,
+    `----- bootStrapModule() - creates a child injector of the platform injector 
+        <br/>------- configd by the AppModule
+        <br/>--------- called the root ModuleInjector
+        `,
+        '------- root ModuleInjector',
+        '--------- hierarchy of injectors (for each Component)',
+        '------- ElementInjector',
+        '---------- hierarchy of Component Injectors ',
+        '------- NullInjector',    
+        ' -- ',
+        `- angular.json 
+            <br/> --- 
+            "build": {
+              "builder": "@angular-devkit/build-angular:browser",
+              "options": {
+                "outputPath": "dist/ang13-training",
+                "index": "src/index.html",
+            `,
+        `--- Loading index.html etc.
      <br/>---- first page to be loaded - 
      <br/>---- <body><app-root></app-root></body>
      `,
