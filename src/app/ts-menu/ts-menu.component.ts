@@ -79,6 +79,11 @@ const features = `
     'Debugging Angular',
     '- Time Travelling Debugger',
     '- Chrome Developer Tools',
+    '--- Component explorer',
+    '----- appn Component tree',
+    '--- Profiler',
+    '----- Performance bottlenecks',
+    '-------- preview CD cycles',
     'Angular Performance',
     '- SourceMap Explorer',  
     'REST_APIs_Swagger',
@@ -456,6 +461,9 @@ const subTopics = [
     'Ivy and ngcc',
     'Ang11 - Partial compilation'],
     ['Caching',
+    '- ng cache',
+    ' -- ',
+    '- Memoization',
     ' -- ',
     '- Browser Limits',
     ' -- ', 
@@ -504,14 +512,24 @@ const subTopics = [
     ['install from Github', 'npm install'],
     [`Core libraries`,
       '- @angular/core',
-      '- @angular/compiler',
-      '- @angular/browser',
       '- @angular/common',
+      '--- CommonModule',
+      '----- default template Directives',
+      '----- default pipes',
+      '----- location services',
+      '- @angular/compiler',
+        '-- ngc',
+      '- @angular/browser',
+      '--- BrowserModule',
       '- @angular/router',
+      '--- RouerModule',
       '- @angular/platform-browser',
       '- @angular/platform-browser-dynamic',
       '- @angular/forms',
+      '--- FormsModule',
+      '--- ReactiveFormsModule',
       '- @angular/animations',
+      '---  AnimationsModule',
       '- @angular/material',
       '- @angular/cdk',
       '--',
@@ -1727,11 +1745,16 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- behaviorSubject', 
     '- asyncSubject', 
     '- replaySubject'],
-    [`Reactive Extensions - 
+    [`rxjs - Reactive Extensions - 
     
+    rxjs operators - act on Observables and are immutable by default - 
     `,
     '- library',
-    '-- npm install rxjs', 
+    `- rxjs operators
+    `,
+    '--- act on Observables',
+    '--- return Immutable Observables',
+    '- npm install rxjs', 
     '-- asynchronous',
     '-- Event based ops',
     '- imps Observable type',
@@ -1893,13 +1916,25 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ],
     [`Caching - was initally developed to reduce the access time between the CPU and RAM 
     <br/>Cache memory is faster to access by the CPU wrt RAM because its physically stored inside the CPU
-    <br/>Diff ways to implement caching  
+    <br/>Diff ways to implement caching 
+    <br/> - ng cache - 
     <br/> - WebStorage
+    <br/> - Memoization
     <br/> - ngrx store for states
     <br/> - array that holds values
     <br/> - HTTP Cache (Browser Cache) - browser uses cache but if nothing found then it goes to the server to fetch the resource  
     <br/> - Service Workers in PWAs (Programmable Web Appns)
     `,
+    '- ng cache - on Hard Disk - caching project',
+   ' -- ',
+    `- Memoization - optimization technique to speed up computer programs 
+    <br/>- by storing results of exp ftn calls 
+    <br/>- returning cached result when same input occurs again 
+    <br/>-
+    <br/>-- impn in Angular - by ngrx - 
+    `,
+    ' -- ',
+    '--- ngrx',
     ' -- ',
     `- Http Caching (Browser Cache) - varies from browser to browser - 
       <br/>Google < 80MB - IE < 50MB Firefox < 50MB Safari < 20MB
@@ -2037,30 +2072,46 @@ platformBrowserDynamic().bootstrapModule(AppModule)
         <br/>defines the decorators for metadata
         <br/>defines infrastructure for DI | i18n | testing | debugging
       `,
+      `- @angular/common - imps basic Angular framework functionality 
+      <br/>directives | pipes |  
+      <br/>exports are re-exported by BrowserModule - included in the root AppModule wrt Ang CLI
+      `,
+      `CommonModule - exports all the basic Angular directives and pipes 
+          <br/>- defines template binding directives *ngIf | *ngFor | *ngSwitch
+          <br/>- and pipes - DecimalPipe | 
+          <br/>- location services used in routing | HTTP services | localization support
+          <br/>--- Re-exported by the BrowserModule - 
+            `,
+            '---- default template Directives',
+            '---- default pipes',
+            '---- location services used in routing | HTTP services | localization support',        
       `- @angular/compiler - ngc - is the tool used to compile Angular appns and the Libraries
        <br/>built on top of the TypeScript compiler (tsc) - extended for Angular decorators etc      
         <br/>serves as a bridge between the developer and the runtime - ngc translaes the Ang code into efficient runtime instns
        `,
+       '---- ngc',
       '- @angular/browser - loaded into the root folder automatically when creata a project with ng new xxx',
-      `- @angular/common - imps basic Angular framework functionality 
-      <br/>directives | pipes | location services used in routing | HTTP services | localization support 
-      <br/>exports are re-exported by BrowserModule - included in the root AppModule wrt Ang CLI
-      `,
+      '--- BrowserModule',
       `- @angular/router - imps the Angular router service - enables navn from 1 view to the next wrt appn tasks
       <br/>Defines the Route object that maps a URL path to a Component
       <br/>and RouterOutlet directive - places a RoutedView in a template 
       <br/>+ a complete API for configuring | querying | controlling router state  
       <br/>import { RouterModule } to use the Router service in apps   
       `,
+      '--- RouterModule',
       `- @angular/platform-browser - supports exec of Ang apps on diff browsers 
       <br/>library for using Angular in a web browser
       <br/>BrowserModule - included by default  
+      <br/>Ang 14 Standalone Components - bootstrapApplication()
       `,
       `- @angular/platform-browser-dynamic - for using JIT with Angular in a web browser 
       <br/>eg Bootstrapping 
       `,
       '- @angular/forms',
+      '--- FormModule',
+      '--- ReactiveFormsModule',
       '- @angular/animations',
+      '--- AnimationsModule',
       '- @angular/material',
       '- @angular/cdk',
       '--',
@@ -2626,16 +2677,26 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   ],
   [`Debugging Angular - Chrome Devtools (Debugger for Chrome) 
-   
   <br/>- Webpack
-  
+  <br/> Devtools include a Component Explorer and Profiler
   `,
   `- Chrome Devtools (Debugger for Chrome)  
-   - Added VS-Code extension - Devtools for Chrome - 
+   - Added V S-Code extension - Devtools for Chrome - 
    <br/>- Opens the Chrome Devtools as a dockable Webview      
   `,
   '--- Chrome extension',
-  '--- VS Code extension',
+  '------ Component Explorer',
+    '-------- appn Component tree',
+  '------ Profiler',
+  '-------- Performance bottlenecks',
+  '---------- preview CD cycles',
+  '---- Problem Patterns',
+  `------- Zone Polllution - start recording in profiler - 
+  
+  `,
+  '------- ',
+
+  '------- Ref transparent expressions - dont have to recalc value between CD cyles unless input changes',
   `- Call Stack - Chrome Devtools shows the Current CallStack
   <br/> - gives info about the stack of ftn calls indicating 
   <br/> - what triggered the execution of the ftn that is being executed          
@@ -2644,6 +2705,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/> - Also show HTML part of appn that triggered the ftn call
   <br/> - You can also Right Click a frame and restart it   
   <br/> -- It will restart the execution from the frame 
+  `,
+  `-------- Large Component Trees - 
+     <br/>-------- on demand rendering 
+     <br/>-------- virtualization - CDK infinite scrolling 
+     <br/>-------- pagination 
   `,
   '---- Stack of ftn calls',
   '---- Restart from Frame',   
@@ -2684,6 +2750,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `,
   '----- throttling CPU',
   ' -- ', 
+  '--- VS Code extension',
   `- Webpack - module bundler
   <br/> - provide - source maps 
   `
