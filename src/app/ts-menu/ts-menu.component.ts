@@ -77,15 +77,10 @@ const features = `
     'Jira/Atlassian',
     'Azure',
     'Debugging Angular',
-    '- Time Travelling Debugger',
-    '- Chrome Developer Tools',
-    '--- Component explorer',
-    '----- appn Component tree',
-    '--- Profiler',
-    '----- Performance bottlenecks',
-    '-------- preview CD cycles',
+    '-- Time Travelling Debugger',
+    '-- Chrome Devtools',
     'Angular Performance',
-    '- SourceMap Explorer',  
+    '- SourceMap Explorer',
     'REST_APIs_Swagger',
     'Ag-grid',
     'Micro Frontends',
@@ -285,8 +280,7 @@ const subTopics = [
     '<base href=\/"\">', 
     '-- HTML5 Urls', 
     '- router-outlet', 
-    '- routerLink',  
-   
+    '- routerLink',   
     ' -- ',
     '- Routes',
     '- RouterModule', 
@@ -401,9 +395,16 @@ const subTopics = [
     ['Promises', '- then()', '- future tasks', '- (resolve, reject)','- asynchronous','- catch',' -- ', 
      'Observables','- streams', '- time', '- next()','- Observer','- subscribe','- async pipe','- hot-cold','- Sync or Async', '-- Marble Diagrams'],
     ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
-    ['Reactive Extensions','- library','-- npm install rxjs', '-- asynchronous','-- Event based ops',
+    ['rxjs - Reactive Extensions',
+    '-- library',
+    '---- npm install rxjs', 
+    '-- rxjs operators',
+    '---- are immutable',
+    '---- return Observables',
+    '-- asynchronous','-- Event based ops',
     '-- Observable sequences',
-    'imps Observable type','Utility ftns','- Convert async to Observables','- iterating over stream','- map vals to types','- filtering streams','- multiple streams',
+    '---- imps Observable type',
+    'Utility ftns','- Convert async to Observables','- iterating over stream','- map vals to types','- filtering streams','- multiple streams',
     'Pipeable operators','- Combination','- Conditional','- Creation',
     '- Errors','- Multi-cast','- Filters','- Transform'],
     ['- ConcatMap','- MergeMap','- SwitchMap','- ExhaustMap'],
@@ -648,6 +649,7 @@ const subTopics = [
     '- Output Encoding', 
     '- Sanitization', '-- DomSanitizer','-- bypassSecurityTrustHTML', 
     '- Immutable Code', '- JWTs', '- OWASP', '- SNYK'],
+
     ['Auhtorization', 'Authentication', '- Auth0', '- OAuth2'],
     ['Node.js',
     'http://nodejs.org', 
@@ -729,7 +731,23 @@ const subTopics = [
   ],
     ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
     [' -- '],
-    ['Schematics'],
+    ['Schematics',
+    '-- template based code generator',
+    '-- part of the Angular ecosystem',
+    '-- CLI applies transforms',
+    '-- Schematic Collection tool',
+    '---- encorces architectural rules + convns',
+    '------ ng generate | ng add',
+    '-- Uses of Schematics',
+    '---- fix breaking changes in dep',
+    '---- angular.json - schematics',
+    'examples ftns',
+    '-- classify',
+    '-- normalize',
+    '-- dasherize',
+    '-- join',
+    '-- buildRelativePath',
+    ],
     ['Ang Material', 
     ' -- ',
     'Ang CDK'],
@@ -778,8 +796,19 @@ const subTopics = [
   ],
   ['Debugging Angular', 
     '- Chrome Devtools',
-    '--- Chrome extension',
+    '--- Component explorer',
+    '----- appn Component tree',
+    '--- Profiler',
+    '----- Performance bottlenecks',
+    '---------- preview CD cycles',
+    '---- Problem Patterns',
+    '------- Zone Pollution',
+    '------- Local change triggers ext CD',
+    '------- Ref transparent expressions',
+    '------- Large Component trees',
+    ' -- ',
     '--- VS Code extension',  
+    'webpack- source-maps',
     '-- Call Stack',
     '---- Stack of ftn calls',
     '---- Restart from Frame', 
@@ -793,14 +822,14 @@ const subTopics = [
     '- Debugger - Source',
     '- Network throttling',
     '--- throttling CPU',
-    '-- ',
-    'webpack- source-maps'
+    '-- '
   ],
   ['- Time Travelling Debugger', 
-    '-- WinDbg preview app',
-    '--- Dump File',
-    '---- Analyze Link'],
-  ['- Chrome Developer Tools', 
+  '-- WinDbg preview app',
+  '--- Dump File',
+  '---- Analyze Link'
+],
+['- Chrome Developer Tools', 
   '- Elements','-- select elements','-- ',
   '- Console', '-- cmd prompt','-- ',
   '- Sources', '-- debugging','-- ',
@@ -810,10 +839,10 @@ const subTopics = [
   '- Application','-- inspect all loaded resources', '-- ', 
   '- Security','-- security of cert + conn\'n'
 ],
-  ['How - Angular Performance - ','largest contentful paint', '',
-         'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
-    ],
-  ['SourceMap Explorer', 'sourceMaps: true'], 
+['How - Angular Performance - ','largest contentful paint', '',
+    'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
+],
+['SourceMap Explorer', 'sourceMaps: true'], 
   ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
     '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     '--- REST Servers',
@@ -822,6 +851,7 @@ const subTopics = [
     '- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','--   RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
     ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
+
     [' - Ag-grid',
     '- fully customizable',
     '- ag-grid performance',  
@@ -880,7 +910,47 @@ const subTopics = [
     ],
     ['- Docker ', '-- Docker images', '-- Docker Container'],
     ['- Kubernetties K8s', '-- Clusters', '-- Open source system', '--- automating deployment','--- scaling','--- management','---- containerized appns'],
-    ['- Ang Versions','Ang 14','Ang 13', 'Ang 12','Ang 11','Ang 10','Ang 09','Ang 08','Ang 07',]
+    ['- Ang Versions',
+    'Ang 14',
+    '-- TS 4.7',
+    '-- strictly typed Reactive Forms',
+    '-- adv extended template diagnostics',
+    '-- optional ngModules (standalone: true)',
+    '-- ng cache',
+  ' -- ',
+    'Ang 13', 
+    '-- TS 4.5',
+    '-- new APF (Angular Package Format) ',
+      '-- ESBuild ',
+      '-- Node Package Exports',
+      '-- cli.cache',
+      '-- ES 2020',
+      ' -- ',
+    'Ang 12',
+    '-- TS 4.2',
+    '-- cleaner code and Ivy everywhere',
+  '-- templates Nullish coalescing',
+  '-- Critters for CSS inlining',
+  ' -- ',
+    'Ang 11',
+    '-- TS 4.0',
+    '-- Font inlining',
+    '-- ESLint - stricter types',
+    '-- Partial Compilation - linker',
+    '-- HMR (Hot Module Replacement',
+    '-- webpack 5 - Module Federation',
+    ' -- ',
+    'Ang 10',
+    '-- TS 3.9',
+    '-- new default browser config',
+    '-- Ivy ngcc optional strict',
+    '-- performance improvements',
+    '-- ModuleWithProviders<T>',
+    ' -- ',
+    'Ang 09',
+
+    'Ang 08',
+    'Ang 07',]
 ];
 
 const subTopicsInfo = [
@@ -1750,14 +1820,15 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     rxjs operators - act on Observables and are immutable by default - 
     `,
     '- library',
+    '- npm install rxjs', 
     `- rxjs operators
     `,
-    '--- act on Observables',
-    '--- return Immutable Observables',
-    '- npm install rxjs', 
+    '--- are immutable',
+    '--- return Observables',
     '-- asynchronous',
     '-- Event based ops',
-    '- imps Observable type',
+    '-- Observable sequences',
+    '---- imps Observable type',
     'Utility ftns',
     '- Convert async to Observables',
     '- iterating over stream','- map vals to types',
@@ -2296,6 +2367,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ],
     [`Angular Security -   
        XSS | CSRF - Dom Sanitiser -   
+      - Security related info about the pages - 
+       <br/>-- checks + verifies security of certificate + connection
+       <br/>-- Also unencrypted resources
     `, 
     '- XSS (Cross Site Scripting Vulnerability) - allows attacker to control users appn in browser',
     '-- Angular auto-escaping for {{}} interpolation', 
@@ -2544,7 +2618,38 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>Angular CLI uses schematics to apply transforms to a web-project - 
       modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
       <br/>Added in the @schematis/angular colln - ng g and ng add  
-      `
+      `,
+      '-- template based code generator',
+      '-- part of the Angular ecosystem',
+      '-- CLI uses schematics to apply transforms to a web-app project',
+      `-- Schematic Collection - powerful tool for creating | modifying | maintaining
+        <br/>---- a S/W project useful to customize projects wrt own orgn
+      `,
+      '---- enforces architectural rules + conventions',  
+      '------  ng generate | ng add',
+      '-- Uses of Schematics',
+      '---- fix breaking changes in dep',
+      `-- angular.json - schemaitcs
+      <br/>
+      "projects": {    "ang13-training": {
+        "projectType": "application",
+        "schematics": {
+          "@schematics/angular:component": {
+            "style": "scss"
+          },
+          "@schematics/angular:application": {
+            "strict": true
+          }
+        },
+      `,
+        'example ftns',
+    '-- classify',
+    '-- normalize',
+    '-- dasherize',
+    '-- join',
+    '-- buildRelativePath',
+      '  "root": ""'
+      
     ],
     [`Ang Material - 
     
@@ -2684,7 +2789,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
    - Added V S-Code extension - Devtools for Chrome - 
    <br/>- Opens the Chrome Devtools as a dockable Webview      
   `,
-  '--- Chrome extension',
   '------ Component Explorer',
     '-------- appn Component tree',
   '------ Profiler',
@@ -2692,11 +2796,19 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   '---------- preview CD cycles',
   '---- Problem Patterns',
   `------- Zone Polllution - start recording in profiler - 
-  
   `,
-  '------- ',
-
+  '------- Local change triggers ext CD',
   '------- Ref transparent expressions - dont have to recalc value between CD cyles unless input changes',
+  `-------- Large Component Trees - 
+     <br/>-------- on demand rendering 
+     <br/>-------- virtualization - CDK infinite scrolling 
+     <br/>-------- pagination 
+  `,
+  ' -- ',
+  '--- VS Code extension',
+  `- Webpack - module bundler
+  <br/> - provide - source maps 
+  `,
   `- Call Stack - Chrome Devtools shows the Current CallStack
   <br/> - gives info about the stack of ftn calls indicating 
   <br/> - what triggered the execution of the ftn that is being executed          
@@ -2705,11 +2817,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/> - Also show HTML part of appn that triggered the ftn call
   <br/> - You can also Right Click a frame and restart it   
   <br/> -- It will restart the execution from the frame 
-  `,
-  `-------- Large Component Trees - 
-     <br/>-------- on demand rendering 
-     <br/>-------- virtualization - CDK infinite scrolling 
-     <br/>-------- pagination 
   `,
   '---- Stack of ftn calls',
   '---- Restart from Frame',   
@@ -2750,13 +2857,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `,
   '----- throttling CPU',
   ' -- ', 
-  '--- VS Code extension',
-  `- Webpack - module bundler
-  <br/> - provide - source maps 
-  `
   ],
-  ['- Time Travelling Debugger', '- WinDbg preview app','- Dump File','-- Analyze Link'],
-  ['Chrome Developer Tools', 
+  ['- Time Travelling Debugger', 
+  '- WinDbg preview app',
+  '- Dump File',
+  '-- Analyze Link'
+  ],
+  [ 'Chrome Developer Tools', 
   `- Elements - gives ability to view and change the DOM and refd CSS
   <br/>- manipulate styles directly -  
   <br/>- inspect or tweak pages without needing to change source code - 
@@ -2777,12 +2884,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/>-- measures time taken for each object to render in web page
   <br/>-- ids bottlenecks wrt resource loading
   <br/>-- slow page loads
-  `, 
-  '','-- ',
+  `,'-- ',
   `- Performance - helps optomize website speed  
   <br/>-- measures els like loading | scripting | rendering | painting 
   <br/>-- + calc render time for each
-  `,
+  `,    
   '-- calc rendering time','-- ',
   `- Memory - ChromeDev Tools feature helps troubleshoot + debug memory related problems 
   <br/>-- track memory use over time + check memory allocn by element()
@@ -2793,12 +2899,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/>-- appn cache | images | fonts | stylesheets
   `,
   '-- inspects all loaded resources','-- ',
-  `- Security related info about the pages - 
-  <br/>-- checks + verifies security of certificate + connection
-  <br/>-- Also unencrypted resources
-  `,
-  `-- security of cert + conn'n`
-  ],
+],                                                                                                                                                                                                                                                                                                    
   [`How - Angular Performance - 
     <br/>-- Ivy 
     <br/>-- AoT 
@@ -2833,9 +2934,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   '- Modern Angular'
  ],
   ['SourceMap Explorer', 'sourceMaps: true'],
-   
-  ['- architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
-    ' -- ','- IDL for RESTful APIs expressed using JSON', '-- design & Doc APIs','-- ','-- Interface Defn Language','-- RESTful APIs','-- JSON','-- CRUD methods', 
+  ['REST - architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+    ' -- ',
+    '- IDL for RESTful APIs expressed using JSON', 
+    '-- design & Doc APIs','-- ',
+    '-- Interface Defn Language',
+    '-- RESTful APIs',
+    '-- JSON',
+    '-- CRUD methods', 
     '--- REST Servers',
     `---- json-server - JS library for mocking REST APIs - npm install -g json-server
       <br/> requires server.js and a db.json file for your database
@@ -3028,22 +3134,63 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `---- containerized appns`
     ],
     ['- Ang Versions',
-    'Ang 14',
+    `Ang 14 TS 4.7 - Strictly typed Reactive Forms | 
+    adv extended template diagnostics | 
+    optional ngModules (standalone : true) | 
+    ng cache
+    `,
+      '-- TS 4.7',
+      '-- strictly typed Reactive Forms',
+      '-- adv extended template diagnostics',
+      '-- optional ngModules (standalone: true)',
+      '-- ng cache',
+    ' -- ',
     'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
-    'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
+    '-- TS 4.5',
+    '-- new APF (Angular Package Format) ',
+      '-- ESBuild ',
+      '-- Node Package Exports',
+      '-- cli.cache',
+      '-- ES 2020',
+      ' -- ',
+      'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
+      '-- TS 4.2',
+      '-- cleaner code and Ivy everywhere',
+    '-- templates Nullish coalescing',
+    '-- Critters for CSS inlining',
+    ' -- ',
     `Ang 11 TS 4.0 - Font inlining - ESLint - Stricter types - HMR Hot Module Replacement - Partial Compilation - Linker - no ngcc - Webpack 5 Moduoe Fedn
     `,  
+    '-- TS 4.0',
+    '-- Font inlining',
+    '-- ESLint - stricter types',
+    '-- Partial Compilation - linker',
+    '-- HMR (Hot Module Replacement',
+    '-- webpack 5 - Module Federation',
+    ' -- ',
     `Ang 10 TS 3.9 - major release - new default browser config - Ivy Ngcc - optional strict - Perf improvements - ModuleWithProviders<T>
     `,
+    '-- TS 3.9',
+    '-- new default browser config',
+    '-- Ivy ngcc optional strict',
+    '-- performance improvements',
+    '-- ModuleWithProviders<T>',
+    ' -- ',
     `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size
         ModuleWithProviders - Language Service - Faster Testing with ComponentHarness
     `,
+    
+
+    ' -- ',
     `Ang 08 TS 3.4 - Differenctial Loading - ES5 | ES2015 - 
     <br/>new lazy loading syntax - uses dynamic import syntax -    
     <br/>Simplifies Web Worker creation -   ng g 
     <br/>new APIs 
     <br/>bazel and Ivy are coming - 
-    `,`Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
+    `,
+    '-- Differential loading',
+    ' -- ',
+    `Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
       <br/>Performance improvements -reflect-metadata polyfill - 
       <br/> CLI prompts       
       <br/>Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
