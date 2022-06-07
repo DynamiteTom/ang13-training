@@ -93,14 +93,103 @@ const features = `
 const subTopics = [
    ['JavaScript Framework','- SPA', 
    '- mobile-laptop-desktop',
-    '- Front End appns','- Angular/CLI','- main parts',
-    'TypeScript',
-    'TS Libraries',
-    '- DI (Dependency Injection)',
+    '- Front End appns',
+    ' -- ',
+    '- Angular/CLI',
+    '--- Command Line Interface',
+    '----- initialise',
+    '----- develop',
+    '----- scaffold',
+    '----- maintain',
+    '--- server - test locally',
+    '------ ng add | ng generate',
+    '--------- schematics',
+    ' --- uses webpack',
+    ' -- ',
+    '- main parts',
+    '--- Components',
+    '----- uses a template',
+    '--- Directives',
+    '-------- no template',
+    '--- Pipes',
+    '----- Pure pipes',
+    '----- Impure pipes',
+    '--- Services',
+    '----- inject into constructor',
+    '------- DI',
+    '--------- injection tree',
+    '--- Modules',
+    '----- @NgModule',
+    '----- Bootstrapping',
+    '----- Ang AppModule - root',
+    '------- DoBootstrap',
+    '---------- ngDoBootstrap()',
+    '------- Lazy Loading',
+    ' -- ',
+    '- ngc Angular compiler',
+    '--- TypeScript',
+    '------ tsc TS compiler',
+    '---------transpilation',
+    '------ tsconfig.json',
+    '--- TS Libraries',
+    ' -- ',
+    '- Data Binding',
+    '--- interpolation {{}}',
+    '--- property binding []',
+    '--- event binding ()',
+    '--- 2 way binding [()]',
+    ' -- ',
+    '- Styles css',
+    '--- CSS',
+    '----- Box Model',
+    '--- SCSS pre-compiler',
+    '----- variables',
+    '----- methods',
+    '----- inheritance',
+    '----- mixins',
+    ' -- ',
+    '- Routing',
+    '--- URLs', 
+    '------ Routes path:\'x\' - component', 
+    '-------- <base href=\/"\">', 
+    '-------- HTML5 Urls', 
+    '------ router-outlet', 
+    '------ routerLink',   
+    ' -- ',
+    '- Decorators',
+    '----- metadata',
+    '----- TypeScript features',
+    '--- Std decorators',
+    ' -- ',
+    '--- list decorators',
+   '----- @Input()',
+   '----- @Self()',
+   '----- @Host()',
+   '----- @SkipSelf()',
+   '----- @Optional()',
+   '----- @Output()',
+   '----- EventEmitter()',
+   '----- @HostBinding()',
+   '----- @HostListener()',
+   '----- @ContentChild()',
+   '-------   @ContentChildren()',
+   '----- @ViewChild()',
+   '-------   @ViewChildren()',
+   ' -- ',
+    '- Change Detection',
+    '--- zone.js',
+    '----- NgZone',
+    '----- ChangeDetectionStrategy.OnPush',
+    ' -- ',
+    '- Services & DI',
+    '--- DI (Dependency Injection)',
+    '----- Injector Hierarchy | tree',
+    '------- dependency - Provider',  
     '--- design pattern',
+    ' -- ',
     'Angular Universal',
-    '- Server Side Angular',
-    '-- Add ons'
+    '-- Server Side Angular',
+    '---- Add ons'
     ],
     ['Why Components - ', 
     '- class',
@@ -246,7 +335,9 @@ const subTopics = [
      ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
      'ViewEncapsulation'
      ],
-     ['Angular/CLI','- Building', '- Serving the Browser port'],
+     ['Angular/CLI',
+     '- Building', 
+     '- Serving the Browser port'],
     ['Modules','NgModule', 
     '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
     ['- Bootstrapping', 
@@ -340,9 +431,44 @@ const subTopics = [
     ],
     ['Why Change Detection?',
     '- zone.js',
+    '--- zones',
+    '--- execution contexts',
+    'Browser exec flow | Node.js',
+    '-- Event Loop',
+    '----------MacroTasks',
+    '----------- Changes to DOM',
+    '------------MicroTasks',
+    '------------- created by promises',
+    ' -- ',
     '- ChangeDetectorRef',
-    '- ngZone', '- manual CD', 
-    '- automatic CD','- onPush', '- without ngZone'
+    '- ngZone', 
+    '--- service',
+    '--- helps performance',
+    '----- asynchronous tasks',
+    '------- runOutsideAngular()',
+    '----- run() - to re-enter',
+    ' -- ',   
+    '- ngZone methods',
+    '--- isInAngularZone()',
+    '--- assertInAngularZone()',
+    '--- assertNotInAngularZone()',
+    '--- hasPendingMacroTasks()',
+    '--- hasPendingMicroTasks()',
+    '--- isStable()',
+    '--- onUnstable()',
+    '--- onMicrotaskEmpty()',
+    '--- onStable()',
+    '--- onError()',
+    '--- run<T>()',
+    '--- runTask<T>()',
+    '--- runGuarded<T>()',
+    '--- runOutsideAngular<T>()',
+    ' -- ',
+    '- manual CD', 
+    '- automatic CD',
+    '- onPush', 
+    '- without ngZone',
+    '-- NgZone.runOutsideAngular()'
     ],
     ['Why AOT',
     'Compile time build', 
@@ -765,13 +891,17 @@ const subTopics = [
     ,'-- Dynamic Content','NgElements class','WithProperties()'],
     ['Why Web Workers', 'Threading', ''],
     ['Why Angular Universal','- SSR - Server Side Rendering'],
-    ['Optional Modules', 
-    '- standalone: true', 
-    '- bootstrapApplication(x)',
+    ['Stand Alone Components',
+    '-- Optional Modules', 
+    '-- main.ts',
+    '---- platformBrowserDynamic()',
+    '------ standalone: true', 
+    '------ bootstrapApplication(x)',
+
     '-- Compatability',
-    '-- Architecture',
+    '-- Architecture',  
     '-- Advantages of Schematics',
-    '- Problem with Schematics'
+    '---- Problem with Schematics'
   ],
     [' -- '],
     ['Agile', '- Iterative', '- Incemental', '- Teams','- Respond to Change'],
@@ -877,7 +1007,7 @@ const subTopics = [
      '-- slice larger appn up', 
      ' -- ',
      '- WebPack5', 
-     '-- Module Federation',
+     '-- Modulse Federation',
      ' -- ',
      '- Ang CLI | Webpack confign',
      '-- webpack.config.js ',
@@ -912,46 +1042,66 @@ const subTopics = [
     ['- Kubernetties K8s', '-- Clusters', '-- Open source system', '--- automating deployment','--- scaling','--- management','---- containerized appns'],
     ['- Ang Versions',
     'Ang 14',
-    '-- TS 4.7',
-    '-- strictly typed Reactive Forms',
-    '-- adv extended template diagnostics',
-    '-- optional ngModules (standalone: true)',
-    '-- ng cache',
-  ' -- ',
+        '-- TS 4.7',
+        '-- strictly typed Reactive Forms',
+        '-- adv extended template diagnostics',
+        '-- optional ngModules (standalone: true)',
+        '-- ng cache',
+    ' -- ',
     'Ang 13', 
-    '-- TS 4.5',
-    '-- new APF (Angular Package Format) ',
+      '-- TS 4.5',
+      '-- new APF (Angular Package Format) ',
       '-- ESBuild ',
       '-- Node Package Exports',
       '-- cli.cache',
       '-- ES 2020',
-      ' -- ',
-    'Ang 12',
-    '-- TS 4.2',
-    '-- cleaner code and Ivy everywhere',
-  '-- templates Nullish coalescing',
-  '-- Critters for CSS inlining',
   ' -- ',
+    'Ang 12',
+      '-- TS 4.2',
+      '-- cleaner code and Ivy everywhere',
+      '-- templates Nullish coalescing',
+      '-- Critters for CSS inlining',
+    ' -- ',
     'Ang 11',
-    '-- TS 4.0',
-    '-- Font inlining',
-    '-- ESLint - stricter types',
-    '-- Partial Compilation - linker',
-    '-- HMR (Hot Module Replacement',
-    '-- webpack 5 - Module Federation',
+        '-- TS 4.0',
+        '-- Font inlining',
+        '-- ESLint - stricter types',
+        '-- Partial Compilation - linker',
+        '-- HMR (Hot Module Replacement',
+        '-- webpack 5 - Module Federation',
     ' -- ',
     'Ang 10',
-    '-- TS 3.9',
-    '-- new default browser config',
-    '-- Ivy ngcc optional strict',
-    '-- performance improvements',
-    '-- ModuleWithProviders<T>',
+        '-- TS 3.9',
+        '-- new default browser config',
+        '-- Ivy ngcc optional strict',
+        '-- performance improvements',
+        '-- ModuleWithProviders<T>',
     ' -- ',
     'Ang 09',
-
+        '-- TS 3.6',
+        '-- Ivy enabled by default',
+        '-- Smaller bundle size',
+        '-- Update Zone.js | RxJS',
+        '-- ModuleWithProviders',
+        '-- Language Service',
+        '-- ComponentHarness',
+     ' -- ',
     'Ang 08',
-    'Ang 07',]
-];
+        '-- TS 3.4',
+        '-- Differential loading',
+        '-- dynamic imports',
+        '-- simplifies Web Workers',
+        '-- new APIs',
+        '-- bazel | Ivy coming',
+    ' -- ',
+    'Ang 07',
+        '-- TS 3.1',
+        '-- Ang Material | SDK',
+        '-- CLI Prompts',
+        '-- Angullar Do-Bootstrap',
+        '-- 8 phase rot AOT Compiln',
+        '-- Angular error handling']
+    ];
 
 const subTopicsInfo = [
   [`
@@ -973,14 +1123,120 @@ const subTopicsInfo = [
   `- SPA (Single Page Appn) Web Framework - 
    `,
   '- mobile-laptop-desktop', '- primarily used for writing Front End Appns written in TypeScript which are then transpiled to JS to run on the browser',
-  '- Angular CLI (Command Line Interface) uses Webpack - generate parts - build appn or serve browser','-- Components - Directives - Pipes - Services - Modules - classes Change Detection - ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI',
-  '- TypeScript','-- TS Libraries  ',
-  `- DI (Dependency Injection) - to avoid ext dependencies threats - 
+  ' -- ',
+  `- Angular CLI (Command Line Interface) uses Webpack 
+      - generate parts - build appn or serve browser
+  `,
+  '--- Command Line Interface',
+  '----- initialise',
+  '----- develop',
+  '----- scaffold',
+  '----- maintain',
+  '----- server - test locally - default port - localhost:4200',
+  '-------- ng add | ng generate - uses schematics to create library',
+ '--------- schematics', 
+ '--- uses webpack behind the scenes',
+ ' -- ', 
+ `-- main parts - Components - Directives - Pipes - Services - Modules `,
+  '--- Components',
+  '----- has a template',
+  
+  '--- Directives',
+  '------- no template',
+  
+  '--- Pipes',
+  '----- Pure',
+  '----- Impure',
+
+  '--- Services',
+  '----- injected into constructor',
+  '----- DI',
+  '-------- Injector tree',
+
+  '--- Modules',
+  '----- @NgModule',
+  '----- Bootstrapping',
+  '----- Ang AppModule - root',
+  `------- DoBootstrap - hook for manual bootstrapping of the appn
+    <br/>--------- ngDoBootstrap()
+  `,
+  `--------- ngDoBootstrap()
+    class AppModule implements DoBootstrap {
+        ngDoBootstrap(appRef: ApplicationRef) {
+            appRef.bootstrap(AppComponent); // Or some other component
+        }
+    }`,
+  '------- Lazy Loading',
+  ' -- ',
+  `ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI
+  `,
+  '- TypeScript',
+  '--- tsc - TypeScript Compiler',
+  '----- transpilation',
+  '--- tsconfig.json',
+  '-- TS Libraries  ',
+  ' -- ',
+  '- Data Binding',
+    '--- interpolation {{ x }}',
+    '--- property binding []',
+    '--- event binding ()',
+    '--- 2 way binding [()]',
+    ' -- ',
+    '- Styles css | SCSS| SASS',
+    '--- CSS',
+   '----- Box Model',
+    '--- SCSS pre-compiler',
+    '----- variables',
+    '----- methods',
+    '----- inheritance',
+    '----- mixins',
+     ' -- ',
+    '- Routing',
+    '--- URLs', 
+    '------ Routes path:\'x\' - component', 
+    '-------- <base href=\/"\">', 
+    '-------- HTML5 Urls', 
+    '------ router-outlet', 
+    '------ routerLink',   
+   ' -- ',
+   '- Decorators',
+    '----- metadata',
+    `----- TypeScript features - 
+    <br/>@Component() | @Directive() | @Pipe() | @Injectable | @NgModule
+    `,  
+    '--- Std decorators',
+    ' -- ',
+    '--- list decorators',
+   '----- @Input()',
+   '----- @Self()',
+   '----- @Host()',
+   '----- @SkipSelf()',
+   '----- @Optional()',
+   '----- @Output()',
+   '----- EventEmitter()',
+   '----- @HostBinding()',
+   '----- @HostListener()',
+   '----- @ContentChild()',
+   '-------   @ContentChildren()',
+   '----- @ViewChild()',
+   '-------   @ViewChildren()',
+   ' -- ',
+   '- Change Detection - CD',
+  '--- zone.js',
+  '----- NgZone',
+  '----- ChangeDetectionStrategy.OnPush',
+  ' -- ',
+  '- Services and DI - Services are the provider from Injector hierarchy',
+  `--- DI (Dependency Injection) - to avoid ext dependencies threats - 
   <br/>-- aims to decouplle the impn of services from the components 
   <br/>-- uses DI design to work efficiency that lets our component classes and modules to be interdept 
   <br/>-- while maintaining consistency over ext deps injected in our app\'ns - 
   <br/>-- reduces freq with which class/module base changes 
   `,
+  '--- Injector Hierarchy | tree',
+  '----- dependency - Provider',
+  '--- Design Patterns',
+  ' -- ',
   '- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time',
   '-- SSR (Server Side Rendering) - ',
   `-- Add ons - angular/pwa (Progressive Web Appns) and Service Workers - 
@@ -1629,8 +1885,30 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>zone.js but has a class ngZone to help with CD properties and methods
       <br/>The ChangeDetectionRef is base class that provides CD ftns - A CD tree for changed views
       <br/>We can also run via ChangeDetectionStrategy.onPush() to inc performance and just check a branch 
+      
+      NgZone - 
+    
+      `,
+    `- zone.js - provides a method (zones) for encapsulating and intercepting async activities in the browser
+    <br/> - are execution contexts lets angular track start | completion of async activities
+
     `,
-    '- zone.js - ',
+    '---- zones',
+    '---- execution contexts',
+    `-- Browser JS execution flow (Node.js) is based on an Event Loop
+    <br/>
+    `,
+    '--- Event Loop - JS Engine waits for tasks | executes them | sleeps',
+  
+    `------ MacroTasks - mouseMove | setTimeoout
+  
+    `,
+    '--------- changes to DOM only after tasks completed',
+    `-------- MicroTasks - come solely from our code
+      <br/> ---------- run before next macrotask is run
+    `,
+     '--------- created by promises',
+     ' -- ',
     `- ChangeDetectorRef - base class that provides CD functionality 
       <br/>A change detection tree collects all views that are to be checked for changes
       <br/>Use methods to add | remove views from the tree | initiate CD | explicit mark views as dirty - changed
@@ -1644,10 +1922,33 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>properties - hasPendingMacroTasks() - hasPendingMicroTasks() - isStable()- onStable() onError()
     <br/>methods - run() runTask() - runGuarded() - runOutsideAngular()
     `, 
+    '- service',
+    '- helps performance',
+    '--- asynchronous tasks',
+    '------- runOutsideAngular()',
+    '----- run() - to re-enter',
+    ' -- ',   
+    '- ngZone methods',
+    '--- isInAngularZone()',
+    '--- assertInAngularZone()',
+    '--- assertNotInAngularZone()',
+    '--- hasPendingMacroTasks()',
+    '--- hasPendingMicroTasks()',
+    '--- isStable()',
+    '--- onUnstable()',
+    '--- onMicrotaskEmpty()',
+    '--- onStable()',
+    '--- onError()',
+    '--- run<T>()',
+    '--- runTask<T>()',
+    '--- runGuarded<T>()',  
+    '--- runOutsideAngular<T>()',
+    ' -- ',
     '- manual CD', 
     '- compares the template expression values before + after an event - for all components of the Component tree',
-    '- ChangeDetectionStrategy.onPush()', 
-    '- without ngZone'
+    '- ChangeDetectionStrategy.onPush() - ensures only Component tree including source Component', 
+    '- without Angular zone - NgZone.runOutsideAngular()',
+    '--- change detection is not required'
   ],
     [`AoT is better due to - the code is compiled at build time 
       <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
@@ -1716,6 +2017,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '-- Decorators to Static Properties - ngComponentDef etc.',
       '--- ngComponentDef in .d.ts files  ', 
       '--- no complete code analysis - ',
+      '------ @NgModule metadata',
     '- Global Compilation problem - whole app needed to be recompiled when a change occurred!',
     `-- Template instructions - replace the template data and runtime interpreter from the View Engine
     <br/> - Create the correct DOM on their own  
@@ -1725,7 +2027,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>Angular ivy does not!
     `,
     '- AOT with Ivy is faster and should be used by default',
-    '',
     `Libraries - used to use the ngcc (Angular Compatability Compiler) to create Angular libraries from View Engine format
      <br/>ngcc would translate libraries to Ivy format     
       `, 
@@ -2173,11 +2474,15 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       `- @angular/platform-browser - supports exec of Ang apps on diff browsers 
       <br/>library for using Angular in a web browser
       <br/>BrowserModule - included by default  
-      <br/>Ang 14 Standalone Components - bootstrapApplication()
+      <br/>Ang 14 Standalone Components 
+      <br/>- bootstrapApplication()
       `,
-      `- @angular/platform-browser-dynamic - for using JIT with Angular in a web browser 
+      '--- main.ts',  
+      `------ @angular/platform-browser-dynamic 
+      <br/>- for using JIT with Angular in a web browser 
       <br/>eg Bootstrapping 
       `,
+      '--------- bootstrapApplication()',
       '- @angular/forms',
       '--- FormModule',
       '--- ReactiveFormsModule',
@@ -2730,8 +3035,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
       <br/> We just update Angular Schematics 
     `, 
-    '- @Component standalone: true',
-    '- bootstrapApplication(AppComponent)',
+    '-- Optional Modules',
+    '-- main.ts',
+    '---- platformBrowserDynamic()',
+    '------ @Component ({standalone: true})', 
+    '------ bootstrapApplication(AppComponent)',
     '-- Backwards compatability -',
     '-- Architecture -',
      `Advantages - 
@@ -3146,19 +3454,19 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '-- ng cache',
     ' -- ',
     'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
-    '-- TS 4.5',
-    '-- new APF (Angular Package Format) ',
+      '-- TS 4.5',
+      '-- new APF',
       '-- ESBuild ',
       '-- Node Package Exports',
       '-- cli.cache',
       '-- ES 2020',
-      ' -- ',
+ ' -- ',
       'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
       '-- TS 4.2',
       '-- cleaner code and Ivy everywhere',
     '-- templates Nullish coalescing',
     '-- Critters for CSS inlining',
-    ' -- ',
+' -- ',
     `Ang 11 TS 4.0 - Font inlining - ESLint - Stricter types - HMR Hot Module Replacement - Partial Compilation - Linker - no ngcc - Webpack 5 Moduoe Fedn
     `,  
     '-- TS 4.0',
@@ -3167,7 +3475,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Partial Compilation - linker',
     '-- HMR (Hot Module Replacement',
     '-- webpack 5 - Module Federation',
-    ' -- ',
+' -- ',
     `Ang 10 TS 3.9 - major release - new default browser config - Ivy Ngcc - optional strict - Perf improvements - ModuleWithProviders<T>
     `,
     '-- TS 3.9',
@@ -3175,21 +3483,37 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Ivy ngcc optional strict',
     '-- performance improvements',
     '-- ModuleWithProviders<T>',
-    ' -- ',
-    `Ang 09 TS 3.6/7 - Ivy enabled by default - Updates to Zone.js and RxJS - smaller bundle size
-        ModuleWithProviders - Language Service - Faster Testing with ComponentHarness
+' -- ',
+    `Ang 09 TS 3.6/7 
+    - Ivy enabled by default 
+    - Updates to Zone.js and RxJS 
+    - smaller bundle size
+        ModuleWithProviders - Language Service 
+        - Faster Testing with ComponentHarness
     `,
-    
-
-    ' -- ',
-    `Ang 08 TS 3.4 - Differenctial Loading - ES5 | ES2015 - 
-    <br/>new lazy loading syntax - uses dynamic import syntax -    
+    '-- TS 3.6',
+    '-- Ivy enabled by default',
+    '-- Smaller bundle size',
+    '-- Update to Zone.js and RxJS',
+    '-- ModuleWithProviders',
+    '-- Language Service',
+    '-- Faster Tesing with ComponentHarness',
+'-- ',
+    `Ang 08 TS 3.4 - Differenctial Loading 
+    - ES5 | ES2015 - 
+    <br/>new lazy loading syntax 
+    - uses dynamic import syntax -    
     <br/>Simplifies Web Worker creation -   ng g 
     <br/>new APIs 
     <br/>bazel and Ivy are coming - 
     `,
-    '-- Differential loading',
-    ' -- ',
+    '-- TS 3.4',
+    '-- Differential loading ES5 | ES2015',
+    '-- new lazy loading syntax - uses dynamic imports',
+    '-- simplifies Web Worker creation',
+    '-- new APIs',
+    '-- bazel and Ivy are coming',
+ ' -- ',
     `Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
       <br/>Performance improvements -reflect-metadata polyfill - 
       <br/> CLI prompts       
@@ -3198,7 +3522,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>Angular Error handling - 
       <br/>Angular Elements - 
       <br/>Native Script - 
-  `],  
+  `,
+    '-- TS 3.1',
+    '-- Ang Material | SDK',
+    '-- CLI Prompts',
+    '-- Angullar Do-Bootstrap',
+    '-- new Angular Compiler -  8 phase rotating AOT Compilation',
+    '-- Angular error handling'
+],  
 ];
 
 @Component({
