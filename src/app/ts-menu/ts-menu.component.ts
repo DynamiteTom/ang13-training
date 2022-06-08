@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 
@@ -10,6 +11,7 @@ const features = `
     'Dependency Injection',
     'decorators', 
     'interf_class',
+    'EcmaScript',
     'typeScript',
     'lodash',
     'important-files',
@@ -82,6 +84,7 @@ const features = `
     'Angular Performance',
     '- SourceMap Explorer',
     'REST_APIs_Swagger',
+    'Real Time Appns',
     'Ag-grid',
     'Micro Frontends',
     'Web 3',
@@ -104,6 +107,7 @@ const subTopics = [
     '--- server - test locally',
     '------ ng add | ng generate',
     '--------- schematics',
+    ' --- uses ng-packagr',
     ' --- uses webpack',
     ' -- ',
     '- main parts',
@@ -160,26 +164,15 @@ const subTopics = [
     '----- metadata',
     '----- TypeScript features',
     '--- Std decorators',
-    ' -- ',
-    '--- list decorators',
-   '----- @Input()',
-   '----- @Self()',
-   '----- @Host()',
-   '----- @SkipSelf()',
-   '----- @Optional()',
-   '----- @Output()',
-   '----- EventEmitter()',
-   '----- @HostBinding()',
-   '----- @HostListener()',
-   '----- @ContentChild()',
-   '-------   @ContentChildren()',
-   '----- @ViewChild()',
-   '-------   @ViewChildren()',
+    ' ----- Class Decorators',
+    ' ----- Property Decorators',
+    ' ----- Method Decorators',
+    ' ----- Parameter Decorators',
    ' -- ',
     '- Change Detection',
     '--- zone.js',
     '----- NgZone',
-    '----- ChangeDetectionStrategy.OnPush',
+    '------- OnPush',
     ' -- ',
     '- Services & DI',
     '--- DI (Dependency Injection)',
@@ -224,7 +217,8 @@ const subTopics = [
     ],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
   ],
-    ['Services and DI',
+/*
+  ['Services and DI',
     '-- wrt Components',
     '- A Service',
     '--- @Injectable({})',
@@ -289,24 +283,168 @@ const subTopics = [
     '--- interfaces and DI',
     '---- Using factory providers'
   ],
-    ['Decorators','- Metadata','- Annotations', '- Class', 'Decorator examples',
-    '-- Types of decorators','--- Class','--- Property','--- Event','--- Attribute'
-    
-  ], 
+  ['Decorators',
+    '- Metadata',
+    '- Annotations', 
+    '- Class', 
+    '-- Types of decorators',
+    '--- Class',
+    '----- @Component()',
+    '----- @Directive()',
+    '----- @Pipe()',
+    '----- @Injectable()',
+    '----- @NgModule()',
+    ' -- ',
+    '--- Property',
+    '----- @Input()',
+    '------- Parent to child',
+    '------- 3 ways to use',
+    '------- 1: std',
+    '------- 2: aliase',
+    '------- 3: getter | setter',
+    ' -- ',
+    '----- @Output()',
+    '------- Child to Parent',
+    '------- EventEmitter()',
+    '--------- Ex',
+    '-------- using emit()',
+    '---------- using myOutput event',
+    ' -- ',
+    '----- @HostBinding()',
+    '------- host property binding',
+    '------- binds prop to host el',
+    '---------- Ex @HostBinding()',
+    '------------ value of toggle',
+    '--------- on change - checked by CD',
+    ' -- ',
+    '----- @ContentChild()', 
+    '------- selects projected content',
+    '---------- Content DOM',
+    ' -- ',
+    '-------  @ContentChildren()',
+    '--------- fetch a QueryList',
+    '----------- configure content query',
+    '------------- list of queries',
+    ' -- ', 
+    '----- @ViewChild()', 
+    '------- config a View Query', 
+    '--------- from template of Comp',    
+    '--------- View DOM tree',
+    '----------- instance in parent comp',
+    '---- parent comp access methods',
+    '-- read - ',
+    '-- static - ',
+    '---- Ex @ViewChild', 
+    ' -- ',
+    '------- @ViewChildren()',
+    '------- child els View DOM',
+    '--------- View Queries',
+    ' -- ',
+    '--- Method',
+    '----- @HostListener()',
+    '------- provides an event',
+    '--------- event handler ',
+    ' -- ',
+    '--- Parameter',
+    '----- @Inject()',
+    '------- DI Token',
+    '----- @Self()',
+    '------- local injector',
+    '----- @Optional()',
+    '------- returns null if not found',
+    '----- @skipSelf()',
+    '------- parent injector',
+    '----- @Host()',
+    '------- similar to @Self',
+    '-------  search till host',
+    '----- @Override()',
+    '------- overrides method',
+    ' -- ',
+    'Decorator examples'
+    ],
     ['Interfaces',    
       '- export', 
-    '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'],
+    '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'
+  ],
+    ['ES EcmaScript - modern JavaScript',
+        '-- modern JavaScript',
+        '---- ES6 (ES 2015)',
+        '---- let const var',
+        '---- fat arrow ftns (x)=> x * 2;',
+        '---- For/of',
+        '---- Map Objects',
+        '---- Set Objects',
+        '---- Classes',
+        '---- Promises',
+        '---- defaul params',
+        '---- ftn rest params',
+        '---- String - includes ...',
+        '------- string.includes()',
+        '------- string.startsWith()',
+        '------- string.endsWith()',
+        '---- Array - from | keys| ...', 
+        '------- array.from()',
+        '------- array.keys()',
+        '------- array.find()',
+        '------- array.findIndex()',
+        '---- Object entries',
+        '---- JS Modules'
+    ],
+
     ['TypeScript',
+    '- Object Oriented Language',
     '- Strong Data Types',
-    '-- Inferred Types',
-    '--- Duck Typing',
-    '--- Composite Data Types',
-    '- interfaces | classes',
+    '--- VS Code',
+    '--- Compile time - Type checking',
+    '----- Type Annotations',
+    '------- enforces type checking',
+    '- JS Primitives',
+    '--- string',
+    '--- number',
+    '--- boolean',   
+    '- JS primitive values',
+    '--- null',
+    '--- undefined',
+    '- Type Safe - ',
+      '--- No Casting',
+      '--- No Runtime type errors',
+      ' -- ',
+    '- Basic Data Types',
+    '--- JS primitives',
+    '--- JS Primitive Values',
+    `----- strictNullChecks -  null or undefined
+         <br/>null - 
+         <br/>undefined - 
+    `,
+    '--- Array',
+    '--- any',
+    '----- unknown (TypeSafe)',
+    '--- Object Type',
+    '----- interfaces | classes',
+    '----- Type aliases',
+    ' -- ',  
+    '- Advanced Types',
+    '--- Conditional Types using ?',
+    '--- Generics using <T>',
+    '--- Union Types using |',
+    '----- Composite Data Types',
+    '----- Narrowing',
+    '-------  Type Guards',
+    '----------- conditional value check',
+    '----------- typeof x',
+    '----------- instanceof y',
+    '----------- in type',
+    '----------- type guard ftn with predicate',
+    '----------- type guard ftn with assertion  ',
+    '--- Distributive Conditional Types',
+    '--- Inferred Types',    
+
+    '- Duck Typing',
     '- tooling -     ',
     '- tsc', 
     '- .ts files', 
-    '-- transpilation', 
-    '- tsconfig.json',
+    '-- TS files transpile down to plain JS (no concept of typpes)', 
+    '- tsconfig.json - configures TS files in Angular app',
     '-- compilerOptions',
     '-- angularCompilerOptions',
     '--- fullTemplateTypeCheck: true', 
@@ -339,6 +477,7 @@ const subTopics = [
      '- Building', 
      '- Serving the Browser port'],
     ['Modules','NgModule', 
+    'dynamic imports (Ang 08)',
     '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
     ['- Bootstrapping', 
     '-- initializing/loading appn',
@@ -485,7 +624,7 @@ const subTopics = [
     '- Very fast loading',
     '- operates Very fast',
     '- reduced bundle size',
-    '-- Tree Sh  akeable',
+    '-- Tree Shakeable',
     '- Comp compilation independently',
     '- Locality',
     '-- Single file',
@@ -890,14 +1029,15 @@ const subTopics = [
       'CustomElementRegistry','- createCustomElement() API','NgElementConstructor i/f()','customElements.define()',  '-- CD ftn', '-- data binding','bootstrap to DOM'
     ,'-- Dynamic Content','NgElements class','WithProperties()'],
     ['Why Web Workers', 'Threading', ''],
-    ['Why Angular Universal','- SSR - Server Side Rendering'],
+    ['Why Angular Universal',
+    '- SSR - Server Side Rendering'],
     ['Stand Alone Components',
     '-- Optional Modules', 
     '-- main.ts',
     '---- platformBrowserDynamic()',
     '------ standalone: true', 
     '------ bootstrapApplication(x)',
-
+    '-- virtual module (SCAM)',
     '-- Compatability',
     '-- Architecture',  
     '-- Advantages of Schematics',
@@ -982,6 +1122,11 @@ const subTopics = [
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
     ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
 
+    ['- Real Time Appns',
+     
+    '--- Realtime Decorators '
+      
+    ],
     [' - Ag-grid',
     '- fully customizable',
     '- ag-grid performance',  
@@ -1041,14 +1186,15 @@ const subTopics = [
     ['- Docker ', '-- Docker images', '-- Docker Container'],
     ['- Kubernetties K8s', '-- Clusters', '-- Open source system', '--- automating deployment','--- scaling','--- management','---- containerized appns'],
     ['- Ang Versions',
-    'Ang 14',
+    'Ang 14 (02/06/2022)',
         '-- TS 4.7',
         '-- strictly typed Reactive Forms',
         '-- adv extended template diagnostics',
         '-- optional ngModules (standalone: true)',
+        '-- Router title',
         '-- ng cache',
     ' -- ',
-    'Ang 13', 
+    'Ang 13 (Nov 2021)', 
       '-- TS 4.5',
       '-- new APF (Angular Package Format) ',
       '-- ESBuild ',
@@ -1101,7 +1247,8 @@ const subTopics = [
         '-- Angullar Do-Bootstrap',
         '-- 8 phase rot AOT Compiln',
         '-- Angular error handling']
-    ];
+*/
+      ];
 
 const subTopicsInfo = [
   [`
@@ -1135,7 +1282,8 @@ const subTopicsInfo = [
   '----- server - test locally - default port - localhost:4200',
   '-------- ng add | ng generate - uses schematics to create library',
  '--------- schematics', 
- '--- uses webpack behind the scenes',
+ '--- uses ng-packagr - to produce npm packages in APF format',
+ '--- uses webpack behind the scenes - to minify and speed up appn',
  ' -- ', 
  `-- main parts - Components - Directives - Pipes - Services - Modules `,
   '--- Components',
@@ -1191,59 +1339,63 @@ const subTopicsInfo = [
     '----- inheritance',
     '----- mixins',
      ' -- ',
-    '- Routing',
+    
+     '- Routing',
     '--- URLs', 
     '------ Routes path:\'x\' - component', 
     '-------- <base href=\/"\">', 
     '-------- HTML5 Urls', 
     '------ router-outlet', 
-    '------ routerLink',   
+    '------outerLink',   
    ' -- ',
    '- Decorators',
     '----- metadata',
     `----- TypeScript features - 
     <br/>@Component() | @Directive() | @Pipe() | @Injectable | @NgModule
+    `, 
+    `--- Std list decorators - class | property | method| parameter
     `,  
-    '--- Std decorators',
+    `Class Decorators
+     ----- @Component() | @Directive() | @Pipe() | @Injectable() | @NgModule()
+    `,
+    `Property Decorators
+     ----- @Input() | 
+           @ContentChild() | @ContentChildren |
+           @ViewChild() | @ViewChildren()
+    `,
+    `Method Dorators
+     ----- @HostListener()`,     
+   ` Parameter Decorators -
+    ----- @Inject() | @Self() | @Host() | @SkipSelf() | 
+           @Optional() | @Output() | EventEmitter()
+    `,
     ' -- ',
-    '--- list decorators',
-   '----- @Input()',
-   '----- @Self()',
-   '----- @Host()',
-   '----- @SkipSelf()',
-   '----- @Optional()',
-   '----- @Output()',
-   '----- EventEmitter()',
-   '----- @HostBinding()',
-   '----- @HostListener()',
-   '----- @ContentChild()',
-   '-------   @ContentChildren()',
-   '----- @ViewChild()',
-   '-------   @ViewChildren()',
-   ' -- ',
-   '- Change Detection - CD',
-  '--- zone.js',
-  '----- NgZone',
-  '----- ChangeDetectionStrategy.OnPush',
-  ' -- ',
-  '- Services and DI - Services are the provider from Injector hierarchy',
-  `--- DI (Dependency Injection) - to avoid ext dependencies threats - 
-  <br/>-- aims to decouplle the impn of services from the components 
-  <br/>-- uses DI design to work efficiency that lets our component classes and modules to be interdept 
-  <br/>-- while maintaining consistency over ext deps injected in our app\'ns - 
-  <br/>-- reduces freq with which class/module base changes 
+    '- Change Detection - CD',
+    '--- zone.js',
+    '----- NgZone',
+    '----- ChangeDetectionStrategy.OnPush',
+    ' -- ',
+    '- Services and DI - Services are the provider from Injector hierarchy',
+    `--- DI (Dependency Injection) - to avoid ext dependencies threats - 
   `,
   '--- Injector Hierarchy | tree',
   '----- dependency - Provider',
-  '--- Design Patterns',
-  ' -- ',
+  `--- Design Patterns
+  - aims to decouplle the impn of services from the components 
+  <br/>-- uses DI design to work efficiency that lets our component classes and modules to be interdept 
+  <br/>-- while maintaining consistency over ext deps injected in our appns - 
+  <br/>-- reduces freq with which class/module base changes 
+  `,
+   ' -- ',
   '- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time',
   '-- SSR (Server Side Rendering) - ',
+ 
   `-- Add ons - angular/pwa (Progressive Web Appns) and Service Workers - 
-    angular/elements - angular/webWorkers - Angular Universal - Angular Material - angular/flex-layout
-    `,
+    angular/elements - angular/webWorkers 
+    - Angular Universal - Angular Material - angular/flex-layout
+  `
   ], 
-  
+/*
   [`Components are the most important part of an Ang appn - they have a @Component decorator with a selector - template and optional style
     <br/>The class can have constructor - properties - methods - events 
     <br/>Can import services into the constructor using DI 
@@ -1470,14 +1622,164 @@ const subTopicsInfo = [
   '--- providedIn: \'any\'',
   `--- providedIn: <T>\'
   ` ],
+  
     ['Decorators - add metadata to a class | objects or methods -  which defines annotations - used by TypeScript compiler tsc',
      '- Metadata - describes other data',
      '- Annotations - are hard coded language features - set on a class - reflect metadata library', 
+     '--- class',
+     'Decorator Types', 
      '- Class - ',
-     '- @Component - @Directive @Pipe @Injectable  @NgModule - @Input @Output @ViewChild @ContentChild ',
-     '-- Types of decorators','@Component','@Input or @Output','@HostListener','@Injectable'
-    ], 
-    [`Interfaces - define a contract with a set of properties and or methods - to be implemented by a class
+     '----- @Component()',
+     '----- @Directive()',
+     '----- @Pipe()',
+     '----- @Injectable()',
+     '----- @NgModule()',
+     ' -- ',  
+     '--- Property',
+     `----- @Input() - most used decorators - 
+     <br/>- passes data from parent (host) component to child
+     <br/>- related to DOM property in template where child is used     
+     `,
+     '-------- passes data from parent to child',
+     '- 3 ways to use @Input()',
+     `--- 1: plain - @Input() message: string;
+     <br/><child-one message="hi there"></child-one>
+     <br/>In he child-one - <p>{{ message }}</p>
+     `,
+     `--- 2: alias - @Input('msg') message: string;
+     <br/> <child-two msg="hi there"></child-two>
+     <br/>In he child-two - <p>{{ message }}</p>
+     `,
+     `--- 3: setter/getter - use the TS get and set auto-properties
+ <br/>
+     private _message: string;
+
+@Input() // specify Input decorator here
+set message(inputMessage: string) {
+  this._message = inputMessage && inputMessage.toUpperCase(); // uppercase message here
+}
+
+get message(): string {
+  return this._message;
+}
+     `,
+     ' -- ',
+     `----- @Output() - marks property in child 
+     <br/> to let data travel from a child to a parent 
+     <br/> binds a property of type EventEmitter class   
+     <br/> @Output() myOutput:EventEmitter<string>= new EventEmitter();  
+     `,
+       '------ pass data from child to a parent class',
+       '-------- EventEmitter()',
+      `------- Ex @Output() myOutput:EventEmitter<string>= new EventEmitter();  
+      <br/>Using emit()
+      sendValues(){  
+        this.myOutput.emit(this.outputMessage);  
+      }  
+      `,
+      `---------- using emit() 
+      <br/>sendValues(){  
+        this.myOutput.emit(this.outputMessage);  
+     }  
+     
+     <app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+     `, 
+     ` using the myOutput() event
+     <br/><app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+     `, 
+     ' -- ',
+     `----- @HostBinding() - declares a host property binding
+     Angular automatically checks Host property bindings during CD
+     <br/>If binding changes - it updates the host element of directive  
+     `,
+     '------- declares a host property binding',
+     '------- binds a property to the host element',
+     '---------- Ex @HostBinding(\'class.box1\') toggle: boolean = false;',
+     '------------ value of toggle determines if box1 class is applied',
+     '--------- on change - checked by CD',
+    ' -- ',
+     `----- @ContentChild() - selects project content 
+       <br/> 1st el matching selector from Content DOM
+     `,
+     '------- selects projected content - 1st el matching selector from Content DOM',
+     '---------- Content DOM',
+     ' - ',
+     `-------   @ContentChildren() - fetch a QueryList of els from Content DOM
+     <br/>configures a content query 
+   `,
+   `------------- list of queries
+   `,
+   '----------- configure content query',
+   '------------- list of queries',
+     ' -- ',
+     `----- @ViewChild() - configures a View Query from template of Component    
+     <br/> - matching selector in View DOM tree
+     <br/>--- Provides instance of another component in a parent component 
+     <br/>---- parent component can access methods of  
+     `,
+    '------- config a View Query', 
+    '--------- from template of Comp',    
+    '--------- View DOM tree',
+    '----------- instance in parent comp',
+    '---- parent comp access methods',
+    '-- read - ',
+    '-- static - ',
+     `---- Ex ViewChild 
+     <br/> @ViewChild(DemoComponent, { static: false }) hello: DemoComponent;
+     ngAfterViewInit() {
+        console.log("Hello ", this.hello.componentName);
+     }
+   }
+     `,
+     ' -- ',
+     `------- @ViewChildren()
+       <br/>provide access to child els in the View DOM
+       <br/>by setting up View Queries
+     `,
+     '---------- child els in View DOM',
+     '------------- View Queries',
+     ' -- ',
+     '--- Method',
+     `----- @HostListener() - decorator that declares a DOM event to listen for  
+     -------- also provides a handler method to run when event occurs
+     ---------- which is invoked when host element emits specified event 
+     `,
+     '------- provides a handler',
+     '------- triggered on event',  
+    ' -- ',
+     '--- Parameter',
+     `----- @Inject() - A DI token that maps to the dep to be injected 
+       <br/> a par decorator on a dep par of a class constructor 
+       <br/>specifying a cust provider of the dep
+     `,
+     '----- DI token',
+     `----- @Self() - instructs Ang to look for dep only in local injector  
+     <br/>- part of current Component or Directive
+     <br/>--- Resolution Modifiers - mod injector behavior
+     `,
+     '------- local injector',
+     `----- @Optional() - marks dep as being an optional parameter 
+     <br/> if dep not found it returns null instead of an error
+     `,
+     '------- returns null if not found',
+    `----- @skipSelf() - instructs Ang to look for dep only in parent injector  
+     <br/>- parent of current Component or Directive
+     <br/>--- Resolution Modifiers - mod injector behavior
+     `,
+     '------- parent injector',
+     `----- @Host() - instructs Ang to look for injector on Component itself
+     <br/>----- similar to @Self() but 
+     <br/>------- if not found in current Component 
+     <br/>------- continues to search till it reaches the host i Component   
+     `,
+     '------- similar to @Self',
+     '-------  search till host',
+     `----- @Override()
+     `,
+     '------- overrides method',
+ 
+     ], 
+     [`Interfaces - define a contract with a set of properties and or methods - to be implemented by a class
       <br/>export interface IGame:{ prop1: number; prop2: string; prop3: number;}
 
     `,
@@ -1488,22 +1790,159 @@ const subTopicsInfo = [
       '- properties - class data - can be private - default public', 
       '- methods - functions on the class', 
       '- events - ', 
-      '-- this to ref the class object properties and methods'],
+      '-- this to ref the class object properties and methods'
+    ],
+    [`ES EcmaScript - modern JavaScript
+    <br/>ES - 2020
+    <br/>ES - 2022
+    `,
+        '-- modern JavaScript',
+        '---- ES6 (ES 2015)',
+        `------ let const var
+        <br/>----- let - has block scope
+        <br/>----- const - has block scope
+        <br/>----- var - has function or app scope
+        `,
+        '---- fat arrow ftns (x)=> x * 2;',
+        `---- For/of
+        <br/>
+        const cars = ["BMW", "Volvo", "Mini"];
+let text = "";
 
-    [`TypeScript - data types - number | string | boolean - strongly typed and uses inferred types - interfaces and types   
-      <br/>tsc transpiles ts down to .js files - 
-      <br/>uses tsconfig.json - transpiles .ts files dwn to .js files to run in the browser 
+for (let x of cars) {
+  text += x + " ";
+}`,
+        '---- Map Objects',
+              '---- Classes',
+        '---- Promises',
+        '---- defaul params',
+        '---- ftn rest params',
+
+        `---- String -
+        ------- includes | startsWith | endsWith
+        `,
+        '------- string.includes()',
+        '------- string.startsWith()',
+        '------- string.endsWith()',
+        `---- Array -  
+            from | keys | find() | findIndex()   
+        `,
+        '------- array.from()',
+        '------- array.keys()',
+        '------- array.find()',
+        '------- array.findIndex()',
+
+        '---- Object entries',
+        '---- JS Modules'
+    ],
+    [`TypeScript - JS with syntax for types - 
+      <br/>data types - number | string | boolean 
+      <br/>- Object Oriented Language
+      - strongly typed and uses inferred types 
+      - interfaces and types   
+      <br/>A Strongly Typed Programming Language
+      <br/>- Can be used in any browser or JS engine (ES6) ie. Node.js   
+      <br/>tsc transpiles ts down to .js files - run in the browser 
+      <br/>uses tsconfig.json - configures TS
       <br/>tooling - auto-completion | navigation | refactoring - 
       `,
-      '- Strong Data Types - number | string | boolean | ',
-      '-- Inferred Types - TS determines the types',
+      '- Object Oriented Language ',
+      `- Strong Typeed - relates to a whole language 
+      <br/>- number | string | boolean | 
+      `,
+      '--- normally written in Code editor - VS Code',
+      `TS has - Compile Time Type Checking 
+      - a statically typed language
+      - Type Checks are performed at compile time
+      `,
+      `--- Type Annotations - used to enforce type Checking
+      <br/> ----- helps compiler to check types and avoided data type errors 
+      <br/> -------- (not mandetory in TS) 
+      `,
+      '----- helps compiler check types ',
+      `- JS Primitive Types 
+      --- JS is a dynamically typed language
+      --- Type Checks are performed at runtime
+      ---- when the program is executing 
+      `,
+      '--- string',  
+      '--- number',
+      '--- boolean',
+      '- JS Primitive Values',
+      '--- null',
+      '--- undefined',
+      `- Type safe - means No casting or Runtime type errors
+      <br/> - relates to a portion of code 
+      `,
+      '--- No Casting',
+      '--- No Runtime type errors',
+      ' -- ',
+      '- TS Basic Data Types',
+      '--- JS Primitives',  
+      '--- JS Primitive Value',
+      '----- strictNullChecks on/off',
+      '--- Array',
+    '--- any',
+    '----- unknown (TypeSafe any)',
+    `--- Object Type
+    var employee : { 
+      id: number; 
+      name: string; 
+  }; 
+  
+  employee = { 
+    id: 100, 
+    name : "John"
+  }
+    
+    `,
+    '----- interfaces | classes',
+    '----- Type aliases',
+    ' -- ',  
+      '- Advanced Data TYpes',
+      '--- Conditional Types using ?',
+      '--- Generics using <T>',
+      '--- Union Types',
+      `----- Composite types - data types that have 1+ fields dynamically linked to fields in another data type
+        <br/>- useful for creating a single data type - refs info in > 1 data source or refs > 1 table or structure in a data source
+      `,
+      '------ Narrowing - ',
+      `-------- Type Guards - let you narrow down the type of a variable within a condnal block
+       <br/>- uses typeof x 
+       <br/>- uses instanceof y
+      `,
+      '----------- conditional value check',
+      '----------- typeof x',
+      '----------- instanceof y',
+      '----------- in type',
+      '----------- type guard ftn with predicate',
+      '----------- type guard ftn with assertion  ',
+      
+      
+      '--- Distributive Conditional Types',
+      '--- Inferred Types - TS determines the types',
       `- duck typing - powerful feature which brings strong typing concepts in TS code  
         <br/>type checking that focuses on the shape that values have - checks for properties instead of Objec type
         `,
-        `- Composite data types - data types that have 1+ fields dynamically linked to fields in another data type
-          <br/>- useful for creating a single data type - refs info in > 1 data source or refs > 1 table or structure in a data source
-        `,
-        `-- Exs of Composite data types - sequence | set | list | Array | table | Record | ftn call | union | intersection   
+        '- tooling - auto-completion | navigation | refactoring',  
+        '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
+      '- .ts files - files with Type Infon - makes data TypeSafe',
+      '-- transpilation ts files down to JavaScript files', 
+      `- tsconfig.json - identifies the project or appn as a TypeScript appn 
+       - <br/> - with this ids root path - CompilerOptions - AngularCompilerOptions
+      `,   
+      '-- CompilerOptions',
+      '-- AngularCompilerOptions',
+      '--- fullTemplateTypeCheck: true',
+      '- JS files - ES5 files - with std JavaScript' , 
+      '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files',
+      `- Barrels - (index.ts) is a way to rollup exports from several modules into one convenient module
+      <br/>The barrel itself is a module file that re-exports selected exports of other modules
+      <br/> - module file which provides a centralised place for exporting 
+      <br/> -- components | interfaces | services | directives | pipes
+      `,
+  
+          `-- Exs of Composite data types - sequence | set | list | Array | table | Record | ftn call | union | intersection   
         `,  
       `- Union types - A | B eg   let unionJack : number | string;
       `,`- intersection types - expressiveness of type system - are composite data types - used to assign diff types to an object
@@ -1526,23 +1965,7 @@ const subTopicsInfo = [
       `- classes - helps structure reusable Angular objects  
         with multiple declarations for methods - properties - events 
       `,
-      '- tooling - auto-completion | navigation | refactoring',  
-      '- TypeScript Compiler - MS - transpiles ts with type information to js files', 
-    '- .ts files - files with Type Infon - makes data TypeSafe',
-    '-- transpilation ts files down to JavaScript files', 
-    `- tsconfig.json - identifies the project or appn as a TypeScript appn 
-     - <br/> - with this ids root path - CompilerOptions - AngularCompilerOptions
-    `,   
-    '-- CompilerOptions',
-    '-- AngularCompilerOptions',
-    '--- fullTemplateTypeCheck: true',
-    '- JS files - ES5 files - with std JavaScript' , 
-    '- ngc - (Angular Compiler ) uses tsc to transpile ts to js files',
-    `- Barrels - (index.ts) is a way to rollup exports from several modules into one convenient module
-    <br/>The barrel itself is a module file that re-exports selected exports of other modules
-    <br/> - module file which provides a centralised place for exporting 
-    <br/> -- components | interfaces | services | directives | pipes
-    `,
+     
       '-- index.ts'
       
     ],
@@ -1630,12 +2053,36 @@ const subTopicsInfo = [
     <br/>Std modules are loaded eagerly
     <br/>Lazy loading modules - lets us use Feature Modules and Shared Modules
     `, 
-    `NgModule - is a class marked by the @NgModule decorator 
+    `--- NgModule - is a class marked by the @NgModule decorator 
     <br/>takes a metadata object that describes how to compile a components template 
     <br/>and how to create an injector at runtime 
     <br/> 
     <br/>configure the injector and the compiler and help organize related things together
+    `,
+    `-- Diff between JS Module and Angular Module
+    <br/>1: JS Module (ESM) is a file 
+    <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
+      
     `, 
+    `ESMs (EcmaScript Modules) - are the official std format   
+    <br/>-- to package JS code for reuse 
+    <br/>-- defined using import and export statements
+    <br/>--- for interoperability 
+    <br/><script type="module"> fires off lots of dependencies
+    <br/>--- but due to caching and HTTP2 support on Server - it works
+    <br/>--- APF (Angular Package Format) - uses 1 flat ESM per entry pt
+        
+    `,  
+    `--- dynamic imports (Ang 08) - 
+    <br/>TypeScript 2.4 included support for dynamic import() expressions 
+    <br/> - lets us asynchronously load and execute ESMs (EcmaScript Modules) on demand    
+    <br/> --- means we can conditionally and Lazy import other modules and libraries
+    
+    <br/>In Angular - import statements 
+    <br/> -- are written as inline function calls within modules    
+    `,
+    `--- static import of modules is preferred for most modules 
+    `,
     'Ang Libraries are NgModules - FormsModule | HttpClientModule| RouterModule',
     '@NgModule({}) decorator',
     '- declares relavent Components', 
@@ -2474,7 +2921,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       `- @angular/platform-browser - supports exec of Ang apps on diff browsers 
       <br/>library for using Angular in a web browser
       <br/>BrowserModule - included by default  
-      <br/>Ang 14 Standalone Components 
+      <br/>Ang 14 Standalone Components - 
       <br/>- bootstrapApplication()
       `,
       '--- main.ts',  
@@ -2739,7 +3186,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- enables you to enforce a set of style | formatting | coding stds for your codebase  
     <br/>ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
     <br/>ESLint8.15 - May 2022 - 
-   
     `,
     'ESLint is a JavaScript Linter to lint either JS + TS code', 
     'Static Analysis',
@@ -2790,7 +3236,25 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Entry',
     '-- Output', 
     'Loaders',
-    'Plugins'
+    'Plugins',
+    ' -- ',
+    `-- Webpack 5 introduced the Module Federation -
+    <br/> ---- multiple Webpack builds can work together
+    <br/> ---- create multiple sep indept builds (without deps on eachother)
+    <br/> ------ developed and deployed independently
+    <br/> --------- ideal for loading Micro FrontEnds at runtime
+    <br/> ----------common libs - Angular | Auth 0 can be shared -- 
+    <br/> ---------- same as a set of users too - 
+    <br/> ---- initially created to allow async loading of JS bundles
+    <br/> -- 
+    <br/> - RemoteEntry.js (Host) - is Mod Fed way for your App 
+    <br/> --- to be loaded from a remote Server - 
+    <br/> --- a file used by Mod Fed to bootstrap remotes - 
+    <br/> ----- is considered a local chunk in remote repo
+    <br/> ------- We grap the endpoint for each remote   
+    <br/>- Shell - load MFE (MicroFrontends) into a Shell appn on demand 
+    <br/>-- Webpack 5s Module Federation simplifies this wrt before 
+    `
     ],
     [`The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
       Cloud Servers are located all over the World
@@ -3028,10 +3492,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     - mobile friendly`,
     '- SSR - Server Side Rendering'
   ],
-   [`Optional Modules - Standalone Components | Pipes | Directives
-      <br/>adding strandalone : true
-      <br/>Stand alone Components - @Component standalone: true and its backwards compatible in both directions - 
-      <br/> Not owned by anyone or anything - but can be imported into other components and modules
+   [`Optional Modules - Standalone Components - 
+   <br/>are components that can be used without declaring them inside the NgModule decorators  
+   <br/>and providing standalone: true
+   <br/>  
+      <br/>Stand alone Components - @Component standalone: true 
+      <br/>and its backwards compatible in both directions - 
+      <br/> Not owned by anyone or anything 
+      <br/>- but can be imported into other components and modules
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
       <br/> We just update Angular Schematics 
     `, 
@@ -3040,6 +3508,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '---- platformBrowserDynamic()',
     '------ @Component ({standalone: true})', 
     '------ bootstrapApplication(AppComponent)',
+    '-- under the hood use virtual module (similar to SCAM)',
     '-- Backwards compatability -',
     '-- Architecture -',
      `Advantages - 
@@ -3232,6 +3701,21 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `- sourceMap Explorer
   <br/>-- 
   `,
+  `- ESBuild - new (Ang 12) streamlined bundler - super fast 
+  <br/> - without need to cache - with a solid API
+  <br/> handles TypeScript | JSON module importing -   
+  <br/> given array of entry points - 
+  <br/>--- it will transpile | bundle | treeshake | code split your modules
+  <br/>- use a build.mjs script - ESM -
+  <br/>Ang 13 - It works with Terser     
+  `,
+  `- Terser - is a JS minifier 
+  `,
+  `- APF - rule is to use entry points 
+  <br/>--- for smallest sets of logically connected code possible
+  <br/>--- for structure and format of npm packages - used by all std Ang libs
+  
+  `,
   'LCP - largest Component Paint  ',
   ' - Lazy Loading',
   '- Angular Universal',
@@ -3270,6 +3754,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Server side runtime',
     `--- exec queries`
     ],
+    [`Real time appns - 
+      <br/> uses @Override() | @deprecate() | @autobind() | @mixin decorators
+      
+    `],
     [`ag-grid - is a fully featured and highly customizable JS data grid 
     <br/>- delivering outstanding performance
     <br/>Fully customizable | ag-grid performance | no 3rd party deps 
@@ -3445,12 +3933,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `Ang 14 TS 4.7 - Strictly typed Reactive Forms | 
     adv extended template diagnostics | 
     optional ngModules (standalone : true) | 
+    router title added
     ng cache
     `,
       '-- TS 4.7',
       '-- strictly typed Reactive Forms',
       '-- adv extended template diagnostics',
       '-- optional ngModules (standalone: true)',
+      '-- Router title added',
       '-- ng cache',
     ' -- ',
     'Ang 13 TS 4.5 - milestone in updates - new APF - CLI now uses ESBuild (JS Bundler works with Terser) - Node package exports - ES2020 - cli.cache ', 
@@ -3529,7 +4019,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Angullar Do-Bootstrap',
     '-- new Angular Compiler -  8 phase rotating AOT Compilation',
     '-- Angular error handling'
-],  
+]*/  
 ];
 
 @Component({
