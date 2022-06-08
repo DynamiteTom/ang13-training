@@ -217,7 +217,7 @@ const subTopics = [
     ],
     ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
   ],
-/*
+
   ['Services and DI',
     '-- wrt Components',
     '- A Service',
@@ -1243,11 +1243,10 @@ const subTopics = [
     'Ang 07',
         '-- TS 3.1',
         '-- Ang Material | SDK',
-        '-- CLI Prompts',
         '-- Angullar Do-Bootstrap',
         '-- 8 phase rot AOT Compiln',
         '-- Angular error handling']
-*/
+
       ];
 
 const subTopicsInfo = [
@@ -1395,7 +1394,7 @@ const subTopicsInfo = [
     - Angular Universal - Angular Material - angular/flex-layout
   `
   ], 
-/*
+
   [`Components are the most important part of an Ang appn - they have a @Component decorator with a selector - template and optional style
     <br/>The class can have constructor - properties - methods - events 
     <br/>Can import services into the constructor using DI 
@@ -4019,7 +4018,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Angullar Do-Bootstrap',
     '-- new Angular Compiler -  8 phase rotating AOT Compilation',
     '-- Angular error handling'
-]*/  
+]
 ];
 
 @Component({

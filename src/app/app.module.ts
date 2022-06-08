@@ -40,9 +40,9 @@ import { NullishCoalescingComponent } from './ts-features/ts-other/nullish-coale
 import { CatchBugsEarlyComponent } from './ts-features/ts-other/catch-bugs-early/catch-bugs-early.component';
 import { TsMenuComponent } from './ts-menu/ts-menu.component';
 
-import { MaterialModule } from './shared/material/material.module';
+// import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -84,8 +84,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
-    FlexLayoutModule,
+   // MaterialModule,
+   // FlexLayoutModule,
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule
