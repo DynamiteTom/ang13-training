@@ -212,10 +212,42 @@ const subTopics = [
     ' -- ', 
     '- ng g c xyz'
     ],
-    ['Why Directives','@Directive({})','- attribute-directives', '- template-directives *ngIf','-- *ngIf','-- *ngFor','-- *ngSwitch()', 
-    '- Components'
+    ['','@Directive({})',
+    '- attribute-directives', 
+    '- template-directives *ngIf',
+    ' -- ',
+    ' -- Types of Template Directives',
+    '----- *ngIf',
+    '------- *ngIf ; else ng-tmp',
+    '--------- ng-template #ng-tmp',
+    ' -- ', 
+    '----- *ngFor',
+    '------ trackBy performance',
+    ' -- ',   
+    '----- *ngSwitch()',
+    '------- case',
+    ' -- ', 
+    '----- ng-template <ng-template>',
+     '--------- not displayed by default',
+     '---------- determine when display',
+     '--------- has 1+ input named values',
+     '----------- template vars', 
+     '--------- use of let-x',
+     '--- section off ng-templae',
+    '-------- ng-container <ng-container',
+    '-------- ng-content <ng-content>',
+    '-------- ng-template-outlet <ngTemplateOutlet>',
+    '--- ng-template instantiated',
+    '-------- named inputs bound to vars', 
+    '------ ng-template uses',
+    '--------- else part of *ngIf',
+    '-------- with ngForOf',
+    ' -- ', 
+    '--- Components'
     ],
-    ['Why Pipes','- transforms data','-- display', 'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
+    ['Why Pipes',
+    '- transforms data','-- display', 
+    'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
   ],
 
   ['Services and DI',
@@ -256,9 +288,21 @@ const subTopics = [
     ['Dependency Injection',
     '-- Injector Hierarchy DI system',
     '--- Injector Tree',
-    '----- Injector Bubbling - ',
+    '----- parallel Component Tree',
+    '----- Injector Bubbling',
     '-------- Components local injector',
     '-------- root injector',
+    '---- 2 Injector Hierarchies',
+    '------- injectors - key-value pairs ',
+    '------- ModuleInjector (Ivy R3Injector)',
+    '-----------',
+    '------- ElementInjector (Ivy NodeInjector)',
+    '--------- NodeInjector implements Injector',
+    '----------- object refs to',
+    '------------- TNode - TView.data array',
+    '------------- LView.   - array',
+    
+    '----------- using Bloom filter',
     '----- Sandboxing',
     '------- Multiple Service Instances',
     '----- @Host()',
@@ -283,6 +327,7 @@ const subTopics = [
     '--- interfaces and DI',
     '---- Using factory providers'
   ],
+ 
   ['Decorators',
     '- Metadata',
     '- Annotations', 
@@ -483,9 +528,9 @@ const subTopics = [
     '-- initializing/loading appn',
     '---- platformBrowserDynamic()',
     '------- bootstrapModule()',
-    '---------- root ModuleInjector',
+    '---------- root ModuleInjector (now R3Injector)',
     '------------ hierarchy of injectors',
-    '---------- ElementInjector',
+    '---------- ElementInjector (now NodeInjector)',
     '------------ hier of Comp injectors', 
     '------- NullInjector',    
     ' -- ',
@@ -1444,19 +1489,77 @@ const subTopicsInfo = [
       `,
       'generate a new Component'
     ],
-    [`Directives are classes that add extra behavior to elements in Angular appns 
+    [
+      
+      `Directives are classes that add extra behavior to elements in Angular appns 
       <br/>let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
     - <br/> decorator @Decorator({}) 
     - <br/> 3 types - attribute | template | Components -  
     `,
       '@Directive({})',
+      
       '- Attribute-directives - change the appearance or behavior of an element | component | directive', 
+     
       '- Template-directives *ngIf - *nfFor() ',
-         '<div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
-         '<div *nfFor="x of List"></div>',
-         '<div *ngSwitch with case statements',
-      '- Components are a form of Directive but have a template'],
-    ['Why Pipes - pure and impure - decoraor - @Pipe() - used in a template HTML to modify data - Custom Pipes - @PipeTransform with transform()', 
+      `---- 
+      `,
+        '---Type of Template Directives',
+          '----- *ngIf <div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
+              '------ *ngIf ; else tmp-dir',
+              '---------- else <ng-template #tmp-dir>',
+              ' -- ', 
+  
+              '----- *ngFor <div *nfFor="x of List"></div>',
+              `------- trackBy - to speed up for loop iteration
+          @Component({
+            selector: 'app-list',
+            template: \` <div *ngFor="let item of items; trackBy: trackById">...</div> 
+            \`,
+          })
+          export class AppListComponent {
+            @Input()
+            public items: Item[];
+          
+            public trackById(index: number, item: Item) {
+              return item.id;
+            }
+          }
+          `,
+          ' -- ', 
+          `----- *ngSwitch <div *ngSwitch with case statements
+          `,
+          `------- case
+          `,
+          ' -- ', 
+          `- ng-template <ng-template>
+           `,
+            '--- not displayed by default',
+            '----- determine when to display',
+            '------- has 1+ input named values',
+            '--------- assigned to template variables', 
+            `------- use of let-
+            
+            `,
+            '--- section off ng-templae',
+            '----- ng-container <ng-container',
+            '----- ng-content <ng-content>',
+            `----- ng-template-outlet <ngTemplateOutlet>
+            `,
+           '--- ng-template instantiated',
+           `----- Onamed inputs bound to 1+ input template variables 
+           `,
+           '--- ng-template uses',
+           '------ else part of *ngIf',
+           `------ with ngForOf 
+           <ng-template ngFor let-hero let-i="index" [ngForOf]="heroes">
+               <li>Hero number {{i}}: {{hero.name}}
+           </ng-template>
+           `,
+           ' -- ', 
+       '- Components are a form of Directive but have a template'
+      
+      ],  
+      ['Why Pipes - pure and impure - decoraor - @Pipe() - used in a template HTML to modify data - Custom Pipes - @PipeTransform with transform()', 
       'transform data for display',
       '- only applied in template',
       '-- used in a template',
@@ -1557,9 +1660,70 @@ const subTopicsInfo = [
   <br/>------- if Component injector has no provider - passes to parent Components Injector
   <br/>
   `,
+  '- View object - an internal object that reps Ang template',
+  `--- Ang builds a tree of views which always starts with a fake root View
+    <br/> that only contains 1 root element
+    <br/> Ivy uses LView and TView.data arrays   
+  `,
   '------- Injector Bubbling - ',
   '---------- Components local injector',
   '---------- root injector',
+  '---- 2 Injector Hierarchies',
+  '------- injectors - key-value pairs ',
+  '------- ModuleInjector (Ivy R3Injector)',
+  `----------- a Module level injector
+      <br/>--- has a Records property that stores DI info 
+      <br/>----- and stores instances of injectables    
+      <br/>
+      <br/>------ get() records a Map collection
+      <br/> - key is a token 
+      <br/> - value is instance corresponding to token    
+  
+      `,
+
+  `------- ElementInjector (Ivy NodeInjector)
+        <br/>is an injector that belongs to a node
+        <br/>is an object that has ref to TNode and LView objects
+     `, 
+     '--------- NodeInjector implements Injector is saved in', 
+      '----------- 9 contiguous slots in LView +', 
+      '----------- 9 contiguous slots in TView.data',  
+  '----------- object refs to',
+  `------------- TNode - any kind of object : 
+  <br/> - element| ng-template| ng-container
+  <br/> - Ang creates a injectorIndex property on TNode 
+  <br/>--- where bloom filter is located. 
+  <br/> - The NodeInjector gets required provider by looking at the data 
+  <br/> - contained in TNode and LView objects
+  <br/> - Ivy renderer - stores injection info for the Node in the view data  
+  <br/> - start from a header (17 slots) 
+  <br/> --- contains ref to parent injector at index 10  
+  <br/> - It allocates allocates slots in LView + TView.data arrays    
+  `,
+  `------------- LView - contains DI info 
+  <br/>  array contains data 
+  <br/>------------- describing a specific template
+     <br/> stores instances -
+     <br/> After each bloom filter - Ang stores parentLocation ptr  
+     <br/> ---   we can walk through all parent injectors     
+  `,
+  `------------- TView.data array - Ang keeps data shared x templates    
+   <br/> stores all tokens 
+  `,
+  `--------------- These slots rep 2 bloom filters - Cumulative + template    
+   <br/> - 1 view can have as many bloom filters or injectors 
+   <br/> - for nodes located on the view
+  `,
+  '- ',
+  `--------------- using Bloom filter
+    <br/> -   8 slots long ([n, n+7] indices) - 
+    <br/>Their number is directly proportional to the num of nodes  
+    <br/>-- for which the injector is created
+    <br/>Each bloom filter has a ptr to the parent bloom filter 
+    <br/>--- in the "packed" parentLocation slot (n + 8)
+    <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
+    <br/>---   
+  `,
   `----- Sandboxing - Multiple service instances 
   <br/> ------ at the same level of the Component
   <br/> ------ eg A Service that holds state for its companion comp instance       
@@ -3502,6 +3666,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
       <br/> We just update Angular Schematics 
     `, 
+    `--- standalone: true - provide a simplified way to build Ang appns
+    <br/>----- standalone components | directives | pipes 
+    <br/>---------streamline experience - reducing need for NgModules
+    <br/>------------- developer preview (not stable)
+    `,
     '-- Optional Modules',
     '-- main.ts',
     '---- platformBrowserDynamic()',
@@ -3553,8 +3722,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ',
     '- help Agile + DevOps'
   ],
-  ['Azure - Cloud'
-
+  ['Azure - Cloud',
+      `Azure Web Apps
+      `,
+      `Azure Function Apps
+      `,
+      `New Azure Application Platform
+      `,
+      
 
   ],
   [`Debugging Angular - Chrome Devtools (Debugger for Chrome) 
