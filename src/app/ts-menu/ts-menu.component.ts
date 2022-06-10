@@ -36,6 +36,7 @@ const features = `
     'RxJS_',
     'Higher-Order-Mapping-ftns',
     'Forms',
+    'ViewContainerRef',
     'ViewDOM',
     'ContentDOM',
     'Content-Projection',
@@ -235,8 +236,11 @@ const subTopics = [
      '--------- use of let-x',
      '--- section off ng-templae',
     '-------- ng-container <ng-container',
+    '------------ no element displayed',
     '-------- ng-content <ng-content>',
-    '-------- ng-template-outlet <ngTemplateOutlet>',
+    '---------- transclusion',
+    '-------- ngTemplateOutlet',
+    '------------ ',
     '--- ng-template instantiated',
     '-------- named inputs bound to vars', 
     '------ ng-template uses',
@@ -372,11 +376,13 @@ const subTopics = [
     '------------- list of queries',
     ' -- ', 
     '----- @ViewChild()', 
+    '------- simple @ViewChild Ex',
     '------- config a View Query', 
     '--------- from template of Comp',    
     '--------- View DOM tree',
     '----------- instance in parent comp',
     '---- parent comp access methods',
+    '---- ngAfterViewInit LCH',  
     '-- read - ',
     '-- static - ',
     '---- Ex @ViewChild', 
@@ -728,9 +734,32 @@ const subTopics = [
     ' -- ',
     '  -- Reactive Validation' 
     ],
+    ['ViewContainerRef',
+       '-- attach multiple views',
+       '---- View Container',
+       '------ any DOM el',
+       '-------- appends views to el',
+       '---- VCF methods',
+       '-- createEmbeddedView()',
+       '-- Ex of createEmbeddedView()',
+       '-- createComponent()',
+       '-- Ex of createComponent()',
+       '-- shortcuts',
+       '---- ngTemplateOutlet', 
+       '------ Ex using ngTemplateOutlet',
+       '---- ngComponentOutlet', 
+       '------ Ex using ngComponentOutlet',
+       '---- used with ng-container',
+       '---- use @ViewChild | @ConentChild',
+       'use @ViewChild with VCF',
+       'Ex @ViewChild with VCF',
+       'use @ContentChild with VCF',
+       'Ex @ContentChild with VCF'
+    ],
     ['Whats View DOM', '- ViewChild', '- ViewChildren'],
     ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
     ['Whats transclusion',
+    '--- ngAfterContentInit LCH',
     '- ex of content projection', 
     '-- ng-content',
     '--- Single Slot',
@@ -1107,7 +1136,32 @@ const subTopics = [
     ' -- ',
     '- Agile project management tool'
   ],
-  [' - Azure'
+  [' - Azure',
+  '-- Azure Applications',
+  '-- Azure Web APplication',
+  '-- Azure tools',
+
+  ' -- ',
+  '--- Azure Functions',
+  
+  '---- DevOps',
+       '------ Azure Boards',
+       '------ Azure Pipelines',
+       '------ Azure Repos',
+       '------ Azure Test plans',
+       '------ Azure Artifacts',
+       '------ Extensions Marketplace',
+    '--- Azure Logic Application',  
+    '----- Visual workflow designer',
+    '-------- event grid',
+    ' -- ',
+    '-- Azure Serverless Components',
+    '---- Azure ftns ',
+    '------ code on demand',
+    '------ indept of location',
+    '------ built for reuse and composition',
+    '------ Messaging Component integration',
+    '------ Serverless Cloud infrastructure'
   ],
   ['Debugging Angular', 
     '- Chrome Devtools',
@@ -1538,11 +1592,12 @@ const subTopicsInfo = [
             '------- has 1+ input named values',
             '--------- assigned to template variables', 
             `------- use of let-
-            
             `,
             '--- section off ng-templae',
             '----- ng-container <ng-container',
+            '-------- no element displayed',
             '----- ng-content <ng-content>',
+            '-------- transclusion (content projection)',
             `----- ng-template-outlet <ngTemplateOutlet>
             `,
            '--- ng-template instantiated',
@@ -1879,12 +1934,20 @@ get message(): string {
      <br/> - matching selector in View DOM tree
      <br/>--- Provides instance of another component in a parent component 
      <br/>---- parent component can access methods of  
+     <br/>--- used in ngAfterViewInit LCH
+     `,
+     `----- Simple Ex - 
+     @ViewChild(ColorSampleComponent)
+     primarySampleComponent: ColorSampleComponent;
      `,
     '------- config a View Query', 
     '--------- from template of Comp',    
     '--------- View DOM tree',
     '----------- instance in parent comp',
     '---- parent comp access methods',
+    `--- ngAfterViewInit() Life Cycle Hook
+      <br/>----- use to write initialization code 
+    `,
     '-- read - ',
     '-- static - ',
      `---- Ex ViewChild 
@@ -1894,6 +1957,7 @@ get message(): string {
      }
    }
      `,
+
      ' -- ',
      `------- @ViewChildren()
        <br/>provide access to child els in the View DOM
@@ -2806,18 +2870,145 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ',
     '--- Reactive Validation'
   ], 
-    [`@ViewChild - is within the tempalte of the Component
-    `, 
+  [`ViewContainerRef - lets you attach multiple views to it
+      
+  <br/>--- can be used with @ViewChild
+  `,
+  `--- lets you attach muliple views to it
+  `,
+  '---- View Container',
+  '------ any DOM el',
+  '-------- appends views to el',
+   ` methods - clear()| insert()| get()| indexOf()| detach()| move() 
+    <br/>createComponent() | createEmbeddedView()
+   `,
+  
+   `---- createEmbeddedView(templateRef...): EmbeddedViewRef<C>
+     <br/> creates a View
+   `,
+   `------- Ex using createEmbeddedView()
+   <br/>
+   @Component({
+    selector: 'sample',
+    template: \`
+        <span>I am first span</span>
+        <ng-container #vc></ng-container>
+        <span>I am last span</span>
+        <ng-template #tpl>
+            <span>I am span in template</span>
+        </ng-template>
+    \`
+})
+export class SampleComponent implements AfterViewInit {
+    @ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
+    @ViewChild("tpl") tpl: TemplateRef<any>;
+
+    ngAfterViewInit() {
+        let view = this.tpl.createEmbeddedView(null);
+        this.vc.insert(view);
+    }
+}
+   `,
+   `---- createComponent(componentFactory...): ComponentRef<C>
+   <br/> createa a Component
+ `,
+ `------ Ex of using createComponent()
+ <br/>
+ @Component({
+  selector: 'my-app',
+  template: \`
+    <template #alertContainer></template>
+    <button (click)="createComponent('success')">Create success alert</button>
+    <button (click)="createComponent('danger')">Create danger alert</button>
+  \`,
+})
+export class App {
+  @ViewChild("alertContainer", { read: ViewContainerRef }) container;
+ 
+  constructor(private resolver: ComponentFactoryResolver) {}
+ 
+  createComponent(type) {
+    this.container.clear(); 
+    const factory: ComponentFactory = this.resolver.resolveComponentFactory(AlertComponent);
+    this.componentRef: ComponentRef = this.container.createComponent(factory);
+  }
+ }
+ `,
+   '-- shortcuts',
+   `---- ngTemplateOutlet - marks a DOM el as a ViewContainer 
+   `,
+   `------ Ex using ngTemplateOutlet -
+   <br/><>Copy
+   @Component({
+       selector: 'sample',
+       template: \`
+           <span>I am first span</span>
+           <ng-container [ngTemplateOutlet]="tpl"></ng-container>
+           <span>I am last span</span>
+           <ng-template #tpl>
+               <span>I am span in template</span>
+           </ng-template>
+       \`
+   })
+   export class SampleComponent {}
+   `,
+   `---- ngComponentOutlet - inserts an embedded view - created by template
+     ----- creates a Host View - (instantiates a Component)  
+   `,
+   `------ use of ngComponentOutlet
+   <br/>
+   <ng-container *ngComponentOutlet="ColorComponent"></ng-container>
+   `,
+   '-- use with ng-container',
+   '---- use @ViewChild | @ConentChild',
+   `@ViewChild VCF defn
+   <br/>
+   @ViewChild("vc", {read: ViewContainerRef}) 
+             vc: ViewContainerRef;
+   `,
+   `@ViewChild VCF Ex
+ <br/>
+   @Component({
+    selector: \'sample\',
+    template: \`
+        <span>I am first span</span>
+        <ng-container #vc></ng-container>
+        <span>I am last span</span>
+    \`
+})
+export class SampleComponent implements AfterViewInit {
+    @ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
+
+    ngAfterViewInit(): void {
+        // outputs \`template bindings={}\`
+        console.log(this.vc.element.nativeElement.textContent);
+    }
+}
+   `,
+   `@ContentChild VCF defn
+   <br/>@ContentChild(\'nameInput\', {static:false, read: ViewContainerRef }) 
+                nameVarAsViewContainerRef;
+`,
+
+],
+[`@ViewChild - is within the template of the Component
+
+   `, 
     '- Queries one child', 
-    '- Queries multiple Children'
+    '- Queries multiple Children',
+    `--- ViewContainerRef - lets you attach several views to it
+    ` 
     ],
     [`@ContentChild - is within a Component tags
-    
+      <br/>-- Initialize code in ngAfterContentInit LCH
     `, 
-    '- Queries one child', 
+    `--- ngAfterContentInit() Life Cycle Hook
+    ----- for all the initialization code 
+    `,
+    '- Queries one child ', 
     '- Queries multiple children'
   ],
-  [`transclusion is Content Projection 
+  [`transclusion is Content Projection - initialized in ngAfterContentInit LCH 
     - a pattern to insert/project content to use inside another Component 
     - lets a Directive to make use of templates + add content to DOM 
     - lets Directives generate dynamice data driven DOM instns 
@@ -3723,14 +3914,64 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- help Agile + DevOps'
   ],
   ['Azure - Cloud',
-      `Azure Web Apps
-      `,
-      `Azure Function Apps
-      `,
       `New Azure Application Platform
       `,
-      
+      `Azure Web Apps
+        - comprise non-managed components - 
+      `,
+      ' - Azure tools',
+      ' -- ',
+      `Azure Functions
+      <br/>execute event driven serverless code ftns 
+      <br/> accelerate and simplify serverless App devt 
+      <br/>1: Automated flexible scaling - no infracuture management
+      <br/>2: Integrated Prog Model to respond to events | connect to other services
+      <br/>3: End to End devt with Integd tools + built in DevOps capabilities           
+      <br/>4: Variety of prog languages TypeScript etc  
+      `,
+      `-- DevOps - modern day services - 
+      1: Azure Boards - agile tools to plan| track| discuss work x teams
+      2: Azure Pipelines - Build test deploy with CI/CD | run in parallel - with any language platform + cloud - Connect to Github | Git and deploy continuously
+      3: Azure Repos - unlimited cloud hosted private Git repos + collaborate to build better code with pull requests + better fle mgmt      
+      4: Azure Test plans - Mangual + exploratory testing tools - 
+      5: Azure Artifacts - Create host and share packages with team - Add artifacts to CI/CD pipeline with 1 click  
+      6: Extensions market place - Access extns from Stack to SonarCloud  
+      `,
+       '---- Azure Boards',
+       '---- ssssAzure Pipelines',
+       '---- Azure Repos',
+       '---- Azure Test plans',
+       '---- Azure Artifacts',
+       '---- Extensions Marketplace',
 
+      `-- Azure Logic Application - Visual Workflow Designer - 
+       <br/>design workflows + services (MS | 3rd party)  
+      `,
+      '---- Vsual Workflow Designer',
+      '------ Event Grid - manages all events to configure code + logic',
+      ' -- ',
+      `Azure Serverless Components
+      <br/> sit on top of Serverless Cloud infrastructure services
+      <br/> built for reuse and composition
+      <br/> written in Vanilla JS - 
+      <br/> offers infinite abstractions for all use cases
+      <br/> can be deployed on the Serverless Framework
+      <br/> Messaging plays a crucial part in Serverless Component integration
+      <br/> - examples are AWS SQS (AWS) | Apache Kafka| RabbitMQ
+      <br/>Serverless Functions - run custom code on demand indept of where or scalability
+      `,
+      '---- Azure Functions',
+      '------ Code run on demand',
+      '------ indept of location + scalability',
+
+      ` ----- built for reuse and composition
+      `,
+      `------ Messaging plays a crucial part in Serverless Component integration
+      `,
+      `------ sit on top of Serverless Cloud infrastructure services
+      `,
+       `---- must ensure Servers set up properly
+       `
   ],
   [`Debugging Angular - Chrome Devtools (Debugger for Chrome) 
   <br/>- Webpack
