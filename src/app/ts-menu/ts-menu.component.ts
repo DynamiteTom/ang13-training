@@ -11,8 +11,8 @@ const features = `
     'Dependency Injection',
     'decorators', 
     'interf_class',
-    'EcmaScript',
-    'typeScript',
+        'EcmaScript',
+        'typeScript',
     'lodash',
     'important-files',
     'Data-binding',
@@ -724,6 +724,7 @@ const subTopics = [
     'Pipeable operators','- Combination','- Conditional','- Creation',
     '- Errors','- Multi-cast','- Filters','- Transform'],
     ['- ConcatMap','- MergeMap','- SwitchMap','- ExhaustMap'],
+    
     ['Why forms',
     ' -- ',  
     '- Template Forms', '-- Template directives','-- ngForm', '-- Asynchronous data flow', '-- complex test setup','-- complex validation', '-- [(ngModel)]',
@@ -756,18 +757,93 @@ const subTopics = [
        'use @ContentChild with VCF',
        'Ex @ContentChild with VCF'
     ],
-    ['Whats View DOM', '- ViewChild', '- ViewChildren'],
-    ['Whats Content DOM', '- ContentChild', '- ContentChildren'],
-    ['Whats transclusion',
-    '--- ngAfterContentInit LCH',
-    '- ex of content projection', 
-    '-- ng-content',
-    '--- Single Slot',
-    '--- Multi-Slot',
-    '--- Conditional',
+      
+    ['Whats View DOM', 
+    '--- component template',  
+    '--- Template ref variables',
+    '------ <p #title>Hi</p>',
+    '- @ViewChild', 
+    '--- configures a Vew Query',
+    '----- only sees template',
+    '------ Queries the Comp templae',
+    '--- ngAfterViewInit LCH',
+    '--- inject into Comp class',
+    '----- refs to els from template',
+    '--------- using ElementRef',
+    '3 types to inect',
+    '----  Wraps DOM el',
+    '------ @ViewChild(\'title\')',
+    '---------- title:ElementRef',
+    '---------- this.title.nativeElement',
+    '------Default - return a Component instance',  
+    '------- @ViewChild(\'AComponent\')',
+    '----------  aComp: AComponent',
+    '----- Using 2nd arg - read',
+    '------- { read: ElementRef}',
+    '----------- anEl: ElementRef',
+    '----- Injecting a Directive',
+    '-------- <input #pIP >',
+    '------- @ViewChild(\'pIP\', {read: BDirective)',
+    '---------- colP: BDirective',
+    '---------- this.copP.xxx',
     ' -- ',
-    '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
+    '- @ViewChildren',
+    '--- Queries multiple Children',
+    '--- Queries the Comp templae',
+    '------ gives a QueryList',
+    ' -------- from View DOM',
+    '---- QuearyList updated when',
+    '------- Add | Remove | move',
+    '----- Ex @ViewChildren(Pane)',
+    '--------- panes!: QueryList<Pane>;',
+    '----- this.panes.changes.subscribe((r)',
+    '-------  this.pages.calculate();',
+    '--- ngAfterViewInit LCH',
+    '------ metadata properties',
+    '-------- selector',
+    '-------- read',
+    '-------- emitDistinctChangesOnly',
+    
+    `--- ViewContainerRef 
+   ],
+  
+    ['Whats Content DOM', 
+    '- ContentChild', 
+    '--- ngAfterContentInit LCH',
+    '- ContentChildren',
+    '--- ngAfterContentInit LCH',
   ],
+  
+    ['Whats transclusion',
+    '--- insert or project content',
+    '------ into a Component',
+    '--- ngAfterContentInit LCH',
+    '------ ng-content',
+    '--------- No real DOM el',
+    '- ex of content projection', 
+    '--- <ng-content></ng-content>',
+    '---- 3 Types of Transclusion',
+    '------ Single Slot',
+    '--------- content from 1 source', 
+    '--------- <ng-conttent></ng-content>',
+    
+    '------ Multi-Slot',
+    '--------- multiple slots',
+    '------------ using select',
+    '------------ <ng-content select="[quest]"'>
+    '------ Conditional',
+    '--------- Conditionally render content',
+    '--------- TemplateRef',
+    '----------- [ngTemplateOutlet]',
+    '------------- content.templateRef',
+    ' -- ',
+    '-- data types -',
+    '---- Inner HTML', 
+    '---- HTML Elements',
+    '---- Styled HTML', 
+    '---- Other Components' 
+  ],
+  
     ['CRUD', 
     '- HttpClient', 
     '--- based on XHR - Ajax',
@@ -792,6 +868,7 @@ const subTopics = [
      '-- HttpClientInMemoryWebApiModule',
      '--- angular/in-memory-web-api'
     ],
+    
     ['appns vers custom libraries',
     'Appns',
     'Custom Libraries',
@@ -819,6 +896,7 @@ const subTopics = [
     ],
     ['- Storage mechanisms',
     '- indexedDB','-- blobs','- Web Storage', '- cookies', '- Cloud Storage'],
+    
     ['Nx Nrwl','- Nrwl/Nx','-- Nx Monorepo','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
     ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
     ' -- ',
@@ -850,6 +928,7 @@ const subTopics = [
   '-- Entity', '-- Data', 'ComponentStore'],
     [' -- '],
     ['install from Github', 'npm install'],
+    
     [`Core libraries`,
       '- @angular/core',
       '- @angular/common',
@@ -1936,6 +2015,7 @@ get message(): string {
      <br/>---- parent component can access methods of  
      <br/>--- used in ngAfterViewInit LCH
      `,
+
      `----- Simple Ex - 
      @ViewChild(ColorSampleComponent)
      primarySampleComponent: ColorSampleComponent;
@@ -2988,16 +3068,56 @@ export class SampleComponent implements AfterViewInit {
    `@ContentChild VCF defn
    <br/>@ContentChild(\'nameInput\', {static:false, read: ViewContainerRef }) 
                 nameVarAsViewContainerRef;
-`,
-
+`
 ],
-[`@ViewChild - is within the template of the Component
-
-   `, 
-    '- Queries one child', 
-    '- Queries multiple Children',
-    `--- ViewContainerRef - lets you attach several views to it
-    ` 
+['Whats View DOM',   
+    '--- component template',  
+    '--- Template ref variables',
+    '------ <p #title>Hi</p>',
+    `- @ViewChild 
+       - is within the template of the Component
+--- configures a Vew Query
+----- 3 types to inect
+------- HTML - using ElementRef and nativeElement
+------- Component (Default) - 
+------- Directive
+--- uses the ngAfterViewInit LCH
+  `,
+    '--- configures a Vew Query',
+    '----- only sees template',
+    '------ Queries the Comp templae',
+    '--- ngAfterViewInit LCH',
+    '--- inject into Comp class',
+    '----- refs to els from template',
+    '--------- using ElementRef',
+    '3 types to inect',
+    '----  Wraps DOM el',
+    '------ @ViewChild(\'title\')',
+    '---------- title:ElementRef',
+    '---------- this.title.nativeElement',
+    '------Default - return a Component instance',  
+    '------- @ViewChild(\'AComponent\')',
+    '----------  aComp: AComponent',
+    '----- Using 2nd arg - read',
+    '------- { read: ElementRef}',
+    '----------- anEl: ElementRef',
+    '----- Injecting a Directive',
+    '-------- <input #pIP >',
+    '------- @ViewChild(\'pIP\', {read: BDirective)',
+    '---------- colP: BDirective',
+    '---------- this.copP.xxx',
+    ' -- ',
+    '- @ViewChildren',
+    '--- Queries multiple Children',
+    '--- Queries the Comp templae',
+    '------ gives a QueryList',
+    ' -------- from View DOM',
+    '---- QuearyList updated when',
+    '------- Add | Remove | move',
+    '--- ngAfterViewInit LCH',
+    `--- ViewContainerRef 
+       - lets you attach several views to it
+    `
     ],
     [`@ContentChild - is within a Component tags
       <br/>-- Initialize code in ngAfterContentInit LCH
@@ -3008,6 +3128,7 @@ export class SampleComponent implements AfterViewInit {
     '- Queries one child ', 
     '- Queries multiple children'
   ],
+ 
   [`transclusion is Content Projection - initialized in ngAfterContentInit LCH 
     - a pattern to insert/project content to use inside another Component 
     - lets a Directive to make use of templates + add content to DOM 
@@ -3074,6 +3195,7 @@ export class SampleComponent implements AfterViewInit {
       '--- angular/in-memory-web-api'
       
   ],
+  
     ['appns vers custom libraries',
     'Appns',
     '- use ng g library',
