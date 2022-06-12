@@ -9,13 +9,14 @@ const features = `
     'pipes',
     'services',
     'Dependency Injection',
-    'decorators', 
+    'Decorators', 
     'interf_class',
-        'EcmaScript',
-        'typeScript',
+    'EcmaScript',
+    'TypeScript',
     'lodash',
-    'important-files',
-    'Data-binding',
+    'Important-files',
+    'Template ref variables',
+    'Data binding',
     'Styles_CSS_SCSS',
     'ng-build_ng-serve',
     'modules',   
@@ -137,7 +138,7 @@ const subTopics = [
     '---------transpilation',
     '------ tsconfig.json',
     '--- TS Libraries',
-    ' -- ',
+    '- Template Ref Variables',
     '- Data Binding',
     '--- interpolation {{}}',
     '--- property binding []',
@@ -201,6 +202,9 @@ const subTopics = [
     'Decorators','- @Component({})', 
     '-= selector', '-- templateUrl', '-- styleUrl',
     ' -- ', 
+    '- Template Ref Variables',
+
+    ' -- ',
     '- Data Binding', 
     ' -- ', 
     '- LC-hooks',
@@ -510,8 +514,24 @@ const subTopics = [
     '- ES6 replacements',
     '-- Map | Filter |  Reduce'
     ],
-    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' ],
-    ['Data Binding','- String interpolation {{x}}','ex','- property binding[]','ex','- event binding()','ex', '- 2-way data binding','ex'],
+    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' 
+    ],
+    ['Template Ref Variables',
+      '--- use of the # character',
+      '---4 types of variables',
+      '----- DOM el in template',
+      '----- Directive | Component',
+      '----- TemplateRef in ng-template',
+      '----- Web Component',
+    ],
+    ['Data Binding',
+    '- String interpolation {{x}}',
+    'ex',
+    '- property binding[]',
+    'ex',
+    '- event binding()',
+    'ex', 
+    '- 2-way data binding','ex'],
     ['Why Style - color-size-position', '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','content',
     ' -- ',     
@@ -766,7 +786,26 @@ const subTopics = [
     '--- configures a Vew Query',
     '----- only sees template',
     '------ Queries the Comp templae',
+    '--- Metadata properties',
+    '------ selector',
+    '------ read',
+    '------ static',
+    '--- Selectors supported',
+    '----- Component|Directive class',
+    '----- temp ref var #cmp',
+    '----- Any provider - service',
+    '----- Provider string token',
+    '----- TemplateRef',
+    '--- read supports',
+    '----- Comp/Dir class',
+    '----- TemplateRef',
+    '----- ElementRef',
+    '----- ViewContainerRef',
+    '--- static - boolean',
+    '----- true - resolve before CD',
+    '----- false - resolve after CD',
     '--- ngAfterViewInit LCH',
+    ' -- ',
     '--- inject into Comp class',
     '----- refs to els from template',
     '--------- using ElementRef',
@@ -804,12 +843,36 @@ const subTopics = [
     '-------- read',
     '-------- emitDistinctChangesOnly',
     
-    `--- ViewContainerRef 
-   ],
-  
-    ['Whats Content DOM', 
-    '- ContentChild', 
+    '--- ViewContainerRef' 
+   ], 
+   ['Whats Content DOM', 
+    '- exists within tags',
+    '--- of a Comp/Directive',
+    '- ContentChild',
+    '--- imps 1 query',
+    '----- within Content OOM',
+    '------- Comp template - black box',
+    '----- Ex @ContentChild(X) x!: X;',
+    '--- Metadata properties',
+    '------ selector',
+    '------ read',
+    '------ static',
+    '--- Selectors supported',
+    '----- Component|Directive class',
+    '----- temp ref var #cmp',
+    '----- Any provider - service',
+    '----- Provider string token',
+    '----- TemplateRef',
+    '--- read supports',
+    '----- Comp/Dir class',
+    '----- TemplateRef',
+    '----- ElementRef',
+    '----- ViewContainerRef',
+    '--- static - boolean',
+    '----- true - resolve before CD',
+    '----- false - resolve after CD', 
     '--- ngAfterContentInit LCH',
+    ' -- ',
     '- ContentChildren',
     '--- ngAfterContentInit LCH',
   ],
@@ -927,9 +990,10 @@ const subTopics = [
   ' -- ',
   '-- Entity', '-- Data', 'ComponentStore'],
     [' -- '],
-    ['install from Github', 'npm install'],
-    
-    [`Core libraries`,
+    ['install from Github', 
+    'npm install'
+  ],  
+  ['Core libraries',
       '- @angular/core',
       '- @angular/common',
       '--- CommonModule',
@@ -1178,9 +1242,41 @@ const subTopics = [
    '-- Network proxy','--- intercepts HTTP outputs','--- various responses',
    '--- mobile or other'
     ],
-    ['Why Angular Elements','- Custom Elements','- Web Components', '- Framework Agnostic','polyfills',
-      'CustomElementRegistry','- createCustomElement() API','NgElementConstructor i/f()','customElements.define()',  '-- CD ftn', '-- data binding','bootstrap to DOM'
-    ,'-- Dynamic Content','NgElements class','WithProperties()'],
+    ['Why Angular Elements',
+    `- createCustomElements()`,
+    '---- define()',  
+    '-- NgElement',
+    '- abstract class NgElement',
+    '---- extends HTMLElement',
+    '----- ngElementStrategy',
+    '-------- how component is transformed',  
+    '--------- events: Observable<NgElementStrategyEvent>',
+    '--------- connect(element: HTMLElement)',
+    '--------- disconnect():void',
+    '--------- getInputValue(propName: string)',
+    '--------- setInputValue(propName: string, string)',
+    ' -- ',
+    
+    '----- ngElementEventsSubscription()',
+    '----- attributeChangedCallback(...)',
+    '----- connectedCallback()',
+    '----- disconnectedCallback()',
+    ' -- ',   
+    
+    '- Web Components',    
+    '- Framework Agnostic',
+    'polyfills',
+      'CustomElementRegistry',
+      '- createCustomElement() API',
+      'NgElementConstructor i/f()',
+      'customElements.define()',  
+      '-- CD ftn', 
+      '-- data binding',
+      'bootstrap to DOM'
+    ,'-- Dynamic Content',
+    'NgElements class',
+    'WithProperties()'
+  ],
     ['Why Web Workers', 'Threading', ''],
     ['Why Angular Universal',
     '- SSR - Server Side Rendering'],
@@ -1428,8 +1524,7 @@ const subTopics = [
       ];
 
 const subTopicsInfo = [
-  [`
-  JavaScript Framework for development of client side mobile web desktop appns -
+  [`JavaScript Framework for development of client side mobile web desktop appns -
   <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces 
   <br/>- ts files are then transpiled down to JS code to run in the browser 
   <br/>rendering pages in the DOM in response to user actions - 
@@ -1501,6 +1596,7 @@ const subTopicsInfo = [
   '--- tsconfig.json',
   '-- TS Libraries  ',
   ' -- ',
+  '- Template Ref Variables',
   '- Data Binding',
     '--- interpolation {{ x }}',
     '--- property binding []',
@@ -1622,9 +1718,7 @@ const subTopicsInfo = [
       `,
       'generate a new Component'
     ],
-    [
-      
-      `Directives are classes that add extra behavior to elements in Angular appns 
+    [`Directives are classes that add extra behavior to elements in Angular appns 
       <br/>let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
     - <br/> decorator @Decorator({}) 
     - <br/> 3 types - attribute | template | Components -  
@@ -2311,7 +2405,19 @@ for (let x of cars) {
     ['- package.json', 
      '- angular.json',  
      '-- dist folder',
-     '-- node_modules folder','- primary entry point for @angular/core lib' ],
+     '-- node_modules folder','- primary entry point for @angular/core lib' 
+    
+    ],
+    [`Template Ref Variables
+    
+    `,
+    `--- using a #`,
+    '---4 types of variables',
+    '----- DOM el in template',
+    '----- Directive | Component',
+    '----- TemplateRef in ng-template',
+    '----- Web Component'
+    ],
     [`Data binding - is a technique where data stays in sync between the Component and the View
     <br/>- When user updates data in the view - Ang updates the Component
     <br/>- When Component gets new data - Ang updates the View
@@ -2321,8 +2427,11 @@ for (let x of cars) {
     '- Class binding - [class]="classExpression"',
     '- Style binding - <nav [style]=\'navStyle\'>',
     '- Attribute binding - <button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>',
-    '- event binding - () - from view target to data source ','<button type="button" (click)="onSave()">Save</button>', 
-    '- 2-way data binding - Banana in a box - [(target)]', '-- [(ngModel)] = "name"'],
+    `- event binding - () - from view target to data source ','<button type="button" (click)="onSave()">Save</button>
+    `, 
+    '- 2-way data binding - Banana in a box - [(target)]', 
+    '-- [(ngModel)] = "name"'
+  ],
     ['Why Style - color-size-position', 
     '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','-- content',
@@ -3085,8 +3194,27 @@ export class SampleComponent implements AfterViewInit {
   `,
     '--- configures a Vew Query',
     '----- only sees template',
-    '------ Queries the Comp templae',
+    '------ Queries the Comp template',
+    '--- Metadata properties',
+    '------ selector',
+    '------ read',
+    '------ static',
+    '--- Selectors supported',
+    '----- Component|Directive class',
+    '----- temp ref var #cmp',
+    '----- Any provider - service',
+    '----- Provider string token',
+    '----- TemplateRef',
+    '--- read supports',
+    '----- Comp/Dir class',
+    '----- TemplateRef',
+    '----- ElementRef',
+    '----- ViewContainerRef',
+    '--- static - boolean',
+    '----- true - resolve before CD',
+    '----- false - resolve after CD',
     '--- ngAfterViewInit LCH',
+    ' -- ',
     '--- inject into Comp class',
     '----- refs to els from template',
     '--------- using ElementRef',
@@ -3119,13 +3247,41 @@ export class SampleComponent implements AfterViewInit {
        - lets you attach several views to it
     `
     ],
-    [`@ContentChild - is within a Component tags
-      <br/>-- Initialize code in ngAfterContentInit LCH
+    [`Content DOM
+          area within the selector fields in template
+          <br/>within the tags
+    `,
+    `@ContentChild - is within a Component tags
+       <br/>-- within the Content DOM',
+       <br/>-- Queries one child within Component or Directive tag
+       @ContentChild(Pane) pane!: Pane;
+       <br/>-- Initialize code in ngAfterContentInit LCH
     `, 
-    `--- ngAfterContentInit() Life Cycle Hook
+    '- Queries one child ',
+    '--- within a Comp tag', 
+    '--- Metadata properties',
+    '------ selector',
+    '------ read',
+    '------ static',
+    '--- Selectors supported',
+    '----- Component|Directive class',
+    '----- temp ref var #cmp',
+    '----- Any provider - service',
+    '----- Provider string token',
+    '----- TemplateRef',
+    '--- read supports',
+    '----- Comp/Dir class',
+    '----- TemplateRef',
+    '----- ElementRef',
+    '----- ViewContainerRef',
+    '--- static - boolean',
+    '----- true - resolve before CD',
+    '----- false - resolve after CD',
+    `--- set before ngAfterContentInit() Life Cycle Hook
     ----- for all the initialization code 
     `,
-    '- Queries one child ', 
+ 
+    ' -- ', 
     '- Queries multiple children'
   ],
  
@@ -3945,11 +4101,64 @@ export class SampleComponent implements AfterViewInit {
     '-- SW work as a Network proxy - intercept all outgoing HTTP requests made by appn and can choose how to respond to them - query a local cache | deliver cached response| request new data from Server','--- interupts HTTP output requests','--- ',
     '-- mobile or other'
     ],
-    [`Angular/Elements - let us Mix languages together 
-    - eg Angular and React
+    [`@Angular/Elements - let us Mix languages together 
+    - eg Angular and React and Vue and AngularJS
     `,
-    '- Custom Elements',
-    '- Web Components', 
+    `- createCustomElements()`,
+    '---- define()',  
+    '-- NgElement',
+    `- abstract class NgElement extends HTMLElement
+    `,
+    '---- extends HTMLElement - interface that reps any HTML Element  ',
+    `----- protected abstract ngElementStrategy: NgElementStrategy
+        <br/>------- strategy that controls how a component is transformed in a custom el
+    `,
+    `-------- how component is transformed - created destroyed - react to changes  
+        <br/> --------- events   | connect(element: HTMLElement) | disconnect() | getInputValue() | setInputValue(  )  
+    `,
+    '----- events: Observable<NgElementStrategyEvent>',
+    '----- connect(element: HTMLElement): Observable<NgElementStrategyEvent>',
+    '----- disconnect():void',
+    '----- getInputValue(propName: string): any',
+    '----- setInputValue(propName: string, string): void',
+    ' -- ',
+    `----- protected abstract ngElementEventsSubscription  : Subscription | null
+      <br/>----- 
+    `,
+    `----- protected abstract attributeChangedCallback(attributeName: string, oldValue: string, newValue: string, ns?: string): void
+        <br/>------ handler responding to change in attribute
+    `,
+    '------ change in attribute',
+    `----- protected abstract connectedCallback():void 
+      <br/>----- handler that responds to insertion of custom el in the DOM   
+      `,
+      ' ------- on insertion of el into DOM',
+    `----- protected abstract disconnectedCallback():void 
+      <br/>---- handler responding to deletion of custom element 
+    `,
+     '------- handler responds to deletion of cust el',
+     ' -- ',
+    `- Web Components - is a way to create encapsulated | SRP code block | for reuse on any page
+    <br/>--- provide a set of Web technologies to create reusable HTML elements 
+    <br/>- are a set of Web Platform APIs 
+    <br/> --- that allow you to create new custom | reusable | encapsulated HTML tags 
+    <br/> --- to use in Web pages and Web apps
+    <br/> --- lets you share Components between various languages
+    <br/> -----  AngularJS | Angular | React | Vue  
+    <br/> --- Ex must contain a - eg <my-world></my-world>
+    `,
+    '--- framework agnostic way',
+    '--- 4 types of Web Components',
+    '----- 1 - Custom Elements',
+    `Angular Elements packaged as custom components
+    `,
+    
+    `----- 2 - Shadow DOM - 
+    `,
+    '----- 3 - ES Modules',
+    `----- 4 - HTML Template',
+    
+    `, 
     '- Framework Agnostic',
     '- polyfills',
     'CustomElementRegistry',
