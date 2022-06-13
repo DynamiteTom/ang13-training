@@ -9,7 +9,7 @@
                <a (mouseover)="getInfo(i,j)"> {{ arrEl }} </a>
                <div class="infoHead" *ngIf="j === tsFeatureSubIndex">{{ ts_sublist[i][j] }}</div>
                <br/> 
-               <div class="info" *ngIf="j === tsFeatureSubIndex">{{ tsInfo }}</div>
+               <div class="info" *ngIf="j === tsFeatureSubIndex" [innerHTML]="tsInfo"></div>
             </span>
         </div> 
     </span>

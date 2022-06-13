@@ -37,10 +37,11 @@ const features = `
     'RxJS_',
     'Higher-Order-Mapping-ftns',
     'Forms',
+    'ElementRef',
     'ViewContainerRef',
     'ViewDOM',
     'ContentDOM',
-    'Content-Projection',
+    'Content-Projection (Transclusion)',
     'HTTP_HttpClient',
     'Cusom Libraries',  
     'Caching',
@@ -186,7 +187,12 @@ const subTopics = [
     '-- Server Side Angular',
     '---- Add ons'
     ],
-    ['Why Components - ', 
+    ['Components - ',
+    '--- @Component({})',
+    '--- must have a template',
+    '----- accessing a DOM el',
+    '------- @ViewChild()',
+    '--- Most important Ang el', 
     '- class',
     '- constructor(){}',
     '-- properties',
@@ -217,9 +223,14 @@ const subTopics = [
     ' -- ', 
     '- ng g c xyz'
     ],
-    ['','@Directive({})',
-    '- attribute-directives', 
-    '- template-directives *ngIf',
+    ['Directives',
+     '@Directive({})', 
+     'have no views (template)',
+    '--- have no views',
+    '----- work directly with the el - ElementRef',
+    '--- 2 Directive Types',
+    '----- attribute-directives', 
+    '----- template-directives *ngIf',
     ' -- ',
     ' -- Types of Template Directives',
     '----- *ngIf',
@@ -755,8 +766,26 @@ const subTopics = [
     ' -- ',
     '  -- Reactive Validation' 
     ],
+    ['ElementRef',
+      '--- access native DOM Element',
+      '----- Be careful',
+      '----- Security Vulnerabilities',
+      '------- XSS Attacks',
+      '------- tightly couples to rendering',
+      '---class ElementRef<T = any>{',
+      '----- constructor(nativeElement: T)',
+      '----- nativeElement: T',
+      '---- A web worker gives null',
+      '--- Alternatives',
+      '------ @ViewChild() access DOM el',
+      '------ Renderer2 - custom rendering',
+      '-------- Custom Rendering',
+      '---------- Render to a Web Worker',
+    ],
     ['ViewContainerRef',
-       '-- attach multiple views',
+       '-- A container',
+       '---- attach multiple views',
+       '------ to a Component',
        '---- View Container',
        '------ any DOM el',
        '-------- appends views to el',
@@ -772,10 +801,10 @@ const subTopics = [
        '------ Ex using ngComponentOutlet',
        '---- used with ng-container',
        '---- use @ViewChild | @ConentChild',
-       'use @ViewChild with VCF',
-       'Ex @ViewChild with VCF',
-       'use @ContentChild with VCF',
-       'Ex @ContentChild with VCF'
+       '--- use @ViewChild with VCF',
+       '----- Ex @ViewChild with VCF',
+       '--- use @ContentChild with VCF',
+       '----- Ex @ContentChild with VCF'
     ],
       
     ['Whats View DOM', 
@@ -783,6 +812,8 @@ const subTopics = [
     '--- Template ref variables',
     '------ <p #title>Hi</p>',
     '- @ViewChild', 
+    '--- alt to ElementRef',
+    '------ access a DOM element',
     '--- configures a Vew Query',
     '----- only sees template',
     '------ Queries the Comp templae',
@@ -877,14 +908,17 @@ const subTopics = [
     '--- ngAfterContentInit LCH',
   ],
   
-    ['Whats transclusion',
+    ['Transclusion (Content Projection)',
     '--- insert or project content',
-    '------ into a Component',
+    '----- inside another Component',
+    '------- Eg CardComponent',
+    '------- uses <ng-content></ng-content>',
+    '--- Directives- templates',
+    '--- Directives dyn data driven DOM',
+    '--- make reusable components',
+    '----- Scalable appns',    
     '--- ngAfterContentInit LCH',
-    '------ ng-content',
-    '--------- No real DOM el',
-    '- ex of content projection', 
-    '--- <ng-content></ng-content>',
+    '--------- No real DOM el', 
     '---- 3 Types of Transclusion',
     '------ Single Slot',
     '--------- content from 1 source', 
@@ -893,7 +927,7 @@ const subTopics = [
     '------ Multi-Slot',
     '--------- multiple slots',
     '------------ using select',
-    '------------ <ng-content select="[quest]"'>
+    '------------ <ng-content select="[quest]"',
     '------ Conditional',
     '--------- Conditionally render content',
     '--------- TemplateRef',
@@ -1243,6 +1277,7 @@ const subTopics = [
    '--- mobile or other'
     ],
     ['Why Angular Elements',
+    '--- Custom Els (Web Components)',
     `- createCustomElements()`,
     '---- define()',  
     '-- NgElement',
@@ -1256,9 +1291,9 @@ const subTopics = [
     '--------- getInputValue(propName: string)',
     '--------- setInputValue(propName: string, string)',
     ' -- ',
-    
     '----- ngElementEventsSubscription()',
     '----- attributeChangedCallback(...)',
+    '-------- change attribue',  
     '----- connectedCallback()',
     '----- disconnectedCallback()',
     ' -- ',   
@@ -1525,19 +1560,127 @@ const subTopics = [
 
 const subTopicsInfo = [
   [`JavaScript Framework for development of client side mobile web desktop appns -
+  <br/>
+  <br/>SPA (Single Page Application)
+  <br/>
   <br/>written in MS TypeScript for adding types to the JS framework and simplifying JS (EcmaScript - modern JS) - with classes and interfaces 
   <br/>- ts files are then transpiled down to JS code to run in the browser 
+  <br/>
   <br/>rendering pages in the DOM in response to user actions - 
   Angular uses View DOM in the template HTML and Content DOM inside other Components
+  <br/>
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
-  <br/>Components Directives Pipes Services and Modules and Change Detection to id when events occur 
+  <br/>
+  <br/>Components - (must have a template) 
+  <br/>Directives - (no template)
+  <br/>Pipes - (pure or impure)
+  <br/>Services - DI (Dependency Injection)
+  <br/>Modules - contain groups of above els
+  <br/>
+  <br/>Change Detection to id when events occur 
+  <br/>
   <br/>- Dependency Injection - 
+  <br/>--- Services
+  <br/>
+  <br/>Decorators    
+  <br/>
+  <br/>ES (EcmaScript)
+  <br/>
+  <br/>TypeScript 
+  <br/>
+  <br/>Special files - package.json (diff libraries used) - angular.json - tsconfig.json - main/index.htmls and main/main.ts file 
+  <br/>
+  <br/>Special folders - node_modules for the large libraries used in project and librares 
+  <br/>
+  <br/>ng build gives the dist folder - ang13-training/favicon.ico | index.html | main.js 300kb | polyfill.js | runtime.js
+  <br/>
+  <br/>Data Binding
+  <br/>
+  <br/>Styles CSS | SCSS  
+  <br/>
+  <br/>Bootstrapping    
+  <br/>
+  <br/>LCH (Life Cycle Hooks)
+  <br/>
+  <br/>Routing and Component Router -  
+  <br/>
+  <br/>@Input and @Output
+  <br/>
+  <br/>Lazy Loading 
+  <br/>
+  <br/>Change Detection
+  <br/>
+  <br/>AoT Compilation
+  <br/>
+  <br/>Tree Shaking
+  <br/>
+  <br/>APF (Angular Package Format)
+  <br/>
+  <br/>Ivy
+  <br/>
+  <br/>View Engine 
+  <br/>
+  <br/>Promises
+  <br/>
   <br/>Observables and the RxJS operators can manipulate streams of data over time and use Subjects to aid working with them 
   <br/>simplifying subscription and allow multi-casting events around the application. 
+  <br/>
+  <br/>RxJS (Reactive Extensions)
+  <br/>Higher Ordrer Mapping ftns
+  <br/>
+  <br/>Forms
+  <br/>
+  <br/>ElementRef | ViewContainerRef| View DOM | Content DOM
+  <br/>@ViewChild and @ViewChildren | @ContentChild | @ContentChildren
+  <br/>
+  <br/>Transclusion (Content Projection)
+  <br/>
+  <br/>HTTP-HttpClient 
+  <br/>
   <br/>Angular appns vs Angular custom libraries
-  <br/>Special files - package.json (diff libraries used) - angular.json - tsconfig.json - main/index.htmls and main/main.ts file 
-  <br/>Special folders - node_modules for the large libraries used in project and librares 
-  <br/>ng build gives the dist folder - ang13-training/favicon.ico | index.html | main.js 300kb | polyfill.js | runtime.js
+  <br/>
+  <br/>Caching
+  <br/>
+  <br/>Storage
+  <br/>
+  <br/>ngrx ()
+  <br/>
+  <br/>Angular main libraries
+  <br/>
+  <br/>Security
+  <br/>
+  <br/>Schematics  
+  <br/>
+  <br/>CI/CD Jenkins
+  <br/>
+  <br/>Testing - Unit | Integration | End to End
+  <br/>-- Unit
+  <br/>-- Integration
+  <br/>-- End to End 
+  <br/>
+  <br/>Security
+  <br/>
+  <br/>Webpack 
+  <br/>
+  <br/>Cloud - AWS | Azure 
+  <br/>
+  <br/>REST - Swagger | 
+  <br/>
+  <br/>Debugging Angular 
+  <br/>
+  <br/>Other
+  <br/>
+  <br/>Angular Components (Angular Material)
+  <br/>PWA (Progressive Web Appns) - Service Workers
+  <br/>Angular Elements
+  <br/>Web Workers
+  <br/>Angular Universal
+  <br/>Flex-layout
+
+
+
+
+ 
   `,
   `- SPA (Single Page Appn) Web Framework - 
    `,
@@ -3059,24 +3202,55 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ',
     '--- Reactive Validation'
   ], 
-  [`ViewContainerRef - lets you attach multiple views to it
-      
-  <br/>--- can be used with @ViewChild
+  [`ElementRef - a wrapper around a native DOM element inside a View
+  <br/>--- permits direct access to a DOM element 
+  <br/>----- more vulnerable to XSS attacks 
+  <br/>--- tightly couples appn and rendering layers
+  <br/>----- difficult to run appn on multiple platforms
+  <br/>--- Use with caution
+  <br/>-----
   `,
-  `--- lets you attach muliple views to it
+  '--- access native DOM Element',
+  '----- Be careful',
+  '----- Security Vulnerabilities',
+  '------- XSS Attacks',
+  '------- tightly couples to rendering',
+  '---class ElementRef<T = any>{',
+  '----- constructor(nativeElement: T)',
+  '----- nativeElement: T',
+  '---- A web worker gives null',
+  '--- Alternatives',
+  '------ @ViewChild() access DOM el',
+  '------ Renderer2 - custom rendering',
+  '-------- Custom Rendering',
+  '---------- Render to a Web Worker'
+  ],
+  [`ViewContainerRef - reps a container 
+  -   lets you attach multiple views to a Component
+  <br/>--- can be used with @ViewChild | @ContentChild| 
+  <br/>---- can contain Host Views (instiating a Component with createComponent)| 
+                embeddedViews (instiating TemplateRef with createEmbeddedView) 
+  <br/>---- A view container instance can contain other view containers - A view container hierarchty
   `,
+  `--- reps a container that lets you attach muliple views to a Component
+  `,
+  '----- attach multiple views',
+  '------- to a Component',
+  `--- can be used with @ViewChild | @ContentChild | 
+   `,  
   '---- View Container',
   '------ any DOM el',
   '-------- appends views to el',
-   ` methods - clear()| insert()| get()| indexOf()| detach()| move() 
+  '--- abstract class ViewContainerRef{',
+  '----- abstract properties - element: ElementRef, injector: Injector',
+  `----- abstract methods - clear()| insert()| get()| indexOf()| detach()| move() 
     <br/>createComponent() | createEmbeddedView()
    `,
-  
-   `---- createEmbeddedView(templateRef...): EmbeddedViewRef<C>
+   `----- createEmbeddedView(templateRef: TemplateRef<C>, context?: C, 
+       options?:{index: number; injector?: Injector;}): EmbeddedViewRef<C>
      <br/> creates a View
    `,
    `------- Ex using createEmbeddedView()
-   <br/>
    @Component({
     selector: 'sample',
     template: \`
@@ -3098,11 +3272,11 @@ export class SampleComponent implements AfterViewInit {
     }
 }
    `,
-   `---- createComponent(componentFactory...): ComponentRef<C>
+   `---- createComponent(componentType: Type<C>,
+    options?:{index: number; injector?: Injector; ngModuleRef?: NgModuleRef<unknown>;environmentInjector?: EnvironmentInjector|ngModuleRef?: NgModuleRef<unknown>; projectableNodes: Node[][];): ComponentRef<C>
    <br/> createa a Component
  `,
  `------ Ex of using createComponent()
- <br/>
  @Component({
   selector: 'my-app',
   template: \`
@@ -3127,7 +3301,6 @@ export class App {
    `---- ngTemplateOutlet - marks a DOM el as a ViewContainer 
    `,
    `------ Ex using ngTemplateOutlet -
-   <br/><>Copy
    @Component({
        selector: 'sample',
        template: \`
@@ -3174,7 +3347,7 @@ export class SampleComponent implements AfterViewInit {
     }
 }
    `,
-   `@ContentChild VCF defn
+   `---- @ContentChild VCF defn
    <br/>@ContentChild(\'nameInput\', {static:false, read: ViewContainerRef }) 
                 nameVarAsViewContainerRef;
 `
@@ -3190,9 +3363,11 @@ export class SampleComponent implements AfterViewInit {
 ------- HTML - using ElementRef and nativeElement
 ------- Component (Default) - 
 ------- Directive
---- uses the ngAfterViewInit LCH
-  `,
-    '--- configures a Vew Query',
+--- uses the ngAfterViewInit LCH    
+`,
+'--- alt to ElementRef',
+'------ access a DOM element',
+'--- configures a Vew Query',
     '----- only sees template',
     '------ Queries the Comp template',
     '--- Metadata properties',
@@ -3289,18 +3464,48 @@ export class SampleComponent implements AfterViewInit {
     - a pattern to insert/project content to use inside another Component 
     - lets a Directive to make use of templates + add content to DOM 
     - lets Directives generate dynamice data driven DOM instns 
-      you can make reusable components 
+      <br/>you can make reusable components 
       - for scalable appns by inserting content into already created Comps/Dirs 
-    `, 
+      uses ng-content
+      <br/>
+      <br/>3 types of Content projection - Single slot| Multi-slot| Conditional
+      `, 
+    '--- pattern to insert| project content to use inside another Component',
+    '----- inside another Component',
     '-- eg a Component projecting data into a CardComponent',
-     '<ng-content></ng-content>',
-     '- <ng-content select=".single-slot">',
-     `- <ng-content select=".part-1"></ng-content>
-        <ng-content select=".part-2"></ng-content>
-      `,
-     '- <ng-content select="."> - creates component into which conditionally into 1+ slots',
-     ' -- ',
-     '-- data types -','--- Inner HTML', '--- HTML Elements','--- Styled HTML', '--- Other Components' 
+    '--- uses <ng-content></ng-content>',
+    '--- let Directives make use of templates + add content',
+    '--- let Directives generate dynamic data driven DOM instans',
+    '--- make reusable components',
+    '----- Scalable appns ',
+    '--- ngAfterContentInit LCH',
+    '--------- No real DOM el',
+    '--- 3 types of Content Projection',
+    '------ Single Slot',
+    '--------- content from 1 source', 
+    '--------- <ng-conttent></ng-content>',
+    
+    '------ Multi-Slot',
+    '--------- multiple slots',
+    '------------ using select',
+    '------------ <ng-content select="[quest]"',
+    '------ Conditional',
+    '--------- Conditionally render content',
+    '------------- ng-template to acceept dyn content',
+    '----------------- not ng-content',
+    `---------- Ex <ng-template appExampleZippyContent>
+                      It depends on what you do with it.
+                    </ng-template>
+    `,
+    '--------- TemplateRef',
+    '----------- [ngTemplateOutlet]',
+    '------------- content.templateRef',
+    ' -- ',
+     '-- data types',
+     '---- Inner HTML', 
+     '---- HTML Elements',
+     '---- Styled HTML', 
+     '---- Other Components' 
      ],
      [`HTTP CRUD - Create | Read| Update | Delete 
      - operations which the HTTP can use to manipulate data from a server
@@ -4101,11 +4306,126 @@ export class SampleComponent implements AfterViewInit {
     '-- SW work as a Network proxy - intercept all outgoing HTTP requests made by appn and can choose how to respond to them - query a local cache | deliver cached response| request new data from Server','--- interupts HTTP output requests','--- ',
     '-- mobile or other'
     ],
-    [`@Angular/Elements - let us Mix languages together 
-    - eg Angular and React and Vue and AngularJS
+    [`@Angular/Elements - 
+    <br/>--- let us create Angular Components
+    <br/>------ packaged as Custom Elements (Web Components)
+    <br/>
+    <br/>--- let us Mix languages together (language agnostic way) 
+    <br/>--- eg Angular and React and Vue and AngularJS
+    <br/>----- Can also be used in a static HTML site eg WordPress 
+    <br/>
+    <br/>
+    <br/>--- Custom Elements extend HTML - let us define a tag
+    <br/>----- whose conent + created by JS code 
+    <br/>
+    <br/>--- Browser maintains a CustomElementRegitry of defined custom elements
+    <br/>----- maps an instantiable JS class to an HTML tag 
+    <br/>
+    <br/>--- exports createCustomElement() API 
+    <br/>----- bridges Angullar Component interface | CD to built in DOM API
+    
+    
+    <br/>--- Problems
+    <br/>----- Zone.js Change Detection not as good
+    <br/>----- better to use Observables and OnPush CD -   
+    <br/>
+    <br/>--- ng add @angular/elements
+    <br/>
+    <br/>----- create a Component - 
+    <br/>------- remove AppComponent bootstrap 
+    <br/>------- add manual bootstrap 
+    <br/>--------- constructor(private injector: Injector:){}
+    <br/>--------- ngDoBootstrap(){
+      <br/>---------- const el = createCustomElement(ButtonComponent, {injectr: this.injector});
+      <br/>---------- customElements.define("ngsd-button", el);
+    <br/>    
+    <br/>------- create Custom Element 
+    <br/>------- define Custom Element selector
+    <br/>------- add CUSTOM_ELEMENTS_SCHEMA to module schemas
+    <br/>
+    <br/>--------- Input names are transformed to dashed-lowercase 
+    <br/>--------- Output names are not changed
+    <br/>
+    <br/>In a normal HTML Page
+    <br/><script> 
+    <br/>- <ngsd-button button-label="ClickMe!"></ngsd-button>
+    <br/>
+    <br/>- create a component by document.querySelector('ng-air-button');
+    <br/>- component.addEventListener('customEvent', evebt => { alert(event.detail)})
+    <br/></script>
+    <br/>
+    <br/>--- Build Combine Deploy locally
+    <br/>----- Define a Custom Element called ButtonComponent
+    <br/>
+
+    <br/>@Component({
+    <br/>--- selector: 'ngsd-button',
+    <br/>--- templateUrls: 
+    <br/>--- styleUrls: scss',
+    <br/>--- encapsulation: ViewEncapsulation.ShadowDom]
+    <br/>})
+    <br/>export class ButtonComponent implements ngOnInit
+
+    <br/>@Input('buttonComponent') buttonLabel: string = 'default';
+    <br/>@Output('customEvent') customEvent: EventEmitter<any> = new EventEmitter();
+    <br/>
+    <br/>onClick(){
+    <br/>--- this.customEvent.emit('Emitting string');
+     <br/>}
+     <br/>
+     <br/>In template file
+     <br/><button (click)="onClick()">{{buttonLabel}}</button>
+
+     <br/>
+     <br/>Create a HTML page - 
+     <br/><!doctype="html">
+     <br/><html lang="en">
+     <br/><head>
+     <br/><meta charset="utf-8">
+     <br/><title>ngElements</title>
+     <br/><base href="/">
+     <br/><meta name"viewport" content="width=device-width, initial-scale=1:1
+     <br/><link rel="icon" type="image/x-icon" href="favicon.ico">
+     <br/></head>
+     <br/><body>    
+     <br/><ngsd-button button-label="click me!"></ngsd-button>
+    <br/>
+     <br/><script> 
+    <br/>- <ngsd-button button-label="ClickMe!">
+    <br/>--- <span slot="title">
+    <br/>----- <h1>This is the title</h1>
+    <br/>--- </span>
+    <br/></ngsd-button>
+    <br/>
+    <br/>- create a component by document.querySelector('ngsd-button');
+    <br/>- const component = document.querySelector('ngsd-button'); 
+    <br/>- component.addEventListener('customEvent', event => { alert(event.detail)})
+    <br/></script>
+     <br/></body>
+     <br/></html>
+    <br/>
+    <br/>-- Using Slots - 
+    <br/>---- Set ViewEncapsulation to Shadow DOM
+    <br/>---- Add a slot element where you would like output to be projected
+    <br/>---- Add a name attribute to identify the slot
+    <br/>---- Add default markup inside the slot element 
+    <br/>--- NgElement
+    <br/>
+    <br/>--- Consuming slot in a Web Component
+    <br/>----- Inside Custom el - add a span el with slot attribute = name targeted
+    <br/>----- Add markup inside the span
+    <br/>----- defult will be replaced with custom values in span
+    <br/>
+    <br/>--- Deploy to Cloud using Firebase
+    <br/>----- Combining files 
+    <br/>------- Combining dist.js files simplifies angular-elements / Web Components - 
     `,
-    `- createCustomElements()`,
-    '---- define()',  
+    `--- Custom Elements (Web Components)
+    <br/> --- 
+    `,
+    `---  createCustomElements()`,
+    '----- define()',  
+    
     '-- NgElement',
     `- abstract class NgElement extends HTMLElement
     `,

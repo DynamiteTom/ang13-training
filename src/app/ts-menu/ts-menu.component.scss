@@ -117,19 +117,22 @@ mat-list-item{
  top: 80px! important;
  color: blue;
  height: 50px;
- font-size: 32px; 
+ font-size: 32px;
  z-index: 5;
 }
 
 .info{
-  position: fixed;
+  position: relative;
  font-weight: bold;
- left: 500px;
-  display: block;
- top: 130px! important;
+ left: 220px;
+ top: -50px! important;
  color: black;
- height: 50px;
- font-size: 20px; 
+ font-size: 18px;
+ width: 92%;
+ padding: 15px;
+ height: 3  000px; 
+ background-color: pink;
+ 
  z-index: 5;
 }
 
