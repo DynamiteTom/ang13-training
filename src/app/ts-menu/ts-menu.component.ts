@@ -3275,30 +3275,30 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `,
     `ng g m CustFeature - creates a Module called CustFeatureModule 
     <br/>
-    import { NgModule } from '@angular/core';
-    import { CommonModule } from '@angular/common';
-    
-    @NgModule({
-      imports: [
-        CommonModule
-      ],  
-      declarations: []
-    })
-    export class CustFeatureModule[}
+    <br/> import { NgModule } from '@angular/core';
+    <br/>import { CommonModule } from '@angular/common';
+    <br/>
+    <br/>@NgModule({
+      <br/>imports: [
+        <br/>CommonModule
+        <br/>],  
+        <br/>declarations: []
+        <br/>})
+        <br/>export class CustFeatureModule[}
     `,
     `Component in a Feature Module - 
     <br/>ng g c cust-feature/CustFeature
     <br/>
-    import { CustFeatureComponent } from './cust-feature/cust-feature.component';
-
-    @NgModule({
-      imports: [
-        CommonModule
-      ],
-      declarations: [
-        CustFeatureComponent
-      ]
-    })
+    <br/>import { CustFeatureComponent } from './cust-feature/cust-feature.component';
+    <br/>
+    <br/>@NgModule({
+      <br/>imports: [
+        <br/>CommonModule
+        <br/>],
+        <br/>declarations: [
+         <br/>CustFeatureComponent
+         <br/>]
+         <br/>})
     `,
     '- Shared Modules','-- PreloadingStrategy',
     '--- PreloadAllModules - to initially fetch all modules', 
@@ -3306,30 +3306,30 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Lazy Load Components (not Modules)',
     '- async-await is used for lazy loading Components',
     `---  async getLazy2() {this.viewContainerRef.clear(); 
-      const { Lazy2Component } = await import(\'./lazy2.component\'); 
-      this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}
+      <br/>const { Lazy2Component } = await import(\'./lazy2.component\'); 
+      <br/>this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}
       `,
       `--- Simplified in Angular 13
     <br/>Ivy creates the Component in ViewContainerRef (without a factory)
     <br/>
-    export class AppComponent {
-      @ViewChild("formComponent", { read: ViewContainerRef })
-      formComponent!: ViewContainerRef;
-    
-      constructor() {}
-    
-      async loadForm() {
-        const { LazyFormComponent } = await import("./lazy-form.component");
-        this.formComponent.clear();
-        this.formComponent.createComponent(LazyFormComponent);
-      }    
+    <br/>export class AppComponent {
+      <br/>@ViewChild("formComponent", { read: ViewContainerRef })
+      <br/>formComponent!: ViewContainerRef;
+      <br/>
+      <br/>constructor() {}
+      <br/> 
+      <br/>async loadForm() {
+        <br/>const { LazyFormComponent } = await import("./lazy-form.component");
+        <br/>this.formComponent.clear();
+        <br/>this.formComponent.createComponent(LazyFormComponent);
+        <br/>}    
     `],
     [`Change Detection is a builtin framework feature that ensures auto sync between changes to data and the view
       <br/>zone.js but has a class ngZone to help with CD properties and methods
       <br/>The ChangeDetectionRef is base class that provides CD ftns - A CD tree for changed views
       <br/>We can also run via ChangeDetectionStrategy.onPush() to inc performance and just check a branch 
       
-      NgZone - 
+      <br/> NgZone - 
     
       `,
     `- zone.js - provides a method (zones) for encapsulating and intercepting async activities in the browser
@@ -3353,17 +3353,33 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      '--------- created by promises',
      ' -- ',
     `- ChangeDetectorRef - base class that provides CD functionality 
+      <br/>  
       <br/>A change detection tree collects all views that are to be checked for changes
+      <br/>
       <br/>Use methods to add | remove views from the tree | initiate CD | explicit mark views as dirty - changed
       <br/>Input changed | events -
-      <br/>markForCheck()<br/>detach()<br/>detectChanges()<br/>checkNoChanges()<br/>reattach() 
+      <br/>
+      <br/>markForCheck()
+      <br/>detach()
+      <br/>detectChanges()
+      <br/>checkNoChanges()
+      <br/>reattach() 
     `,
-    `- ngZone - an injectable service for executing for work inside or outside of the Angular zone  
-    <br/>optimizes performance when starting a work consisting of 1+ async tasks that dont require UI updates or error handling to be handled by Angular
-    <br/>runOutsideAngular() - kicks off but then run inside Angular with run()
+    `- ngZone - an injectable service 
+    <br/>-- for executing for work inside or outside of the Angular zone  
+    <br/>
+    <br/>-- optimizes performance when starting a work 
+    <br/>-----consisting of 1+ async tasks that dont require UI updates or error handling to be handled by Angular
+    <br/>
+    <br/>runOutsideAngular() 
+    <br/>- kicks off but then run inside Angular with run()
+    <br/>
     <br/>isInAngularZone() - assertInAngularZone() - assertNotInAngularZone()
-    <br/>properties - hasPendingMacroTasks() - hasPendingMicroTasks() - isStable()- onStable() onError()
-    <br/>methods - run() runTask() - runGuarded() - runOutsideAngular()
+    <br/>
+    <br/>properties 
+    <br/>- hasPendingMacroTasks() - hasPendingMicroTasks() - isStable()- onStable() onError()
+    <br/>methods 
+    <br/>- run() runTask() - runGuarded() - runOutsideAngular()
     `, 
     '- service',
     '- helps performance',
@@ -3403,7 +3419,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     1:Code Analysis- 2:Code generation- 3:Template type checking
     `,
     `-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
-   <br/>like a diagram of the overall structure of a decorator's metadata 
+    <br/>like a diagram of the overall structure of a decorator's metadata 
     <br/>metadata is like an AST (Abstract Syntax Tree)      
     `    ,
     '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
@@ -3416,34 +3432,57 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
     'View Engine tree-shakes - Static analysis of code and then compiles whats left'
     ],  
-     [`APF - Ang Package Format - is an Angular specific specn for the structure and format of npm packages 
+     [`APF - Ang Package Format 
+     <br/>- is an Angular specific specn for the structure 
+     <br/>and format of npm packages 
+     <br/>
      <br/>- used by all Angular packages @angular/core and Angular libraries etc.
+     <br/>
      <br/>- compatable with all tooling offere by the Angular team + JS ecosystem + 3rd party developers  
+     <br/>
      <br/>- Developers can rely on the CLI and ng-packagr to produce packages in the APF 
      `, 
     '- npm packages',
     '- @angular/core | @angular/routing',
     '- Tooling support',
     'ES versions -',
-    `Angular CLI - is a Command Line Interface tool - used to initialize | develop | scaffold and maintain Angular appns directly from a command shell
-    <br/>npm install -g @angular/cli - ng new - ng help - ng build - ng serve - ng test 
-    <br/>uses schematics to apply transforms to a web-project - modify these schematics | define new  one (update code |  
-      fix breaking changes in a dep | add new confign | add a framewok)  
-    <br/>Added in the @schematis/angular colln - ng g   and ng add     
+    `Angular CLI - is a Command Line Interface tool 
+    <br/>- used to initialize | develop | scaffold and maintain 
+    <br/>---- Angular appns directly from a command shell
+    <br/>
+    <br/>npm install -g @angular/cli 
+    <br/>- ng new - ng help - ng build - ng serve - ng test 
+    <br/>
+    <br/>uses schematics to apply transforms to a web-project 
+    <br/>- modify these schematics | define new  one (update code |  
+      <br/>
+      <br/>  fix breaking changes in a dep | add new confign | add a framewok)  
+     <br/>
+     <br/>Added in the @schematis/angular colln - ng g   and ng add     
     `,
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
     '.d.ts files',  
     '-  package.json - "type": "module" - No CommonJS Modules',
-    'Angular 13 new improved version - Node package exports - es2020 support Ivy partial compilation',
-     '- not rely on Internal APIs - using the Node.js - sub-path pattern feature - displaying multiple outputs at each entry point', 
+    `Angular 13 new improved version - Node package exports 
+    <br/>- es2020 support Ivy partial compilation
+    `,
+     `- not rely on Internal APIs - using the Node.js 
+     <br/>- sub-path pattern feature 
+     <br/>- displaying multiple outputs at each entry point
+     <br/>`, 
      '- BigInt - Dynamic Import - Nullish Coascing - Optional Chaining -   Promise.allSettled - string#matchAll - globalThis - Module Namespace exports - import.meta', 
      'for Libraries - publishing tsconfig.json - "angularCompilerOptions": {"compilationMode": "partial"}- no particular runtime version - '
   ],
   [`Ivy - is new Compilation and Rendering Pipeline which creates template instructions to render info to the DOM
-  <br/>Does not need an interpreter or metadata.json file nor the ngFactory.js file
-  <br/>It just produces the appComponent.js file from the compilation step
-  <br/>using AoT Compilation by default`,
+  <br/>Does not need an interpreter or metadata.json file 
+  <br/>nor the ngFactory.js file
+  <br/>
+  <br/>It just produces the appComponent.js file 
+  <br/>--- from the compilation step
+  <br/>
+  <br/>using AoT Compilation by default
+  `,
   '- enableIvy: true',
   '- complete rewrite of RE',
   '- loading is very fast ',
@@ -3451,21 +3490,29 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   '- smaller size',
   '-- Much more Tree Shakeable',
   '- compile comps more independently than before',
-  `Locality - single file compilation - components dont need to know about dependencies
-    <br/> - View Engine suffered from the Global Compilation Problem
+  ' -- ',
+  `Locality - single file compilation 
+  <br/>- components dont need to know about dependencies
+  <br/> - View Engine suffered from the Global Compilation Problem
     `,
     '-- Single file - with no other dependencies required ',
     '-- Components own local infon is used',
     '--- Recompiles partial changes',
-    `- Incremental DOM - every component gets compiled to a series of instructions - create DOM trees - updated mutably inplace 
-      <br/>
+    `- Incremental DOM - every component gets compiled 
+    <br/>to a series of instructions 
+    <br/>- create DOM trees - updated mutably inplace 
+    <br/>
       `,
       '-- Decorators to Static Properties - ngComponentDef etc.',
       '--- ngComponentDef in .d.ts files  ', 
       '--- no complete code analysis - ',
       '------ @NgModule metadata',
-    '- Global Compilation problem - whole app needed to be recompiled when a change occurred!',
-    `-- Template instructions - replace the template data and runtime interpreter from the View Engine
+    `- Global Compilation problem 
+    <br/>- whole app needed to be recompiled 
+    <br/>--- when a change occurred!
+    `,
+    `-- Template instructions 
+    <br/>- replace the template data and runtime interpreter from the View Engine
     <br/> - Create the correct DOM on their own  
     <br/> - replace the ngFactory and metadata.json phase 
       `,
@@ -3476,11 +3523,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `Libraries - used to use the ngcc (Angular Compatability Compiler) to create Angular libraries from View Engine format
      <br/>ngcc would translate libraries to Ivy format     
       `, 
-    '- ngcc', 
+      ' -- ',
+      'Libraries',
+    '--- ngcc', 
     `- Linker can now be used instead of ngcc - since Angualr 11 and especially Ang 13 
     <br/>
     `, 
-    '- Partial Compilation - no need for ngcc (Angular 13)',   
+    '--- Partial Compilation - no need for ngcc (Angular 13)',   
     'Ang Language Service',
     'only recompiles Components that have changed',
     `- adv Tree Shakeable 
@@ -3492,31 +3541,32 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      - mobile exp
      - backwards compaable - 
     `,
+    ' -- ',
     'EntryComponents - are no longer required'
   ], 
-    [`- ViewEngine old - legacy compilation and rendering pipeline
+    [`ViewEngine old - legacy compilation and rendering pipeline
     <br/>
     `, 
     '- tended to use JIT compilation by default',
     `- 3 Phases - 
-    1:Code Analysis- 
-    2:Code generation- 
-    3:Template type checking
+    <br/>1:Code Analysis- 
+    <br/>2:Code generation- 
+    <br/>3:Template type checking
     `,
     `-- Code Analysis - 
-    -1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
+    <br/>--1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
     <br/>like a diagram of the overall structure of a decorator's metadata 
      <br/>metadata is like an AST (Abstract Syntax Tree)      
     `,
     '--- Interpreter ',
     '--- metadata.json file - ',
-    `-- 2 - Code Generation - 
-    --- Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector 
-      <br/>+ check for metadata errors 
-       <br/>passing sructure into Interpreter + Tree Shaking
+    `<br/>-- 2 - Code Generation - 
+    <br/>--- Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector 
+    <br/>------ + check for metadata errors 
+    <br/>------ passing sructure into Interpreter + Tree Shaking
     `,
-    `-- Template Type Checking - 
-    -3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
+    `<br/>-- Template Type Checking - 
+    <br/>-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
       `,`- abstract base class - to render template to DOM - 
       can be overridden for Custom Rendering - 
       RendererFactory2`, 
@@ -3556,14 +3606,22 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      '- cold - requires subscribe ',
      '-- bubbles which identify parts in the timestream'
     ],
-    [`Observables
+    [`Observables - 
+    <br/>--- Observables and the RxJS operators can manipulate 
+    <br/>----- streams of data over time 
+    <br/>
+    <br/>
+    <br/>----- and use Subjects to aid working with them 
+    <br/>-------simplifying subscription and allow 
+    <br/>---------multi-casting events around the application. 
     `,
     '- Subjects', 
-    '- behaviorSubject', 
-    '- asyncSubject', 
-    '- replaySubject'],
+    '--- behaviorSubject', 
+    '--- asyncSubject', 
+    '--- replaySubject'
+    ],
     [`rxjs - Reactive Extensions - 
-    
+    <br/>
     <br/>--- rxjs operators - 
     <br/>------ act on Observables and 
     <br/>------ are immutable by default 
@@ -3595,7 +3653,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- Transform'
     ],
     [`Higher-Order-Mapping-ftns
-    
+    <br/>- Produces an Observable as an output 
+    <br/>
+    <br/>- Different types of MF
+    <br/>--- ConcatMap
+    <br/>--- MergeMap
+    <br/>--- SwitchMap
+    <br/>--- ExhaustMap 
+
     `,
     `--- ConcatMap
     <br/>- Sequence opn (order of opns is important) 
@@ -3608,7 +3673,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- subscribes immed to inner Observables 
     <br/>-  map to Observable with inner timer or a stream of DOM events
     `,
-    `--- ConcatMap - map to Observable 
+    `--- 
+    ConcatMap - map to Observable 
     <br/>- complete previous inner Observable 
     <br/>- emit values 
     <br/>- immed cancel prev opn and emit new one 
