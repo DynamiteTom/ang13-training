@@ -16,6 +16,7 @@ const features = `
     'Angular CLI',
     'lodash',
     'Important-files',
+    'InnerHtml',
     'Events - DOM vs Custom',
     'Template ref variables',
     'Data binding',
@@ -793,11 +794,19 @@ const subTopics = [
     '-- Template Instructions', 
     '-- no-metadata',
     '- AOT by default',  
-    
+    ' -- ',
     'Libraries', '- ngcc', '-- Linker instead', '-- Partial Compilation',
     'Ang Language Service','Compilaion of changes',
     'Ivy - Advantages',
-    'no EntryComponents'
+    'no EntryComponents',
+    ' -- ',
+    'Ivy DI (Dep Injection)',
+    '---- R3Injector (ModuleInjector)',
+    '-------- Store property',
+    ' -- ',
+    '---- NodeInjector (ElementInjector)',
+    '-------- TNode object',
+    '-------- LView object',
     ],
     ['- ViewEngine old', 
     '- Renderer2', 
@@ -810,7 +819,16 @@ const subTopics = [
     '-- application.json', 
     '-- ngFactory.js file',
     'JIT or AOT',
-    'EntryComponent'],
+    'EntryComponent',
+    ' -- ',
+    'View Engine DI (Dep Injection)',
+    '---- ModuleInjector',
+    '-------- Store property',
+    ' -- ',
+    '---- ElementInjector',
+    '-------- TNode object',
+    '-------- LView object',
+  ],
     ['Promises', '- then()', '- future tasks', '- (resolve, reject)','- asynchronous','- catch',' -- ', 
      'Observables','- streams', '- time', '- next()','- Observer','- subscribe','- async pipe','- hot-cold','- Sync or Async', '-- Marble Diagrams'],
     ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
@@ -2179,26 +2197,47 @@ const subTopicsInfo = [
      'other values',
      'privders:[MyService]'
     ], 
-    [`- DI (Dependency Injection) - is a design pattern 
-    <br/>-- in which a class requests dependencies from external sources 
-    - (wrt creatng them) 
-  <br/>---- provides dependencies to a class upon instantiation 
-  <br/>---- is used to increase flexibility + modularity in your appns
-  <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
-  <br/>---- First injector found - configured with a provider (matching) - supplies the dependency
-  `,
+    [`DI (Dependency Injection) - is a design pattern 
+    <br/>--- in which a class requests dependencies from external sources 
+    <br/>------ (wrt creatng them) 
+    <br/>
+    <br/>---- provides dependencies to a class upon instantiation 
+    <br/>
+    <br/>---- is used to increase flexibility + modularity in your appns
+    <br/>
+    <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+    <br/>
+    <br/>---- First injector found 
+    <br/>------- configured with a provider (matching) 
+    <br/>------- supplies the dependency
+    <br/
+    <br/>-- Injector Hierarchy DI system
+    <br/>---- Injector Tree echoes the Component Tree
+    <br/> ------ every Component has its own injector
+    <br/>
+    <br/> ------- When a Component requests a dependency 
+    <br/>------- Angular uses a Provider regd in the Components Injector
+    <br/>
+    <br/>------- if Component injector has no provider - passes to parent Components Injector
+    <br/>
+  
+    `,
   '-- Injector Hierarchy DI system',
   `---- Injector Tree echoes the Component Tree
   <br/> ------ every Component has its own injector
+  <br/>
   <br/> ------- When a Component requests a dependency 
-  <br/>------- Angular uses a Provider regd in the Components Injector
-  <br/>------- if Component injector has no provider - passes to parent Components Injector
+  <br/>---------- Angular uses a Provider regd in the Components Injector
+  <br/>
+  <br/>------- if Component injector has no provider 
+  <br/>--------- passes to parent Components Injector
   <br/>
   `,
   '- View object - an internal object that reps Ang template',
-  `--- Ang builds a tree of views which always starts with a fake root View
-    <br/> that only contains 1 root element
-    <br/> Ivy uses LView and TView.data arrays   
+  `--- Ang builds a tree of views 
+    <br/>----- which always starts with a fake root View
+    <br/>----- that only contains 1 root element
+    <br/>----- Ivy uses LView and TView.data arrays   
   `,
   '------- Injector Bubbling - ',
   '---------- Components local injector',
@@ -2208,11 +2247,11 @@ const subTopicsInfo = [
   '------- ModuleInjector (Ivy R3Injector)',
   `----------- a Module level injector
       <br/>--- has a Records property that stores DI info 
-      <br/>----- and stores instances of injectables    
+      <br/>------ and stores instances of injectables    
       <br/>
       <br/>------ get() records a Map collection
-      <br/> - key is a token 
-      <br/> - value is instance corresponding to token    
+      <br/>-------- key is a token 
+      <br/>-------- value is instance corresponding to token    
   
       `,
 
@@ -2858,6 +2897,21 @@ for (let x of cars) {
      '-- node_modules folder','- primary entry point for @angular/core lib' 
     
     ],
+    ['InnerHtml'
+  ],
+  ['Events - DOM vs Custom',
+    '---DOM Events ',
+    '---- Bubble up',
+    ' -- ',
+    '--- Custom Events',
+    '---- Dont bubble up',
+    '------ only available to parent',  
+    '-----can bubble up with element.dispatchEvent()',  
+    ' -- ',
+    '---- possible solutions',
+    '------ ngrx store',
+  
+  ],
     [`Template Ref Variables
     
     `,
@@ -3510,7 +3564,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- replaySubject'],
     [`rxjs - Reactive Extensions - 
     
-    rxjs operators - act on Observables and are immutable by default - 
+    <br/>--- rxjs operators - 
+    <br/>------ act on Observables and 
+    <br/>------ are immutable by default 
+    <br/>------ return Observables  
     `,
     '- library',
     '- npm install rxjs', 
@@ -3527,45 +3584,104 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- iterating over stream','- map vals to types',
     '- filtering streams',
     '- multiple streams',
-    'Pipeable operators','- Combination','- Conditional','- Creation',
-    '- Errors','- Multi-cast','- Filters','- Transform'],
-    ['- Sequence opn (order of opns is important) - map values to inner Observable subscribe and emit in order - delayed subscribe to inner Observables',
-    '- (alias FlatMap) Parallel opn - Multiple simultaneous active inner subscriptions - possible memory leaks - subscribes immed to inner Observables -  map to Observable with inner timer or a stream of DOM events',
-    '-- map to Observable - complete previous inner Observable - emit values - immed cancel prev opn and emit new one - can have a cancelling operator - ',
-    '- ExhaustMap - projects each source value to an Observale which is merged in the o/p Observable only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust'
+    ' -- ',
+    'Pipeable operators',
+    '- Combination',
+    '- Conditional',
+    '- Creation',
+    '- Errors',
+    '- Multi-cast',
+    '- Filters',
+    '- Transform'
+    ],
+    [`Higher-Order-Mapping-ftns
+    
+    `,
+    `--- ConcatMap
+    <br/>- Sequence opn (order of opns is important) 
+    <br/>- map values to inner Observable subscribe 
+    <br/>- and emit in order - delayed subscribe to inner Observables
+    `,
+    `--- MergeMap - (alias FlatMap) Parallel opn 
+    <br/>- Multiple simultaneous active inner subscriptions 
+    <br/>- possible memory leaks 
+    <br/>- subscribes immed to inner Observables 
+    <br/>-  map to Observable with inner timer or a stream of DOM events
+    `,
+    `--- ConcatMap - map to Observable 
+    <br/>- complete previous inner Observable 
+    <br/>- emit values 
+    <br/>- immed cancel prev opn and emit new one 
+    <br/>- can have a cancelling operator - 
+    `,
+    `--- ExhaustMap 
+    <br/>- projects each source value to an Observale 
+    <br/>which is merged in the o/p Observable 
+    <br/>only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust
+    `
     ],
     [`Why forms - to handle user input - eg Login - Register
-    <br/>Both Template and Reactive forms - track value changes between form Input elements and form data in the Component Model
-    <br/>sharing common building blocks but differ how to create + manage common form-control instances 
-    2 types of Forms - 
-      <br/>Templsate Forms - for simple forms 
-      <br/>- not as reusable or scalable
-      <br/>use async data flow between the View and data model - 
-      <br/>Most of the code is using NgModel and template directives - 
-      <br/>uses ngForm - 
-      <br/>rely on mutability with 2 way data binding 
-      <br/>--- to update the data model in the Comp as changes are made in the template
-
-      <br/>Testing is reliant on angular CD - to run properly and require more setup
-      <br/>FormsModule - 
+    <br/>
+    <br/>-- Both Template and Reactive forms 
+    <br/>---- track value changes between form Input elements and form data 
+    <br/>----in the Component Model
+    <br/>
+    <br/>--- sharing common building blocks but differ how to create + manage common form-control instances 
+    <br/>
+    <br/>---- 2 types of Forms - 
+    <br/>------  Templsate Forms - for simple forms 
+      <br/>------- not as reusable or scalable
       <br/>
-      
-      <br/>Reactive Forms - more scalable and reusable and use Observable streams 
-      - explicit and immutable approach to managing the state of a form at a given point in time
-      <br/>Most of the code is in the class (not the template) 
-      <br/>provides a Model-driven approach
-      <br/>--- to handling form inputs whose values change over time
-      <br/>FormControl instance always return a new value when the controls 
-      <br/>- Each change to form state returns a new state - 
-      <br/> maintains the integrity of the model between changes - 
-      <br/>where form inputs and values are provided as streams of input values which can be accessed asynchronously 
-      <br/>provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
-      <br/>FormModel is the source of truth
-      <br/>FormControl instance emits the new value via the valueChanges observable 
-      <br/>ReactiveFormsModule - 
+      <br/>------ use async data flow between the View and data model - 
+      <br/>
+      <br/>------ Most of the work uses NgModel and template directives - 
+      <br/>
+      <br/>------ uses ngForm - 
+      <br/>
+      <br/>------ rely on mutability with 2 way data binding 
+      <br/>
+      <br/>------ to update the data model in the Comp as changes 
+      <br/>
+      <br/>------ are made in the template
+      <br/>
+      <br/>------ Testing is reliant on angular CD 
+      <br/>
+      <br/>------ to run properly and require more setup
+      <br/>
+      <br/>------ FormsModule - 
+      <br/>
+      <br/> -- 
+      <br/>
+      <br/>---- Reactive Forms 
+      <br/>------- more scalable and reusable and use Observable streams 
+      <br/>
+      <br/>------- explicit and immutable approach to managing the state of a form at a given point in time
+      <br/>
+      <br/>------- Most of the code is in the class (not the template) 
+      <br/>
+      <br/>------- provides a Model-driven approach
+      <br/>
+      <br/>------- to handling form inputs whose values change over time
+      <br/>
+      <br/>------- FormControl instance always return a new value when the controls 
+      <br/>
+      <br/>------- Each change to form state returns a new state - 
+      <br/>
+      <br/>------- maintains the integrity of the model between changes - 
+      <br/>
+      <br/>------- where form inputs and values are provided as streams of input values which can be accessed asynchronously 
+      <br/>
+      <br/>------- provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
+      <br/>
+      <br/>------- FormModel is the source of truth
+      <br/>------- FormControl instance emits the new value via the valueChanges observable 
+      <br/>
+      <br/>------- ReactiveFormsModule - 
+      <br/> -- 
       <br/>
       <br/>Validation is an integral part of managing any type of forms 
-      <br/>Angular provides a set of built-in validators + ability to create custom validators
+      <br/>
+      <br/>--- Angular provides a set of built-in validators + ability to create custom validators
       `,
       `--- Template Forms - Template Driven Approach using directives)
       `,
@@ -4237,12 +4353,29 @@ export class SampleComponent implements AfterViewInit {
     ],
     [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
     <br/>- designed to handle small to large projects with speed and efficiency
-    <br/>- has 3 parts - 1: Working tree 2: Staging area 3: Local repository + Remote repository - 
-    <br/>- Branches - part of everyday devt process - A pointer to a snapshot of your changes - spawn a new branch to make changes 
-    <br/>- Forking - creates a indept copy of a Git repository - 
-    <br/>- git clone - creates a linked copy that will continue to sync with the target repo
-    <br/>- Stashing - lets you change to a diff project and store the current staged file info 
-    <br/>- Staging and Committing -  
+    <br/>
+    <br/>- has 3 parts 
+    <br/>---- 1: Working tree 
+    <br/>---- 2: Staging area (Index) 
+    <br/>---- 3: Local repository 
+    <br/>--------- Remote repository - 
+    <br/>
+    <br/>Git Commits - 
+    <br/>
+    <br/>
+    <br/>- Branches - part of everyday devt process 
+    <br/>---- A pointer to a snapshot of your changes 
+    <br/>---- spawn a new branch to make changes 
+    <br/>
+    <br/>- Forking - creates a indept copy of a Git repository 
+    <br/>
+    <br/>- git clone 
+    <br/>---- creates a linked copy that will continue to sync with the target repo
+    <br/>
+    <br/>- Stashing - lets you change to a diff project 
+    <br/>---- and store the current staged file info 
+    <br/>
+    <br/>- Staging area (Index) and Committing -  
     `,
       `Parts - ---Working tree | Staging area | Local repository
       `,
@@ -4338,7 +4471,7 @@ export class SampleComponent implements AfterViewInit {
     '- pull - ',
     '- log - ',
     '- status -',
-    ''], 
+    ], 
 
     [`Testing is very important to ensure the validity of your programs and that there are no problems with the code!
       <br/>There are three forms of test 1: Unit 2: Integration 3: End 2 End
