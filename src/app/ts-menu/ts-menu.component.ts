@@ -13,8 +13,10 @@ const features = `
     'interf_class',
     'EcmaScript',
     'TypeScript',
+    'Angular CLI',
     'lodash',
     'Important-files',
+    'Events - DOM vs Custom',
     'Template ref variables',
     'Data binding',
     'Styles_CSS_SCSS',
@@ -221,7 +223,12 @@ const subTopics = [
     ' -- ', 
     'this','globalThis', 
     ' -- ', 
-    '- ng g c xyz'
+    '- ng g c xyz',
+    ' -- ',
+    '--- Smart Components',
+    '----- keep track of state',
+    '----- how components work together',
+    '--- Dumb Components - presentation components'
     ],
     ['Directives',
      '@Directive({})', 
@@ -265,8 +272,24 @@ const subTopics = [
     '--- Components'
     ],
     ['Why Pipes',
-    '- transforms data','-- display', 
-    'template', '- Pure', '- Impure','Custom Pipes', '-- @Pipe({})','-- PipeTransform - transform','built-in pipes'
+    '- transforms data',
+    '-- display',
+    '---- list built-in pipes',
+    ' -- ',
+    '--- inbuilt Pipes',
+    '----- DatePipe',
+    '----- CurrencyPipe',
+    '----- DecimalPipe',
+    '----- UpperCasePipe',
+    '----- LowerCasePipe',
+    '----- Percent  Pipe',
+    '----- async Pipe',
+   ' -- ', 
+    '- Pure', 
+    '- Impure',
+    'Custom Pipes', 
+    '-- @Pipe({})',
+    '-- PipeTransform - transform',
   ],
 
   ['Services and DI',
@@ -513,11 +536,45 @@ const subTopics = [
     '- tsconfig.json - configures TS files in Angular app',
     '-- compilerOptions',
     '-- angularCompilerOptions',
-    '--- fullTemplateTypeCheck: true', 
+    '---    fullTemplateTypeCheck: true', 
     '- JS files', '- ngc',
     '- Barrels (index.ts)',
     '-- index.ts',
     '- Custom Objec Types'
+    ],
+    ['Angular CLI',
+      '-- initialise | develop| scaffold',
+      '---- from a cmd shell',
+      '------ Installation - npm install',
+      ' -- ',
+      '--- Commands',
+      '----- ng new',
+      '----- ng add',
+      '----- ng generate',
+      '----- ng build',
+      '----- ng update',
+      '----- ng serve',
+      '----- ng test',
+      '----- hg help',  
+      ' -- ',
+      '---- uses Schematics',
+      '------ virtual file system',
+      '--------  tree',
+      '----------  base + staging area (changes)',
+      '--------  Rule object = transformations',
+      '--------  4 Actions',
+      '--------  SchematicContext',
+      '---------- logging API',
+      '------------  merge strategy',
+      ' -- ',
+      '---- uses Webpack',
+      ' ------ uses Webpack (5 since Ang 12)',
+      '--------- long term caching',
+
+      '--------- Module Federation', 
+      '------------ Add Module at runtime',
+      '------------ Work on diff builds indeptly',
+      '--------- Custom Webpack'  
     ],
     ['lodash',
     '- simplifies JS ',
@@ -526,6 +583,21 @@ const subTopics = [
     '-- Map | Filter |  Reduce'
     ],
     ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' 
+    ],
+    ['InnerHtml'
+    ],
+    ['Events - DOM vs Custom',
+      '---DOM Events ',
+      '---- Bubble up',
+      ' -- ',
+      '--- Custom Events',
+      '---- Dont bubble up',
+      '------ only available to parent',  
+      '-----can bubble up with element.dispatchEvent()',  
+      ' -- ',
+      '---- possible solutions',
+      '------ ngrx store',
+    
     ],
     ['Template Ref Variables',
       '--- use of the # character',
@@ -971,7 +1043,9 @@ const subTopics = [
     'Custom Libraries',
     '- ng g library x','-- angular.json',
     '- ng-packagr','-- package.json', 
-    '- ref to build path','-- tsconfig.json','- lib sources in project/x',
+    '- ref to build path',
+    '-- tsconfig.json',
+    '- lib sources in project/x',
     'Ivy and ngcc',
     'Ang11 - Partial compilation'],
     ['Caching',
@@ -1791,8 +1865,12 @@ const subTopicsInfo = [
     '----- NgZone',
     '----- ChangeDetectionStrategy.OnPush',
     ' -- ',
-    '- Services and DI - Services are the provider from Injector hierarchy',
-    `--- DI (Dependency Injection) - to avoid ext dependencies threats - 
+    `- Services and DI - 
+     Services are the provider from Injector hierarchy
+    
+    `,
+    `--- DI (Dependency Injection) 
+     - to avoid ext dependencies threats - 
   `,
   '--- Injector Hierarchy | tree',
   '----- dependency - Provider',
@@ -1812,15 +1890,26 @@ const subTopicsInfo = [
   `
   ], 
 
-  [`Components are the most important part of an Ang appn - they have a @Component decorator with a selector - template and optional style
+  [`Components are the most important part of an Ang appn 
+  - they have a @Component decorator with a selector - template and optional style
+  <br/>
+  - They must have a template - either internal or external with HTML   
+    <br/>
     <br/>The class can have constructor - properties - methods - events 
+    <br/>
     <br/>Can import services into the constructor using DI 
+    <br/>
     <br/>Data binding - interpolation {{}} | property [] | event () | [( ngModel )]  
     <br/>Can have child Components and use @Input() / @Output() with EventEmitter()
-    <br/>Life Cycle Hooks - ngOnInit() define how the Component operates from creation to destruction
+    <br/>
+    <br/>Life Cycle Hooks define how the Component operates from creation to destruction
+    <br/>- most common ngOnInit()
+    <br/>
     <br/>Component Tree - each component has a ChangeDetector - to react to changes and ensure View is correct
     <br/>Style of the parts of the data - 
+    <br/>
     <br/>Best to store Component data as immutable Observables which can then be manipulated using RxJS library
+    <br/>
     <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
     <br/>can use this to ref data or methods in the Component - 
   `, 
@@ -1859,41 +1948,85 @@ const subTopicsInfo = [
       <br/> browsers | Web Workers | 
       <br/> this.foo === windows.foo is true      
       `,
-      'generate a new Component'
+      'generate a new Component',
+      ' -- ',
+      `--- Smart Components (Container Components)
+        <br/>---- keep trakc of state and care about how they work together
+        <br/>
+        <br/>---- Container design pattern',
+        <br/>------ pass data to the presentation component
+      `,
+      '----- Keep track of the state and care about how they work',
+      '----- Container Design Patern',
+      '------- pass data down to presentation Components',
+      '=-------- interact with the service layer and retrieve the data',
+      ' -- ',
+      `--- Dumb Components - presentation components
+      <br/>---- just displays the data thats passed to it
+      <br/>------- get data via @Input()
+      `,  
+      '------- displays the data passd to it',
+      `------- get data via @Input()
+      `,
+      '------- return modified data using @Output() and EventEmiter()'
+
     ],
-    [`Directives are classes that add extra behavior to elements in Angular appns 
-      <br/>let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
-    - <br/> decorator @Decorator({}) 
-    - <br/> 3 types - attribute | template | Components -  
+    [`Directives - are classes that add extra behavior to elements in Angular appns 
+    <br/>
+    <br/>--- Cant have a template - (unless a Component) 
+    <br/>
+    <br/>--- let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
+    <br/>
+    <br/> decorator @Directive({}) 
+    <br/>
+    <br/>--- 3 types - attribute | template | Components -  
+    <br/>
+    <br/>----- template directives
+    <br/>--------- *ngIf
+    <br/>----------- Selection true or false
+    <br/>
+    <br/>--------- *ngFor
+    <br/>----------- iterable of items
+    <br/>
+    <br/>--------- *ngSwitch
+    <br/>
+    <br/>--------- <ng-template>
+    <br/>------------- determines when to show
+    <br/>------------- &lt;ng-container>
+    <br/>------------- &lt;ng-content>
+    <br/>------------- &lt;ngTemplateOutlet>    
     `,
       '@Directive({})',
-      
-      '- Attribute-directives - change the appearance or behavior of an element | component | directive', 
+      ' -- ',
+      '--- Types of Directives',
+
+      `---1: Attribute-directives 
+      ----- change the appearance or behavior of an element | component | directive
+      `, 
      
-      '- Template-directives *ngIf - *nfFor() ',
-      `---- 
+      '----2:  Template-directives *ngIf - *nfFor() ',
+      `<br/>---- 
       `,
-        '---Type of Template Directives',
-          '----- *ngIf <div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
+        '-- Type of Template Directives',
+              '----- *ngIf <div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
               '------ *ngIf ; else tmp-dir',
               '---------- else <ng-template #tmp-dir>',
               ' -- ', 
-  
               '----- *ngFor <div *nfFor="x of List"></div>',
               `------- trackBy - to speed up for loop iteration
           @Component({
-            selector: 'app-list',
-            template: \` <div *ngFor="let item of items; trackBy: trackById">...</div> 
-            \`,
-          })
-          export class AppListComponent {
-            @Input()
-            public items: Item[];
-          
-            public trackById(index: number, item: Item) {
-              return item.id;
-            }
-          }
+          <br/>  selector: 'app-list',
+          <br/>  template: \` <div *ngFor="let item of items; trackBy: trackById">...</div> 
+          <br/>  \`,
+          <br/> })
+          <br/>export class AppListComponent {
+            <br/> @Input()
+            <br/>public items: Item[];
+            <br/>
+            <br/> public trackById(index: number, item: Item) {
+              <br/>return item.id;
+              <br/> }
+              <br/> }
           `,
           ' -- ', 
           `----- *ngSwitch <div *ngSwitch with case statements
@@ -1927,18 +2060,51 @@ const subTopicsInfo = [
            </ng-template>
            `,
            ' -- ', 
-       '- Components are a form of Directive but have a template'
+       '---- 3: Components are a form of Directive but have a template'
       
       ],  
-      ['Why Pipes - pure and impure - decoraor - @Pipe() - used in a template HTML to modify data - Custom Pipes - @PipeTransform with transform()', 
+      [`Why Pipes - transform data in the template
+        <br/>pure and impure - decoraor - @Pipe() 
+        <br/>- used in a template HTML to modify data 
+        <br/> -- 
+        <br/>--- inbuilt Pipes
+        <br/>----- DatePipe
+        <br/>----- CurrencyPipe
+        <br/>----- DecimalPipe
+        <br/>----- UpperCasePipe
+        <br/>----- LowerCasePipe
+        <br/>----- Percent  Pipe
+        <br/>----- async Pipe
+        <br/>
+        <br/>---2 types 
+        <br/>------ Pure Pipes
+        <br/>--------- only use CD on branch with Directive
+        <br/>--------- are much faster
+        <br/>
+        <br/>------ Impure Pipes
+        <br/>--------- run CD on whole appn 
+        <br/>--------- are much slower
+        <br/>
+        <br/>--- Custom Pipes - @PipeTransform with transform()
+        `, 
       'transform data for display',
       '- only applied in template',
-      '-- used in a template',
-     '- Pure - ', 
-     '- Impure - ',
+      '--list inbuilt pipes - Date | UpperCase | LowerCase | Currency | Decimal | Percentage | Async',
+      ' -- ',
+      '--- inbuilt Pipes',
+      '----- DatePipe',
+      '----- CurrencyPipe',
+      '----- DecimalPipe',
+      '----- UpperCasePipe',
+      '----- LowerCasePipe',
+      '----- Percent  Pipe',
+      '----- async Pipe',
+     ' -- ', 
+     '- Pure Pipes', 
+     '- Impure Pipes',
     'Custom Pipes', 
     '@Pipe({})','-- custom transformation',
-    'Date - UpperCase - LowerCase - Currency - Decimal - Percentage - Async'],
+  ],
     [`Services and Dependency Injection 
     <br/> - implemented as a simple class with @Injectable({}) decorator - 
       - <br/>ng g s my-service
@@ -1993,10 +2159,8 @@ const subTopicsInfo = [
       `--- Application based DI - 
       
       `,
-      `--- Component based DI
-        
+      `--- Component based DI      
       `,
-
        `---- Provider - supplies the dependency 
        <br>------ Service Instance or Value
        `,
@@ -2148,7 +2312,9 @@ const subTopicsInfo = [
     deps: [Logger, UserService]
   };  
   `,
-  'class +','@Injectable({})', '- declare locn', '- nesting','- Sharing','typical tasks',
+  'class +',
+  '@Injectable({})', 
+  '- declare locn', '- nesting','- Sharing','typical tasks',
   '- Providing a Service', 
   '-- @injectable({ providedIn: \'root\'})',
   '--- providedIn: \'root\'',
@@ -2156,8 +2322,10 @@ const subTopicsInfo = [
   '--- providedIn: \'any\'',
   `--- providedIn: <T>\'
   ` ],
-  
-    ['Decorators - add metadata to a class | objects or methods -  which defines annotations - used by TypeScript compiler tsc',
+    [`Decorators - add metadata to a class | objects or methods 
+    -  which defines annotations 
+    - used by TypeScript compiler tsc
+    `,
      '- Metadata - describes other data',
      '- Annotations - are hard coded language features - set on a class - reflect metadata library', 
      '--- class',
@@ -2213,10 +2381,10 @@ get message(): string {
       `,
       `---------- using emit() 
       <br/>sendValues(){  
-        this.myOutput.emit(this.outputMessage);  
-     }  
-     
-     <app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+        <br/>this.myOutput.emit(this.outputMessage);  
+    <br/>}  
+    <br/> 
+    <br/> <app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
      `, 
      ` using the myOutput() event
      <br/><app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
@@ -2337,8 +2505,20 @@ get message(): string {
       '-- this to ref the class object properties and methods'
     ],
     [`ES EcmaScript - modern JavaScript
-    <br/>ES - 2020
-    <br/>ES - 2022
+    <br/>is a JS std to ensure interoperability of web pages wrt diff browsers
+    <br/>
+    <br/>-- ESMs (EcmaScript Modules)    
+    <br/>---- leads to fast reload speeds and smaller bundles 
+    <br/>------ ES5 is associated with the original JS 
+    <br/>------ Es2015 (ES6) - is associated with 1st ES roll out
+    <br/>
+    <br/>------ since then there have been several updates
+    <br/>-------- ES - 2020
+    <br/>-------- ES - 2022
+    <br/>
+    <br/>These add features onto the original JS to simplify coding 
+    <br/>eg. Fat Arrow ftns | const | let with block scope | Promises | \`\` string literals
+    <br/>---- string and array functions too 
     `,
         '-- modern JavaScript',
         '---- ES6 (ES 2015)',
@@ -2380,14 +2560,24 @@ for (let x of cars) {
         '---- JS Modules'
     ],
     [`TypeScript - JS with syntax for types - 
-      <br/>data types - number | string | boolean 
+      <br/>data types - number | string | boolean | Array | 
+      <br/>---- null | undefined
+      <br/>
       <br/>- Object Oriented Language
       - strongly typed and uses inferred types 
       - interfaces and types   
+      <br/>
       <br/>A Strongly Typed Programming Language
       <br/>- Can be used in any browser or JS engine (ES6) ie. Node.js   
-      <br/>tsc transpiles ts down to .js files - run in the browser 
+      <br/>
+      <br/>tsc transpiles ts down to .js files 
+      <br/>--- run in the browser 
+      <br/>
+      <br/>-- Compile time Type Checking 
+      <br/>
       <br/>uses tsconfig.json - configures TS
+      <br/>--- compilerOptions and AngularCompilerOptions
+      <br/>
       <br/>tooling - auto-completion | navigation | refactoring - 
       `,
       '- Object Oriented Language ',
@@ -2396,8 +2586,8 @@ for (let x of cars) {
       `,
       '--- normally written in Code editor - VS Code',
       `TS has - Compile Time Type Checking 
-      - a statically typed language
-      - Type Checks are performed at compile time
+      <br/>- a statically typed language
+      <br/>- Type Checks are performed at compile time
       `,
       `--- Type Annotations - used to enforce type Checking
       <br/> ----- helps compiler to check types and avoided data type errors 
@@ -2405,9 +2595,9 @@ for (let x of cars) {
       `,
       '----- helps compiler check types ',
       `- JS Primitive Types 
-      --- JS is a dynamically typed language
-      --- Type Checks are performed at runtime
-      ---- when the program is executing 
+      <br/>--- JS is a dynamically typed language
+      <br/>--- Type Checks are performed at runtime
+      <br/>---- when the program is executing 
       `,
       '--- string',  
       '--- number',
@@ -2460,9 +2650,7 @@ for (let x of cars) {
       '----------- instanceof y',
       '----------- in type',
       '----------- type guard ftn with predicate',
-      '----------- type guard ftn with assertion  ',
-      
-      
+      '----------- type guard ftn with assertion  ',  
       '--- Distributive Conditional Types',
       '--- Inferred Types - TS determines the types',
       `- duck typing - powerful feature which brings strong typing concepts in TS code  
@@ -2513,6 +2701,125 @@ for (let x of cars) {
       '-- index.ts'
       
     ],
+    [`Angular CLI (Command Line Interface) tool - 
+        <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
+        <br/>--- Angular apps directly from a Cmd line - prompt 
+        <br/>
+        <br/>--- uses ng xxx commands 
+        <br/> 
+        <br/>--- uses Node.js | npm and Schematics and Webpack 
+        <br/>
+        <br/>CLI includes a Server to let you build, serve and test app locally  
+        <br/>--- uses builder dev-server 
+        <br/>----- when ng serve - port 4200 by default on localhost 
+        <br/> 
+        <br/>requires Node.js | npm (Node Package Manager)
+        <br/>
+        <br/>npm install -g @angular/cli   
+        <br/>
+         <br/>- CLI Commands
+         <br/>--- ng new
+         <br/>--- ng add
+         <br/>--- ng generate
+         <br/>--- ng build
+         <br/>--- ng update
+         <br/>--- ng serve
+         <br/>--- ng test
+         <br/>--- ng help
+         <br/>
+         <br/>- uses Schematics
+         <br/>--- Virtual file system 
+         <br/>----- base + staging area + add mod'ns to staging area 
+         <br/>---- Rule object - takes a Tree | applies transformations | returns tree
+         <br/>----- index.ts is main file for schematic - contains schematic logic    
+         <br/>---- Actions - Create | Rename|   Overwrite | Delete
+         <br/>---- Each schematic runs in a context - SchematicContext object 
+         <br/>  
+         <br/> uses Webpack 
+        <br/>--- behind the scenes - no webpack.config.js file to use
+        <br/>
+         <br/>-- Angular 12 and above uses Webpack 5 
+         <br/>---- long term caching - 
+         <br/>
+         <br/>---- Module Federation 
+         <br/>------ loading remote modules + stitch with appn at runtime 
+         <br/>-------- game changer in JS world 
+         <br/>------ allows multiple Webpack builds to work together 
+         <br/>
+         <br/>---- Custom Webpack configuration - 
+        `,
+        '-- initialise | develop| scaffold',
+        '---- from a cmd shell',
+        '------ Installation - npm install -g @angular/cli',
+        ' -- ',  
+        '-- ng Commands',
+        `---- ng new`,
+        `---- ng add
+        `,
+        `---- ng generate
+      
+        `,
+        `---- ng build
+        
+        `,
+        `---- ng update
+      `,
+        `---- ng serve
+      <br/>----- launches the server | watches your files | rebuilds app on change to files  
+      <br/>----- launches server by default on port 4200 on localhost
+      <br/>----- localhost:4200 
+      <br/>
+      <br/>----- uses builder dev-server
+        `,
+        `---- ng test
+      `,
+      `---- ng help
+      `,
+      ' -- ',
+      `--- uses Schematics to apply transforms to a web-app project
+      <br/>---- guard against errors by creating a virtual file system      
+      <br/>-------- Virtual File Syste - is repd bu a tree - 
+      <br/>------  Schematic describes a pipeline of transformations applied to Virtual FIle System
+      <br/>------- When schematic is run - transformations are recorded in memory 
+      <br/>---------- only applied to real file system - once checked to be valid
+      <br/>
+      <br/>---- custom schematics - 
+      `,
+
+      '------ virtual file system',
+      '--------  tree',
+      '----------  base + staging area (changes)',
+      '--------  Rule object = transformations',
+      '--------  4 Actions - Create | Rename | Overwrite | Delete',
+      '--------  SchematicContext',
+      '---------- logging API',
+      '------------  merge strategy',
+      ' -- ',
+      `--- uses Webpack
+      <br/>----- behind the scenes - no webpack.config.js file to use
+      <br/>
+       <br/>---- Angular 12 and above uses Webpack 5 
+       <br/>------ long term caching - 
+       <br/>
+       <br/>------ Module Federation 
+       <br/>-------- loading remote modules + stitch with appn at runtime 
+       <br/>---------- game changer in JS world 
+       <br/>-------- allows multiple Webpack builds to work together 
+       `,
+       ` ------ uses Webpack (5 since Ang 12)
+       `,
+       '--------- long term caching',
+
+       `--------- Module Federation 
+       `,
+       `------------ Add Module to appn modules at runtime
+       `,
+       '------------ Work on diff builds indeptly',
+
+       `<br/>----- Custom Webpack 
+      `,
+    ],
+ 
     [`lodash - we can easily use lodash in Angular
       <br/>makes JS simpler and simplifies manipulating ES types 
       <br/>We can replace lodash _ with ES6 methods - 
@@ -2562,18 +2869,77 @@ for (let x of cars) {
     '----- Web Component'
     ],
     [`Data binding - is a technique where data stays in sync between the Component and the View
-    <br/>- When user updates data in the view - Ang updates the Component
-    <br/>- When Component gets new data - Ang updates the View
+    <br/>automatically keeps your page up to date based on appn state
+    <br/>  
+    <br/>- When user updates data in the view 
+    <br/>--- Ang updates the Component
+    <br/>- When Component gets new data 
+    <br/>--- Ang updates the View
+    <br/>
+    <br/>- techniques
+    <br/>--- Interpolation {{}}
+    <br/>--- Property Binding [] 
+    <br/>--- Event Binding ()
+    <br/>--- Two way data binding [()] 
+    <br/>
     `,
-    '- String interpolation {{x}} - from data source to target view','-- {{ val }}',
-    '- Property binding - [] - Properties are features of DOM nodes - from view target to data source','-- <img [alt]="hero.name" [src]="heroImageUrl">',
+    `- String sinterpolation {{x}} - from data source to target view
+    
+    `,    
+    `-- {{ val }}
+    <br/>
+    `,
+    `- Property binding - [] 
+    <br/>--- Properties are features of DOM nodes 
+    <br/>----- from view target to data source
+    <br/>------- RHS of binding is a template expression
+    <br/>--------- It should equate type of value - number | string| etc
+    <br/>----- Ex Property Binding
+    <br/>-------- @Input() childItem=''; // string
+    <br/>---------using selector
+    <br/>------------ &lt;app-item [childItem]='parentItem'>&lt;/app-item>
+    <br/>------------ eg parentItem = 'lamp'
+    <br/>
+    <br/>-------- passing an Object eg array
+    <br/>---------- @Input() items: Item[] = [];
+    <br/>------------ &lt;app-item [items]='currentItems'>&lt;/app-item>
+    `,
+    `--- <img [alt]="hero.name" [src]="heroImageUrl">
+    
+    `,
+    `- Attribute binding - <button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+    
+    `,
     '- Class binding - [class]="classExpression"',
     '- Style binding - <nav [style]=\'navStyle\'>',
-    '- Attribute binding - <button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>',
-    `- event binding - () - from view target to data source ','<button type="button" (click)="onSave()">Save</button>
+    
+    `- event binding - () 
+    <br/>--- from view target to data source 
+    <br/>----- 
+    <br/>
+    <br/>
+    <br/>
+    `,
+    
+    `---- <button type="button" (click)="onSave()">Save</button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     `, 
-    '- 2-way data binding - Banana in a box - [(target)]', 
-    '-- [(ngModel)] = "name"'
+    `- 2-way data binding - Banana in a box - [(target)]
+    <br/>--- is a combination of propert and event binding
+    <br/>----- combination of [] and () 
+    <br/>----- [] displays info to end user
+    <br/>----- () responds to user making changes to undrelying data 
+    <br/>------ makes a connection between the view (tempplate) and component class
+    <br/>  
+    `, 
+    `-- [(ngModel)] = "name"
+    <br/>  
+    <br/>
+    <br/>
+    `
   ],
     ['Why Style - color-size-position', 
     '- CSS', 
@@ -2623,7 +2989,8 @@ for (let x of cars) {
     <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
       
     `, 
-    `ESMs (EcmaScript Modules) - are the official std format   
+    `ESMs (EcmaScript Modules) - are the official std format  
+    <br/>-- leads to fast reload speeds and smaller bundles 
     <br/>-- to package JS code for reuse 
     <br/>-- defined using import and export statements
     <br/>--- for interoperability 
@@ -2748,14 +3115,30 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '1: app.js',
       '2: vender.js'
     ],
-    [  `Life Cycle Hooks - A component has a life-cycle that starts when 
+    [`Life Cycle Hooks - A component has a life-cycle that starts when 
     <br/>Angular instantiates the Component class 
     <br/>and renders the Component view and child views -
+    <br/>
     <br/>We can fine tune the hehavior of our components during creatin | update | destruction
-    <br/>ngOnInit - the most common LCH contains initialisation logic for the Component
+    <br/>
+    <br/>
     <br/>ngOnChanges - details which properties have changed and how theyve changed  
+    <br/>
+    <br/>ngOnInit - the most common LCH contains initialisation logic for the Component
+    <br/>
+    <br/>ngDoCheck()
+    <br/>
+    <br/>ngAfterContentInit
+    <br/>
+    <br/>ngAfterContentChecked
+    <br/>
+    <br/>ngAfterViewInit
+    <br/>
+    <br/>ngAfterViewChecked
+    <br/>
     <br/>ngOnDestroy - which is where we place the cleanup logic for the Component
-    `,'- instantiates class', 
+    `,
+    '- instantiates class', 
     '- renders view + child views',
     '- CD',
     '- updates View + Component Instance',
@@ -2956,7 +3339,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- without Angular zone - NgZone.runOutsideAngular()',
     '--- change detection is not required'
   ],
-    [`AoT is better due to - the code is compiled at build time 
+    [`AoT - compiler converts HTML + TS code into efficient JS during build phase 
+    <br/>--- before browser downloads and runs the code 
+    <br/>
+      <br/>is better due to - the code is compiled at build time 
       <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
     `,'Compile time build', 'No need for Compiler', 
     `3 Phases - 
@@ -3146,24 +3532,31 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ['- Sequence opn (order of opns is important) - map values to inner Observable subscribe and emit in order - delayed subscribe to inner Observables',
     '- (alias FlatMap) Parallel opn - Multiple simultaneous active inner subscriptions - possible memory leaks - subscribes immed to inner Observables -  map to Observable with inner timer or a stream of DOM events',
     '-- map to Observable - complete previous inner Observable - emit values - immed cancel prev opn and emit new one - can have a cancelling operator - ',
-    '- ExhaustMap - projects each source value to an Observale which is merged in the o/p Observable only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust'],
+    '- ExhaustMap - projects each source value to an Observale which is merged in the o/p Observable only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust'
+    ],
     [`Why forms - to handle user input - eg Login - Register
     <br/>Both Template and Reactive forms - track value changes between form Input elements and form data in the Component Model
     <br/>sharing common building blocks but differ how to create + manage common form-control instances 
     2 types of Forms - 
-      <br/>Template Forms - for simple forms - not as reusable or scalable
+      <br/>Templsate Forms - for simple forms 
+      <br/>- not as reusable or scalable
       <br/>use async data flow between the View and data model - 
       <br/>Most of the code is using NgModel and template directives - 
       <br/>uses ngForm - 
-      <br/>rely on mutability with 2 way data binding to update the data model in the Comp as changes are made in the template
+      <br/>rely on mutability with 2 way data binding 
+      <br/>--- to update the data model in the Comp as changes are made in the template
 
-      <br/>Testing is reliant on mangular CD - to run properly and require more setup
+      <br/>Testing is reliant on angular CD - to run properly and require more setup
       <br/>FormsModule - 
       <br/>
-      <br/>Reactive Forms - more scalable and reusable and use Observable streams - explicit and immutable approach to managing the state of a form at a given point in time
+      
+      <br/>Reactive Forms - more scalable and reusable and use Observable streams 
+      - explicit and immutable approach to managing the state of a form at a given point in time
       <br/>Most of the code is in the class (not the template) 
-      <br/>provides a Model-driven approach to handling form inputs whose values change over time
-      <br/>FormControl instance always return a new value when the controls - Each change to form state returns a new state - 
+      <br/>provides a Model-driven approach
+      <br/>--- to handling form inputs whose values change over time
+      <br/>FormControl instance always return a new value when the controls 
+      <br/>- Each change to form state returns a new state - 
       <br/> maintains the integrity of the model between changes - 
       <br/>where form inputs and values are provided as streams of input values which can be accessed asynchronously 
       <br/>provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
@@ -3174,6 +3567,47 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>Validation is an integral part of managing any type of forms 
       <br/>Angular provides a set of built-in validators + ability to create custom validators
       `,
+      `--- Template Forms - Template Driven Approach using directives)
+      `,
+      '----- NgModel',
+      `----- NgForm - creates a top-level FormGroup instance and binds it to a form el 
+      <br/>------- to track aggregated form value and validation status 
+      `,
+      `NgModelGroup - creates a FormGroup instance to a DOM element
+      
+      `,
+
+      '----- directives in template',
+      '----- simple directives',
+      '----- asynchronous forms',
+      '----- FormsModule',
+      '----- Unstructured and Mutable',
+      '----- More complex Testing',
+      '----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">',
+
+      `--- Reactive Forms - (Model Driven Approach)
+      <br/>---- complex forms
+      <br/>---- FormModel
+      <br/>---- FormControl
+      <br/>---- Structured and Immutable
+      <br/>---- Sync forms
+      <br/>---- simplifies Testing
+      <br/><form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      <div>
+      <label>
+        Name: <input formControlName="name" placeholder="Your name">
+      </label>
+      </div>
+      <button type="submit">Send</button>
+      </form>
+      `,
+      '----- for more complex forms',
+      '----- FormModel is single source of truth',
+      '----- FormControl instance emits value via valueChanges() observable',
+      '----- synchronous forms',
+      '----- simplifies testing',
+      '----- ReactiveFormsModule',
+   
       `- Form Validation - a web form checks if the infon provided by a user is correct
       <br/>a: User messed up and get an error message
       <br/>b: Everything is ok and we can proceed with the regn process   
@@ -3200,6 +3634,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- direct access to Object Model',
     '-- Synchronous data flow','-- simpler test setup','-- simpler validation','-- Data','= new FormControl("")',
     ' -- ',
+
     '--- Reactive Validation'
   ], 
   [`ElementRef - a wrapper around a native DOM element inside a View
@@ -3571,7 +4006,9 @@ export class SampleComponent implements AfterViewInit {
     'Ang11 - Partial compilation - no need for ngcc'
     ],
     [`Caching - was initally developed to reduce the access time between the CPU and RAM 
+    <br/>
     <br/>Cache memory is faster to access by the CPU wrt RAM because its physically stored inside the CPU
+    <br/>
     <br/>Diff ways to implement caching 
     <br/> - ng cache - 
     <br/> - WebStorage
@@ -3580,14 +4017,26 @@ export class SampleComponent implements AfterViewInit {
     <br/> - array that holds values
     <br/> - HTTP Cache (Browser Cache) - browser uses cache but if nothing found then it goes to the server to fetch the resource  
     <br/> - Service Workers in PWAs (Programmable Web Appns)
+    <br/>
+    <bt/>To stop use of cache in Angular
+    <br/>ng build --output-hashing all 
+    <br/>-- hash contents of generated files and append a hash # to file name 
+    <br/>---- facilitates cache busting - (change to file - new hash)
+    <br/>---- browser is forced to load a new file 
     `,
     '- ng cache - on Hard Disk - caching project',
    ' -- ',
     `- Memoization - optimization technique to speed up computer programs 
     <br/>- by storing results of exp ftn calls 
     <br/>- returning cached result when same input occurs again 
-    <br/>-
+    <br/>
+    <br/>
+    <br/>
     <br/>-- impn in Angular - by ngrx - 
+    `,
+    ' -- ',
+    `Stop caching by 
+        <br/>--- ng build --output-hashing all 
     `,
     ' -- ',
     '--- ngrx',
@@ -3653,15 +4102,20 @@ export class SampleComponent implements AfterViewInit {
     '-- nx serve'
     ],  
     [`ngrx - State Management - Reactive State for Angular 
-    - a group of angular libraries for Reactive extensions 
-    - inspired by the Redux pattern - derives state using RxJS and Observables
-    - helps simplify appns with many user interactions and multiple data sources
-    - Features 
-    1: Serializability 
-    2: TypeSafety - using tsc (TypeScript compiler)
-    3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
-    4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
-    5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
+    <br/>
+    <br/>- a group of angular libraries for Reactive extensions 
+    <br/>
+    <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
+    <br/>
+    <br/>- helps simplify appns with many user interactions and multiple data sources
+    <br/>
+    <br/>- Features 
+    <br/>1: Serializability 
+    <br/>2: TypeSafety - using tsc (TypeScript compiler)
+    <br/>3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
+    <br/>4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
+    <br/>5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
+    <br/>
     <br/>SHARI   
     `,
     'based around the RxJS library and Observables to make the data immutable',
@@ -3677,11 +4131,11 @@ export class SampleComponent implements AfterViewInit {
     '-- Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations',
     ' -- ',
     `- SHARI -<br/> 
-      S: - Shared state that is accessed by many components and services
-      H: - Hydrated state that is persisted and rehydrated from external storage 
-      A: - Available state that must be available when reentering routes
-      R: - Retrieved state that must be retrieved with a side effect
-      I: - Impacted state that is impacted by Actions from other sources
+    <br/>S: - Shared state that is accessed by many components and services
+    <br/>H: - Hydrated state that is persisted and rehydrated from external storage 
+    <br/>A: - Available state that must be available when reentering routes
+    <br/>R: - Retrieved state that must be retrieved with a side effect
+    <br/>I: - Impacted state that is impacted by Actions from other sources
       `,
       '-- Shared',
       '-- Hydrated',
@@ -4003,10 +4457,28 @@ export class SampleComponent implements AfterViewInit {
     ['- Most popular Web framework - A backend web appn for Node.js for building Web appns and APIs - provides mechanisms for writing handlers for requests with diff HTTP verbs at diff URL Paths- routes ',
     '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
     ],
-    ['VS-Code'],
-    [`Angular Language Service - provides code editors 
+    [`VS-Code
+    <br/>
+    <br/>
+    <br/>VS Code Extensions
+    <br/>--- Prettier - an opinionated code formatter 
+    <br/>------- ensure 1 code format - 
+    <br/>
+    <br/>------- format files when saving or commiting them to VCS eg Git 
+    <br/>
+    <br/>---- Ctrl + Shift + P to use Prettier  
+      `,
+      ' -- ',
+      '--- VS Code Extensions',
+      '----- Prettier',
+      '------- Ctrl + Shift + P'
+    ],
+    [`Angular Language Service - provides code editors eg VS Code 
+    <br/>with completions | erroers | hints | navigation 
+    <br/>
     <br/>- eg VS Code with a way to get 
-    Completions | Errors | Hints | Navigation inside Angular templates
+    <br/>Completions | Errors | Hints | Navigation inside Angular templates
+    <br/>
     <br/>It goes straight to your config files and finds out about all the templates in your project and provides adequate support as you open a template 
     `,
     '- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'
@@ -4017,11 +4489,18 @@ export class SampleComponent implements AfterViewInit {
     - VS Code - uses tsserver written in TypeScript     
     `], 
     [`ESLint - statically analyses your code to quickly find problems 
+    <br/>
     <br/>- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
-    <br/>- is a JavaScript Linter to lint either JS + TS code (TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>
+    <br/>- is a JavaScript Linter to lint either JS + TS code 
+    <br/>(TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>
     <br/>- is built into most Web Editors VS Code or as part of your CI pipeline  -
+    <br/>
     <br/>- enables you to enforce a set of style | formatting | coding stds for your codebase  
+    <br/>
     <br/>ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
+    <br/>
     <br/>ESLint8.15 - May 2022 - 
     `,
     'ESLint is a JavaScript Linter to lint either JS + TS code', 
@@ -4038,22 +4517,34 @@ export class SampleComponent implements AfterViewInit {
   '- CD - Continuous Delivery', 
   '-- Jenkins'],
     [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
-     <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
-     <br/>Once installed you can interact with webpack either with CLI or API
-     <br/>A tool that lets you compile JS modules
+    <br/> 
+    <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
+    <br/>
+    <br/>Once installed you can interact with webpack either with CLI or API
+    <br/> 
+    <br/>A tool that lets you compile JS modules
      <br/> 
      <br/>It generates 1 file (or a few files) to run your app
+     <br/>
      <br/>npm install --save-dev webpack 
+     <br/>
      <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
      <br/>- performs clever static analysis of the AST of your code - 
      <br/>- has an evaluation engine to evaluate simple expressions - supports most libraries out of the box
+     <br/>
      <br/>Code Splitting - lets you split your codebase - into multiple chunks 
+     <br/>
      <br/> - Chunks are loaded asynchronously at runtime - Reduces the initial loading time
+     <br/>
      <br/>Optimizations - Webpack can do many optns to reduce the output size of your JS by dedup freq used modules - minifying and giving you full control of what is loaded initially
      <br/>- and what is loaded at runtime through code splitting 
+     <br/>
      <br/>- It can also make your code chunks cache friendly by using hashes  
+     <br/>
      <br/>Has a rich plugin interface - very flexible - 
+     <br/>
      <br/>Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
+     <br/>
      <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
     `, 
     '- Angular CLI build process uses Webpack behind the scenes for',
@@ -4094,7 +4585,7 @@ export class SampleComponent implements AfterViewInit {
     `
     ],
     [`The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
-      Cloud Servers are located all over the World
+      <br/>Cloud Servers are located all over the World
       <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
     `,
     ` - 3 reasons 1: File Storage - store all types of info in the cloud 2: File Sharing 
@@ -4211,18 +4702,24 @@ export class SampleComponent implements AfterViewInit {
     
     `  
 ],
-    [`Accessability - 
-    
+    [`Accessability -
+    <br/>
+    <br/>ARIA attributes
+    <br/>WCAG
+    <br/>POUR
     `,
     '- ARIA attrbutes', 
     '- WCAG', 
-    '- POUR'],
+    '- POUR'
+  ],
     [' -- '],
     [`Schematics - is a template based code generator - that supports complex logic 
       <br/>A set of instructions for transforming a S/W project by generating or modifying code  
-      <br/>packaged into collections and installed by npm 
+      <br/>--- packaged into collections and installed by npm 
+      <br/>
       <br/>Angular CLI uses schematics to apply transforms to a web-project - 
-      modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
+      <br/>----modify these schematics | define new  one (update code |  fix breaking changes in a dep | add new confign | add a framewok)  
+      <br/>
       <br/>Added in the @schematis/angular colln - ng g and ng add  
       `,
       '-- template based code generator',
@@ -4268,8 +4765,8 @@ export class SampleComponent implements AfterViewInit {
         'display:flex'],
     [`Progressive Web Appn - are Web appns that use Service Workers 
     <br/>- manifests - caching - progressive appns - to give a similar exp with a native appn 
-    - apps leverage modern browser capabilities 
-    - even with no Network or sparse Networks
+    <br/>- apps leverage modern browser capabilities 
+    <br/>- even with no Network or sparse Networks
     `, 
     `- Service Workers -
     
@@ -4323,8 +4820,6 @@ export class SampleComponent implements AfterViewInit {
     <br/>
     <br/>--- exports createCustomElement() API 
     <br/>----- bridges Angullar Component interface | CD to built in DOM API
-    
-    
     <br/>--- Problems
     <br/>----- Zone.js Change Detection not as good
     <br/>----- better to use Observables and OnPush CD -   
@@ -4343,7 +4838,7 @@ export class SampleComponent implements AfterViewInit {
     <br/>------- define Custom Element selector
     <br/>------- add CUSTOM_ELEMENTS_SCHEMA to module schemas
     <br/>
-    <br/>--------- Input names are transformed to dashed-lowercase 
+    <br/>--------- Input names are transf  ormed to dashed-lowercase 
     <br/>--------- Output names are not changed
     <br/>
     <br/>In a normal HTML Page
@@ -4378,47 +4873,116 @@ export class SampleComponent implements AfterViewInit {
 
      <br/>
      <br/>Create a HTML page - 
-     <br/><!doctype="html">
-     <br/><html lang="en">
-     <br/><head>
-     <br/><meta charset="utf-8">
-     <br/><title>ngElements</title>
-     <br/><base href="/">
-     <br/><meta name"viewport" content="width=device-width, initial-scale=1:1
-     <br/><link rel="icon" type="image/x-icon" href="favicon.ico">
-     <br/></head>
-     <br/><body>    
-     <br/><ngsd-button button-label="click me!"></ngsd-button>
+     <br/>&lt;!doctype="html">
+     <br/>&lt;html lang="en">
+     <br/>&lt;head>
+     <br/>&lt;meta charset="utf-8">
+     <br/>&lt;title>ngElements</title>
+     <br/>&lt;base href="/">
+     <br/>&lt;meta name"viewport" content="width=device-width, initial-scale=1:1
+     <br/>&lt;link rel="icon" type="image/x-icon" href="favicon.ico">
+     <br/>&lt;/head>
+     <br/>&lt;body>    
+     <br/>&lt;ngsd-button button-label="click me!">&lt;/ngsd-button>
     <br/>
-     <br/><script> 
-    <br/>- <ngsd-button button-label="ClickMe!">
-    <br/>--- <span slot="title">
-    <br/>----- <h1>This is the title</h1>
-    <br/>--- </span>
-    <br/></ngsd-button>
+    <br/> or 
+    <br/>&lt;ngsd-button button-label="click me!">
     <br/>
-    <br/>- create a component by document.querySelector('ngsd-button');
-    <br/>- const component = document.querySelector('ngsd-button'); 
-    <br/>- component.addEventListener('customEvent', event => { alert(event.detail)})
-    <br/></script>
-     <br/></body>
-     <br/></html>
+    <br/>--- &lt;span slot="title">
+    <br/>----- &lt;h1>This is the title&lt;/h1>
+    <br/>--- &lt;/span>
+    <br/>- &lt;/ngsd-button>
+     <br/> 
+     <br/>&lt;script>
+    <br/>--- // create a component by document.querySelector('ngsd-button');
+    <br/>--- const component = document.querySelector('ngsd-button'); 
+    <br/>--- component.addEventListener('customEvent', event => { alert(event.detail)})
+    <br/>&lt;/script>
+     <br/>&lt;/body>
+     <br/>&lt;/html>
     <br/>
     <br/>-- Using Slots - 
     <br/>---- Set ViewEncapsulation to Shadow DOM
     <br/>---- Add a slot element where you would like output to be projected
     <br/>---- Add a name attribute to identify the slot
     <br/>---- Add default markup inside the slot element 
-    <br/>--- NgElement
     <br/>
     <br/>--- Consuming slot in a Web Component
     <br/>----- Inside Custom el - add a span el with slot attribute = name targeted
     <br/>----- Add markup inside the span
     <br/>----- defult will be replaced with custom values in span
-    <br/>
-    <br/>--- Deploy to Cloud using Firebase
+    <br/<>
+    <br/>--- Build
     <br/>----- Combining files 
     <br/>------- Combining dist.js files simplifies angular-elements / Web Components - 
+    <br/>------- combine using a node script 
+    <br/>--------- output-hashing=none
+    <br/>-------- run node script 
+    <br/>--- concat.js
+    <br/>----- const fs = require('fs-extra');
+    <br/>----- const concat = require('concat');
+    <br/>----- (async files=[
+      <br/>------- './dist/ng-elements/runtime.js',
+      <br/>------- './dist/ng-elements/polyfill.js',
+      <br/>------- './dist/ng-elements/main.js'
+      <br/>]
+      <br/>await fs.ensureDir('elements');  
+      <br/>await concat(files, 'elements/elements.js');
+      <br/>await fs.copyFile('./dist/ng-elements/styles.css','elements/styles'))()      
+      <br/>
+      <br/>"build:elements" : 'ng build --prod --output-hashing none && node concat.js'
+    <br/>
+    <br/>
+    <br/>
+  
+    <br/> or
+    <br/>------- npm library ngx-build-plus lets you combine files during a build
+    <br/>--------- ng build --single-build 
+    <br/>
+    <br/>--- Deploying locally
+    <br/>----- install http-server globally with npm
+    <br/>----- Serve the elements folder with the http-server
+    <br/>----- in the HTML file that will consume the element
+    <br/>-------- Import the served js file
+    <br/>-------- Add the custom element 
+    <br/>
+    <br/>--- Deploy to Cloud using Firebase
+    <br/>install firebase cli globally -g
+    <br/>--- npm install -g firebase-tools
+    <br/>
+    <br/>initialize a new firebase project 
+    <br/>--- firebase.init
+    <br/>
+    <br/>Change the public folder to the elements folder
+    <br/>{ "hosting": {"public": "elements",} }
+    <br/>
+    <br/>Deploy the element to Firebase hosting
+    <br/>---- firebase.deploy
+    <br/>
+    <br/>&lt;head>
+    <br/>&lt;script src="https://angular-elements1.firebaseapp.com/elements.jd";
+    <br/>&lt;/head>
+    <br/>
+    <br/>--- NgElement
+    <br/>----- abstract class NgElement,
+    <br/>------- extends HTMLElement,
+    <br/>----- properties
+    <br/>------- ngElementStrategy
+    <br/>--------- how component is transformed to a custom el  
+    <br/>----------- events: Observable<NgElementStrategyEvent>
+    <br/>----------- connect(element: HTMLElement)
+    <br/>----------- disconnect():void
+    <br/>----------- getInputValue(propName: string)
+    <br/>----------- setInputValue(propName: string, string)
+    ' -- ',
+    <br/>------- ngElementEventsSubscription() - subscription to change | connect | disconnect events
+
+    <br/>----- methods
+    <br/>------- attributeChangedCallback(attrName: string, oldValue: string, newValue: string, namespace?: string): void
+    <br/>---------- handler for change in observed attribue  
+    <br/>------- connectedCallback() - handler for insertion of custom el in the DOM
+    <br/>------- disconnectedCallback() - handler for deletion of custom el from DOM
+    ' -- ',   
     `,
     `--- Custom Elements (Web Components)
     <br/> --- 
@@ -4427,7 +4991,7 @@ export class SampleComponent implements AfterViewInit {
     '----- define()',  
     
     '-- NgElement',
-    `- abstract class NgElement extends HTMLElement
+    `---- abstract class NgElement extends HTMLElement
     `,
     '---- extends HTMLElement - interface that reps any HTML Element  ',
     `----- protected abstract ngElementStrategy: NgElementStrategy
@@ -4491,10 +5055,12 @@ export class SampleComponent implements AfterViewInit {
     '- NgElement class',
     '-- let us add Type Infon to the NgElement class'
   ],
-    ['Web Workers permit multithreading in Angular', 'Threading', 
+  ['Web Workers permit multithreading in Angular', 'Threading', 
       ''],
     [`Angular Universal - is a UI Framework - Accessability 
-    - mobile friendly`,
+    <br/>- mobile friendly
+    <br/>--- SSR (Server Side Rendering)
+    `,
     '- SSR - Server Side Rendering'
   ],
    [`Optional Modules - Standalone Components - 
@@ -4528,7 +5094,7 @@ export class SampleComponent implements AfterViewInit {
      `,
       'SCAM (Single Component Angular Module) - one Module for each Component',
       `- Problem with Schematics 
-      - which search for your AppModule - Libs should update schematics
+      <br/>- which search for your AppModule - Libs should update schematics
       `
     ], 
     [' -- '],
@@ -4581,12 +5147,12 @@ export class SampleComponent implements AfterViewInit {
       <br/>4: Variety of prog languages TypeScript etc  
       `,
       `-- DevOps - modern day services - 
-      1: Azure Boards - agile tools to plan| track| discuss work x teams
-      2: Azure Pipelines - Build test deploy with CI/CD | run in parallel - with any language platform + cloud - Connect to Github | Git and deploy continuously
-      3: Azure Repos - unlimited cloud hosted private Git repos + collaborate to build better code with pull requests + better fle mgmt      
-      4: Azure Test plans - Mangual + exploratory testing tools - 
-      5: Azure Artifacts - Create host and share packages with team - Add artifacts to CI/CD pipeline with 1 click  
-      6: Extensions market place - Access extns from Stack to SonarCloud  
+      <br/>1: Azure Boards - agile tools to plan| track| discuss work x teams
+      <br/>2: Azure Pipelines - Build test deploy with CI/CD | run in parallel - with any language platform + cloud - Connect to Github | Git and deploy continuously
+      <br/>3: Azure Repos - unlimited cloud hosted private Git repos + collaborate to build better code with pull requests + better fle mgmt      
+      <br/>4: Azure Test plans - Mangual + exploratory testing tools - 
+      <br/>5: Azure Artifacts - Create host and share packages with team - Add artifacts to CI/CD pipeline with 1 click  
+      <br/>6: Extensions market place - Access extns from Stack to SonarCloud  
       `,
        '---- Azure Boards',
        '---- ssssAzure Pipelines',
