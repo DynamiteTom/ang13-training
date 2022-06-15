@@ -35,6 +35,7 @@ const features = `
     'APF',
     'Ivy_Locality', 
     'View-Engine',
+    'Template Rendering',
     'Promises_Observables',
     'Observables_Subjects',
     'RxJS_',
@@ -460,27 +461,29 @@ const subTopics = [
     ['ES EcmaScript - modern JavaScript',
         '-- modern JavaScript',
         '---- ES6 (ES 2015)',
-        '---- let const var',
-        '---- fat arrow ftns (x)=> x * 2;',
-        '---- For/of',
-        '---- Map Objects',
-        '---- Set Objects',
-        '---- Classes',
-        '---- Promises',
-        '---- defaul params',
-        '---- ftn rest params',
-        '---- String - includes ...',
-        '------- string.includes()',
-        '------- string.startsWith()',
-        '------- string.endsWith()',
-        '---- Array - from | keys| ...', 
-        '------- array.from()',
-        '------- array.keys()',
+        '------ let const var',
+        '------ fat arrow ftns (x)=> x * 2;',
+        '------ For/of',
+        '------ Map Objects',
+        '------ Set Objects',
+        '------ Classes',
+        '------ Promises',
+        '------ defaul params',
+        '------ ftn rest params',
+        '------ String - includes ...',
+        '-------- string.includes()',
+        '-------- string.startsWith()',
+        '-------- string.endsWith()',
+        '------ Array - from | keys| ...', 
+        '-------- array.from()',
+        '-------- array.keys()',
         '------- array.find()',
-        '------- array.findIndex()',
-        '---- Object entries',
-        '---- JS Modules'
-    ],
+        '-------- array.findIndex()',
+        '------ Object entries',
+        '------ JS Modules',
+        ' -- ',
+        '--- JavaScript features'
+      ],
 
     ['TypeScript',
     '- Object Oriented Language',
@@ -844,7 +847,15 @@ const subTopics = [
     '-------- TNode object',
     '-------- LView object',
   ],
-  
+    ['Template Rendering',
+      '--- from Component classes to View', 
+      '----- Unidirectional data flow',
+      '------- Helps get great performance',
+      '------- Component- simple to understand',
+      ' -- ',
+      '--- What is actual happening',
+      '----- Traversing the DOM Tree'
+    ],
     ['Promises', 
     '- then()', 
     '- future tasks', 
@@ -2666,8 +2677,39 @@ for (let x of cars) {
         '------- array.findIndex()',
 
         '---- Object entries',
-        '---- JS Modules'
-    ],
+        '---- JS Modules',
+        ' -- ',
+        `--- JavaScript features
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        `,
+        ' -- ',
+        `--- JavaScript Advanced features
+        <br/>Closures to extend variable scope
+        <br/>Hoisting to top - JS default behavior
+        <br/>Object literals to pass optional args
+        <br/>Contextual targeting of DOM elements
+        <br/>Using namespaces to prevent conflicts
+        <br/>Hybrid Appn Devt
+        <br/>
+        <br/>Closures
+        <br/>A ftn that refs variables in the outer scope from its inner scope
+        <br/>Closure preserves the outer scope inside the inner scope
+        <br/>
+        <br/>ftns in JS form closures - combn of ftn + lexical envt
+        <br/>Closures let you associate data with ftns 
+        <br/>Lexical Scoping - 
+        <br/>
+        <br/>Hoisting moving all declarations to the Top of Scope (normally file)
+        <br/>--- variables + ftn declarations - hoisted before code execution
+        <br/>--- during creation phase of execution context 
+        `
+      ],
     [`TypeScript - JS with syntax for types - 
       <br/>data types - number | string | boolean | Array | 
       <br/>---- null | undefined
@@ -3685,9 +3727,40 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '--- JIT or AOT',
     `-- EntryComponent is any component that Angular loads imperatively - not refd in the template - by type 
     <br/>you bootstrap the component in an NgModule - or including it in a routing defn
-    <br/>- 1: Bootstrapped Component
+    <br/>>- 1: Bootstrapped Component
     <br/>- 2: A Component you specify in a route defn
     `],
+    ['Template Rendering',
+    '--- from Component classes to View', 
+    '----- Unidirectional data flow',
+    '------- Helps get great performance',
+    '------- Component- simple to understand',
+    ' -- ',
+    `--- What is actual happening
+      <br/>-- Angular is generating DOM Data Structures directly 
+      <br/>---- via a Component Renderer which gives a DOM tree
+      <br/>---- that represents the Component View  
+      <br/>-------  It is not just generating HTML 
+      <br/>
+      <br/>---- by running the template data through a function   
+      <br/>------ using a DOM Component Renderer 
+      `,
+      `--- Angular goes through the whole Component Tree 
+      <br/>----- starting at the root component of app'n
+      <br/>
+      <br/>-------- For each Component - (root to leaves      )  
+      <br/>------------ Ang runs the CD (Change Detection) wrt Component
+      <br/>--------------- re-renders Component if changed
+      <br/>------------------ runs DOM generation ftn - new DOM data structure
+      <br/>------------- template expressions are evaluated
+      <br/>------------- runs Life Cycle methods  
+      <br/>
+      <br/>--------- Angular Development Mode
+      <br/>----------- runs the rendering process twice
+      <br/>------------- to ensure 1st rendering process does not change data  
+      ` 
+
+    ],
     [`Promises - 
     
     `,  
@@ -4502,6 +4575,10 @@ export class SampleComponent implements AfterViewInit {
     <br/>- a group of angular libraries for Reactive extensions 
     <br/>
     <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
+    <br/>----- State is derived from a single immutable Data Store - 
+    <br/>------- with simpler faster OnPush CD 
+    <br/>
+    <br/>- Unidirectional - 
     <br/>
     <br/>- helps simplify appns with many user interactions and multiple data sources
     <br/>
@@ -4512,7 +4589,14 @@ export class SampleComponent implements AfterViewInit {
     <br/>4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
     <br/>5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
     <br/>
-    <br/>SHARI   
+    <br/>
+    - SHARI -<br/> 
+    <br/>S: - Shared state that is accessed by many components and services
+    <br/>H: - Hydrated state that is persisted and rehydrated from external storage 
+    <br/>A: - Available state that must be available when reentering routes
+    <br/>R: - Retrieved state that must be retrieved with a side effect
+    <br/>I: - Impacted state that is impacted by Actions from other sources
+        
     `,
     'based around the RxJS library and Observables to make the data immutable',
     'BehaviorSubject - ngrx is based around the behaviorSubject',
