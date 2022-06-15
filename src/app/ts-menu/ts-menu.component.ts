@@ -142,7 +142,9 @@ const subTopics = [
     '---------transpilation',
     '------ tsconfig.json',
     '--- TS Libraries',
+    ' -- ',
     '- Template Ref Variables',
+    ' -- ',
     '- Data Binding',
     '--- interpolation {{}}',
     '--- property binding []',
@@ -163,7 +165,7 @@ const subTopics = [
     '------ Routes path:\'x\' - component', 
     '-------- <base href=\/"\">', 
     '-------- HTML5 Urls', 
-    '------ router-outlet', 
+    '------   router-outlet', 
     '------ routerLink',   
     ' -- ',
     '- Decorators',
@@ -212,7 +214,6 @@ const subTopics = [
     '-= selector', '-- templateUrl', '-- styleUrl',
     ' -- ', 
     '- Template Ref Variables',
-
     ' -- ',
     '- Data Binding', 
     ' -- ', 
@@ -781,32 +782,46 @@ const subTopics = [
     '- reduced bundle size',
     '-- Tree Shakeable',
     '- Comp compilation independently',
+    ' -- ',
     '- Locality',
     '-- Single file',
     '--- own local infon',
     '--- Recompiles partial changes',
-    '- Incremental DOM',
-    '-- Decorators - static props',
-    '--- ngComponentDef in .d.ts files', 
-    '--- no complete code-analysis',   
-    '---- @NgModule metadaa',
-    '-- Global Compilation problem',
-    '-- Template Instructions', 
-    '-- no-metadata',
-    '- AOT by default',  
+    '--- Create Comp|Dir at runtime',
+    '--- HMR',
     ' -- ',
-    'Libraries', '- ngcc', '-- Linker instead', '-- Partial Compilation',
-    'Ang Language Service','Compilaion of changes',
+    '- Incremental DOM',
+    '---- compiled - series of instns',
+    '------ create DOM trees',
+    '-------- updated mutably inplace',
+    '------ Tree Shakable',   
+    '--------- Only memory needed',
+    '------------ on Change to DOM',
+    ' -- ',
+    '-- Decorators to Static Properties',
+    '---- ngComponentDef in .d.ts files  ', 
+    '---- no complete code analysis - ',
+    '------ @NgModule metadata',
+    '---- Template instructions',
+    '------ no metadata',  
+    '---- AOT by default',
+    ' -- ',
+    'Libraries', 
+    '- ngcc', 
+    '-- Linker instead', 
+    '-- Partial Compilation',
+    'Ang Language Service',
+    'Compilaion of changes',
     'Ivy - Advantages',
     'no EntryComponents',
-    ' -- ',
+    ' -- ',  
     'Ivy DI (Dep Injection)',
     '---- R3Injector (ModuleInjector)',
     '-------- Store property',
     ' -- ',
     '---- NodeInjector (ElementInjector)',
     '-------- TNode object',
-    '-------- LView object',
+    '-------- LView object'
     ],
     ['- ViewEngine old', 
     '- Renderer2', 
@@ -829,9 +844,48 @@ const subTopics = [
     '-------- TNode object',
     '-------- LView object',
   ],
-    ['Promises', '- then()', '- future tasks', '- (resolve, reject)','- asynchronous','- catch',' -- ', 
-     'Observables','- streams', '- time', '- next()','- Observer','- subscribe','- async pipe','- hot-cold','- Sync or Async', '-- Marble Diagrams'],
-    ['Observables','Subjects', '- behaviorSubject', '- asyncSubject', '- replaySubject'],
+  
+    ['Promises', 
+    '- then()', 
+    '- future tasks', 
+    '- (resolve, reject)',
+    '- asynchronous','- catch',' -- ', 
+     'Observables',
+     '--- streams', 
+     '----- time', 
+     '--- next()',
+     '--- Observer',
+     '----- subscribe',
+     '--- async pipe',
+     ' -- ',
+     '----- hot-cold',
+     ' -- ',
+     '----- Sync or Async', 
+     ' -- ',
+     '-- Marble Diagrams'
+    ], 
+     ['Observables',
+     '--- streams',
+     '----- time based',
+     '--- multiple values',
+     '--- compared to Promises',
+     '----- cancellable',
+     '--- Observer',
+     ' -- ',
+     '--- Hot and Cold',
+     '------ Hot - always emit',
+     '-------- xx',
+     '------ Cold - must subscribe to',
+     '-------- subscribe()',
+     ' -- ',
+     '--- rxjs operators',
+     ' -- ',
+     'Subjects', 
+     '---- Combination of Observable and Observer',
+     '--- behaviorSubject', 
+     '--- asyncSubject', 
+     '--- replaySubject'
+    ],
     ['rxjs - Reactive Extensions',
     '-- library',
     '---- npm install rxjs', 
@@ -841,10 +895,25 @@ const subTopics = [
     '-- asynchronous','-- Event based ops',
     '-- Observable sequences',
     '---- imps Observable type',
+    ' -- ',
+    '--- rxjs Pipeable Operators',
+
     'Utility ftns','- Convert async to Observables','- iterating over stream','- map vals to types','- filtering streams','- multiple streams',
     'Pipeable operators','- Combination','- Conditional','- Creation',
-    '- Errors','- Multi-cast','- Filters','- Transform'],
-    ['- ConcatMap','- MergeMap','- SwitchMap','- ExhaustMap'],
+    '- Errors','- Multi-cast','- Filters','- Transform'
+    ],
+    ['Higher Order Operators',
+     '--- maps a value into an Observable',
+     '------ value is an Observable too',
+     '-------- Observable of Observables',
+     '---- mapping happens all the time',
+     ' -- ',
+     '--- 4 types of HOO',
+     '----- ConcatMap',
+     '----- MergeMap',
+     '----- SwitchMap',
+     '----- ExhaustMap'
+    ],
     
     ['Why forms',
     ' -- ',  
@@ -1768,15 +1837,15 @@ const subTopicsInfo = [
   <br/>Web Workers
   <br/>Angular Universal
   <br/>Flex-layout
-
-
-
-
- 
   `,
   `- SPA (Single Page Appn) Web Framework - 
    `,
-  '- mobile-laptop-desktop', '- primarily used for writing Front End Appns written in TypeScript which are then transpiled to JS to run on the browser',
+  '- mobile-laptop-desktop', 
+  `- primarily used for writing Front End Appns 
+  <br/>--- written in TypeScript 
+  <br/>--- which are then transpiled to JS 
+  <br/>-------to run on the browser
+  `,
   ' -- ',
   `- Angular CLI (Command Line Interface) uses Webpack 
       - generate parts - build appn or serve browser
@@ -1832,6 +1901,7 @@ const subTopicsInfo = [
   '-- TS Libraries  ',
   ' -- ',
   '- Template Ref Variables',
+  ' -- ',
   '- Data Binding',
     '--- interpolation {{ x }}',
     '--- property binding []',
@@ -3491,44 +3561,67 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   '-- Much more Tree Shakeable',
   '- compile comps more independently than before',
   ' -- ',
-  `Locality - single file compilation 
-  <br/>- components dont need to know about dependencies
-  <br/> - View Engine suffered from the Global Compilation Problem
+  `- Locality - single file compilation
+  <br/>--- only one file is compiled at a time 
+  <br/>----- Each component should compile using its own info 
+  <br/>----- components dont need to know about dependencies
+  <br/>------- Hot Reloading - only compiles component you changed 
+  <br/>
+  <br/>--- View Engine suffered from the Global Compilation Problem
+  <br/>
+  <br/>--- Also has ability to create Directive | Component at runtime
     `,
-    '-- Single file - with no other dependencies required ',
-    '-- Components own local infon is used',
-    '--- Recompiles partial changes',
-    `- Incremental DOM - every component gets compiled 
-    <br/>to a series of instructions 
-    <br/>- create DOM trees - updated mutably inplace 
-    <br/>
-      `,
-      '-- Decorators to Static Properties - ngComponentDef etc.',
-      '--- ngComponentDef in .d.ts files  ', 
-      '--- no complete code analysis - ',
-      '------ @NgModule metadata',
-    `- Global Compilation problem 
-    <br/>- whole app needed to be recompiled 
-    <br/>--- when a change occurred!
+    '---- Single file - with no other dependencies required ',
+    '---- Components own local infon is used',
+    '------- Recompiles partial changes',
+    '------- Ability to create Directive | Component at runtime',
+    '------- HMR (Hot Module Replacement) - support improved Ang 14',
+    ' -- ',
+    `- Incremental DOM 
+     <br/>---- every component gets compiled 
+     <br/>------  to a series of instructions 
+     <br/>--------- create DOM trees 
+     <br/>------------ updated mutably inplace 
+     <br/>---- Tree Shakable -   
+     <br/> ----It doesnt need any memory to rerender the view
+     <br/> ------- if it doesn't change the DOM 
+     <br/> ---- We only need to allocate memory 
+     <br/> ------- when the DOM nodes are added or removed
+     <br/> ------- Size of allocation is proportional to size of change
+     <br/> ----- Hence large memory savings          
     `,
+    '-------- series of instructions',
+    '----------create DOM trees',
+    '------------ updated mutably inplace',
+    '------ Tree Shakable',   
+    '--------- Only memory needed',
+    '------------ on Change to DOM',
+    ' -- ',
+    '-- Decorators to Static Properties - ngComponentDef etc.',
+    '---- ngComponentDef in .d.ts files  ', 
+    '---- no complete code analysis - ',
+    '------ @NgModule metadata',
     `-- Template instructions 
-    <br/>- replace the template data and runtime interpreter from the View Engine
-    <br/> - Create the correct DOM on their own  
-    <br/> - replace the ngFactory and metadata.json phase 
+    <br/>- replace the template data and runtime interpreter 
+    <br/> ---- from the View Engine
+    <br/> ---- Create the correct DOM on their own  
+    <br/> ---- replace the ngFactory and metadata.json phase 
       `,
       `- no metadata - Renderer2 create a metadata.json file 
       <br/>Angular ivy does not!
     `,
-    '- AOT with Ivy is faster and should be used by default',
-    `Libraries - used to use the ngcc (Angular Compatability Compiler) to create Angular libraries from View Engine format
+    `- AOT with Ivy is faster and should be used by default
+    `,
+    ' -- ',
+     `Libraries - used to use the ngcc (Angular Compatability Compiler) 
+     <br/>to create Angular libraries from View Engine format
      <br/>ngcc would translate libraries to Ivy format     
       `, 
-      ' -- ',
-      'Libraries',
     '--- ngcc', 
-    `- Linker can now be used instead of ngcc - since Angualr 11 and especially Ang 13 
+    `- Linker can now be used instead of ngcc 
+    <br/>- since Angualr 11 and especially Ang 13 
     <br/>
-    `, 
+     `, 
     '--- Partial Compilation - no need for ngcc (Angular 13)',   
     'Ang Language Service',
     'only recompiles Components that have changed',
@@ -3541,8 +3634,15 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      - mobile exp
      - backwards compaable - 
     `,
+    'EntryComponents - are no longer required',
     ' -- ',
-    'EntryComponents - are no longer required'
+    'Ivy DI (Dep Injection)',
+    '---- R3Injector (ModuleInjector)',
+    '-------- Store property',  
+    ' -- ',
+    '---- NodeInjector (ElementInjector)',
+    '-------- TNode object',
+    '-------- LView object',
   ], 
     [`ViewEngine old - legacy compilation and rendering pipeline
     <br/>
@@ -3597,6 +3697,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- asynchronous',
     '- Promise.resolve(\'done\').then((val) => {throw new Error("fail")}).then((val) => console.log(val)).catch((err) => console.error(err));',' -- ',
      `Observables - 
+
      `,
      '- next()',
      '- Observer',
@@ -3610,22 +3711,136 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>--- Observables and the RxJS operators can manipulate 
     <br/>----- streams of data over time 
     <br/>
+    <br/>--- like promises handling async requests 
+    <br/>--- handle multiple events - 
+    <br/>------ cancellable (wrt a promise)
+    <br/>--- can be Hot (always emitting) | Cold (only when subscrubed to)
     <br/>
-    <br/>----- and use Subjects to aid working with them 
+    <br/>--- can use RxJS to manipulate Observables
+    <br/>
+    <br/>--- Subscribe() works on Cold Observables to get at the data
+    <br/>
+    <br/>--- can work with Subscribers to create multicasting Observables
+    -
+    <br/>----- and use Subjects to aid working with them -
     <br/>-------simplifying subscription and allow 
     <br/>---------multi-casting events around the application. 
     `,
+    '--- streams',
+    '----- time based',
+    '--- multiple values',
+    '--- compared to Promises',
+    '----- cancellable',
+    '--- Observer',
+    ' -- ',
+    '--- Hot and Cold',
+    '------ Hot - always emit',
+    '-------- xx',
+    '------ Cold - must subscribe to',
+    '-------- subscribe()',
+    ' -- ',
+    '--- rxjs operators',
+    ' -- ',
     '- Subjects', 
     '--- behaviorSubject', 
     '--- asyncSubject', 
     '--- replaySubject'
     ],
     [`rxjs - Reactive Extensions - 
+    <br/>--- is a library for reactive programming using Observables
+    <br/>------ for composing asynch + event based programs
+    <br/>------ simplifying composing asynch impn or callback based code 
+    <br/>--- using Observable sequences
+    <br/>--- based on Observables -
     <br/>
-    <br/>--- rxjs operators - 
+    <br/>--- RxJS concepts -
+    <br/>----- Observable - reps invokable colln of future values of values or events 
+    <br/>----- Observer - is a colln of callbacks knowing how to lisen  
+    <br/>----- Subscription - reps the execn of an Observable - cancel execn
+    <br/>----- Operators - pure ftns enable ftnal programming 
+    <br/>----- Subject - like an EventEmitter() 
+    <br/>-------- mulit-casting a value or even to multiple observers
+    <br/>----- Schedulers - centralised dispatchers to control concurrency
+    <br/>
+    <br/>-------   
+    <br/>--- rxjs Pipeable operators - 
     <br/>------ act on Observables and 
     <br/>------ are immutable by default 
     <br/>------ return Observables  
+    <br/>------ always creates new Observables
+    <br/>
+    <br/>Using pipe()
+    <br/>--- lets us use multiple operators in one method
+    <br/>
+    <br/>Pipeable operators
+    <br/>- Combination
+    <br/>------ combineAll
+    <br/>------ combineLatest   
+    <br/>------ concat 
+    <br/>------ forkjoin 
+    <br/>------ merge
+    <br/>------ mergeAll 
+    <br/>------ race
+    <br/>------ startWith 
+    <br/>------ withLatestFrom
+    <br/>------ zip   
+    <br/> 
+    <br/>- Conditional
+    <br/>------ defaultEmpty
+    <br/>------ every 
+    <br/>------ iif 
+    <br/>------ sequenceEqual   
+    <br/>
+    <br/>- Creation
+    <br/>------ ajax   
+    <br/>------ create 
+    <br/>------ defer
+    <br/>------ empty
+    <br/>------ from
+    <br/>------ fromEvent 
+    <br/>------ interval 
+    <br/>------ of
+    <br/>------ range 
+    <br/>------ throw
+    <br/>------ timer 
+    <br/>
+    <br/>- Errors',
+    <br/>------ catch/catchError 
+    <br/>------ retry
+    <br/>------ retryWhen
+    <br/>
+    <br/>- Filtering
+    <br/>------ audit
+    <br/>------ debounce
+    <br/>------ distinct   
+    <br/>------ filter 
+    <br/>------ find 
+    <br/>------ first 
+    <br/>------ last
+    <br/>------ single 
+    <br/>------ skip   
+    <br/>------ take 
+    <br/>------ throttle 
+    <br/>
+    <br/>- Multi-cast
+    <br/>------ multicast
+    <br/>------ publish 
+    <br/>------ share 
+    <br/>
+    <br/>- Transformation -
+    <br/>------ buffer
+    <br/>------ concatMap   
+    <br/>------ expand 
+    <br/>------ map - data stream transformation operator wrt arrays
+    <br/>----------- map(x => x*x )
+    <br/>------ mergeScan 
+    <br/>------ reduce - reduces value from source Observable to 1 value 
+    <br/>------ scan - like reduce for Arrays
+    <br/>------ switchMap 
+    <br/>------ toArray 
+    <br/>------ window 
+    <br/>
+    
     `,
     '- library',
     '- npm install rxjs', 
@@ -3637,6 +3852,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- Event based ops',
     '-- Observable sequences',
     '---- imps Observable type',
+
     'Utility ftns',
     '- Convert async to Observables',
     '- iterating over stream','- map vals to types',
@@ -3655,12 +3871,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     [`Higher-Order-Mapping-ftns
     <br/>- Produces an Observable as an output 
     <br/>
-    <br/>- Different types of MF
+    <br/>- Different types of HOM
     <br/>--- ConcatMap
     <br/>--- MergeMap
     <br/>--- SwitchMap
     <br/>--- ExhaustMap 
-
     `,
     `--- ConcatMap
     <br/>- Sequence opn (order of opns is important) 
@@ -3673,8 +3888,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- subscribes immed to inner Observables 
     <br/>-  map to Observable with inner timer or a stream of DOM events
     `,
-    `--- 
-    ConcatMap - map to Observable 
+    `--- ConcatMap - map to Observable 
     <br/>- complete previous inner Observable 
     <br/>- emit values 
     <br/>- immed cancel prev opn and emit new one 
@@ -5308,22 +5522,106 @@ export class SampleComponent implements AfterViewInit {
     '- Requirements | Plans| Results are evaluated continuously so teams have a natural mechanisms for responding to change'
     ],
     [`Jira S/W - provides Scrum and Kanban boards 
-    - are task management hubs 
-    - where tasks are mapped to customizable workflows
-    `, 
-     '- provide transparency across teamwork + visibility into the status of every work item.', 
-     '- Boards - displays issues 1+ projects so you can view | manage | report on work',
-     
-     '-- View all boards - click Create board - Scrum|Kanban', 
-     ' -- ',
+    <br/>--- are task management hubs 
+    <br/>--- where tasks are mapped to customizable workflows
+    <br/>
+    <br/>Scrum and Kanban are popular frameworks for imp agile 
+    <br/> --- project management methodologies that complete project tasks 
+    <br/> --- in small increments and emphasize continuous improvement 
+    <br/>
+    `,
+    '-- View all boards - click Create board - Scrum|Kanban', 
+    '- Boards - displays issues 1+ projects so you can view | manage | report on work',  
+    '- teamwork',
+    '- Boards',
     '--- Team management board - Simplified board - teams new to agile - lets you incrementally inc power',
-    '-',
-    '--- Simplified Board',
+   '--- Simplified Board',
+   '-',
+  `Scrum Board 
+    <br/>- visual status of your sprint practices in teams
+    <br/>------- Scrum is a method that provides structure to the team and schedule
+    <br/>------- showing your work split across diff stages of your workflow
+    <br/>------- Team of rugby players - creates a culture of collaboration
+    <br/>
+    <br/>Parts of Scrum Board 
+    <br/>----------- Sprint - 
+    <br/>a short (2 week) - time boxed period when a team works
+    <br/>to complete a set amount of work 
+    <br/>during which a done | unstable | 
+    <br/>
+    <br/>----------- Backlog - 
+    <br/>is owned by the product owner 
+    <br/>is a prioritized list of work for the devt team 
+    <br/>This can include features | defects | enhancements | experiments 
+    <br/>that need to be done 
+    <br/>Each item has a description | rank | size | estimate | value
+    <br/>
+    <br/>----------- User Story - 
+    <br/>Items in backlog can be written as stories 
+    <br/>A user story is a general explanation of a S/W feature 
+    <br/>written from the perspective of a user or customer
+    <br/>Purpose is to articulate how a S/W feature will provide value
+    <br/>
+    <br/>----------- Issue - 
+    <br/>conains all tasks | dependencies | rel info 
+    <br/>related to 1 item of work 
+    <br/>
+    <br/>----------- Epic - 
+    <br/>captures a large body of work 
+    <br/>A large user story that can be broken down 
+    <br/>into a number of smaller stories 
+    <br/>that may be take several sprints 
+    <br/>to complete an epic 
+    <br/>
+    <br/>----------- Swimlane - 
+    <br/>is a means of categorizing issues on the Jira Scrum board
+    <br/>so that agile teams can easily see issues 
+    <br/>grouped by different criteria such as the user 
+    <br/> 
+    `,
+    `--- Scrum Board - for teams that use sprints - includes a backlog - is the tool that unites Agile teams around a single goal + promotes iterative incremental delivery',
+      ---- Sprints + Backlog ----- short time based period when a scrum team works to complete a set amount of work (eg 2 weeks)
+     - provide transparency across teamwork 
+     + visibility into the status of every work item.
+     `, 
     ' -- ',
-    '--- Scrum Board - for teams that use sprints - includes a backlog - is the tool that unites Agile teams around a single goal + promotes iterative incremental delivery',
-    '---- Sprints + Backlog ----- short time based period when a scrum team works to complete a set amount of work (eg 2 weeks)',
-    ' -- ',
-    '--- Kanban Board - management + constraining WIP - includes option of Kanban backlog - fully extendable - with custom extensions and Backlog management',
+    `--- Kanban Board - management + constraining WIP - includes option of Kanban backlog - fully extendable - with custom extensions and Backlog management
+    <br/>--- Kanban Board - 
+    <br/>is a project management method that helps visualize tasks 
+    <br/>
+    <br/>-------- Parts of Kanban 
+    <br/>----------- Story Cards -
+    <br/>KB displays most rel info for each story | issue | bug | task
+    <br/>Click in to get all details | 
+    <br/>---- related source code | pull requests | priority comments | attachments and more 
+    <br/>
+    <br/>----------- WIP (Work In Progress) limit configuration -
+    <br/>can be set to restrict the number of stories in each status at a time
+    <br/>This is important to prevent particular states 
+    <br/> from becoming bottlenecks and that issues flow smoothly 
+    <br/>through your workflow - 
+    <br/>
+    <br/>----------- Swimlanes and columns  -
+    <br/>Configure columns to rep major workflow states such as
+    <br/>To Do | In Progress | Done 
+    <br/>Add swimlanes to group work into streams by epics | assignees or projects 
+    <br/> or whatever makes sense for your team 
+    <br/>
+    <br/>----------- Flexible workflows -
+    <br/>Define and configure diff workflows for diff issue types
+    <br/>or map all issue types on your board to a single unified workflow
+    <br/>
+    <br/>----------- Cumulative Flow Diagram -
+    <br/>shows the number of issues in each status 
+    <br/>Team can easily spot blockages by seeing the number of issues
+    <br/>that increase in any given state 
+    <br/>
+    <br/>----------- Control Chart  -
+    <br/>See the cycle time for the product | version | or Sprint  
+    <br/>This helps you identify whether data from the current process 
+    <br/>can be used to determine future performance - 
+    <br/>
+    `,
     '---- designed to visualise work - limit WIP - maximize efficiency or flow',
     '----- used in supply chain management - for cost of unfinished goods the manufacturing process',
     ' -- ',
