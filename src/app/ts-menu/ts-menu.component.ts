@@ -91,6 +91,7 @@ const features = `
     'Angular Performance',
     '- SourceMap Explorer',
     'REST_APIs_Swagger',
+    'GraphQL',
     'Real Time Appns',
     'Ag-grid',
     'Micro Frontends',
@@ -1601,12 +1602,43 @@ const subTopics = [
     '---- http-server', ' -- ',
     '- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','--   RESTful APIs','-- JSON','-- CRUD methods', 
     ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
-    ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'],
+    ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
+    ],
+    
+    ['GraphQL server',
+      '--- Angular Apollo',
+      '------ simplifies build Query Components',
+      '--------- Angular schematics | router| mobile',
+      '--- Schemas',
+      '------ Schema Objects',
+      '-------- TS (TypeScript) can help',
 
+        '--- Servers',
+        '------ JS via Node.js',
+        '------ C#/Net',
+        '------ Python',
+        '------ C/C++',
+        '------ Elm', 
+        ' -- ',
+        '--- GraphQL CLI',
+        '--- GraphQL TS',
+        '--- GraphQL Config',
+        '--- GraphQL ESLint',
+        '--- GraphQL Tools',
+        '--- GraphQL Language Service',
+        '--- GraphQL WS (Web Sockets)',
+        '--- GraphQL Live Query',
+        ' -- ', 
+        '--- Apollo - clients',  
+        '----- Angular Schematics',
+        '----- Angular Router',
+        '-------- Angular Universal (SSR)',
+        '----- NativeScript',
+        '----- Ionic'  
+    ],
     ['- Real Time Appns',
-     
-    '--- Realtime Decorators '
-      
+     '--- Web Sockets',
+     '--- Realtime Decorators '
     ],
     [' - Ag-grid',
     '- fully customizable',
@@ -1858,8 +1890,52 @@ const subTopicsInfo = [
   <br/>-------to run on the browser
   `,
   ' -- ',
-  `- Angular CLI (Command Line Interface) uses Webpack 
-      - generate parts - build appn or serve browser
+  `Angular CLI (Command Line Interface) tool - 
+        <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
+        <br/>--- Angular apps directly from a Cmd line - prompt 
+        <br/>
+        <br/>--- uses ng xxx commands 
+        <br/> 
+        <br/>--- uses Node.js | npm and Schematics and Webpack 
+        <br/>
+        <br/>CLI includes a Server to let you build, serve and test app locally  
+        <br/>--- uses builder dev-server 
+        <br/>----- when ng serve - port 4200 by default on localhost 
+        <br/> 
+        <br/>requires Node.js | npm (Node Package Manager)
+        <br/>
+        <br/>npm install -g @angular/cli   
+        <br/>
+         <br/>- CLI Commands
+         <br/>--- ng new
+         <br/>--- ng add
+         <br/>--- ng generate
+         <br/>--- ng build
+         <br/>--- ng update
+         <br/>--- ng serve
+         <br/>--- ng test
+         <br/>--- ng help
+         <br/>
+         <br/>- uses Schematics
+         <br/>--- Virtual file system 
+         <br/>----- base + staging area + add mod'ns to staging area 
+         <br/>---- Rule object - takes a Tree | applies transformations | returns tree
+         <br/>----- index.ts is main file for schematic - contains schematic logic    
+         <br/>---- Actions - Create | Rename|   Overwrite | Delete
+         <br/>---- Each schematic runs in a context - SchematicContext object 
+         <br/>  
+         <br/> uses Webpack 
+        <br/>--- behind the scenes - no webpack.config.js file to use
+        <br/>
+         <br/>-- Angular 12 and above uses Webpack 5 
+         <br/>---- long term caching - 
+         <br/>
+         <br/>---- Module Federation 
+         <br/>------ loading remote modules + stitch with appn at runtime 
+         <br/>-------- game changer in JS world 
+         <br/>------ allows multiple Webpack builds to work together 
+         <br/>
+         <br/>---- Custom Webpack configuration - 
   `,
   '--- Command Line Interface',
   '----- initialise',
@@ -1872,7 +1948,8 @@ const subTopicsInfo = [
  '--- uses ng-packagr - to produce npm packages in APF format',
  '--- uses webpack behind the scenes - to minify and speed up appn',
  ' -- ', 
- `-- main parts - Components - Directives - Pipes - Services - Modules `,
+ `-- main parts - Components - Directives - Pipes - Services - Modules 
+ `,
   '--- Components',
   '----- has a template',
   
@@ -2710,10 +2787,11 @@ for (let x of cars) {
         <br/>--- during creation phase of execution context 
         `
       ],
-    [`TypeScript - JS with syntax for types - 
+    [`TypeScript - JS with the power of types - 
       <br/>data types - number | string | boolean | Array | 
       <br/>---- null | undefined
-      <br/>
+      <br/>---- helps avoid static type errors - discover at Compile time (not runtime)
+      <br/> 
       <br/>- Object Oriented Language
       - strongly typed and uses inferred types 
       - interfaces and types   
@@ -3913,7 +3991,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>------ toArray 
     <br/>------ window 
     <br/>
-    
     `,
     '- library',
     '- npm install rxjs', 
@@ -4062,13 +4139,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       <br/>---- Sync forms
       <br/>---- simplifies Testing
       <br/><form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-      <div>
-      <label>
-        Name: <input formControlName="name" placeholder="Your name">
-      </label>
-      </div>
-      <button type="submit">Send</button>
-      </form>
+      <br/><div>
+      <br/><label>
+      <br/>Name: <input formControlName="name" placeholder="Your name">
+      <br/></label>
+      <br/></div>
+      <br/><button type="submit">Send</button>
+      <br/></form>
       `,
       '----- for more complex forms',
       '----- FormModel is single source of truth',
@@ -4076,7 +4153,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '----- synchronous forms',
       '----- simplifies testing',
       '----- ReactiveFormsModule',
-   
+      
       `- Form Validation - a web form checks if the infon provided by a user is correct
       <br/>a: User messed up and get an error message
       <br/>b: Everything is ok and we can proceed with the regn process   
@@ -4103,7 +4180,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- direct access to Object Model',
     '-- Synchronous data flow','-- simpler test setup','-- simpler validation','-- Data','= new FormControl("")',
     ' -- ',
-
     '--- Reactive Validation'
   ], 
   [`ElementRef - a wrapper around a native DOM element inside a View
@@ -4112,7 +4188,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/>--- tightly couples appn and rendering layers
   <br/>----- difficult to run appn on multiple platforms
   <br/>--- Use with caution
-  <br/>-----
+  <br/>----- nativeElement - 
+  <br/>------- use @ViewChild instead
   `,
   '--- access native DOM Element',
   '----- Be careful',
@@ -4131,7 +4208,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   ],
   [`ViewContainerRef - reps a container 
   -   lets you attach multiple views to a Component
-  <br/>--- can be used with @ViewChild | @ContentChild| 
+  <br/>--- can be used with @ViewChild | @ContentChild| ng-template
+  <br/> 
   <br/>---- can contain Host Views (instiating a Component with createComponent)| 
                 embeddedViews (instiating TemplateRef with createEmbeddedView) 
   <br/>---- A view container instance can contain other view containers - A view container hierarchty
@@ -4155,71 +4233,72 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/> creates a View
    `,
    `------- Ex using createEmbeddedView()
-   @Component({
-    selector: 'sample',
-    template: \`
-        <span>I am first span</span>
-        <ng-container #vc></ng-container>
-        <span>I am last span</span>
-        <ng-template #tpl>
-            <span>I am span in template</span>
-        </ng-template>
-    \`
-})
-export class SampleComponent implements AfterViewInit {
-    @ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
-    @ViewChild("tpl") tpl: TemplateRef<any>;
-
-    ngAfterViewInit() {
-        let view = this.tpl.createEmbeddedView(null);
-        this.vc.insert(view);
-    }
-}
+   <br/>@Component({
+    <br/>selector: 'sample',
+    <br/>template: \`
+    <br/><span>I am first span</span>
+        <br/><ng-container #vc></ng-container>
+        <br/><span>I am last span</span>
+        <br/><ng-template #tpl>
+        <br/><span>I am span in template</span>
+            <br/></ng-template>
+        <br/>\`
+    <br/>})
+<br/>export class SampleComponent implements AfterViewInit {
+  <br/>@ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
+    <br/>@ViewChild("tpl") tpl: TemplateRef<any>;
+    <br/>
+    <br/>ngAfterViewInit() {
+      <br/>let view = this.tpl.createEmbeddedView(null);
+        <br/>this.vc.insert(view);
+        <br/>}
+        <br/>}
    `,
    `---- createComponent(componentType: Type<C>,
-    options?:{index: number; injector?: Injector; ngModuleRef?: NgModuleRef<unknown>;environmentInjector?: EnvironmentInjector|ngModuleRef?: NgModuleRef<unknown>; projectableNodes: Node[][];): ComponentRef<C>
+    <br/>options?:{index: number; injector?: Injector; ngModuleRef?: NgModuleRef<unknown>;environmentInjector?: EnvironmentInjector|ngModuleRef?: NgModuleRef<unknown>; projectableNodes: Node[][];): ComponentRef<C>
    <br/> createa a Component
  `,
+
  `------ Ex of using createComponent()
- @Component({
-  selector: 'my-app',
-  template: \`
-    <template #alertContainer></template>
-    <button (click)="createComponent('success')">Create success alert</button>
-    <button (click)="createComponent('danger')">Create danger alert</button>
+ <br/>@Component({
+  <br/>selector: 'my-app',
+  <br/>template: \`
+  <br/><template #alertContainer></template>
+  <br/><button (click)="createComponent('success')">Create success alert</button>
+    <br/><button (click)="createComponent('danger')">Create danger alert</button>
   \`,
-})
-export class App {
-  @ViewChild("alertContainer", { read: ViewContainerRef }) container;
+  <br/>})
+<br/>export class App {
+  <br/>@ViewChild("alertContainer", { read: ViewContainerRef }) container;
  
-  constructor(private resolver: ComponentFactoryResolver) {}
- 
-  createComponent(type) {
-    this.container.clear(); 
-    const factory: ComponentFactory = this.resolver.resolveComponentFactory(AlertComponent);
-    this.componentRef: ComponentRef = this.container.createComponent(factory);
-  }
- }
+  <br/>constructor(private resolver: ComponentFactoryResolver) {}
+  <br/>
+  <br/>createComponent(type) {
+    <br/>this.container.clear(); 
+    <br/>const factory: ComponentFactory = this.resolver.resolveComponentFactory(AlertComponent);
+    <br/>this.componentRef: ComponentRef = this.container.createComponent(factory);
+    <br/>}
+  <br/>}
  `,
    '-- shortcuts',
    `---- ngTemplateOutlet - marks a DOM el as a ViewContainer 
    `,
    `------ Ex using ngTemplateOutlet -
-   @Component({
-       selector: 'sample',
-       template: \`
-           <span>I am first span</span>
-           <ng-container [ngTemplateOutlet]="tpl"></ng-container>
-           <span>I am last span</span>
-           <ng-template #tpl>
-               <span>I am span in template</span>
-           </ng-template>
-       \`
-   })
-   export class SampleComponent {}
+   <br/>@Component({
+    <br/>selector: 'sample',
+       <br/>template: \`
+       <br/><span>I am first span</span>
+           <br/><ng-container [ngTemplateOutlet]="tpl"></ng-container>
+           <br/><span>I am last span</span>
+           <br/><ng-template #tpl>
+           <br/><span>I am span in template</span>
+           <br/></ng-template>
+           <br/>\`
+       <br/>})
+       <br/>export class SampleComponent {}
    `,
    `---- ngComponentOutlet - inserts an embedded view - created by template
-     ----- creates a Host View - (instantiates a Component)  
+   <br/> ----- creates a Host View - (instantiates a Component)  
    `,
    `------ use of ngComponentOutlet
    <br/>
@@ -4229,26 +4308,26 @@ export class App {
    '---- use @ViewChild | @ConentChild',
    `@ViewChild VCF defn
    <br/>
-   @ViewChild("vc", {read: ViewContainerRef}) 
-             vc: ViewContainerRef;
+   <br/>@ViewChild("vc", {read: ViewContainerRef}) 
+   <br/>           vc: ViewContainerRef;
    `,
    `@ViewChild VCF Ex
  <br/>
-   @Component({
-    selector: \'sample\',
-    template: \`
-        <span>I am first span</span>
-        <ng-container #vc></ng-container>
-        <span>I am last span</span>
-    \`
-})
-export class SampleComponent implements AfterViewInit {
-    @ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
-
-    ngAfterViewInit(): void {
+ <br/>@Component({
+    <br/>selector: \'sample\',
+    <br/>template: \`
+    <br/><span>I am first span</span>
+        <br/><ng-container #vc></ng-container>
+        <br/><span>I am last span</span>
+        <br/>\`
+        <br/>})
+        <br/>export class SampleComponent implements AfterViewInit {
+          <br/>@ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
+          <br/>
+          <br/>ngAfterViewInit(): void {
         // outputs \`template bindings={}\`
-        console.log(this.vc.element.nativeElement.textContent);
-    }
+        <br/>console.log(this.vc.element.nativeElement.textContent);
+        <br/>}
 }
    `,
    `---- @ContentChild VCF defn
@@ -5967,6 +6046,170 @@ export class SampleComponent implements AfterViewInit {
     '-- Server side runtime',
     `--- exec queries`
     ],
+    
+    [`GraphQL (2012) - Write Queries (not Code)
+    <br/>--- is a Query Language for your API  
+    <br/>--- between client and server to exchange info
+    <br/>--- and a Server Side Runtime - for executing queries
+    <br/>--- using a type system you define for your data
+    <br/>--- is backed by your existing code and data 
+    <br/>----Successor to REST
+    <br/>------- get exacly what data you asked for 
+    <br/>
+    <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
+    <br/>
+    <br/>Angular Apolo is the GraphQL client for Angular
+    <br/>--- works with Angular schematics | router | nativeScript | ionic
+    <br/>--- simplifies building UI Components that fetch data with GraphQL
+    <br/>------ should use with View Layer Integrations - 
+    <br/>---------- Angular | React | Vue | WebComponents
+    <br/>
+    <br/>GraphQL is designed to make APIs  
+    <br/>---- fast | flexible| developer friendly 
+    <br/>---- can be deployed within an IDE known as GraphiQL - 
+    <br/>----- alternative to REST 
+    <br/>-------- constructs requests that pull data from multiple data sources in 1 API call
+    <br/>----------- Its for extending + expanding upon their services 
+    <br/>
+    <br/>
+    <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
+    <br/>
+    <br/>--- uses schema to know what properties are queryable - 
+    <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+    <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+    <br/>
+    <br/>GraphCMS - has grown to a widely adapted Query Language 
+    <br/>All the new tools being developed for GraphQL   
+    <br/>
+    <br/>
+    <br/>GraphQL server and Angular Apollo 
+    <br/>GraphQL - is a server - is a query language for API - descn of data in API
+    <br/>
+    <br/>GraphQL CLI - 
+    <br/>
+    <br/>GraphQL TS - 
+    <br/>--- TypeGraphQL - to improve Typed GraphQL
+    <br/>
+    <br/>GraphQL Config - 
+    <br/>
+    <br/>GraphQL ESLint - 
+    <br/>
+    <br/>GraphQL Tools - set of npm packages + structure for schema+resolvers
+    <br/>--- A simpler way to create GraphQL APIs
+    <br/>
+    <br/>------ GraphCMS - API first Headless CMS to build GraphQL 
+
+    <br/>GraphQL Language Service - 
+    <br/>
+    <br/>GraphQL-WS - WebSockets - 
+    <br/>
+    <br/>GraphQL Live-Query -
+      
+    `, 
+    `Angular Apolo is the GraphQL client for Angular
+    `,
+    `--- Schemas - used to know what properties are queryable - 
+    <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+    <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+    `,
+    `----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+    `, 
+    '--- Servers',
+        `------ JS via Node.js
+        <br/>var { graphql, buildSchema } = require(\'graphql\');
+        <br/>
+        <br/>var schema = buildSchema(\`
+        <br/>type Query {
+          <br/>hello: String
+          <br/> }
+          <br/>\`);
+          <br/>
+          <br/>var rootValue = { hello: () => 'Hello world!' };
+          <br/>
+          <br/>var source = '{ hello }';
+          <br/>
+          <br/>graphql({ schema, source, rootValue }).then((response) => {
+            <br/>console.log(response);
+          <br/>});
+        `,
+    
+        `------ C#/Net        <br/>public static async Task Main(string[] args)
+          <br/>{
+            <br/>var schema = Schema.For(@"
+            <br/>type Query {
+              <br/>hello: String
+              <br/>}
+              <br/>");
+              <br/>
+              <br/>var json = await schema.ExecuteAsync(_ =>
+                <br/>{
+                  <br/> _.Query = "{ hello }";
+                  <br/> _.Root = new { Hello = "Hello World!" };
+                  <br/>});
+                  <br/>
+                  <br/>Console.WriteLine(json);
+                  <br/>}
+                  <br/>}
+                  <br/> 
+         `,
+        '------ Python',
+        `------ C/C++
+        
+        `,
+        '------ Elm',  
+        ' -- ',
+        '--- GraphQL CLI',
+        '--- GraphQL TS',
+        '--- GraphQL Config',
+        '--- GraphQL ESLint',
+        `--- GraphQL Tools (@graphql-tools/*)-
+          <br/>is a set of npm packages 
+          <br/>and an opinionated structure for how to build a GraphQL schema and resolvers in JS
+        `,
+        `------ GraphCMS
+            <br/>-------- is a powerful, easy to use Headless CMS
+            <br/>-------- that allows you to build the essential back end infrastructure reqd
+            <br/>-------- creates a GrpahQL endpoint - + endpt for trying out GrpahQL too (no need for a server)
+        `,
+        `------ GraphQL Voyager
+        <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
+        <br/>
+        `,
+        '------ GraphQL Docs',
+        '------ Swagger schema to GraphQL',
+        '------ GraphQL IDE - GraphQL Playground',
+        '------ GraphQL Network - style tab',
+        '------ GraphQL Editor - Create backends from schema',
+
+        `------ GraphQL with HTTP
+          <br/>----- using GraphQL Yaga
+          <br/>-------- bind JS GraphQL schema to an HTTP Server
+        `,
+        '--- GraphQL Language Service',
+        ' -- ',
+        `--- GraphQL-ws library for - 
+        `,
+        `--- GraphQL WS (Web Sockets)
+            <br/>execute subscriptions (or other opns) over WebSocket
+            <br/> with the subscriptions-transport-ws library
+        `,
+        '------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
+        '--------- Server holds a steady conection to the client',
+        ' -- ',
+        `--- GraphQL introspection - for developer tooling  ', 
+        
+        `,
+        '--- GraphQL Live Query',
+        ' -- ',
+        '--- Apollo - clients',  
+        '----- Angular Schematics',
+        '----- Angular Router',
+        '-------- Angular Universal (SSR)',
+        '----- NativeScript',
+        '----- Ionic',  
+    
+      ],
+    
     [`Real time appns - 
       <br/> uses @Override() | @deprecate() | @autobind() | @mixin decorators
       

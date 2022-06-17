@@ -44,6 +44,7 @@ import { TsMenuComponent } from './ts-menu/ts-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { Test2InfoSysComponent } from './test2-info-sys/test2-info-sys.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { FormsModule } from '@angular/forms';
     DestructuringTypesComponent,
     NarrowingComponent,
     PartialTypesComponent,
-    TsMenuComponent
+    TsMenuComponent,
+    Test2InfoSysComponent
   ],
   imports: [
     BrowserModule,
