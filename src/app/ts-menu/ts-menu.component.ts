@@ -102,7 +102,9 @@ const features = `
  `;
 
 const subTopics = [
-   ['JavaScript Framework','- SPA', 
+   ['Angular',
+    'JavaScript Framework',
+    '- SPA', 
    '- mobile-laptop-desktop',
     '- Front End appns',
     ' -- ',
@@ -212,11 +214,14 @@ const subTopics = [
     '- template',
     '-- pipes',
     ' -- ', 
-    'Decorators','- @Component({})', 
-    '-= selector', '-- templateUrl', '-- styleUrl',
+    'Decorators',
+    '- @Component({})', 
+    '-= selector', 
+    '-- templateUrl', 
+    '-- styleUrl',
     ' -- ', 
-    '- Template Ref Variables',
-    ' -- ',
+    ' Template Ref Variable', 
+    ' -- ', 
     '- Data Binding', 
     ' -- ', 
     '- LC-hooks',
@@ -225,7 +230,8 @@ const subTopics = [
     ' -- ', 
     '- Change detection',
     ' -- ', 
-    'this','globalThis', 
+    'this',
+    'globalThis', 
     ' -- ', 
     '- ng g c xyz',
     ' -- ',
@@ -233,7 +239,7 @@ const subTopics = [
     '----- keep track of state',
     '----- how components work together',
     '--- Dumb Components - presentation components'
-    ],
+   ],
     ['Directives',
      '@Directive({})', 
      'have no views (template)',
@@ -304,7 +310,8 @@ const subTopics = [
     '-- injectors',
     '---- provider', 
     '------ service',
-    '-- Reu  se',
+    '-- Reuse',
+    ' -- ',
     '- providers section',
     '--- Appn or Component',
     '----- Appn - Module',
@@ -323,6 +330,7 @@ const subTopics = [
     '- nesting',
     '- Sharing',
     'typical tasks',
+    ' -- ',
     '- Providing a Service', 
     '-- @injectable({ providedIn: \'root\'})',
     '--- providedIn: \'root\'',
@@ -338,16 +346,18 @@ const subTopics = [
     '----- Injector Bubbling',
     '-------- Components local injector',
     '-------- root injector',
+    ' -- ',
     '---- 2 Injector Hierarchies',
     '------- injectors - key-value pairs ',
     '------- ModuleInjector (Ivy R3Injector)',
     '-----------',
     '------- ElementInjector (Ivy NodeInjector)',
+    ' -- ',
     '--------- NodeInjector implements Injector',
     '----------- object refs to',
     '------------- TNode - TView.data array',
     '------------- LView.   - array',
-    
+    ' -- ',
     '----------- using Bloom filter',
     '----- Sandboxing',
     '------- Multiple Service Instances',
@@ -355,6 +365,7 @@ const subTopics = [
     '----- @Optional()',
     '----- @Self()',
     '----- @SkipSelf()',
+    ' -- ',
     '- DI - Dep Injection',
     '--- Design pattern',
     '--- DI Tokens',
@@ -363,6 +374,7 @@ const subTopics = [
     '---- Defining Providers',
     '------ provide example',
     '------ provider-definition key',
+    ' -- ',
     '-- Providers with deps',
     '--- aliasing class providers',
     '--- aliasing class interface',
@@ -379,6 +391,7 @@ const subTopics = [
     '- Annotations', 
     '- Class', 
     '-- Types of decorators',
+    ' -- ',
     '--- Class',
     '----- @Component()',
     '----- @Directive()',
@@ -425,8 +438,9 @@ const subTopics = [
     '----------- instance in parent comp',
     '---- parent comp access methods',
     '---- ngAfterViewInit LCH',  
-    '-- read - ',
-    '-- static - ',
+    '------ read - ',
+    '------ static - ',
+    ' -- ',
     '---- Ex @ViewChild', 
     ' -- ',
     '------- @ViewChildren()',
@@ -588,7 +602,14 @@ const subTopics = [
     '- ES6 replacements',
     '-- Map | Filter |  Reduce'
     ],
-    ['- package.json', '- angular.json', '- tsconfig.json','-- index.html','-- main.js','-- dist folder','-- node_modules folder','core.d.ts' 
+    ['- package.json', 
+    '- angular.json', 
+    '- tsconfig.json',
+    '-- index.html',
+    '-- main.js',
+    '-- dist folder',
+    '-- node_modules folder',
+    'core.d.ts' 
     ],
     ['InnerHtml'
     ],
@@ -620,25 +641,48 @@ const subTopics = [
     'ex',
     '- event binding()',
     'ex', 
-    '- 2-way data binding','ex'],
-    ['Why Style - color-size-position', '- CSS', 
-    '-- CSS-Box-Model','-- margins','-- padding','-- borders','content',
+    '- 2-way data binding','ex'
+  ],
+    ['Why Style - color-size-position', 
+    '- position',
+
+    '- CSS',
+    ' -- ', 
+    '-- CSS-Box-Model',
+    '----- margins',
+    '----- padding',
+    '----- borders',
+    '----- content',
     ' -- ',     
-    '-- Display property', '--- block','--- inline','--- none',
+    '-- Display property', 
+    '---- block',
+    '---- inline',
+    '---- none',
     ' -- ',     
     '-- Z-index', 
-    '--- position',
     ' -- ',     
     'inline - ext', 'ngStyle','ngClass', 
-     ' -- ','- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance', 
-     'ViewEncapsulation'
+     ' -- ','- SCSS - variables etc.',
+     '--- variables', 
+     '--- functions()', 
+     '--- mixins',
+     '------inheritance', 
+     '----ViewEncapsulation'
      ],
      ['Angular/CLI',
      '- Building', 
      '- Serving the Browser port'],
     ['Modules','NgModule', 
     'dynamic imports (Ang 08)',
-    '- Libraries ', 'decorator', '- declares Components', '- imports Modules', '- exports Modules','- Can define Service','- bootstrapping - ','min 1 Module','Lazy Loading'],
+    '- Libraries ', 'decorator', 
+    '- declares Components', 
+    '- imports Modules', 
+    '- exports Modules',
+    '- Can define Service',
+    '- bootstrapping - ',
+    'min 1 Module',
+    'Lazy Loading'
+    ],
     ['- Bootstrapping', 
     '-- initializing/loading appn',
     '---- platformBrowserDynamic()',
@@ -650,7 +694,8 @@ const subTopics = [
     '------- NullInjector',    
     ' -- ',
     '--- angular.json file',
-     '--- Loading index.html etc.','---- 3rd party libs + appn',
+     '--- Loading index.html etc.',
+     '---- 3rd party libs + appn',
      '---- main.ts',
      '----- platformBrowserDynamic',
      '------ AppModule',
@@ -658,12 +703,24 @@ const subTopics = [
      '------- AppRoutingModule',  
      '------- AppComponent',  
      '---- root Module/Component',    
-     '-- webpack --- 2 dep graphs','---- 1: app.js','---- 2: vender.js'
+     '-- webpack --- 2 dep graphs',
+     '---- 1: app.js',
+     '---- 2: vender.js'
     ],
-    ['Life Cycle Hooks','- Instantiates class','- Renders View + Child','- Change detection','- Updates View + Comp Instance',
+    ['Life Cycle Hooks','- Instantiates class',
+    '- Renders View + Child',
+    '- Change detection',
+    '- Updates View + Comp Instance',
      '- imports @angular/core',
-     'LCH parts','- ngOnChanges()', '- ngOnInit() most popular','- ngDoCheck()', '- ngAfterContentInit()', 
-     '- ngAfterContentChecked()', '- ngAfterViewInit()', '- ngAfterViewChecked()','- ngOnDestroy()'],
+     'LCH parts','- ngOnChanges()', 
+     '- ngOnInit() most popular',
+     '- ngDoCheck()', 
+     '- ngAfterContentInit()', 
+     '- ngAfterContentChecked()', 
+     '- ngAfterViewInit()', 
+     '- ngAfterViewChecked()',
+     '- ngOnDestroy()'
+    ],
     ['ComponentRouter', 
     '- URLs', 
     'Routes path:\'x\' - component', 
@@ -713,11 +770,18 @@ const subTopics = [
     '-- Lazy Loading'
   ],
    ['Parent Child communication', 
-    '- @Input() decorator','-- Property Binding - []', '--- ngOnChanges()',
-    '- @Output()','-- Event Binding - ()', '-- EventEmitter()', '--- [()]', 
+    '- @Input() decorator',
+    '-- Property Binding - []', 
+    '--- ngOnChanges()',
+    '- @Output()',
+    '-- Event Binding - ()', 
+    '-- EventEmitter()', 
+    '--- [()]', 
    ], 
     [' -- '],
-    ['Lazy Loading','- Modules','-- browser URL','-- forChild','-- children', 
+    ['Lazy Loading','- Modules',
+    '-- browser URL',
+    '-- forChild','-- children', 
     '--- Feature Modules',
     '---- generating modules',
     '---- generating comps in modules',
@@ -726,7 +790,9 @@ const subTopics = [
     '----- PreloadAllModules',
     ' -- ',
     'Lazy Load Components',
-    '--- async await', '--- await import','-- simplified Ang13'
+    '--- async await', 
+    '--- await import',
+    '-- simplified Ang13'
     ],
     ['Why Change Detection?',
     '- zone.js',
@@ -771,12 +837,31 @@ const subTopics = [
     ],
     ['Why AOT',
     'Compile time build', 
-    'No need for Compiler','3 Phases','- 1:Code Analysis','- 2:Code generation','- 3:Template type checking',
+    'No need for Compiler',
+    '3 Phases',
+    '--- 1:Code Analysis',
+    '--- 2:Code generation',
+    '--- 3:Template type checking',
     'Benefits'
     ],
-    ['Why TreeShake', '- dead code', 'treeshaking in Ivy', 'treeShaking in VE'],
-    ['APF - Ang Package Format', 'npm packages','Tooling support','ES versions','Angular CLI','ng-packagr','esm and fesm','.dts files','ESM',
-       'Angular 13 APF','- Node package exports', '- es2020 support', '- Ivy partial compilation'
+    ['Why TreeShake', 
+    '- dead code', 
+    'treeshaking in Ivy', 
+    'treeShaking in VE'
+    ],
+    ['APF - Ang Package Format', 
+    'npm packages',
+    'Tooling support',
+    'ES versions',
+    'Angular CLI',
+    'ng-packagr',
+    'esm and fesm',
+    '.dts files',
+    'ESM',
+       'Angular 13 APF',
+       '- Node package exports', 
+       '- es2020 support', 
+       '- Ivy partial compilation'
     ],  
     ['Ivy new', 
     '- enableIvy: true',
@@ -862,7 +947,8 @@ const subTopics = [
     '- future tasks', 
     '- (resolve, reject)',
     '- asynchronous','- catch',' -- ', 
-     'Observables',
+    ' -- ', 
+    'Observables',
      '--- streams', 
      '----- time', 
      '--- next()',
@@ -893,7 +979,7 @@ const subTopics = [
      '--- rxjs operators',
      ' -- ',
      'Subjects', 
-     '---- Combination of Observable and Observer',
+     '---- Combn Observable + Observer',
      '--- behaviorSubject', 
      '--- asyncSubject', 
      '--- replaySubject'
@@ -904,15 +990,28 @@ const subTopics = [
     '-- rxjs operators',
     '---- are immutable',
     '---- return Observables',
-    '-- asynchronous','-- Event based ops',
+    '-- asynchronous',
+    '-- Event based ops',
     '-- Observable sequences',
     '---- imps Observable type',
     ' -- ',
     '--- rxjs Pipeable Operators',
-
-    'Utility ftns','- Convert async to Observables','- iterating over stream','- map vals to types','- filtering streams','- multiple streams',
-    'Pipeable operators','- Combination','- Conditional','- Creation',
-    '- Errors','- Multi-cast','- Filters','- Transform'
+    ' -- ',
+    'Utility ftns',
+    '- Convert async to Observables',
+    '- iterating over stream',
+    '- map vals to types',
+    '- filtering streams',
+    '- multiple streams',
+    ' -- ',
+    'Pipeable operators',
+    '- Combination',
+    '- Conditional',
+    '- Creation',
+    '- Errors',
+    '- Multi-cast',
+    '- Filters',
+    '- Transform'
     ],
     ['Higher Order Operators',
      '--- maps a value into an Observable',
@@ -929,11 +1028,20 @@ const subTopics = [
     
     ['Why forms',
     ' -- ',  
-    '- Template Forms', '-- Template directives','-- ngForm', '-- Asynchronous data flow', '-- complex test setup','-- complex validation', '-- [(ngModel)]',
+    '- Template Forms', 
+    '-- Template directives',
+    '-- ngForm', 
+    '-- Asynchronous data flow', 
+    '-- complex test setup',
+    '-- complex validation', 
+    '-- [(ngModel)]',
     ' -- ',
     ' -- Template Validation', 
     ' -- ',
-    '- Reactive Forms','-- direct access','-- Synchronous data flow','-- simpler test setup','-- simpler validation', '-- new FormControl("")','FormBuilder',  
+    '- Reactive Forms',
+    '-- direct access',
+    '-- Synchronous data flow',
+    '-- simpler test setup','-- simpler validation', '-- new FormControl("")','FormBuilder',  
     ' -- ',
     '  -- Reactive Validation' 
     ],
@@ -1167,8 +1275,21 @@ const subTopics = [
     ['- Storage mechanisms',
     '- indexedDB','-- blobs','- Web Storage', '- cookies', '- Cloud Storage'],
     
-    ['Nx Nrwl','- Nrwl/Nx','-- Nx Monorepo','-- smart', '-- fast','-- extensible','-- nrwl/angular', '-- nx monorepo', '-- nx cli','-- nx build', '-- nx serve'],  
-    ['State Management', 'RxJS and Observables', 'BehaviorSubject','- appn State', 'uni-directional',
+    ['Nx Nrwl','- Nrwl/Nx',
+    '-- Nx Monorepo',
+    '-- smart', 
+    '-- fast',
+    '-- extensible',
+    '-- nrwl/angular', 
+    '-- nx monorepo', 
+    '-- nx cli',
+    '-- nx build', 
+    '-- nx serve'],  
+    ['State Management', 
+    'RxJS and Observables', 
+    'BehaviorSubject',
+    '- appn State', 
+    'uni-directional',
     ' -- ',
     '- 5 features ',
     '-- Serializability', 
@@ -1187,7 +1308,10 @@ const subTopics = [
   'ngrx Parts',
   '- Store',
   '-- state data',
-  '- Reducer','- Action','- Selector', '- Effects',  
+  '- Reducer',
+  '- Action',
+  '- Selector', 
+  '- Effects',  
   ' -- ',
   '-- Store Devtools',
   '--- Action Log',
@@ -1195,7 +1319,10 @@ const subTopics = [
   '--- Time Travelling Debugger',
   '---- Installation',
   ' -- ',
-  '-- Entity', '-- Data', 'ComponentStore'],
+  '-- Entity', 
+  '-- Data', 
+  'ComponentStore'
+],
     [' -- '],
     ['install from Github', 
     'npm install'
@@ -1271,24 +1398,25 @@ const subTopics = [
     '----- after clone',
     '------- Local Repo - Master',
     '------- Repos default Branch',
-    '- View branches',      
-    '--- local - git branch',
-    '--- remote - git branch -r',
-    '--- all - git branch -a',
+    '----- View branches',      
+    '------- local - git branch',
+    '------- remote - git branch -r',
+    '------- all - git branch -a',
     ' -- ',
-    '- git checkout',
-    '--- only 1 branch checked out',
-    '----- HEAD branch',
-    '------- active = current',
+    '--- git checkout',
+    '----- only 1 branch checked out',
+    '------- HEAD branch',
+    '--------- active = current',
     '--- navitate between branches',
     '----- updates files Work Dir',
     '------- work dir = branch',
     '----- record all new commits',
+    ' -- ',
     '--- HEAD = branch name',
     '----- attaches to master',
     ' -- ',
-    '- Fork',
-    '--- completely indept copy',
+    '--- Fork',
+    '----- completely indept copy',
     ' -- ',
     '--- git clone',
     '----- server repo',
@@ -1302,44 +1430,103 @@ const subTopics = [
     '--- Clean Working directory',
     ' -- ',    
     '- Commands - ',
-    '- Add','- fetch','- branch',
-    '- checkout', '- commit','- init','- push','- pull','- log','- status',
+    '- Add',
+    '- fetch',
+    '- branch',
+    '- checkout', 
+    '- commit',
+    '- init',
+    '- push',
+    '- pull',
+    '- log',
+    '- status',
     '- GitHub'
     ], 
     ['Testing', '- PoC',
-    '- Unit', '-- s  pec.ts', '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
-    ' -- ','- Integration','-- Shallow','-- Deep', 
-    ' -- ','- End to End', '-- Protractor', '-- Cypress'],
-    ['Why Design', 'SOLID Principles','-- Single Responsibility','-- Open-Closed','-- Liskov Substn','-- Interface Segn','-- Dep Inv', 
-    ' -- ','DRY',
+    '- Unit', 
+    '-- spec.ts', 
+    '---- describe', 
+    '---- beforeEach()', 
+    '---- it - fit - xit', 
+    '---- afterEach', 
+    '----- TestBed', 
+    '-- Jasmine', 
+    '-- Karma', 
+    '-- Mocking', 
+    '--- Wallaby', 
+    ' -- ',
+    '- Integration',
+    '-- Shallow',
+    '-- Deep', 
+    ' -- ',
+    '- End to End', 
+    '-- Protractor', 
+    '-- Cypress'
+  ],
+    ['Why Design', 
+    'SOLID Principles',
+    '-- Single Responsibility',
+    '-- Open-Closed',
+    '-- Liskov Substn',
+    '-- Interface Segn',
+    '-- Dep Inv', 
+   ' -- ','DRY',
     ' -- ', 'DIP',  
     ' -- ','Singleton Pattern',  
     ' -- ','Factory Pattern',  
     ' -- ','Decorator Pattern',  
    ' -- ','Lazy',
    ' -- ','Composition'],
-    ['TDD Test Driven Devt', '- Test First fail','- refactor','--- pass',
+    ['TDD Test Driven Devt', 
+    '- Test First fail',
+    '- refactor',
+    '--- pass',
     ' -- ',
-    'BDD Behavoral Driven Design', '- businss', '-- agile','--- Cucumber',
+    'BDD Behavoral Driven Design', 
+    '- businss', 
+    '-- agile',
+    '--- Cucumber',
     '-- Rapid Iterations',
     '-- 3 Step Practice',
-    '---1: Small change', '---2: document examples','---3: implement Behavior',
-    '-- or ','--- User Story','--- Discovery ', '--- Formulation','--- Automation','--- Working S/W',
+    '---1: Small change', 
+    '---2: document examples',
+    '---3: implement Behavior',
+    '-- or ','--- User Story',
+    '--- Discovery ', 
+    '--- Formulation',
+    '--- Automation',
+    '--- Working S/W',
     ' -- ',
-    'DDD Domain Driven Design', '- Business Domain', '-- Object Oriented', '-- evolving model',
+    'DDD Domain Driven Design', 
+    '- Business Domain', 
+    '-- Object Oriented', 
+    '-- evolving model',
     '- Goals',
     '-- domain and domain logic',
     '-- complex design',
     '-- init creative collabn - refine',
     
   ],
-    ['Security','- XSS','-- auto-escaping{{}}',
-    '-- CSRF - XSRF', '--- CSRF token','--- HttpClientXsrfModule', 
+    ['Security',
+    '- XSS',
+    '-- auto-escaping{{}}',
+    '-- CSRF - XSRF', 
+    '--- CSRF token',
+    '--- HttpClientXsrfModule', 
     '- Output Encoding', 
-    '- Sanitization', '-- DomSanitizer','-- bypassSecurityTrustHTML', 
-    '- Immutable Code', '- JWTs', '- OWASP', '- SNYK'],
-
-    ['Auhtorization', 'Authentication', '- Auth0', '- OAuth2'],
+    '- Sanitization', 
+    '-- DomSanitizer',
+    '-- bypassSecurityTrustHTML', 
+    '- Immutable Code', 
+    '- JWTs', 
+    '- OWASP', 
+    '- SNYK'
+  ],
+  ['Auhtorization', 
+    'Authentication', 
+    '- Auth0', 
+    '- OAuth2'
+  ],
     ['Node.js',
     'http://nodejs.org', 
     '- JS runtime env\'t',  
@@ -1358,25 +1545,48 @@ const subTopics = [
     '--*.js'
     ],
     ['npm'],
-    ['express','express impn','-- get()','-- listen()'],
+    ['express','express impn',
+    '-- get()',
+    '-- listen()'
+  ],
     ['VS-Code'],
-    ['Angular Language Service','- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'],
+    ['Angular Language Service',
+    '- Code completions', 
+    '- Errors', 
+    '- Hints', 
+    '- Navigation', 
+    '-- Angular Templates'],
     ['TSServer-',''],  
-    ['ESLint', 'JS + TS', 'Static Analysis','VS Code + CI Pipeline',
+    ['ESLint', 
+    'JS + TS', 
+    'Static Analysis',
+    'VS Code + CI Pipeline',
     'AST based pattern checker - JS',
     '- enforce style | formatting| coding',
     '-- ESLint 8.9 - ',
     '-- ESLint 8.15 - '
     ],
-    ['Why CI/CD', '- CI - Continuous Integration','- CD - Continuous Development', '- CD - Continuous Delivery', '-- Jenkins'],
+    ['Why CI/CD', 
+    '- CI - Continuous Integration',
+    '- CD - Continuous Development', 
+    '- CD - Continuous Delivery', 
+    '-- Jenkins'],
     ['Webpack', 
     '- CLI build process',
     '-- TS to JS',
     '-- SASS files to CSS',
     '-- transpile HTML to JS',
     '--- bundles HTML | css | ts/js',
-    '- module bundler','- Terser','-- Terser plugin', '- Entry Points -', '-- Entry','-- Output', '- Loaders','- Plugins'],
-    ['Whats the Cloud?','- 3 reasons for the cloud are', 
+    '- module bundler',
+    '- Terser',
+    '-- Terser plugin', 
+    '- Entry Points -', 
+    '-- Entry',
+    '-- Output', 
+    '- Loaders',
+    '- Plugins'],
+    ['Whats the Cloud?',
+    '- 3 reasons for the cloud are', 
     ' -- ',  
     '- AWS - Amazon Web Services',
     '- S3 - Simple Storage Service',
@@ -1418,7 +1628,9 @@ const subTopics = [
   '--- Dynamic Data',
   '--- Node.js'
   ],
-    ['Accessability','- ARIA attrbutes', '- WCAG', '- POUR'],
+    ['Accessability',
+    '- ARIA attrbutes', 
+    '- WCAG', '- POUR'],
     [' -- '],
     ['Schematics',
     '-- template based code generator',
@@ -1439,14 +1651,52 @@ const subTopics = [
     ],
     ['Ang Material', 
     ' -- ',
-    'Ang CDK'],
-    ['Flex-layout', 'display:flex'],
-    ['PWA', '- SWs', '- manifests', '- Web-platform features','- Progressive Enhancement ','--- native apps','---- Works Offline',
-    ' -- ','- Requirements','-- Responsive', '-- Auto-updated','-- Secure','-- Reliably Connected', '-- Progresve','-- Searchable','-- Shareable  ', '.. User Exprience','-- installable', '-- Regularly Communicate',
-    ' -- ','- Service Workers','-- HTTPS','-- Caching','-- SW Manifest','--- Updating cache','---- Fast loading', 
-    '-- Push Notifications',  '--- interfaces','---- PushEvent','---- PushManager','---- PushMessageData','---- PushSubscription','---- PushSubscriptionOptions', 
-    '-- Background Sync', '--- defer actions','---- Store when offline','----- browser cache','----- indexedDB', '----- Sync when online',  
-   '-- Network proxy','--- intercepts HTTP outputs','--- various responses',
+    'Ang CDK'
+    ],
+    ['Flex-layout', 
+    'display:flex'
+    ],
+    ['PWA', 
+    '- SWs', 
+    '- manifests', 
+    '- Web-platform features',
+    '- Progressive Enhancement ',
+    '--- native apps',
+    '---- Works Offline',
+    ' -- ',
+    '- Requirements',
+    '-- Responsive', 
+    '-- Auto-updated',
+    '-- Secure',
+    '-- Reliably Connected', 
+    '-- Progresve',
+    '-- Searchable',
+    '-- Shareable  ', 
+    '.. User Exprience',
+    '-- installable', 
+    '-- Regularly Communicate',
+    ' -- ','- Service Workers',
+    '-- HTTPS',
+    '-- Caching',
+    '-- SW Manifest',
+    '--- Updating cache',
+    '---- Fast loading', 
+    '-- Push Notifications',  
+    '--- interfaces',
+    '---- PushEvent',
+    '---- PushManager',
+    '---- PushMessageData',
+    '---- PushSubscription',
+    '---- PushSubscriptionOptions', 
+    '-- Background Sync', 
+    '--- defer actions',
+    '---- Store when offline',
+    '----- browser cache',
+    '----- indexedDB', 
+    '----- Sync when online',  
+   '-- Network proxy',
+   '--- intercepts HTTP outputs',
+   '--- various responses',
    '--- mobile or other'
     ],
     ['Why Angular Elements',
@@ -1485,7 +1735,8 @@ const subTopics = [
     'NgElements class',
     'WithProperties()'
   ],
-    ['Why Web Workers', 'Threading', ''],
+    ['Why Web Workers', 
+    'Threading', ''],
     ['Why Angular Universal',
     '- SSR - Server Side Rendering'],
     ['Stand Alone Components',
@@ -1501,23 +1752,29 @@ const subTopics = [
     '---- Problem with Schematics'
   ],
     [' -- '],
-    ['Agile', '- Iterative', '- Incemental', '- Teams','- Respond to Change'],
+    ['Agile', 
+    '--- Iterative', 
+    '--- Incemental', 
+    '--- Teams',
+    '--- Respond to Change',
+    '--- Jira'
+  ],
     ['Jira',
-    '- teamwork',
-    '- Boards',
-    '-- Create an Agile Board',
+    '--- teamwork',
+    '--- Boards',
+    '----- Create an Agile Board',
     ' -- ',
     '--- Team Management Board',
-    '---- Simplified board',
+    '------ Simplified board',
     ' -- ',
     '--- Scrum Board',
-    '---- Sprints + Backlog',
+    '------ Sprints + Backlog',
     ' -- ',
     '--- Kanban Board', 
-    '---- WIP (Work In Progress)', 
-    '----- What is WIP',
+    '----- WIP (Work In Progress)', 
+    '------- What is WIP',
     ' -- ',
-    '- Agile project management tool'
+    '--- Agile project management tool'
   ],
   [' - Azure',
   '-- Azure Applications',
@@ -1550,6 +1807,7 @@ const subTopics = [
     '- Chrome Devtools',
     '--- Component explorer',
     '----- appn Component tree',
+    ' -- ',
     '--- Profiler',
     '----- Performance bottlenecks',
     '---------- preview CD cycles',
@@ -1582,27 +1840,66 @@ const subTopics = [
   '---- Analyze Link'
 ],
 ['- Chrome Developer Tools', 
-  '- Elements','-- select elements','-- ',
-  '- Console', '-- cmd prompt','-- ',
-  '- Sources', '-- debugging','-- ',
-  '- Network', '-- measureing time for ', '-- ',
-  '- Performance','-- render time - CD', '-- ',
-  '- Memory', '-- debug memory over time', '-- ',
-  '- Application','-- inspect all loaded resources', '-- ', 
-  '- Security','-- security of cert + conn\'n'
+  '- Elements',
+  '---- select elements',
+  '-- ',
+  '- Console', 
+  '---- cmd prompt',
+  '-- ',
+  '- Sources', 
+  '---- debugging',
+  '-- ',
+  '- Network', 
+  '---- measureing time for ', 
+  '-- ',
+  '- Performance',
+  '---- render time - CD', 
+  '-- ',
+  '- Memory', 
+  '---- debug memory over time', 
+  '-- ',
+  '- Application',
+  '---- inspect all loaded resources', 
+  '-- ', 
+  '- Security',
+  '---- security of cert + conn\'n'
 ],
 ['How - Angular Performance - ','largest contentful paint', '',
     'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
 ],
-['SourceMap Explorer', 'sourceMaps: true'], 
-  ['- RESTitutional file transfer','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',
-    '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+['SourceMap Explorer', 
+  'sourceMaps: true'
+], 
+  ['- RESTitutional file transfer',
+  '-- APIs',
+  '-- IDLs',
+  '--- humans/auto machine procing',
+  '-- HTTP methods',
+    '-- List REST API DLs',
+    '--- WSDL',
+    '--- WADL',
+    '--- OData',
+    '--- OpenAPI',
+    '--- RSDL',
+    '--- RAML',
     '--- REST Servers',
     '---- json-server', ' --',
     '---- http-server', ' -- ',
-    '- Swagger', '-- design & Doc APIs','-- enable Teams','-- IDL','--   RESTful APIs','-- JSON','-- CRUD methods', 
-    ' -- ','- Postman', '-- web based tool','-- access APIs anywhere  ',
-    ' -- ','- GraphQL','-- Quey language for API','-- description of data in API','-- Server side runtime','--- exec queries'
+    '- Swagger', 
+    '-- design & Doc APIs',
+    '-- enable Teams',
+    '-- IDL',
+    '--   RESTful APIs',
+    '-- JSON',
+    '-- CRUD methods', 
+    ' -- ','- Postman', 
+    '-- web based tool',
+    '-- access APIs anywhere  ',
+    ' -- ','- GraphQL',
+    '-- Quey language for API',
+    '-- description of data in API',
+    '-- Server side runtime',
+    '--- exec queries'
     ],
     
     ['GraphQL server',
@@ -1692,12 +1989,26 @@ const subTopics = [
      '--- loadRemoteModule()',
      '---- '
     ],
-     ['Web 3 - new WWW -','- DApps', '- Blockchain technology', 
-    '-- Ethereum','--- Turing complete','--- inherent decentralization','--- native token ETH (Ether)  ',
+     ['Web 3 - new WWW -',
+     '- DApps', 
+     '- Blockchain technology', 
+    '-- Ethereum',
+    '--- Turing complete',
+    '--- inherent decentralization',
+    '--- native token ETH (Ether)  ',
     '-- for Everyone'
     ],
-    ['- Docker ', '-- Docker images', '-- Docker Container'],
-    ['- Kubernetties K8s', '-- Clusters', '-- Open source system', '--- automating deployment','--- scaling','--- management','---- containerized appns'],
+    ['- Docker ', 
+    '-- Docker images', 
+    '-- Docker Container'],
+    ['- Kubernetties K8s', 
+    '-- Clusters', 
+    '-- Open source system', 
+    '--- automating deployment',
+    '--- scaling',
+    '--- management',
+    '---- containerized appns'
+  ],
     ['- Ang Versions',
     'Ang 14 (02/06/2022)',
         '-- TS 4.7',
@@ -2089,7 +2400,13 @@ const subTopicsInfo = [
     <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
     <br/>can use this to ref data or methods in the Component - 
   `, 
-      'A class - defines the properties and methods including constructor and events of a Component - Directive - Pipe - Service - Module', 
+  '--- @Component({})',
+  '--- must have a template',
+  '----- accessing a DOM el',
+  '------- @ViewChild()',
+  '--- Most important Ang el',
+
+  'A class - defines the properties and methods including constructor and events of a Component - Directive - Pipe - Service - Module', 
       '- constructor(){}',
       '-- properties',
       '-- methods',
@@ -2107,15 +2424,17 @@ const subTopicsInfo = [
      
       '-- HTML part of the Component',
       '-- styles of the Component', 
-      ' -- ',   
-      '-- Interpolation {{}} - Property [] - Event () - [( )]',
-      ' -- ',   
-      `- ngOnChanges() - ngOnInit() most popular - ngDoCheck()- ngAfterContentInit() 
-      - ngAfterContentChecked() - ngAfterViewInit() - ngAfterViewChecked() - ngOnDestroy()`,
-      ' -- ',   
-      '-- Component Tree - is all components in the appn in a tree branching structure with each Component having a CD mechanism',
+      ' -- ', 
+      ' Template Ref Variable', 
+      ' -- ', 
+      '- Data Binding', 
+      ' -- ', 
+      '- LC-hooks',
+      ' -- ', 
+     '-- Component Tree - is all components in the appn in a tree branching structure with each Component having a CD mechanism',
       ' -- ',   
       '--- applied to every Component  to detect when the Component properties have changed ',
+      ' -- ',
       `this - used in browsers at the top level of your program to ref a global object 
       <br/>- refs all properties or methods or events of a Component
       <br/>- this.foo = 135;  console.log('object val foo is ', this.foo);   
@@ -2124,6 +2443,7 @@ const subTopicsInfo = [
       <br/> browsers | Web Workers | 
       <br/> this.foo === windows.foo is true      
       `,
+      ' -- ',
       'generate a new Component',
       ' -- ',
       `--- Smart Components (Container Components)
@@ -2166,7 +2486,7 @@ const subTopicsInfo = [
     <br/>
     <br/>--------- *ngSwitch
     <br/>
-    <br/>--------- <ng-template>
+    <br/>--------- &lt;ng-template>
     <br/>------------- determines when to show
     <br/>------------- &lt;ng-container>
     <br/>------------- &lt;ng-content>
@@ -2184,15 +2504,16 @@ const subTopicsInfo = [
       `<br/>---- 
       `,
         '-- Type of Template Directives',
-              '----- *ngIf <div *ngIf="let x === 1; else elsePart"></div> <ng-template #elsePart>',
+              `----- *ngIf &lt;div *ngIf="let x === 1; else elsePart">&lt;/div> 
+              <ng-template #elsePart>`,
               '------ *ngIf ; else tmp-dir',
-              '---------- else <ng-template #tmp-dir>',
+              '---------- else &lt;ng-template #tmp-dir>',
               ' -- ', 
-              '----- *ngFor <div *nfFor="x of List"></div>',
+              '----- *ngFor &lt;div *nfFor="x of List">&lt;/div>',
               `------- trackBy - to speed up for loop iteration
           @Component({
           <br/>  selector: 'app-list',
-          <br/>  template: \` <div *ngFor="let item of items; trackBy: trackById">...</div> 
+          <br/>  template: \` &lt;div *ngFor="let item of items; trackBy: trackById">...&lt;/div> 
           <br/>  \`,
           <br/> })
           <br/>export class AppListComponent {
@@ -2205,12 +2526,12 @@ const subTopicsInfo = [
               <br/> }
           `,
           ' -- ', 
-          `----- *ngSwitch <div *ngSwitch with case statements
+          `----- *ngSwitch &lt;div *ngSwitch with case statements
           `,
           `------- case
           `,
           ' -- ', 
-          `- ng-template <ng-template>
+          `- ng-template &lt;ng-template>
            `,
             '--- not displayed by default',
             '----- determine when to display',
@@ -2223,7 +2544,7 @@ const subTopicsInfo = [
             '-------- no element displayed',
             '----- ng-content <ng-content>',
             '-------- transclusion (content projection)',
-            `----- ng-template-outlet <ngTemplateOutlet>
+            `----- ng-template-outlet &lt;ngTemplateOutlet>
             `,
            '--- ng-template instantiated',
            `----- Onamed inputs bound to 1+ input template variables 
@@ -2231,9 +2552,9 @@ const subTopicsInfo = [
            '--- ng-template uses',
            '------ else part of *ngIf',
            `------ with ngForOf 
-           <ng-template ngFor let-hero let-i="index" [ngForOf]="heroes">
-               <li>Hero number {{i}}: {{hero.name}}
-           </ng-template>
+           <br/>&lt;ng-template ngFor let-hero let-i="index" [ngForOf]="heroes">
+           <br/>  &lt;li>Hero number {{i}}: {{hero.name}}
+           <br/>&lt;/ng-template>
            `,
            ' -- ', 
        '---- 3: Components are a form of Directive but have a template'
@@ -2242,15 +2563,18 @@ const subTopicsInfo = [
       [`Why Pipes - transform data in the template
         <br/>pure and impure - decoraor - @Pipe() 
         <br/>- used in a template HTML to modify data 
+        <br/>
         <br/> -- 
-        <br/>--- inbuilt Pipes
+        <br/>-- inbuilt Pipes
         <br/>----- DatePipe
         <br/>----- CurrencyPipe
         <br/>----- DecimalPipe
         <br/>----- UpperCasePipe
         <br/>----- LowerCasePipe
         <br/>----- Percent  Pipe
+        <br/>
         <br/>----- async Pipe
+        <br/>----- json Pipe
         <br/>
         <br/>---2 types 
         <br/>------ Pure Pipes
@@ -2285,15 +2609,24 @@ const subTopicsInfo = [
     <br/> - implemented as a simple class with @Injectable({}) decorator - 
       - <br/>ng g s my-service
       - <br/>can be reussssed in several different Components so data can be shared 
-      - <br/>We can have nested services - 
-      - <br/>A provider is an instruction to the DI (Dep Injection) system on how to obtain a value for a dependency
-      - <br/>- most of the time these dependencies are services that you create and provide
-      - <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
+      - <br/>We can have nested services -  
+      <br/>
+      <br/>A provider is an instruction to the DI (Dep Injection) system 
+      <br/>on how to obtain a value for a dependency
+      <br/>
+      <br/>- most of the time these dependencies are services 
+      <br/>that you create and provide
+      <br/>
+      <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
       - <br/>- ng g s my-service
-      - <br/> - providedIn? - determines which injectors will provide the injectable 
+      <br/> 
+      <br/>providedIn? - determines which injectors will provide the injectable 
       - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+      <br/>      
       - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+      <br/>
       - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
+      <br/>
       - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
       `,  
       '-- simplifies Components',
@@ -2423,6 +2756,7 @@ const subTopicsInfo = [
   '----------- object refs to',
   `------------- TNode - any kind of object : 
   <br/> - element| ng-template| ng-container
+  <br/>
   <br/> - Ang creates a injectorIndex property on TNode 
   <br/>--- where bloom filter is located. 
   <br/> - The NodeInjector gets required provider by looking at the data 
@@ -2451,8 +2785,10 @@ const subTopicsInfo = [
     <br/> -   8 slots long ([n, n+7] indices) - 
     <br/>Their number is directly proportional to the num of nodes  
     <br/>-- for which the injector is created
+    <br/>
     <br/>Each bloom filter has a ptr to the parent bloom filter 
     <br/>--- in the "packed" parentLocation slot (n + 8)
+    <br/>
     <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
     <br/>---   
   `,
@@ -2471,8 +2807,10 @@ const subTopicsInfo = [
   '----- ',
   `- DI Tokens - When you configure an injector with a provider - you are associating that provider with a DI token
   <br/>The injector lets Angular create a map of any internal dependencies.
+  <br/>
   <br/>The DI token - acts as a key to that map - 
   <br/>The dep value is an instance & the class type serves as a look up key 
+  <br/>
   <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
   <br/>constructor(private heroService: HeroService){}  
   `,
@@ -2517,7 +2855,7 @@ const subTopicsInfo = [
   '--- providedIn: \'root\'',
   '--- providedIn: \'platform\'',
   '--- providedIn: \'any\'',
-  `--- providedIn: <T>\'
+  `--- providedIn: &lt;T>\'
   ` ],
     [`Decorators - add metadata to a class | objects or methods 
     -  which defines annotations 
@@ -2542,12 +2880,12 @@ const subTopicsInfo = [
      '-------- passes data from parent to child',
      '- 3 ways to use @Input()',
      `--- 1: plain - @Input() message: string;
-     <br/><child-one message="hi there"></child-one>
-     <br/>In he child-one - <p>{{ message }}</p>
+     <br/>&lt;child-one message="hi there">&lt;/child-one>
+     <br/>In he child-one - &lt;p>{{ message }}&lt;/p>
      `,
      `--- 2: alias - @Input('msg') message: string;
-     <br/> <child-two msg="hi there"></child-two>
-     <br/>In he child-two - <p>{{ message }}</p>
+     <br/> &lt;child-two msg="hi there">&lt;/child-two>
+     <br/>In the child-two - &lt;p>{{ message }}&lt;/p>
      `,
      `--- 3: setter/getter - use the TS get and set auto-properties
  <br/>
@@ -2566,11 +2904,12 @@ get message(): string {
      `----- @Output() - marks property in child 
      <br/> to let data travel from a child to a parent 
      <br/> binds a property of type EventEmitter class   
-     <br/> @Output() myOutput:EventEmitter<string>= new EventEmitter();  
+     <br/>
+     <br/> @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
      `,
        '------ pass data from child to a parent class',
        '-------- EventEmitter()',
-      `------- Ex @Output() myOutput:EventEmitter<string>= new EventEmitter();  
+      `------- Ex @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
       <br/>Using emit()
       sendValues(){  
         this.myOutput.emit(this.outputMessage);  
@@ -2581,10 +2920,10 @@ get message(): string {
         <br/>this.myOutput.emit(this.outputMessage);  
     <br/>}  
     <br/> 
-    <br/> <app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+    <br/> &lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
      `, 
      ` using the myOutput() event
-     <br/><app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+     <br/>&lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
      `, 
      ' -- ',
      `----- @HostBinding() - declares a host property binding
@@ -2864,7 +3203,7 @@ for (let x of cars) {
     ' -- ',  
       '- Advanced Data TYpes',
       '--- Conditional Types using ?',
-      '--- Generics using <T>',
+      '--- Generics using &lt;T>',
       '--- Union Types',
       `----- Composite types - data types that have 1+ fields dynamically linked to fields in another data type
         <br/>- useful for creating a single data type - refs info in > 1 data source or refs > 1 table or structure in a data source
@@ -3151,11 +3490,11 @@ for (let x of cars) {
     `--- <img [alt]="hero.name" [src]="heroImageUrl">
     
     `,
-    `- Attribute binding - <button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+    `- Attribute binding - &lt;button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria&lt;/button>
     
     `,
     '- Class binding - [class]="classExpression"',
-    '- Style binding - <nav [style]=\'navStyle\'>',
+    '- Style binding - &lt;nav [style]=\'navStyle\'>',
     
     `- event binding - () 
     <br/>--- from view target to data source 
@@ -3185,7 +3524,28 @@ for (let x of cars) {
     <br/>
     `
   ],
-    ['Why Style - color-size-position', 
+    [`Why Style - color-size-position
+    <br/>
+    <br/>Colours
+    <br/>Position
+    <br/>Size
+    <br/>Height
+    <br/>Width
+    <br/>
+    <br/>styleUrls
+    <br/>
+    <br/>
+    <br/>Inline Styles
+    <br/>
+    <br/>
+    <br/>CSS
+    <br/>
+    <br/>
+    <br/>SCSS
+    <br/>
+    <br/>
+    <br/>
+    `, 
     '- CSS', 
     '-- CSS-Box-Model','-- margins','-- padding','-- borders','-- content',
     ' -- ',     
@@ -3215,11 +3575,14 @@ for (let x of cars) {
        
     [`Modules - @NgModule({}) - Angular loads a colln of JS Modules - library modules - @angular/core etc.
     <br/>ng g m xyz
+    <br/>
     <br/>modules are a great way to organise an appn and extend it with capabilities from ext libraries eg. FormsModule
     <br/>lets you group related components | directives | pipes | services - 
+    <br/>
     <br/>Launch appn by bootstrapping the root NgModule
     <br/>There are Routing Modules - 
     <br/>Std modules are loaded eagerly
+    <br/>
     <br/>Lazy loading modules - lets us use Feature Modules and Shared Modules
     `, 
     `--- NgModule - is a class marked by the @NgModule decorator 
@@ -3264,9 +3627,10 @@ for (let x of cars) {
    ],
    [`Bootstrapping
          <br/>reads the angular.json -
-         <b/>Loads the index.html file - app-root 
-         <b/>Loads the main.ts file - ids the AppModule - ids the AppRoutingModule and AppComponent
-         webpack - dep graphs - app.js and vender.js
+         <br/>Loads the index.html file - app-root 
+         <br/>
+         <br/>Loads the main.ts file - ids the AppModule - ids the AppRoutingModule and AppComponent
+         <br/>webpack - dep graphs - app.js and vender.js
     `,
     `-- initializing/loading appn - application.json file - 
       <br/>--- loads index.html - 
@@ -3297,32 +3661,32 @@ for (let x of cars) {
         ' -- ',
         `- angular.json 
             <br/> --- 
-            "build": {
-              "builder": "@angular-devkit/build-angular:browser",
-              "options": {
-                "outputPath": "dist/ang13-training",
-                "index": "src/index.html",
+            <br/> "build": {
+              <br/>"builder": "@angular-devkit/build-angular:browser",
+              <br/>"options": {
+                <br/> "outputPath": "dist/ang13-training",
+                <br/>     "index": "src/index.html",
             `,
         `--- Loading index.html etc.
      <br/>---- first page to be loaded - 
-     <br/>---- <body><app-root></app-root></body>
+     <br/>---- &lt;body>&lt;app-root>&lt;/app-root>&lt;/body>
      `,
      '---- 3rd party libs + appn',
      `---- main.ts
      <br/>
-
-import { enableProdMode } from \'@angular/core\';
-import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';
-
-import { AppModule } from \'./app/app.module\';
-import { environment } from \'./environments/environment\';
-
-if (environment.production) {
-  enableProdMode();
-}
-  
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+     <br/>
+     <br/>import { enableProdMode } from \'@angular/core\';
+<br/>import { platformBrowserDynamic } from \'@angular/platform-browser-dynamic\';
+<br/>
+<br/>import { AppModule } from \'./app/app.module\';
+<br/>import { environment } from \'./environments/environment\';
+<br/>
+<br/>if (environment.production) {
+  <br/>enableProdMode();
+  <br/>}
+  <br/>
+  <br/>platformBrowserDynamic().bootstrapModule(AppModule)
+  <br/>.catch(err => console.error(err));
      `,
      '----- plaformBrowserDynamic - JIT compiles AppModule',
      `------ AppModule imports the 
@@ -3330,19 +3694,19 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/>AppRoutingModule ( imports RouterModule and identifies ComponentRoutes)
      <br/>identifies which is the main Component - eg AppComponent
       <br/>
-      @NgModule({
-        declarations: [
-          AppComponent,
-          HelloWorldComponent
-        ],
-        imports: [
-          BrowserModule,
-          AppRoutingModule
-        ],
-        providers: [],
-        bootstrap: [AppComponent]
-      })  
-      export class AppModule { }
+      <br/>   @NgModule({
+        <br/>declarations: [
+          <br/>AppComponent,
+          <br/>HelloWorldComponent
+          <br/> ],
+          <br/>imports: [
+            <br/>BrowserModule,
+            <br/>AppRoutingModule
+            <br/> ],
+            <br/>providers: [],
+            <br/>  bootstrap: [AppComponent]
+            <br/>})  
+            <br/>export class AppModule { }
      `,
      '------ BrowserModule - impored only once in the App root',
      '------ AppRoutingModule - imports RouterModule and Routes and identifies Component Routes',
@@ -3401,7 +3765,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/>ng new ang-app --routing --defaults 
      <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
      <br/>We can use ActivatedRoute and to get data about the Routes
-    <br/><router-outlet></router-outlet> lets us position the routing infon in our Component template -
+    <br/>&lt;router-outlet>&lt;/router-outlet> lets us position the routing infon in our Component template -
     <br/>   
      <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
      <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
@@ -3411,26 +3775,44 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      'routes:Routes = [{path:"first-comp",component: FirstComponent}]',
      '<base href=\/"\">', 
      '-- HTML5 Urls', 
-     '- <router-outlet></router-outlet> location where the router links will go', 
-     '- <a routerLink="/first_comp">link</a>',
+     '- &lt;router-outlet>&lt;/router-outlet> location where the router links will go', 
+     '- &lt;a routerLink="/first_comp">link&lt;/a>',
      ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)',
      '-- RouterModule.forChild(routes) - lazy load the Component or Module',
      '- Nested Routes - ',
-     ' -- ','- get Route Info','-- ActivatedRoute','-- ActivatedRouteSnapshot','-- RouterStateSnapshot','-- .snapshot.paramMap.get(\'id\') ','-- ParamMap','- Wildcard Routes **','-- PageNotFoundComponent','redirectTo()', 
-     ' -- ','- Router Guards','Componentless-routes','-- 5 Guard options','--- canActivate','--- canActivateChild','--- canDeactivate',
-     '--- Resolve',
-     '--- CanLoad', 
+     ' -- ','- get Route Info',
+     '-- ActivatedRoute',
+     '-- ActivatedRouteSnapshot',
+     '-- RouterStateSnapshot',
+     '-- .snapshot.paramMap.get(\'id\') ',
+     '-- ParamMap',
+     '- Wildcard Routes **',
+     '-- PageNotFoundComponent',
+     'redirectTo()', 
+     ' -- ',
+     '- Router Guards',
+     'Componentless-routes',
+     '-- 5 Guard options',
+     '---- canActivate',
+     '---- canActivateChild',
+     '---- canDeactivate',
+     '---- Resolve',
+     '---- CanLoad', 
      ' -- ',
      `- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center
      `,
-     '-- LocationStrategy','--- PathLocationStrategy',
-     '---- HTML5 style navigation','--- HashLocationStrategy', '---- useHash:true',
-     ' -- ','-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
+     '-- LocationStrategy',
+     '--- PathLocationStrategy',
+     '---- HTML5 style navigation',
+     '--- HashLocationStrategy', 
+     '---- useHash:true',
+     ' -- ',
+     '-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
      [`Parent Child commn - is normally implemented using the @Input() and @Output() decorators.
      <br/>to share info between a parent and one or more child components 
      <br/>
      <parent-component>
-         <child-component></child-component>
+         &lt;child-component>&lt;/child-component>
      </parent-component>
      <br/>
      `,`- @Input() - lets a parent Component update a child component data 
@@ -3490,7 +3872,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
          <br/>]
          <br/>})
     `,
-    '- Shared Modules','-- PreloadingStrategy',
+    '- Shared Modules',
+    '-- PreloadingStrategy',
     '--- PreloadAllModules - to initially fetch all modules', 
     ' -- ',
     '-- Lazy Load Components (not Modules)',
@@ -3588,9 +3971,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '--- onMicrotaskEmpty()',
     '--- onStable()',
     '--- onError()',
-    '--- run<T>()',
-    '--- runTask<T>()',
-    '--- runGuarded<T>()',  
+    '--- run&lt;T>()',
+    '--- runTask&lt;T>()',
+    '--- runGuarded&lt;T>()',  
     '--- runOutsideAngular<T>()',
     ' -- ',
     '- manual CD', 
@@ -3604,7 +3987,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>
       <br/>is better due to - the code is compiled at build time 
       <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
-    `,'Compile time build', 'No need for Compiler', 
+    `,'Compile time build', 
+    'No need for Compiler', 
     `3 Phases - 
     1:Code Analysis- 2:Code generation- 3:Template type checking
     `,
@@ -3746,13 +4130,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     'Ang Language Service',
     'only recompiles Components that have changed',
     `- adv Tree Shakeable 
-     - Reduced size - 
-     - faster compilation 
-     - locality -   
-     - enhanced testing + debugging - 
-     - easier dyn comp loading - 
-     - mobile exp
-     - backwards compaable - 
+    <br/>- Reduced size - 
+    <br/>- faster compilation 
+    <br/> - locality -   
+    <br/> - enhanced testing + debugging - 
+    <br/> - easier dyn comp loading - 
+    <br/> - mobile exp
+     <br/> - backwards compaable - 
     `,
     'EntryComponents - are no longer required',
     ' -- ',
@@ -3788,8 +4172,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `<br/>-- Template Type Checking - 
     <br/>-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
       `,`- abstract base class - to render template to DOM - 
-      can be overridden for Custom Rendering - 
-      RendererFactory2`, 
+      <br/>can be overridden for Custom Rendering - 
+      <br/>RendererFactory2`, 
     '- 1: Template Parsing + creating Data Structure', 
     '- 2: '  ,
     '-- Interpreter', 
@@ -4263,9 +4647,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
  <br/>@Component({
   <br/>selector: 'my-app',
   <br/>template: \`
-  <br/><template #alertContainer></template>
-  <br/><button (click)="createComponent('success')">Create success alert</button>
-    <br/><button (click)="createComponent('danger')">Create danger alert</button>
+  <br/>&lt;template #alertContainer>&lt;/template>
+  <br/>&lt;button (click)="createComponent('success')">Create success alert&lt;/button>
+    <br/>&lt;button (click)="createComponent('danger')">Create danger alert<&lt;/button>
   \`,
   <br/>})
 <br/>export class App {
@@ -4288,11 +4672,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>selector: 'sample',
        <br/>template: \`
        <br/><span>I am first span</span>
-           <br/><ng-container [ngTemplateOutlet]="tpl"></ng-container>
-           <br/><span>I am last span</span>
-           <br/><ng-template #tpl>
-           <br/><span>I am span in template</span>
-           <br/></ng-template>
+           <br/>&lt;ng-container [ngTemplateOutlet]="tpl">&lt;/ng-container>
+           <br/>&lt;span>I am last span &lt;/span>
+           <br/>&lt;ng-template #tpl>
+           <br/>&lt;span>I am span in template&lt;/span>
+           <br/>&lt;/ng-template>
            <br/>\`
        <br/>})
        <br/>export class SampleComponent {}
@@ -4316,16 +4700,16 @@ platformBrowserDynamic().bootstrapModule(AppModule)
  <br/>@Component({
     <br/>selector: \'sample\',
     <br/>template: \`
-    <br/><span>I am first span</span>
-        <br/><ng-container #vc></ng-container>
-        <br/><span>I am last span</span>
+    <br/>&lt;span>I am first span&lt;/span>
+        <br/>&lt;ng-container #vc>&lt;/ng-container>
+        <br/>&lt;span>I am last span&lt;/span>
         <br/>\`
         <br/>})
         <br/>export class SampleComponent implements AfterViewInit {
           <br/>@ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
           <br/>
           <br/>ngAfterViewInit(): void {
-        // outputs \`template bindings={}\`
+            <br/>// outputs \`template bindings={}\`
         <br/>console.log(this.vc.element.nativeElement.textContent);
         <br/>}
 }
@@ -4341,12 +4725,12 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '------ <p #title>Hi</p>',
     `- @ViewChild 
        - is within the template of the Component
---- configures a Vew Query
------ 3 types to inect
-------- HTML - using ElementRef and nativeElement
-------- Component (Default) - 
-------- Directive
---- uses the ngAfterViewInit LCH    
+       <br/>--- configures a Vew Query
+       <br/>----- 3 types to inect
+       <br/>------- HTML - using ElementRef and nativeElement
+       <br/>------- Component (Default) - 
+       <br/>------- Directive
+       <br/>--- uses the ngAfterViewInit LCH    
 `,
 '--- alt to ElementRef',
 '------ access a DOM element',
@@ -4406,13 +4790,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `
     ],
     [`Content DOM
-          area within the selector fields in template
+    <br/>area within the selector fields in template
           <br/>within the tags
     `,
     `@ContentChild - is within a Component tags
        <br/>-- within the Content DOM',
        <br/>-- Queries one child within Component or Directive tag
-       @ContentChild(Pane) pane!: Pane;
+       <br/>@ContentChild(Pane) pane!: Pane;
        <br/>-- Initialize code in ngAfterContentInit LCH
     `, 
     '- Queries one child ',
@@ -4471,14 +4855,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '------ Multi-Slot',
     '--------- multiple slots',
     '------------ using select',
-    '------------ <ng-content select="[quest]"',
+    '------------ &lt;ng-content select="[quest]"',
     '------ Conditional',
     '--------- Conditionally render content',
     '------------- ng-template to acceept dyn content',
     '----------------- not ng-content',
-    `---------- Ex <ng-template appExampleZippyContent>
-                      It depends on what you do with it.
-                    </ng-template>
+    `---------- Ex &lt;ng-template appExampleZippyContent>
+         <br/>             It depends on what you do with it.
+         <br/>           &lt;/ng-template>
     `,
     '--------- TemplateRef',
     '----------- [ngTemplateOutlet]',
@@ -4517,8 +4901,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      '- intercepts an HttpRequest or HttpResponse',
      '- caches HttpRequests | HttpResponsee',
      `-- interface HttpInterceptor {
-              intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
-         }
+          <br/>    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+         <br/>}
       `,    
       `--- intercept(HttpRequest<T>, HttpHandler): Observable<HttpEvent> - 
       <br/>---- HttpRequest<T> - outgoing request object to handle,
@@ -4575,7 +4959,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '- ng cache - on Hard Disk - caching project',
    ' -- ',
     `- Memoization - optimization technique to speed up computer programs 
-    <br/>- by storing results of exp ftn calls 
+    <br/>- by storsing results of exp ftn calls 
     <br/>- returning cached result when same input occurs again 
     <br/>
     <br/>
@@ -4831,7 +5215,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '--- git init cmd',
       '----- git folder - history of project',
       '----- working directory - ',
-   
       ' -- ',  
       `- Staging area - holds files to be used in the next commit 
       <br/> -- lets git know what file changes will exist in next commit
@@ -4854,7 +5237,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '- Local Repository',
       '-- Local computers',
       '---- git Push',
-      ' -- ',
+      ' -- ',  
       '- Remote Repository',
       '-- Server for Team',
       '---- git Pull', 
@@ -4904,16 +5287,16 @@ platformBrowserDynamic().bootstrapModule(AppModule)
        '--- Clean Working directory',
        ' -- ',    
        '- Commands - ',
-     '- Add - ',
-    '- fetch - ',
-    '- branch - ',
-    '- checkout -',
-    '- commit - ',
-    '- init - ',
-    '- push - ',
-    '- pull - ',
-    '- log - ',
-    '- status -',
+    '--- Add - ',
+    '--- fetch - ',
+    '--- branch - ',
+    '--- checkout -',
+    '--- commit - ',
+    '--- init - ',
+    '--- push - ',
+    '--- pull - ',
+    '--- log - ',
+    '--- status -',
     ], 
 
     [`Testing is very important to ensure the validity of your programs and that there are no problems with the code!
@@ -4930,11 +5313,23 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     'PoC - Proof of Concept',
     '- Unit', 
     '-- spec.ts', 
-    '--- describe', '--- beforeEach()', '--- it - fit - xit', '--- afterEach', '---- TestBed', '-- Jasmine', '-- Karma', '-- Mocking', '--- Wallaby', 
+    '--- describe', 
+    '--- beforeEach()', 
+    '--- it - fit - xit', 
+    '--- afterEach', 
+    '---- TestBed', 
+    '-- Jasmine', 
+    '-- Karma', 
+    '-- Mocking', 
+    '--- Wallaby', 
     ' -- ',
-    '- Integration','-- Shallow','-- Deep', 
+    '- Integration',
+    '-- Shallow',
+    '-- Deep', 
     ' -- ',
-    '- End to End', '-- Protractor', '-- Cypress'],
+    '- End to End', 
+    '-- Protractor', 
+    '-- Cypress'],
     ['Why Design', 
     '- SOLID',
     '-- A Class should have 1 and only 1 (Job) reason to change',
@@ -4955,7 +5350,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     ' -- ','Composition Pattern'],
     [`TDD Test Driven Devt - 
     `, 
-    '- Test First fail','- refactor','--- pass',
+    '- Test First fail',
+    '- refactor',
+    '--- pass',
     ' -- ',
     `Behavoral Driven Design - eases conversion of user features specns to code reqd to imp them
     <br/>
@@ -5210,7 +5607,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     `--- AWS S3 -   
      Serverless S3 service - requires an AWS Account
      <br/>5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
-     <br/>20000 get requests <br/>2000 put requests
+     <br/>20000 get requests 
+     <br/>2000 put requests
      <br/>
      <br/>S3 Bucket name - unique amongst all AWS accounts  
      <br/>Select region -  
@@ -5261,9 +5659,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/>---- Function Limits
      <br/>------ Execute time/run time 15 minutes       
      <br/>------ Memory RAM - 128MB to 3008MB with 64MB Step   
-     <br/>------ Zipped package code size < 50MB - Unzipped < 250MB
-     <br/>------ Concurrency < 1000 
-     <br/>------ Payload Size < 10MB that API Gateway can handle            
+     <br/>------ Zipped package code size &lt; 50MB - Unzipped < 250MB
+     <br/>------ Concurrency &lt; 1000 
+     <br/>------ Payload Size &lt; 10MB that API Gateway can handle            
      <br/>---- Not always cost effective - 
      <br/>----- Maybe AWS EC2 might be better in some cases  
      <br/>---- Ltd number of supported runtimes
@@ -5274,8 +5672,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      `--- Dynamic Data 
     
     
-    `,`--- Node.js
-    
+    `,`--- Node.js    
     `  
 ],
     [`Accessability -
@@ -5328,23 +5725,28 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '-- join',
     '-- buildRelativePath',
       '  "root": ""'
-      
+
     ],
     [`Ang Material - 
-    
     `, 
     ' -- ',
     'Ang CDK'],
     [`Flex-layout - 
-    
     `, 
         'display:flex'],
-    [`Progressive Web Appn - are Web appns that use Service Workers 
+    [`PWA (Progressive Web Appn) - are Web appns that use Service Workers 
     <br/>- manifests - caching - progressive appns - to give a similar exp with a native appn 
     <br/>- apps leverage modern browser capabilities 
     <br/>- even with no Network or sparse Networks
+    <br/>
+    <br/>- SW (Service Workers) - added to an app - turns it into a PWA  
+    <br/>
+    
+    
     `, 
-    `- Service Workers -
+    `- SW (Service Workers) - added to an app - turns it into a PWA  
+    <br/>
+    
     
     `, 
     '- manifests', 
@@ -5374,8 +5776,18 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     '--- Update to appn deployed - Contents of manifest changes - hence new ver of appn should be downloaded and cached - Updates happen in background quickly after changes are published',
     '-- SW is preserved after user closes tab - next time browser loads appn - it loads SW first - appn very fast - intercepts every resource request - no need for Network',    
     '-- interactions are handled using the SwPush service - ensure protect against CSRF/XSRF   attacks ',
-    '--- interfaces','---- PushEvent','---- PushManager','---- PushMessageData','---- PushSubscription','---- PushSubscriptionOptions',
-    '-- Background Sync - ','--- defer actions','---- Store when offline','----- caches small static assets','----- for storing large assets', '----- Sync when online',
+    '--- interfaces',
+    '---- PushEvent',
+    '---- PushManager',
+    '---- PushMessageData',
+    '---- PushSubscription',
+    '---- PushSubscriptionOptions',
+    '-- Background Sync - ',
+    '--- defer actions',
+    '---- Store when offline',
+    '----- caches small static assets',
+    '----- for storing large assets', 
+    '----- Sync when online',
     '-- SW work as a Network proxy - intercept all outgoing HTTP requests made by appn and can choose how to respond to them - query a local cache | deliver cached response| request new data from Server','--- interupts HTTP output requests','--- ',
     '-- mobile or other'
     ],
@@ -5418,12 +5830,12 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>--------- Output names are not changed
     <br/>
     <br/>In a normal HTML Page
-    <br/><script> 
-    <br/>- <ngsd-button button-label="ClickMe!"></ngsd-button>
+    <br/>&lt;script> 
+    <br/>- &lt;ngsd-button button-label="ClickMe!">&lt;/ngsd-button>
     <br/>
     <br/>- create a component by document.querySelector('ng-air-button');
     <br/>- component.addEventListener('customEvent', evebt => { alert(event.detail)})
-    <br/></script>
+    <br/>&lt;/script>
     <br/>
     <br/>--- Build Combine Deploy locally
     <br/>----- Define a Custom Element called ButtonComponent
@@ -5445,7 +5857,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
      <br/>}
      <br/>
      <br/>In template file
-     <br/><button (click)="onClick()">{{buttonLabel}}</button>
+     <br/>&lt;button (click)="onClick()">{{buttonLabel}}&lt;/button>
 
      <br/>
      <br/>Create a HTML page - 
@@ -5542,6 +5954,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>--- NgElement
     <br/>----- abstract class NgElement,
     <br/>------- extends HTMLElement,
+    <br/>
     <br/>----- properties
     <br/>------- ngElementStrategy
     <br/>--------- how component is transformed to a custom el  
@@ -5552,7 +5965,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>----------- setInputValue(propName: string, string)
     ' -- ',
     <br/>------- ngElementEventsSubscription() - subscription to change | connect | disconnect events
-
+    <br/>
     <br/>----- methods
     <br/>------- attributeChangedCallback(attrName: string, oldValue: string, newValue: string, namespace?: string): void
     <br/>---------- handler for change in observed attribue  
@@ -5603,6 +6016,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- are a set of Web Platform APIs 
     <br/> --- that allow you to create new custom | reusable | encapsulated HTML tags 
     <br/> --- to use in Web pages and Web apps
+    <br/>
     <br/> --- lets you share Components between various languages
     <br/> -----  AngularJS | Angular | React | Vue  
     <br/> --- Ex must contain a - eg <my-world></my-world>
@@ -5677,7 +6091,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     [`Agile - is an iterative approach to project management + S/W devt that helps teams deliver value to their customers faster 
     <br/>- with fewer headaches 
     <br/>- suite of Agile work management solutions powering collaboration 
-    <be/>- across all teams
+    <br/>- across all teams
     `,
     '- iterative means small incremental changes',
     '- (no bigbang) - delivers work in small, but consumable, increments - ',
@@ -5840,7 +6254,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       '---- Azure Functions',
       '------ Code run on demand',
       '------ indept of location + scalability',
-
       ` ----- built for reuse and composition
       `,
       `------ Messaging plays a crucial part in Serverless Component integration
@@ -5852,7 +6265,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   ],
   [`Debugging Angular - Chrome Devtools (Debugger for Chrome) 
   <br/>- Webpack
-  <br/> Devtools include a Component Explorer and Profiler
+  <br/> 
+  <br/>Devtools include a Component Explorer and Profiler
   `,
   `- Chrome Devtools (Debugger for Chrome)  
    - Added V S-Code extension - Devtools for Chrome - 
@@ -5881,6 +6295,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `- Call Stack - Chrome Devtools shows the Current CallStack
   <br/> - gives info about the stack of ftn calls indicating 
   <br/> - what triggered the execution of the ftn that is being executed          
+  <br/>
   <br/> - Quite a few would be from Angular libraries 
   <br/> - but others from relatd to your code
   <br/> - Also show HTML part of appn that triggered the ftn call
@@ -5902,6 +6317,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `- ng.probe($0).componentInstance
   <br/>- This is a quirky cmd that we can use on the console 
   <br/>- to see what the component state is 
+  <br/>
   <br/>- Simply select the component 
   <br/>- you want to inspect from the Element tab 
   <br/>- and execute ng.probe($0).componentInstance on the console  
@@ -5914,6 +6330,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/>-- inspect other info - parent of seld component | list of listeners 
   `,
   `-- ng.profiler.timeChangeDetection()
+  <br/>
   <br/>--- Angular has a built in profiler to profile appns 
   <br/>--- TimeChangeDetection on the appn 
   <br/>---- how long a round of state detection takes for current state of UI < 3ms  
@@ -5935,6 +6352,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   [ 'Chrome Developer Tools', 
   `- Elements - gives ability to view and change the DOM and refd CSS
   <br/>- manipulate styles directly -  
+  <br/>
   <br/>- inspect or tweak pages without needing to change source code - 
   <br/>find unused CSS - view animations
   `,
@@ -5996,6 +6414,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   `- ESBuild - new (Ang 12) streamlined bundler - super fast 
   <br/> - without need to cache - with a solid API
   <br/> handles TypeScript | JSON module importing -   
+  <br/>
   <br/> given array of entry points - 
   <br/>--- it will transpile | bundle | treeshake | code split your modules
   <br/>- use a build.mjs script - ESM -
@@ -6132,8 +6551,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
             <br/>console.log(response);
           <br/>});
         `,
-    
-        `------ C#/Net        <br/>public static async Task Main(string[] args)
+        `------ C#/Net        
+        <br/>public static async Task Main(string[] args)
           <br/>{
             <br/>var schema = Schema.For(@"
             <br/>type Query {
@@ -6154,7 +6573,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
          `,
         '------ Python',
         `------ C/C++
-        
         `,
         '------ Elm',  
         ' -- ',
@@ -6219,10 +6637,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>Fully customizable | ag-grid performance | no 3rd party deps 
     - integrates with Angular
     <br/>Features - 
-    1: Column-integration - 
-    2: Pagination - 
-    3: Sortable  - 
-    4: Row selection
+    <br/>1: Column-integration - 
+    <br/>2: Pagination - 
+    <br/>3: Sortable  - 
+    <br/>4: Row selection
     <br/> - <ag-grid></ag-grid>
     `,
     `- fully customizable -   
@@ -6239,21 +6657,21 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
     `- ag-grid Data - 
     <br/>
-    export class AppComponent {
-      title = 'app';
-    
-      columnDefs = [
-        {headerName: 'Make', field: 'make' },
-        {headerName: 'Model', field: 'model' },
-        {headerName: 'Price', field: 'price'}
-      ];
-    
-      rowData = [
-        { make: 'Toyota', model: 'Celica', price: 35000 },
-        { make: 'Ford', model: 'Mondeo', price: 32000 },
-        { make: 'Porsche', model: 'Boxster', price: 72000 }
-      ];
-    }
+    <br/>  export class AppComponent {
+      <br/>   title = 'app';
+      <br/>  
+      <br/>   columnDefs = [
+        <br/> {headerName: 'Make', field: 'make' },
+        <br/>{headerName: 'Model', field: 'model' },
+        <br/>{headerName: 'Price', field: 'price'}
+  <br/>   ];
+      <br/>
+ <br/>     rowData = [
+  <br/>      { make: 'Toyota', model: 'Celica', price: 35000 },
+  <br/>      { make: 'Ford', model: 'Mondeo', price: 32000 },
+  <br/>      { make: 'Porsche', model: 'Boxster', price: 72000 }
+  <br/>    ];
+  <br/>   }
     `,
     `-- ag-grid example
     <br/>
@@ -6269,6 +6687,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     <br/>- Gives dev teams the ability to complete their work independently
     <br/>- Shell (Host) - 
     <br/> -- 
+    <br/>
     <br/>- MFE (MicroFrontEnd) - Remote -  
     <br/>- that give indept teams E2E ownership  
     <br/>- defines the Urls at compile time -
@@ -6377,13 +6796,22 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   <br/>-- Cluster orchestration system  
    
   `,
-  `-- Clusters - 
+  `-- Clusters - set of worker machines (Nodes)
+  <br/>---- that run containerised appns 
+  <br/>---- has at least 1 Node
+  <br/>------- Nodes - host the Pods that are components of the appn workload 
+  <br/>--------- Control Plane - manages worker nodes and Pods in cluster 
   `, 
+  '----- Node',
+  '------- Containerised appns',
+  '----- Pod - ',
+  '----- Control Plane',
+  ' -- ',
   `-- Open source system`, 
-  `--- automating deployment`,
-  `--- scaling`,
-  `--- management`,
-  `---- containerized appns`
+  `---- automating deployment`,
+  `---- scaling`,
+  `---- management`,
+  `------- containerized appns`
     ],
     ['- Ang Versions',
     `Ang 14 TS 4.7 - Strictly typed Reactive Forms | 
