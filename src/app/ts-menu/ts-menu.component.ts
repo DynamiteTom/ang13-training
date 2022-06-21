@@ -574,6 +574,7 @@ const subTopics = [
       '----- ng build',
       '----- ng update',
       '----- ng serve',
+      '------- uses build dev-server',
       '----- ng test',
       '----- hg help',  
       ' -- ',
@@ -1570,7 +1571,10 @@ const subTopics = [
     '- CI - Continuous Integration',
     '- CD - Continuous Development', 
     '- CD - Continuous Delivery', 
-    '-- Jenkins'],
+    '-- Jenkins',
+    '-- TeamCity',
+    '-- Artifactory'
+    ],
     ['Webpack', 
     '- CLI build process',
     '-- TS to JS',
@@ -2192,6 +2196,10 @@ const subTopicsInfo = [
   <br/>Angular Universal
   <br/>Flex-layout
   `,
+  `JS Framework 
+    <br/>akin to ReactJS and Vue 
+    
+  `,
   `- SPA (Single Page Appn) Web Framework - 
    `,
   '- mobile-laptop-desktop', 
@@ -2224,6 +2232,7 @@ const subTopicsInfo = [
          <br/>--- ng build
          <br/>--- ng update
          <br/>--- ng serve
+         <br/>------- uses build dev-server
          <br/>--- ng test
          <br/>--- ng help
          <br/>
@@ -2256,10 +2265,42 @@ const subTopicsInfo = [
   '----- server - test locally - default port - localhost:4200',
   '-------- ng add | ng generate - uses schematics to create library',
  '--------- schematics', 
- '--- uses ng-packagr - to produce npm packages in APF format',
- '--- uses webpack behind the scenes - to minify and speed up appn',
+ `--- uses ng-packagr - to produce npm packages in APF format
+ <br/> ---- 
+ `,
+ `--- CLI uses Webpack behind the scenes - to minify and speed up appn 
+    <br/>--- is a module bundler with its main purpose is to bundle JS files for usage in a browser
+    <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
+    <br/>
+    <br/>Once installed you can interact with webpack either with CLI or API
+    <br/> 
+    <br/>A tool that lets you compile JS modules
+     <br/> 
+     <br/>It generates 1 file (or a few files) to run your app
+     <br/>
+     <br/>npm install --save-dev webpack 
+     <br/>
+     <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
+     <br/>- performs clever static analysis of the AST of your code - 
+     <br/>- has an evaluation engine to evaluate simple expressions - supports most libraries out of the box
+     <br/>
+     <br/>Code Splitting - lets you split your codebase - into multiple chunks 
+     <br/>
+     <br/> - Chunks are loaded asynchronously at runtime - Reduces the initial loading time
+     <br/>
+     <br/>Optimizations - Webpack can do many optns to reduce the output size of your JS by dedup freq used modules - minifying and giving you full control of what is loaded initially
+     <br/>- and what is loaded at runtime through code splitting 
+     <br/>
+     <br/>- It can also make your code chunks cache friendly by using hashes  
+     <br/>
+     <br/>Has a rich plugin interface - very flexible - 
+     <br/>
+     <br/>Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
+     <br/>
+     <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
+    `,
  ' -- ', 
- `-- main parts - Components - Directives - Pipes - Services - Modules 
+ `-- >main parts - Components - Directives - Pipes - Services - Modules 
  `,
   '--- Components',
   '----- has a template',
@@ -2273,10 +2314,21 @@ const subTopicsInfo = [
 
   '--- Services',
   '----- injected into constructor',
-  '----- DI',
+  `- DI (Dependency Injection) - is a design pattern 
+        <br/>-- in which a class requests dependencies from external sources 
+        - (wrt creatng them) 
+      <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+      <br/>---- First injector found - configured with a provider (matching) - supplies the dependency
+  `,
   '-------- Injector tree',
-
-  '--- Modules',
+  `--- NgModule - is a class marked by the @NgModule decorator 
+    <br/>----- takes a metadata object that describes how to compile a components template 
+    <br/>----- and how to create an injector at runtime 
+    <br/> 
+    <br/>----- configure the injector and the compiler and help organize related things together
+    <br/> 
+    <br/>----- Modules can of course be lazy loaded too!
+    `,
   '----- @NgModule',
   '----- Bootstrapping',
   '----- Ang AppModule - root',
@@ -2289,11 +2341,34 @@ const subTopicsInfo = [
             appRef.bootstrap(AppComponent); // Or some other component
         }
     }`,
-  '------- Lazy Loading',
+  `------- Lazy Loading
+  <br/>
+  `,
   ' -- ',
   `ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI
   `,
-  '- TypeScript',
+  `TypeScript - JS with the power of types - 
+      <br/>data types - number | string | boolean | Array | 
+      <br/>---- null | undefined
+      <br/>---- helps avoid static type errors - discover at Compile time (not runtime)
+      <br/> 
+      <br/>- Object Oriented Language
+      - strongly typed and uses inferred types 
+      - interfaces and types   
+      <br/>
+      <br/>A Strongly Typed Programming Language
+      <br/>- Can be used in any browser or JS engine (ES6) ie. Node.js   
+      <br/>
+      <br/>tsc transpiles ts down to .js files 
+      <br/>--- run in the browser 
+      <br/>
+      <br/>-- Compile time Type Checking 
+      <br/>
+      <br/>uses tsconfig.json - configures TS
+      <br/>--- compilerOptions and AngularCompilerOptions
+      <br/>
+      <br/>tooling - auto-completion | navigation | refactoring - 
+  `,   
   '--- tsc - TypeScript Compiler',
   '----- transpilation',
   '--- tsconfig.json',
@@ -2301,7 +2376,66 @@ const subTopicsInfo = [
   ' -- ',
   '- Template Ref Variables',
   ' -- ',
-  '- Data Binding',
+  `-- Data Binding - Interpolation {{}} | Property Binding []| Event Binding ()| Two way Binding [()]
+  <br/>
+  <br/>---- Interpolation - embedding expressions into marked up text 
+  <br/>------ Default uses {{ x }} as delimiters
+  <br/>------- allows you to incorporate calculated strings into the text 
+  <br/>--------- between HTML element tags and within attribute assignments      
+  <br/> -- 
+  <br/>---- Property binding - [] 
+    <br/>--- Properties are features of DOM nodes 
+    <br/>----- from view target to data source
+    <br/>------- RHS of binding is a template expression
+    <br/>--------- It should equate type of value - number | string| etc
+    <br/>----- Ex Property Binding
+    <br/>-------- @Input() childItem=''; // string
+    <br/>---------using selector
+    <br/>------------ &lt;app-item [childItem]='parentItem'>&lt;/app-item>
+    <br>//------------ eg parentItem = 'lamp'
+    <br/>
+    <br/>-------- passing an Object eg array
+    <br/>---------- @Input() items: Item[] = [];
+    <br/>------------ &lt;app-item [items]='currentItems'>&lt;/app-item>
+    <br/> -- 
+    <br/>-- Event Binding - () to fire an event 
+    <br/>---- @Output() - lets a child send data to the parent component
+    <br/>   
+    <br/>---- EventEmitter() - should have a type of EventEmitter()
+    <br/>------- @Output() newItemEvent = new EventEmitter<string>()
+    <br/>
+    <br/>--------- We call the emit() on the @Output() variable
+    <br/>-------------- this.newItemEvent.emit('Hello World');
+    <br/> -- 
+    <br/>-- Two Way Data Binding [()] - 
+    <br/>---- will help users to exchange data 
+    <br/>------ from the component to view
+    <br/>------ and from view to the component [()] 
+    <br/>---- Two way data binding can be achieved using an ngModel directive
+    <br/>------- [(ngModel)] - requires the FormsModule in AppModule
+    <br/>
+    <br/>---- or using Custom Two Way Data Binding
+    <br/>export class SizerComponent {
+      <br/>
+      <br/>@Input()  size!: number | string;
+      <br/>@Output() sizeChange = new EventEmitter&lt;number>();
+      <br/> 
+      <br/>dec() { this.resize(-1); }
+      <br/>inc() { this.resize(+1); }
+      <br/>
+      <br/> resize(delta: number) {
+        <br/>this.size = Math.min(40, Math.max(8, +this.size + delta));
+        <br/>this.sizeChange.emit(this.size);
+        <br/>}
+        <br/>}
+        <br/>
+  <br/>
+  <br/>&lt;app-sizer [(size)]="fontSizePx">&lt;/app-sizer>
+  <br/>
+  <br/>In app.component  
+  <br/>&lt;app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event">&lt;/app-sizer> 
+  <br/>&lt;div [style.font-size.px]="fontSizePx">Resizable Text&lt;/div>
+    `,
     '--- interpolation {{ x }}',
     '--- property binding []',
     '--- event binding ()',
@@ -2317,13 +2451,23 @@ const subTopicsInfo = [
     '----- mixins',
      ' -- ',
     
-     '- Routing',
-    '--- URLs', 
+     `Routing - ComponentRouter - to handle the navigation from 1 view to the next 
+     <br/>- Interpreting browser URLs as an instn to change view -
+     <br/>ng new ang-app --routing --defaults 
+     <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
+     <br/>We can use ActivatedRoute and to get data about the Routes
+    <br/>&lt;router-outlet>&lt;/router-outlet> lets us position the routing infon in our Component template -
+    <br/>   
+     <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
+     <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
+     <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
+     `, 
+     '--- URLs', 
     '------ Routes path:\'x\' - component', 
     '-------- <base href=\/"\">', 
     '-------- HTML5 Urls', 
     '------ router-outlet', 
-    '------outerLink',   
+    '------routerLink',   
    ' -- ',
    '- Decorators',
     '----- metadata',
@@ -3303,6 +3447,8 @@ for (let x of cars) {
          <br/>---- Actions - Create | Rename|   Overwrite | Delete
          <br/>---- Each schematic runs in a context - SchematicContext object 
          <br/>  
+        <br/>--- Schematic JSON Schema file <schematic>/schema.json file 
+        <br/> --
          <br/> uses Webpack 
         <br/>--- behind the scenes - no webpack.config.js file to use
         <br/>
@@ -3359,7 +3505,13 @@ for (let x of cars) {
       '----------  base + staging area (changes)',
       '--------  Rule object = transformations',
       '--------  4 Actions - Create | Rename | Overwrite | Delete',
-      '--------  SchematicContext',
+      `--------  SchematicContext - Each Schematic runs in a context repd by a SchematicContext object 
+      <br/>------- The context object passed into a rule provides access to utility ftns + metadata - wrt schematic 
+      <br/>---------- including logging API to help debugging
+      <br/>-----------also defines a merge strategy - staged tree to base tree      
+      <br/>----- Packaging schematics with libraries - lets you integrate them with CLI
+      <br/>----- Schematics can be chained
+      `,
       '---------- logging API',
       '------------  merge strategy',
       ' -- ',
@@ -3465,14 +3617,15 @@ for (let x of cars) {
     <br/>--- Event Binding ()
     <br/>--- Two way data binding [()] 
     <br/>
-    `,
-    `- String sinterpolation {{x}} - from data source to target view
-    
+    <br/>- String sinterpolation {{x}} - from data source to target view
     `,    
     `-- {{ val }}
     <br/>
     `,
-    `- Property binding - [] 
+    `- String sinterpolation {{x}} - from data source to target view
+      <br/>
+      <br/>---- {{ val }}
+      <br- Property binding - [] 
     <br/>--- Properties are features of DOM nodes 
     <br/>----- from view target to data source
     <br/>------- RHS of binding is a template expression
@@ -5486,9 +5639,97 @@ for (let x of cars) {
     ],
     ['Why CI/CD', 
   '- CI - Continuous Integration',
-  '- CD - Continuous Development', 
-  '- CD - Continuous Delivery', 
-  '-- Jenkins'],
+  '---- is a DevOps SD Practice   ',
+  '------ is practice of automating integration of code changes',
+  '-------- from multiple contributers into 1 S/W project',
+  '------- Developers merge code changes to central repository',
+  '--------- After which automated builds and tests are run',
+  '------- CI is generally used alongside an agile S/W dev\'t workflow',
+  '--------- org\'n compiles a list of tasks - comprising product roadmap',
+  '----------- Tasks allocated to diff team members',
+  '---- CI lets orgns scale engineering team size | codebase size | infrastructure',
+  '------ helps build DevOps and agile workflows',
+  '------- Faster feedback on Business decisions is a side effect of CI',
+  '--- TDD (Test Driven Devt) - ',
+  '--- Bamboo - ',
+  '--- JIRA - agile | DevOps project management tools',
+  
+  ' -- ',
+  '- CD - Continuous Delivery Pipeline', 
+  '---- is a S/W Engineering approach to produce S/W in short cycles',
+  '---- ensures S/W can be released at any time',
+  '------ releasing code automatically',
+  '-------- aims at building | testing | releasing S/W',
+  '----------- with greater speed and accuracy',
+  ' -- ',
+  '- CD - Continuous Deployment Pipeline', 
+  '---- is a S/W Engineering approach to produce S/W in short cycles',
+  '---- with Automated deployments',
+  ' -- ',
+  '-- Jenkins',
+  '----- open source Automation Server',
+  '------- automates build | test | deploy S/W',
+  '----- largest CI/CD platform',
+  '----- simplest way to do CI/CD',
+  '-------- faster and robust tools',
+  '-------- integrate entire chain',
+  '----- open source automation server',
+  '----- DevOps tool written in Java',
+  '----- used to imp workflows (pipelines)',
+  '----- simple to set up CI/CD',
+  '----- FREE',
+  '----- Pipelines',
+  '-------- Create a pipeline script',
+  '-------- branch sources can be Git|Subversion',
+  '-------- Add plugins for more features and restart Jenkins',
+  '----------- Blue Ocean plugin - latest greatest',
+  '----------- C/C++ plugin',
+  '-------- Jenkinsfile',  
+  '-------- check it into your repository',
+  '-------- nightly builds',
+  ' -- ',
+  '-- TeamCity',
+  '---- a Build Management and CI Server (JetBrains)',
+  '---- DevOps centric teams',  
+  '---- Build faster wrt Jenkins with fewer bugs',
+  '---- Flexibility',
+  '---- FREE',
+  '------ licence needed > 3 agents and 100 builds',
+  '--------- 3 agents and 100 builds',
+  '------- complex UI',
+  '------- upgrade is tedious',
+  '---- no need for plugins',
+  '---- automated way to buid + test',
+  '---- easy to set up and configure',   
+  '---- cross platform',
+  '---- notifies of build failures',
+  '-------- details the reasons',
+  '---- reduces code integration problems',
+  '---- more effective teamwork',
+  '-----versions',
+  '-------- Cloud',
+  '-------- Professional',
+  '-------- Enterprise',
+  ' -- ',
+  `-- Bitbucket pipelines (Atlassian) - automate code from test to production - integd with Bitbucket cloud
+  <br/> ---- BitBucket cloud - is a Git based code and CI/CD tool
+  <br/> ---- Git based source code repository - hosting service 
+  <br/> ---- optimized for teams using Jira  
+  
+  `,
+  ' -- ',
+  `-- Github - 
+  <br/> 
+  <br/>
+  `,
+  ' ----',
+  ' -- ',
+  `-- Travis CI
+  `,
+
+  ' -- ',
+  '-- Artifactory'
+    ],
     [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
     <br/> 
     <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
