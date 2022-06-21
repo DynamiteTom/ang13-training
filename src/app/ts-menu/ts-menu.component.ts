@@ -103,18 +103,10 @@ const features = `
 
 const subTopics = [
    ['Angular',
-    'JavaScript Framework',
-    '- SPA', 
-   '- mobile-laptop-desktop',
-    '- Front End appns',
+    '- JSF |  SPA | Front End appns', 
     ' -- ',
     '- Angular/CLI',
-    '--- Command Line Interface',
-    '----- initialise',
-    '----- develop',
-    '----- scaffold',
-    '----- maintain',
-    '--- server - test locally',
+     '--- server - test locally',
     '------ ng add | ng generate',
     '--------- schematics',
     ' --- uses ng-packagr',
@@ -122,12 +114,8 @@ const subTopics = [
     ' -- ',
     '- main parts',
     '--- Components',
-    '----- uses a template',
     '--- Directives',
-    '-------- no template',
     '--- Pipes',
-    '----- Pure pipes',
-    '----- Impure pipes',
     '--- Services',
     '----- inject into constructor',
     '------- DI',
@@ -150,10 +138,6 @@ const subTopics = [
     '- Template Ref Variables',
     ' -- ',
     '- Data Binding',
-    '--- interpolation {{}}',
-    '--- property binding []',
-    '--- event binding ()',
-    '--- 2 way binding [()]',
     ' -- ',
     '- Styles css',
     '--- CSS',
@@ -2198,16 +2182,14 @@ const subTopicsInfo = [
   `,
   `JS Framework 
     <br/>akin to ReactJS and Vue 
-    
-  `,
-  `- SPA (Single Page Appn) Web Framework - 
+   SPA (Single Page Appn) Web Framework 
+   <br/>
+   <br/>  mobile-laptop-desktop
+   <br/>primarily used for writing Front End Appns 
+   <br/>--- written in TypeScript 
+   <br/>--- which are then transpiled to JS 
+   <br/>-------to run on the browser
    `,
-  '- mobile-laptop-desktop', 
-  `- primarily used for writing Front End Appns 
-  <br/>--- written in TypeScript 
-  <br/>--- which are then transpiled to JS 
-  <br/>-------to run on the browser
-  `,
   ' -- ',
   `Angular CLI (Command Line Interface) tool - 
         <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
@@ -2257,11 +2239,6 @@ const subTopicsInfo = [
          <br/>
          <br/>---- Custom Webpack configuration - 
   `,
-  '--- Command Line Interface',
-  '----- initialise',
-  '----- develop',
-  '----- scaffold',
-  '----- maintain',
   '----- server - test locally - default port - localhost:4200',
   '-------- ng add | ng generate - uses schematics to create library',
  '--------- schematics', 
@@ -2302,18 +2279,106 @@ const subTopicsInfo = [
  ' -- ', 
  `-- >main parts - Components - Directives - Pipes - Services - Modules 
  `,
-  '--- Components',
-  '----- has a template',
-  
-  '--- Directives',
-  '------- no template',
-  
-  '--- Pipes',
-  '----- Pure',
-  '----- Impure',
-
-  '--- Services',
-  '----- injected into constructor',
+ `Components are the most important part of an Ang appn 
+ - they have a @Component decorator with a selector - template and optional style
+ <br/>
+ - They must have a template - either internal or external with HTML   
+   <br/>
+   <br/>The class can have constructor - properties - methods - events 
+   <br/>
+   <br/>Can import services into the constructor using DI 
+   <br/>
+   <br/>Data binding - interpolation {{}} | property [] | event () | [( ngModel )]  
+   <br/>Can have child Components and use @Input() / @Output() with EventEmitter()
+   <br/>
+   <br/>Life Cycle Hooks define how the Component operates from creation to destruction
+   <br/>- most common ngOnInit()
+   <br/>
+   <br/>Component Tree - each component has a ChangeDetector - to react to changes and ensure View is correct
+   <br/>Style of the parts of the data - 
+   <br/>
+   <br/>Best to store Component data as immutable Observables which can then be manipulated using RxJS library
+   <br/>
+   <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
+   <br/>can use this to ref data or methods in the Component - 
+ `,
+ `Directives - are classes that add extra behavior to elements in Angular appns 
+ <br/>
+ <br/>--- Cant have a template - (unless a Component) 
+ <br/>
+ <br/>--- let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
+ <br/>
+ <br/> decorator @Directive({}) 
+ <br/>
+ <br/>--- 3 types - attribute | template | Components -  
+ <br/>
+ <br/>----- template directives
+ <br/>--------- *ngIf
+ <br/>----------- Selection true or false
+ <br/>
+ <br/>--------- *ngFor
+ <br/>----------- iterable of items
+ <br/>
+ <br/>--------- *ngSwitch
+ <br/>
+ <br/>--------- &lt;ng-template>
+ <br/>------------- determines when to show
+ <br/>------------- &lt;ng-container>
+ <br/>------------- &lt;ng-content>
+ <br/>------------- &lt;ngTemplateOutlet>    
+ `,
+ `Why Pipes - transform data in the template
+   <br/>pure and impure - decoraor - @Pipe() 
+   <br/>- used in a template HTML to modify data 
+   <br/>
+   <br/> -- 
+   <br/>-- inbuilt Pipes
+   <br/>----- DatePipe
+   <br/>----- CurrencyPipe
+   <br/>----- DecimalPipe
+   <br/>----- UpperCasePipe
+   <br/>----- LowerCasePipe
+   <br/>----- Percent  Pipe
+   <br/>
+   <br/>----- async Pipe
+   <br/>----- json Pipe
+   <br/>
+   <br/>---2 types 
+   <br/>------ Pure Pipes
+   <br/>--------- only use CD on branch with Directive
+   <br/>--------- are much faster
+   <br/>
+   <br/>------ Impure Pipes
+   <br/>--------- run CD on whole appn 
+   <br/>--------- are much slower
+   <br/>
+   <br/>--- Custom Pipes - @PipeTransform with transform()
+   `,
+   `Services and Dependency Injection 
+   <br/> - implemented as a simple class with @Injectable({}) decorator - 
+     - <br/>ng g s my-service
+     - <br/>can be reussssed in several different Components so data can be shared 
+     - <br/>We can have nested services -  
+     <br/>
+     <br/>A provider is an instruction to the DI (Dep Injection) system 
+     <br/>on how to obtain a value for a dependency
+     <br/>
+     <br/>- most of the time these dependencies are services 
+     <br/>that you create and provide
+     <br/>
+     <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
+     - <br/>- ng g s my-service
+     <br/> 
+     <br/>providedIn? - determines which injectors will provide the injectable 
+     - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+     <br/>      
+     - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+     <br/>
+     - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
+     <br/>
+     - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+     `,  
+    '----- injected into constructor',
   `- DI (Dependency Injection) - is a design pattern 
         <br/>-- in which a class requests dependencies from external sources 
         - (wrt creatng them) 
@@ -2436,10 +2501,6 @@ const subTopicsInfo = [
   <br/>&lt;app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event">&lt;/app-sizer> 
   <br/>&lt;div [style.font-size.px]="fontSizePx">Resizable Text&lt;/div>
     `,
-    '--- interpolation {{ x }}',
-    '--- property binding []',
-    '--- event binding ()',
-    '--- 2 way binding [()]',
     ' -- ',
     '- Styles css | SCSS| SASS',
     '--- CSS',
