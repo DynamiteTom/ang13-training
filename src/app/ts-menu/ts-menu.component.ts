@@ -114,10 +114,10 @@ const subTopics = [
     ' -- ',
     '- main parts',
     '--- Components',
+    '----- templateUrl| template',
     '--- Directives',
     '--- Pipes',
     '--- Services',
-    '----- inject into constructor',
     '------- DI',
     '--------- injection tree',
     '--- Modules',
@@ -149,7 +149,6 @@ const subTopics = [
     '----- mixins',
     ' -- ',
     '- Routing',
-    '--- URLs', 
     '------ Routes path:\'x\' - component', 
     '-------- <base href=\/"\">', 
     '-------- HTML5 Urls', 
@@ -707,7 +706,6 @@ const subTopics = [
      '- ngOnDestroy()'
     ],
     ['ComponentRouter', 
-    '- URLs', 
     'Routes path:\'x\' - component', 
     '<base href=\/"\">', 
     '-- HTML5 Urls', 
@@ -764,7 +762,8 @@ const subTopics = [
     '--- [()]', 
    ], 
     [' -- '],
-    ['Lazy Loading','- Modules',
+    ['Lazy Loading',
+    '- Modules',
     '-- browser URL',
     '-- forChild','-- children', 
     '--- Feature Modules',
@@ -1853,7 +1852,13 @@ const subTopics = [
   '---- security of cert + conn\'n'
 ],
 ['How - Angular Performance - ','largest contentful paint', '',
-    'Lazy Loading','Angular Universal','PWA-SW','Ivy', 'AOT Compilation','Tree-Shaking', 'Modern Angular'
+    'Lazy Loading',
+    'Angular Universal',
+    'PWA-SW',
+    'Ivy', 
+    'AOT Compilation',
+    'Tree-Shaking', 
+    'Modern Angular'
 ],
 ['SourceMap Explorer', 
   'sourceMaps: true'
@@ -2279,10 +2284,14 @@ const subTopicsInfo = [
  ' -- ', 
  `-- >main parts - Components - Directives - Pipes - Services - Modules 
  `,
- `Components are the most important part of an Ang appn 
- - they have a @Component decorator with a selector - template and optional style
+ `- Components are the most important part of an Ang appn 
+ <br/>--- they have a @Component decorator with a selector - template and optional style
+ <br/>----- selector: - 
+ <br/>----- templateUrl: 'extUrl' | template: \` Hello world \` 
+ <br/>----- styles or styleUrls metadata
  <br/>
- - They must have a template - either internal or external with HTML   
+ 
+ <br/> - They must have a template - either internal or external with HTML   
    <br/>
    <br/>The class can have constructor - properties - methods - events 
    <br/>
@@ -2301,6 +2310,14 @@ const subTopicsInfo = [
    <br/>
    <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
    <br/>can use this to ref data or methods in the Component - 
+ `,
+ `--- templateUrls 
+ <br/>----- exernal url
+ <br/>
+ <br/>--------  or
+ <br/> 
+ <br/>----- template
+ <br/>----- \` My Info \`
  `,
  `Directives - are classes that add extra behavior to elements in Angular appns 
  <br/>
@@ -2378,7 +2395,6 @@ const subTopicsInfo = [
      <br/>
      - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
      `,  
-    '----- injected into constructor',
   `- DI (Dependency Injection) - is a design pattern 
         <br/>-- in which a class requests dependencies from external sources 
         - (wrt creatng them) 
@@ -2406,10 +2422,15 @@ const subTopicsInfo = [
             appRef.bootstrap(AppComponent); // Or some other component
         }
     }`,
-  `------- Lazy Loading
-  <br/>
-  `,
-  ' -- ',
+    `Lazy Loading - is the process of loading Components | Modules | other assets 
+    <br/>--- as they are required 
+    <br/>----- NgModules can be lazy loaded -
+    <br/>
+    <br/>------ with a SPA normally loads of unneccesary things are loaded at once
+    <br/>----------- eg libraries and modules 
+    <br/>--------------- load time increases 
+    `, 
+     ' -- ',
   `ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI
   `,
   `TypeScript - JS with the power of types - 
@@ -2505,7 +2526,71 @@ const subTopicsInfo = [
     '- Styles css | SCSS| SASS',
     '--- CSS',
    '----- Box Model',
-    '--- SCSS pre-compiler',
+   ' -- ', 
+   `--- SCSS (Sassy CSS) (Syntactically Awesome StyleSheets)  pre-compiler
+    <br/>------ CSS with SuperPowers
+    <br/>------ most mature | stable| powerful | professional grade CSS extn language
+    <br/>------ uses block formatting like CSS with { and ; } 
+    <br/>
+    <br/>Styles of larger projects are usually divided into partials
+    <br/>-- to make it easier to find the code you need to target
+    <br/>-- makes project easier to manage and make changes 
+    <br/>--
+    <br/>-- Partials can be loaded inside other stylesheets to create global styles  
+    <br/>----- for Components and sections - on your site
+    <br/>------- helps to keep code DRY and readable
+    <br/>--
+    <br/>@import - lets you import SASS/CSS into another stylesheet
+    <br/>
+    <br/>@use lets us break our stylesheet into more practical smaller sections 
+    <br/>--- and load them inside other stylesheets
+    <br/>--- keeps projects organized and tidy and avoid CSS conflicts | bugs   
+    <br/>--- refer to namespace of original files 
+    <br/>
+    <br/// _button.scss
+    <br/
+    <br/$padding: 1rem;
+    <br///_box.scss
+    <br/
+    <br/@use 'button';
+    <br/
+    <br/.boxButton {  padding: button.$padding; // 1rem;
+    <br/}
+    <br///_newBox.scss
+    <br/
+    <br/@use 'box';
+    <br/
+    <br/.newBoxButton {  padding: button.$padding; // ???
+    <br/}
+    <br/
+    <br/>//_box.scss
+
+@use 'button';
+<br/>
+    <br/>--------- @Forward rule - lets you gain access to members through another file 
+    <br/>
+    @forward 'button'; // recreates the variable from _button.scss inside the current file
+<br/>
+<br/>.boxButton { padding: button.$padding; // 1rem;
+<br/>}
+<br/>//_newBox.scss
+<br/>
+<br/>@use 'box';
+<br/>
+<br/>.newBoxButton { padding: box.$padding // 1rem;
+<br/>}
+<br/>
+
+    <br/>
+    <br/>
+    <br/>------ Features
+
+    <br/>--------- functions
+    <br/>--------- mixins
+    <br/>--------- nesting
+    <br/>--------- functions
+       
+   `,
     '----- variables',
     '----- methods',
     '----- inheritance',
@@ -2522,8 +2607,7 @@ const subTopicsInfo = [
      <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
      <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
      <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
-     `, 
-     '--- URLs', 
+     `,
     '------ Routes path:\'x\' - component', 
     '-------- <base href=\/"\">', 
     '-------- HTML5 Urls', 
@@ -2532,7 +2616,7 @@ const subTopicsInfo = [
    ' -- ',
    '- Decorators',
     '----- metadata',
-    `----- TypeScript features - 
+    `----- TS features - 
     <br/>@Component() | @Directive() | @Pipe() | @Injectable | @NgModule
     `, 
     `--- Std list decorators - class | property | method| parameter
@@ -2559,7 +2643,6 @@ const subTopicsInfo = [
     ' -- ',
     `- Services and DI - 
      Services are the provider from Injector hierarchy
-    
     `,
     `--- DI (Dependency Injection) 
      - to avoid ext dependencies threats - 
@@ -4053,10 +4136,17 @@ for (let x of cars) {
      `
     ], 
      [' -- '],
-     [`Lazy Loading - 
+     [`Lazy Loading - is the process of loading Components | Modules | other assets 
+     <br/>--- as they are required 
+     <br/>----- NgModules can be lazy loaded -
+     <br/>
+     <br/>------ with a SPA normally loads of unneccesary things are loaded at once
+     <br/>----------- eg libraries and modules 
+     <br/>--------------- load time increases 
      `, 
      '-- Initially only Modules could be Lazy Loaded (but now Components can too)', '-- browser URL','RouterModule.forChild()',
     'children', 
+
     `- Feature Modules - import CommonModule instead of BrowserModule (imported once in the root)
     `,
     `ng g m CustFeature - creates a Module called CustFeatureModule 
