@@ -36,8 +36,9 @@ const features = `
     'Ivy_Locality', 
     'View-Engine',
     'Template Rendering',
-    'Promises_Observables',
-    'Observables_Subjects',
+    'Promises',
+    'Observables',
+    'Subjects',
     'RxJS_',
     'Higher-Order-Mapping-ftns',
     'Forms',
@@ -105,6 +106,18 @@ const subTopics = [
    ['Angular',
     '- JSF |  SPA | Front End appns', 
     ' -- ',
+    '- main parts',
+    '--- Components',
+    '----- templateUrl| template',
+    '--- Directives',
+    '--- Pipes',
+    '- Services & DI',
+    '--- DI (Dependency Injection)',
+    '----- Injector Hierarchy | tree',
+    '------- dependency - Provider',  
+    ' -- ',
+    '--------- injection tree',
+    ' -- ',
     '- Angular/CLI',
      '--- server - test locally',
     '------ ng add | ng generate',
@@ -112,15 +125,8 @@ const subTopics = [
     ' --- uses ng-packagr',
     ' --- uses webpack',
     ' -- ',
-    '- main parts',
-    '--- Components',
-    '----- templateUrl| template',
-    '--- Directives',
-    '--- Pipes',
-    '--- Services',
-    '------- DI',
-    '--------- injection tree',
     '--- Modules',
+    '----- Diff Ang Module| ESM',
     '----- @NgModule',
     '----- Bootstrapping',
     '----- Ang AppModule - root',
@@ -133,51 +139,42 @@ const subTopics = [
     '------ tsc TS compiler',
     '---------transpilation',
     '------ tsconfig.json',
-    '--- TS Libraries',
+   '--- TS Libraries',
     ' -- ',
     '- Template Ref Variables',
     ' -- ',
     '- Data Binding',
     ' -- ',
-    '- Styles css',
-    '--- CSS',
-    '----- Box Model',
-    '--- SCSS pre-compiler',
-    '----- variables',
-    '----- methods',
-    '----- inheritance',
-    '----- mixins',
+    '- Life Cycle Hooks',
     ' -- ',
     '- Routing',
-    '------ Routes path:\'x\' - component', 
-    '-------- <base href=\/"\">', 
-    '-------- HTML5 Urls', 
-    '------   router-outlet', 
-    '------ routerLink',   
+    ' -- ',
+    '- Styles CSS|SCSS',
+    ' -- ',
+    '- Promises',
+    '- Observables',
+    '- Subjects',
     ' -- ',
     '- Decorators',
-    '----- metadata',
-    '----- TypeScript features',
-    '--- Std decorators',
-    ' ----- Class Decorators',
-    ' ----- Property Decorators',
-    ' ----- Method Decorators',
-    ' ----- Parameter Decorators',
+    '---- @ViewContainerRef',
+    '---- @ViewChild',
+    '---- @ContentChild',
+    '---- Content Projection',
+   ' -- ',
+   '- Template Forms',
+   '- Reactive Forms',
    ' -- ',
     '- Change Detection',
-    '--- zone.js',
-    '----- NgZone',
-    '------- OnPush',
     ' -- ',
-    '- Services & DI',
-    '--- DI (Dependency Injection)',
-    '----- Injector Hierarchy | tree',
-    '------- dependency - Provider',  
     '--- design pattern',
     ' -- ',
-    'Angular Universal',
-    '-- Server Side Angular',
-    '---- Add ons'
+    '--- ngrx - State Managmt',
+    ' -- ',
+    '--- Angular Material',
+    '--- Angular/elements', 
+    '--- Angular/PWA/SW',
+    '--- Angular Universal',
+    '--- Angular/WebWorkers'
     ],
     ['Components - ',
     '--- @Component({})',
@@ -645,8 +642,11 @@ const subTopics = [
     ' -- ',     
     '-- Z-index', 
     ' -- ',     
-    'inline - ext', 'ngStyle','ngClass', 
-     ' -- ','- SCSS - variables etc.',
+    'inline - ext', 
+    'ngStyle',
+    'ngClass', 
+     ' -- ',
+     '- SCSS - variables etc.',
      '--- variables', 
      '--- functions()', 
      '--- mixins',
@@ -691,7 +691,8 @@ const subTopics = [
      '---- 1: app.js',
      '---- 2: vender.js'
     ],
-    ['Life Cycle Hooks','- Instantiates class',
+    ['Life Cycle Hooks',
+    '- Instantiates class',
     '- Renders View + Child',
     '- Change detection',
     '- Updates View + Comp Instance',
@@ -2110,6 +2111,27 @@ const subTopicsInfo = [
   <br/>
   <br/>LCH (Life Cycle Hooks)
   <br/>
+  <br/>Promises - 
+  
+  <br/>Observables - 
+  <br/>--- Observables and the RxJS operators can manipulate 
+  <br/>----- streams of data over time 
+  <br/>
+  <br/>--- like promises handling async requests 
+  <br/>--- handle multiple events - 
+  <br/>------ cancellable (wrt a promise)
+  <br/>--- can be Hot (always emitting) | Cold (only when subscrubed to)
+  <br/>
+  <br/>--- can use RxJS to manipulate Observables
+  <br/>
+  <br/>--- Subscribe() works on Cold Observables to get at the data
+  <br/>
+  <br/>--- can work with Subscribers to create multicasting Observables
+    -
+  <br/>----- and use Subjects to aid working with them -
+  <br/>-------simplifying subscription and allow 
+  <br/>---------multi-casting events around the application. 
+
   <br/>Routing and Component Router -  
   <br/>
   <br/>@Input and @Output
@@ -2130,8 +2152,11 @@ const subTopicsInfo = [
   <br/>
   <br/>Promises
   <br/>
-  <br/>Observables and the RxJS operators can manipulate streams of data over time and use Subjects to aid working with them 
-  <br/>simplifying subscription and allow multi-casting events around the application. 
+  <br/>Observables and the RxJS operators 
+  <br/>--- can manipulate streams of data over time 
+  <br/>---- and use Subjects to aid working with them 
+  <br/>------ simplifying subscription and allow multi-casting events 
+  <br/> --------- around the application. 
   <br/>
   <br/>RxJS (Reactive Extensions)
   <br/>Higher Ordrer Mapping ftns
@@ -2196,6 +2221,134 @@ const subTopicsInfo = [
    <br/>-------to run on the browser
    `,
   ' -- ',
+  `-- main parts - Components - Directives - Pipes - Services - Modules 
+  `,
+  `- Components are the most important part of an Ang appn 
+  <br/>--- they have a @Component decorator with a selector - template and optional style
+  <br/>----- selector: - 
+  <br/>----- templateUrl: 'extUrl' | template: \` Hello world \` 
+  <br/>----- styles or styleUrls metadata
+  <br/>
+  
+  <br/> - They must have a template - either internal or external with HTML   
+    <br/>
+    <br/>The class can have constructor - properties - methods - events 
+    <br/>
+    <br/>Can import services into the constructor using DI 
+    <br/>
+    <br/>Data binding - interpolation {{}} | property [] | event () | [( ngModel )]  
+    <br/>Can have child Components and use @Input() / @Output() with EventEmitter()
+    <br/>
+    <br/>Life Cycle Hooks define how the Component operates from creation to destruction
+    <br/>- most common ngOnInit()
+    <br/>
+    <br/>Component Tree - each component has a ChangeDetector - to react to changes and ensure View is correct
+    <br/>Style of the parts of the data - 
+    <br/>
+    <br/>Best to store Component data as immutable Observables which can then be manipulated using RxJS library
+    <br/>
+    <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
+    <br/>can use this to ref data or methods in the Component - 
+  `,
+  `--- templateUrls 
+  <br/>----- exernal url
+  <br/>
+  <br/>--------  or
+  <br/> 
+  <br/>----- template
+  <br/>----- \` My Info \`
+  `,
+  `Directives - are classes that add extra behavior to elements in Angular appns 
+  <br/>
+  <br/>--- Cant have a template - (unless a Component) 
+  <br/>
+  <br/>--- let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
+  <br/>
+  <br/> decorator @Directive({}) 
+  <br/>
+  <br/>--- 3 types - attribute | template | Components -  
+  <br/>
+  <br/>----- template directives
+  <br/>--------- *ngIf
+  <br/>----------- Selection true or false
+  <br/>
+  <br/>--------- *ngFor
+  <br/>----------- iterable of items
+  <br/>
+  <br/>--------- *ngSwitch
+  <br/>
+  <br/>--------- &lt;ng-template>
+  <br/>------------- determines when to show
+  <br/>------------- &lt;ng-container>
+  <br/>------------- &lt;ng-content>
+  <br/>------------- &lt;ngTemplateOutlet>    
+  `,
+  `Why Pipes - transform data in the template
+    <br/>pure and impure - decoraor - @Pipe() 
+    <br/>- used in a template HTML to modify data 
+    <br/>
+    <br/> -- 
+    <br/>-- inbuilt Pipes
+    <br/>----- DatePipe
+    <br/>----- CurrencyPipe
+    <br/>----- DecimalPipe
+    <br/>----- UpperCasePipe
+    <br/>----- LowerCasePipe
+    <br/>----- Percent  Pipe
+    <br/>
+    <br/>----- async Pipe
+    <br/>----- json Pipe
+    <br/>
+    <br/>---2 types 
+    <br/>------ Pure Pipes
+    <br/>--------- only use CD on branch with Directive
+    <br/>--------- are much faster
+    <br/>
+    <br/>------ Impure Pipes
+    <br/>--------- run CD on whole appn 
+    <br/>--------- are much slower
+    <br/>
+    <br/>--- Custom Pipes - @PipeTransform with transform()
+    `,
+    `Services and Dependency Injection 
+    <br/> - implemented as a simple class with @Injectable({}) decorator - 
+      - <br/>ng g s my-service
+      - <br/>can be reussssed in several different Components so data can be shared 
+      - <br/>We can have nested services -  
+      <br/>
+      <br/>A provider is an instruction to the DI (Dep Injection) system 
+      <br/>on how to obtain a value for a dependency
+      <br/>
+      <br/>- most of the time these dependencies are services 
+      <br/>that you create and provide
+      <br/>
+      <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
+      - <br/>- ng g s my-service
+      <br/> 
+      <br/>providedIn? - determines which injectors will provide the injectable 
+      - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+      <br/>      
+      - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+      <br/>
+      - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
+      <br/>
+      - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+      `,  
+      `- Services and DI - 
+      Services are the provider from Injector hierarchy
+     `,
+     `--- DI (Dependency Injection) 
+      - to avoid ext dependencies threats - 
+   `,
+   '--- Injector Hierarchy | tree',
+   `----- dependency - Provider      
+     <br/>----- configure the injector and the compiler and help organize related things together
+     <br/> 
+     <br/>----- Modules can of course be lazy loaded too!
+     `,
+     `Injection tree - 
+     `,
+   ' -- ', 
   `Angular CLI (Command Line Interface) tool - 
         <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
         <br/>--- Angular apps directly from a Cmd line - prompt 
@@ -2246,7 +2399,26 @@ const subTopicsInfo = [
   `,
   '----- server - test locally - default port - localhost:4200',
   '-------- ng add | ng generate - uses schematics to create library',
- '--------- schematics', 
+ `--------- --- uses Schematics to apply transforms to a web-app project
+ <br/>---- guard against errors by creating a virtual file system      
+ <br/>-------- Virtual File Syste - is repd bu a tree - 
+ <br/>------  Schematic describes a pipeline of transformations applied to Virtual FIle System
+ <br/>------- When schematic is run - transformations are recorded in memory 
+ <br/>---------- only applied to real file system - once checked to be valid
+ <br/>
+ <br/>---- custom schematics - 
+ ------ virtual file system
+ --------  tree
+ ----------  base + staging area (changes)',
+ --------  Rule object = transformations',
+ --------  4 Actions - Create | Rename | Overwrite | Delete',
+ --------  SchematicContext - Each Schematic runs in a context repd by a SchematicContext object 
+ <br/>------- The context object passed into a rule provides access to utility ftns + metadata - wrt schematic 
+ <br/>---------- including logging API to help debugging
+ <br/>-----------also defines a merge strategy - staged tree to base tree      
+ <br/>----- Packaging schematics with libraries - lets you integrate them with CLI
+ <br/>----- Schematics can be chained
+ `, 
  `--- uses ng-packagr - to produce npm packages in APF format
  <br/> ---- 
  `,
@@ -2282,137 +2454,36 @@ const subTopicsInfo = [
      <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
     `,
  ' -- ', 
- `-- >main parts - Components - Directives - Pipes - Services - Modules 
- `,
- `- Components are the most important part of an Ang appn 
- <br/>--- they have a @Component decorator with a selector - template and optional style
- <br/>----- selector: - 
- <br/>----- templateUrl: 'extUrl' | template: \` Hello world \` 
- <br/>----- styles or styleUrls metadata
- <br/>
- 
- <br/> - They must have a template - either internal or external with HTML   
-   <br/>
-   <br/>The class can have constructor - properties - methods - events 
-   <br/>
-   <br/>Can import services into the constructor using DI 
-   <br/>
-   <br/>Data binding - interpolation {{}} | property [] | event () | [( ngModel )]  
-   <br/>Can have child Components and use @Input() / @Output() with EventEmitter()
-   <br/>
-   <br/>Life Cycle Hooks define how the Component operates from creation to destruction
-   <br/>- most common ngOnInit()
-   <br/>
-   <br/>Component Tree - each component has a ChangeDetector - to react to changes and ensure View is correct
-   <br/>Style of the parts of the data - 
-   <br/>
-   <br/>Best to store Component data as immutable Observables which can then be manipulated using RxJS library
-   <br/>
-   <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
-   <br/>can use this to ref data or methods in the Component - 
- `,
- `--- templateUrls 
- <br/>----- exernal url
- <br/>
- <br/>--------  or
- <br/> 
- <br/>----- template
- <br/>----- \` My Info \`
- `,
- `Directives - are classes that add extra behavior to elements in Angular appns 
- <br/>
- <br/>--- Cant have a template - (unless a Component) 
- <br/>
- <br/>--- let us define a different style (attribute) or add or remove parts to HTML (template) but normally dont have templates
- <br/>
- <br/> decorator @Directive({}) 
- <br/>
- <br/>--- 3 types - attribute | template | Components -  
- <br/>
- <br/>----- template directives
- <br/>--------- *ngIf
- <br/>----------- Selection true or false
- <br/>
- <br/>--------- *ngFor
- <br/>----------- iterable of items
- <br/>
- <br/>--------- *ngSwitch
- <br/>
- <br/>--------- &lt;ng-template>
- <br/>------------- determines when to show
- <br/>------------- &lt;ng-container>
- <br/>------------- &lt;ng-content>
- <br/>------------- &lt;ngTemplateOutlet>    
- `,
- `Why Pipes - transform data in the template
-   <br/>pure and impure - decoraor - @Pipe() 
-   <br/>- used in a template HTML to modify data 
-   <br/>
-   <br/> -- 
-   <br/>-- inbuilt Pipes
-   <br/>----- DatePipe
-   <br/>----- CurrencyPipe
-   <br/>----- DecimalPipe
-   <br/>----- UpperCasePipe
-   <br/>----- LowerCasePipe
-   <br/>----- Percent  Pipe
-   <br/>
-   <br/>----- async Pipe
-   <br/>----- json Pipe
-   <br/>
-   <br/>---2 types 
-   <br/>------ Pure Pipes
-   <br/>--------- only use CD on branch with Directive
-   <br/>--------- are much faster
-   <br/>
-   <br/>------ Impure Pipes
-   <br/>--------- run CD on whole appn 
-   <br/>--------- are much slower
-   <br/>
-   <br/>--- Custom Pipes - @PipeTransform with transform()
-   `,
-   `Services and Dependency Injection 
-   <br/> - implemented as a simple class with @Injectable({}) decorator - 
-     - <br/>ng g s my-service
-     - <br/>can be reussssed in several different Components so data can be shared 
-     - <br/>We can have nested services -  
-     <br/>
-     <br/>A provider is an instruction to the DI (Dep Injection) system 
-     <br/>on how to obtain a value for a dependency
-     <br/>
-     <br/>- most of the time these dependencies are services 
-     <br/>that you create and provide
-     <br/>
-     <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
-     - <br/>- ng g s my-service
-     <br/> 
-     <br/>providedIn? - determines which injectors will provide the injectable 
-     - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
-     <br/>      
-     - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
-     <br/>
-     - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
-     <br/>
-     - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
-     `,  
-  `- DI (Dependency Injection) - is a design pattern 
-        <br/>-- in which a class requests dependencies from external sources 
-        - (wrt creatng them) 
-      <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
-      <br/>---- First injector found - configured with a provider (matching) - supplies the dependency
-  `,
-  '-------- Injector tree',
-  `--- NgModule - is a class marked by the @NgModule decorator 
-    <br/>----- takes a metadata object that describes how to compile a components template 
-    <br/>----- and how to create an injector at runtime 
+    `--- Modules - is a mechanism to group
+    <br/>----- components | directives | pipes | services that are related
+    <br/>----- Modules can be combined with other Modules to create an Appn 
+    <br/>
+    <br/>----- Angular loads as a collection of Modules 
+    <br/>
+    <br/>----- NgModule - is a class marked by the @NgModule decorator 
+    <br/>-------- takes a metadata object that describes how 
+    <br/>-------- to compile a components template 
+    <br/>-------- and how to create an injector at runtime 
     <br/> 
-    <br/>----- configure the injector and the compiler and help organize related things together
-    <br/> 
-    <br/>----- Modules can of course be lazy loaded too!
+    <br/>----- configure the injector and the compiler 
+    <br/>-------- and help organize related things together
     `,
-  '----- @NgModule',
-  '----- Bootstrapping',
-  '----- Ang AppModule - root',
+    `-- Diff between JS Module and Angular Module
+    <br/>1: JS Module (ESM) is a file 
+    <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
+    `, 
+  `----- @NgModule
+  <br/>------ base class of Std Angular libraries
+  <br/>------  
+  `,
+  `----- Bootstrapping
+  <br/>------ 
+  <br/>------ 
+
+  `,
+  `----- Ang AppModule - root
+  <br/>
+  `,
   `------- DoBootstrap - hook for manual bootstrapping of the appn
     <br/>--------- ngDoBootstrap()
   `,
@@ -2431,7 +2502,9 @@ const subTopicsInfo = [
     <br/>--------------- load time increases 
     `, 
      ' -- ',
-  `ngc compiler uses tsc (TypeScript) Webpack used by the Angular/CLI
+   `ngc compiler uses tsc (TypeScript) compiler 
+   <br/>------ Webpack used by the Angular/CLI
+   <br/>------ 
   `,
   `TypeScript - JS with the power of types - 
       <br/>data types - number | string | boolean | Array | 
@@ -2460,7 +2533,9 @@ const subTopicsInfo = [
   '--- tsconfig.json',
   '-- TS Libraries  ',
   ' -- ',
-  '- Template Ref Variables',
+  `- Template Ref Variables
+  <br/> ---- uses # to access variables in the templlate
+  `,
   ' -- ',
   `-- Data Binding - Interpolation {{}} | Property Binding []| Event Binding ()| Two way Binding [()]
   <br/>
@@ -2523,11 +2598,76 @@ const subTopicsInfo = [
   <br/>&lt;div [style.font-size.px]="fontSizePx">Resizable Text&lt;/div>
     `,
     ' -- ',
-    '- Styles css | SCSS| SASS',
-    '--- CSS',
-   '----- Box Model',
-   ' -- ', 
-   `--- SCSS (Sassy CSS) (Syntactically Awesome StyleSheets)  pre-compiler
+    `Life Cycle Hooks - A component has a life-cycle that starts when 
+    <br/>Angular instantiates the Component class 
+    <br/>and renders the Component view and child views -
+    <br/>
+    <br/>We can fine tune the hehavior of our components during creatin | update | destruction
+    <br/>
+    <br/>
+    <br/>ngOnChanges - details which properties have changed and how theyve changed  
+    <br/>
+    <br/>ngOnInit - the most common LCH contains initialisation logic for the Component
+    <br/>
+    <br/>ngDoCheck()
+    <br/>
+    <br/>ngAfterContentInit
+    <br/>
+    <br/>ngAfterContentChecked
+    <br/>
+    <br/>ngAfterViewInit
+    <br/>
+    <br/>ngAfterViewChecked
+    <br/>
+    <br/>ngOnDestroy - which is where we place the cleanup logic for the Component
+    `,
+    ' -- ',
+    `Routing - ComponentRouter - to handle the navigation from 1 view to the next 
+    <br/>--- Interpreting browser URLs as an instn to change view -
+    <br/>ng new ang-app --routing --defaults 
+    <br/>
+    <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
+    <br/>We can use ActivatedRoute and to get data about the Routes
+    <br/>
+   <br/>&lt;router-outlet>&lt;/router-outlet> lets us position the routing infon in our Component template -
+   <br/>   
+    <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
+    <br/>
+    <br/>Lazy Loading - 
+    <br/>--- Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
+    <br/>---- We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
+    `,
+    ' -- ',
+    `- Styles CSS | SCSS| SASS
+    <br/>--- Angular uses styles to change various visual features of an el
+    <br/>----- color | background-color | size| width | height | font-weight 
+    <br/>
+    <br/>Units 
+    <br/> - mm | px | pt|  em| rem |   
+    <br/>
+    <br/>mm -  
+    <br/>px -
+    <br/>pt - 
+    <br/>em - rel to font size - 2em means 2 x current font
+    <br/>rem - relative to font size of root el
+    <br/>vw - rel to 1% of width of Viewport 
+    <br/>vh - rel to 1% of height of Viewport 
+    <br/>% - rel to parent el 
+    <br/>
+    <br/>--- CSS Box Model - box that wraps every HTML element
+   <br/>------ Content| Border | Margin | Padding
+   <br/>
+   <br/>---- Border
+   <br/>------- dotted| dashed| solid| double| inset| ridge| none| hidden|
+   <br/>----------- border: 4px dotted blue;
+   <br/>
+   <br/>---- Margin - 
+   <br/>------- margin-top: 100px;
+   <br/>
+   <br/>---- Padding -
+   <br/>------- padding-right: 30px;  
+   <br/>  
+   --- SCSS (Sassy CSS) (Syntactically Awesome StyleSheets)  pre-compiler
     <br/>------ CSS with SuperPowers
     <br/>------ most mature | stable| powerful | professional grade CSS extn language
     <br/>------ uses block formatting like CSS with { and ; } 
@@ -2564,8 +2704,85 @@ const subTopicsInfo = [
     <br/}
     <br/
     <br/>//_box.scss
-
-@use 'button';
+    <br/>
+    <br/>--- A Component can have a style from CSS | SCSS  
+    <br/>----- using style - | styleUrls - Extenral files 
+    <br/>------- Each Component or other El can have an ext CSS | SCSS file
+    <br/>---------- my-col.component.scss -  
+    <br/>
+    <br/>------- defining classes - class="clsBlue"
+    <br/>---------- .clsBlue{ color: blue; }
+    <br/>
+    <br/>------- defining ids - id="idRed"
+    <br/>---------- #idRed{ color: red; }
+    <br/>
+    <br/>---- inline styles - using style=""
+    <br/>------ &lt;my-component style="height:300px; background:gray;">&lt;/my-component>
+    <br/>
+    <br/>------ &lt;button style="padding: 10px" [ngStyle]="{backgroundColor: varNameOrPropName}">{{text}}&lt;/button>
+    <br/>
+    <br/>------ src/styles.scss - global styles to whole appn
+    <br/>-------- in the src folder  
+    <br/>
+    <br/>[ngStyle] - 
+    <br/>&lt;button [ngStyle]="{ color: variableN }">&lt;/button>
+    <br/> 
+    <br/>[ngClass] -
+    <br/>[ngClass]="{'green': row.status === 'GREEN',
+    <br/>
+    <br/>
+   ----- Box Model - box that wraps every HTML element
+   <br/>------ Content| Border | Margin | Padding
+   <br/>
+   <br/>---- Border
+   <br/>------- dotted| dashed| solid| double| inset| ridge| none| hidden|
+   <br/>----------- border: 4px dotted blue;
+   <br/>
+   <br/>---- Margin - 
+   <br/>------- margin-top: 100px;
+   <br/>
+   <br/>---- Padding -
+   <br/>------- padding-right: 30pxl
+   <br/>  
+   <br/>--- SCSS (Sassy CSS) (Syntactically Awesome StyleSheets)  pre-compiler
+    <br/>------ CSS with SuperPowers
+    <br/>------ most mature | stable| powerful | professional grade CSS extn language
+    <br/>------ uses block formatting like CSS with { and ; } 
+    <br/>
+    <br/>Styles of larger projects are usually divided into partials
+    <br/>-- to make it easier to find the code you need to target
+    <br/>-- makes project easier to manage and make changes 
+    <br/>--
+    <br/>-- Partials can be loaded inside other stylesheets to create global styles  
+    <br/>----- for Components and sections - on your site
+    <br/>------- helps to keep code DRY and readable
+    <br/>--
+    <br/>@import - lets you import SASS/CSS into another stylesheet
+    <br/>
+    <br/>@use lets us break our stylesheet into more practical smaller sections 
+    <br/>--- and load them inside other stylesheets
+    <br/>--- keeps projects organized and tidy and avoid CSS conflicts | bugs   
+    <br/>--- refer to namespace of original files 
+    <br/>
+    <br/// _button.scss
+    <br/
+    <br/$padding: 1rem;
+    <br///_box.scss
+    <br/
+    <br/@use 'button';
+    <br/
+    <br/.boxButton {  padding: button.$padding; // 1rem;
+    <br/}
+    <br///_newBox.scss
+    <br/
+    <br/@use 'box';
+    <br/
+    <br/.newBoxButton {  padding: button.$padding; // ???
+    <br/}
+    <br/
+    <br/>//_box.scss
+<br/>
+<br/>@use 'button';
 <br/>
     <br/>--------- @Forward rule - lets you gain access to members through another file 
     <br/>
@@ -2588,81 +2805,400 @@ const subTopicsInfo = [
     <br/>--------- functions
     <br/>--------- mixins
     <br/>--------- nesting
-    <br/>--------- functions
-       
+    <br/>--------- functions     
    `,
-    '----- variables',
-    '----- methods',
-    '----- inheritance',
-    '----- mixins',
-     ' -- ',
-    
-     `Routing - ComponentRouter - to handle the navigation from 1 view to the next 
-     <br/>- Interpreting browser URLs as an instn to change view -
-     <br/>ng new ang-app --routing --defaults 
-     <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
-     <br/>We can use ActivatedRoute and to get data about the Routes
-    <br/>&lt;router-outlet>&lt;/router-outlet> lets us position the routing infon in our Component template -
-    <br/>   
-     <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
-     <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
-     <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
+     ' -- ',  
+     `Promises - a JS object that can produce a value at a pt in time 
+     <br/>execute immediately only once - part of ES std 
+     <br/>--- simplify execution of async ftns that uses callbacks
+     <br/>--- while emitting and completing (resolving or rejecting) 
+     <br/>----- one value at a time 
+     <br/>
+     <br/>var promise = new Promise((resolve, reject) => { 
+       <br/>--- resolve("Promise Resolved"); 
+     <br/>}) 
+     <br/>
+     <br/>---- Enables you to emit 1 event from the API
+     <br/>------- far cleaner solution to writing async code than callbacks
+     <br/>
+     <br/>---- not cancellable -
+     <br/>
+     <br/>---- then(resolve, reject){}
+     <br/>
+     <br/>promise.then((success) => { 
+     <br/>---- console.log(success); 
+     <br/>}) 
+     <br/>.catch(function(error) => { 
+     <br/>---- console.log(error); 
+     <br/>}); 
+     <br/>// Output: Promise Resolved
+     <br/>
+     <br/>--- 4 states
+     <br/>------ fulfilled - action relating to promise succeded     
+     <br/>---------- then     
+     <br/>------ rejected - action relating to promise failing
+     <br>/>---------- catch when an error occurs 
+     <br/>------ pending - hasn't fulfilled or rejected yet
+     <br/>------ settled - has fulfilled or rejected 
+     <br/>
+     <br/>
+     <br/>-future tasks 
+     <br/>- new Promise(resolve, reject)
+     <br/>- asynchronous
+     <br/>- Promise.resolve(\'done\').then((val) 
+     <br/>--- => {throw new Error("fail")})
+     <br/>--------.then((val) => console.log(val))
+     <br/>----------- .catch((err) => console.error(err));
+     `,  
+     `Observables - included in RxJS library 
+     <br/>--- variable with a trailing $ ie timer$
+     <br/>------ often with async ops
+     <br/>------ 
+     <br/>
+     <br/>--- is a lazily evaluated computation that can sync | async
+     <br/>------ return 0+ infinite from the time 
+     <br/>------- over a period of time -
+     <br/>------ they are a technique for event handling | async prog| handling mult values
+     <br/> 
+     <br/>--- generally needs a subscribe() to operate
+     <br/>----- time
+    <br/>------ requires unsubscribe() too
+    <br/>--- but can be called using async pipe (without subscribe | unsubscribe)  
+    <br/>
+    <br/>--- Observables and the RxJS operators can manipulate 
+    <br/>----- streams of data over time 
+    <br/>
+    <br/>--- emit events -   
+    <br/>
+    <br/>--- like promises handling async requests 
+    <br/>--- handle multiple events - 
+    <br/>------ cancellable (wrt a promise)
+    <br/>
+    <br/>--- 4 stages of Observable
+    <br/>------ Creation -
+    <br/>------ Subscription -
+    <br/>------ Execution -
+    <br/>------ Destruction -
+
+    <br/>--- can be Hot (always emitting) | Cold (only when subscrubed to)
+    <br/>
+    <br/>--- can use RxJS to manipulate Observables
+    <br/>
+    <br/>--- Subscribe() works on Cold Observables to get at the data
+    <br/>
+    <br/>--- can work with Subscribers to create multicasting Observables
+    -
+    <br/>----- and use Subjects to aid working with them -
+    <br/>-------simplifying subscription and allow 
+    <br/>---------multi-casting events around the application. 
+    `,
+     `RxJS Subjects - special type of Observable that allows multi-casting to many Observers
+     <br/>--- comprises an Observer and Observable (every Subject is an Observer)
+     <br/>--- like EventEmitters - maintain a registry of many listeners  
+     <br/>--- subscribe - simply registers the Observer in a list of Observers 
+     <br/>----- like addListener() 
+     <br/>
+     <br/>--- Types of Subjects - Subject| BehaviorSubject| AsyncSubject| ReplaySubject
+     <br/>------ Subject
+     <br/>--------- const subj = new Subject();
+     <br/>
+     <br/>------ ReplaySubject -  
+     <br/>--------- keeps a buffer of previous values to be emitted to new subscriptions    
+     <br/>--------- const replaySubj = new ReplaySubject(2); // prev 2 values in buffer
+     <br/>
+     <br/>------ BehaviorSubject
+     <br/>---------- similar to RelaySubject
+     <br/>---------- but will re-emit the last emitted value or a default value (if no emitted)
+     <br/>---------- const behSubj = new BehaviorSubject(123); // emits a value
+     <br/>
+     <br/>------ AsyncSubject
+     <br/>---------- emits its last value on completion to all subscribers
+     <br/>----------- const sub = new AsyncSubject()
+     <br/>
+     <br/>--- Observer Pattern - a S/W pattern wrt an Object called the Subject
+     <br/>----- maintains a list of its dependents called Observers 
+     <br/>----- and notifies them auto of state changes    
+     <br/>  
+     <br/>--- Observers - a handler for receiving Observable notifications 
+     <br/>------ imps Observer interfaces
+     <br/>------ Defines callback methods - handle 3 types notifications
+     <br/>--------- Next() - reqd - handler for each delivered value 
+     <br/>------------- called after execution starts
+     <br/>--------- Error() - opt - handler for error - halts execution
+     <br/>--------- Complete() - opt - handler for execution complete notification
+     <br/>------------ Delayed values can continue to be delivered after complete
+     <br/>
+     <br/>--- asObservable() - operator 
+     <br/>------- can be used to transform a Subject into an Observable 
+     <br/>
      `,
-    '------ Routes path:\'x\' - component', 
-    '-------- <base href=\/"\">', 
-    '-------- HTML5 Urls', 
-    '------ router-outlet', 
-    '------routerLink',   
+     ' -- ',
+   `- Decorators
+   <br/>----- metadata
+   <br/>
+   <br/>----- TS features - 
+   <br/>@Component() | @Directive() | @Pipe() | @Injectable | @NgModule
+   <br/>--- Std list decorators - class | property | method| parameter
+   <br/>
+   <br/>Class Decorators
+   <br/> ----- @Component() | @Directive() | @Pipe() | @Injectable() | @NgModule()
+  <br/>
+  <br/>Property Decorators
+  <br/>----- @Input() | 
+  <br/>@ContentChild() | @ContentChildren |
+  <br/>@ViewChild() | @ViewChildren()
+  <br/>
+  <br/> Method Dorators
+  <br/>----- @HostListener() 
+  <br/>    
+  <br/> Parameter Decorators -
+  <br/>----- @Inject() | @Self() | @Host() | @SkipSelf() | 
+  <br/>-------       @Optional() | @Output() | EventEmitter()
+   `,
+   `ViewContainerRef - reps a container 
+   -   lets you attach multiple views to a Component
+   <br/>--- can be used with @ViewChild | @ContentChild| ng-template
+   <br/> 
+   <br/>---- can contain Host Views (instiating a Component with createComponent)| 
+                 embeddedViews (instiating TemplateRef with createEmbeddedView) 
+   <br/>---- A view container instance can contain other view containers - A view container hierarchty
+   `,
+   `----- @ViewChild() - configures a View Query from template of Component    
+     <br/> - matching selector in View DOM tree
+     <br/>--- Provides instance of another component in a parent component 
+     <br/>---- parent component can access methods of  
+     <br/>--- used in ngAfterViewInit LCH
+     `,
+     `----- @ContentChild() - selects project content 
+     <br/> 1st el matching selector from Content DOM
+     <br/>------- selects projected content - 1st el matching selector from Content DOM
+     <br/>---------- Content DOM
+    `,
+    `transclusion is Content Projection - initialized in ngAfterContentInit LCH 
+    - a pattern to insert/project content to use inside another Component 
+    - lets a Directive to make use of templates + add content to DOM 
+    - lets Directives generate dynamice data driven DOM instns 
+      <br/>you can make reusable components 
+      - for scalable appns by inserting content into already created Comps/Dirs 
+      uses ng-content
+      <br/>
+      <br/>3 types of Content projection - Single slot| Multi-slot| Conditional
+      `, 
    ' -- ',
-   '- Decorators',
-    '----- metadata',
-    `----- TS features - 
-    <br/>@Component() | @Directive() | @Pipe() | @Injectable | @NgModule
-    `, 
-    `--- Std list decorators - class | property | method| parameter
-    `,  
-    `Class Decorators
-     ----- @Component() | @Directive() | @Pipe() | @Injectable() | @NgModule()
-    `,
-    `Property Decorators
-     ----- @Input() | 
-           @ContentChild() | @ContentChildren |
-           @ViewChild() | @ViewChildren()
-    `,
-    `Method Dorators
-     ----- @HostListener()`,     
-   ` Parameter Decorators -
-    ----- @Inject() | @Self() | @Host() | @SkipSelf() | 
-           @Optional() | @Output() | EventEmitter()
-    `,
-    ' -- ',
-    '- Change Detection - CD',
-    '--- zone.js',
-    '----- NgZone',
-    '----- ChangeDetectionStrategy.OnPush',
-    ' -- ',
-    `- Services and DI - 
-     Services are the provider from Injector hierarchy
-    `,
-    `--- DI (Dependency Injection) 
-     - to avoid ext dependencies threats - 
+
+   `--- Template Forms 
+  <br/>--- - Template Driven Approach 
+    
+ <br/>----- using directives)
+   <br/>
+   <br/>----- NgModel
+   <br/>----- NgForm - creates a top-level FormGroup instance and binds it to a form el 
+   <br/>------- to track aggregated form value and validation status 
+   <br/>
+   <br/>NgModelGroup 
+   <br/>- creates a FormGroup instance to a DOM element
+   <br/>----- directives in template
+   <br/>----- simple directives
+   <br/>----- asynchronous forms
+   <br/>----- FormsModule
+   <br/>----- Unstructured and Mutable
+   <br/>----- More complex Testing
+  
+   <br/>
+  ----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  /* */
   `,
-  '--- Injector Hierarchy | tree',
-  '----- dependency - Provider',
-  `--- Design Patterns
+   `--- Reactive Forms - (Model Driven Approach)
+   <br/>---- complex forms
+   <br/>---- FormModel
+   <br/>---- FormControl
+   <br/>---- Structured and Immutable
+   <br/>---- Sync forms
+   <br/>---- simplifies Testing
+   <br/><form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+   <br/><div>
+   <br/><label>
+   <br/>Name: <input formControlName="name" placeholder="Your name">
+   <br/></label>
+   <br/></div>
+   <br/><button type="submit">Send</button>
+   <br/></form>
+   `,
+  
+    ' -- ',
+    `Change Detection is a builtin framework feature 
+    <br/>--- that ensures auto sync using CD (Change Detection)
+    <br/>----- between changes to data and the view
+    <br/>--- Each Appn Component has a change detector 
+    <br/>----- forms a CD tree - of Components with changes 
+    <br/>
+    <br/> topics - Zone.js | NgZone | runOutsideAngular() | OnPush() | ChangeDtectorRef 
+    <br/>
+    <br/>
+    <br/>--- Angular uses Zone.js and NgZone 
+    <br/>------ to know when to trigger UI update (CD)
+    <br/>-------- when our Appn data changes
+    <br/>------ Define Zones to detect when data changes
+    <br/>-------- for all the Components in the whole appliction
+    <br/>
+    <br/>-- zone.js 
+    <br/>----- can monitor all the states of sync|async operations
+    <br/>----- provides a mechanism called Zones 
+    <br/>------- for encapsulating and intercepting async activities
+    <br/>---------- tick()
+    <br/>---------- Angular picks up changes and then calls tick()
+    <br/>------------- any listeners for those changes are fired
+    <br/>------------- loops through views and calls detectChanges() method
+    <br/>
+    <br/>--- NgZone - is an injectable service
+    <br/>---- creates a zone named Angular to automatically trigger CD
+    <br/>-------- when a sync | async function is executed 
+    <br/>-------- for executing work inside or outside the Angular Zone
+    <br/>
+    <br/>--- with Properties and Methods regarding CD
+    <br/>
+    <br/>------ NgZone.runOutsideAngular() - 
+    <br/>--------- Gives an option to run outside Angular Zone
+    <br/>--------- makes Appn more efficient 
+    <br/>
+    <br/> -- 
+    <br/>
+    <br/>--- ChangeDetectionStategy.OnPush() - 
+    <br/>------ runs CD for the Components and their sub-tree only
+    <br/>-------- checks the local branch
+    <br/>------ when new refs are passed to them (not data mutated)
+    <br/>
+    <br/> -- 
+    <br/> 
+    <br/>-- The ChangeDetectorRef - is a base class that provides CD ftns -
+    <br/>----- A CD Tree collects all views 
+    <br/>--------- that are to be checked for changes
+    <br/>------Use methods to 
+    <br/>-------- add | remove views from the tree | 
+    <br/>-------- initiate CD | 
+    <br/>-------- explicit mark views as dirty 
+    <br/>----------- changed Input changed | events -
+    <br/>     
+    <br/>--- ChangeDetectorRef methods
+    <br/>----- markForCheck()
+    <br/>----- detach()
+    <br/>----- detectChanges()
+    <br/>----- checkNoChanges()
+    <br/>----- reattach() 
+    <br/>
+    <br/>---- lets us enable local CD
+    <br/>------ on a lone Component 
+    <br/>
+    <br/> -- 
+    <br/>
+    <br/>--- igniteUI for Angular - toolkit for CD
+    <br/>
+    <br/>
+    <br/>-- zone.js 
+    <br/>----- can monitor all the states of sync|async operations
+    <br/>----- provides a mechanism called Zones 
+    <br/>------- for encapsulating and intercepting async activities
+    <br/>-----------tick()
+    <br/>---------- Angular picks up changes and then calls tick()
+    <br/>------------- any listeners for those changes are fired
+    <br/>------------- loops through views and calls detectChanges() method
+    <br/>
+    <br/>--- ngZone service is a wrapper around Zone.js 
+    <br/>------ creates a Zone named angular
+    <br/>----- to automatically trigger CD  
+    <br/>----- to help with CD properties and methods
+    <br/>-------- auto run updates when it detects an async opn event
+    <br/>
+    <br/>- NgZone properties 
+    <br/>--- hasPendingMacroTasks() 
+    <br/>--- hasPendingMicroTasks() 
+    <br/>--- isStable()
+    <br/>--- onStable() 
+    <br/>--- onError()
+    <br/>
+    <br/>- NgZone methods 
+    <br/>--- isInAngularZone()
+    <br/>--- assertInAngularZone()
+    <br/>--- assertNotInAngularZone()
+    <br/>--- hasPendingMacroTasks()
+    <br/>--- hasPendingMicroTasks()
+    <br/>--- isStable()
+    <br/>--- onUnstable()
+    <br/>--- onError()
+    <br/>--- run() 
+    <br/>--- runTask() 
+    <br/>--- runGuarded() - 
+    <br/>--- runOutsideAngular()
+    <br/>
+    <br/> -- 
+    <br/>-----We can also run via ChangeDetectionStrategy.onPush() 
+    <br/>-------- to inc performance and just check a branch 
+   `,
+    ' -- ',
+    `--- Design Patterns
   - aims to decouplle the impn of services from the components 
   <br/>-- uses DI design to work efficiency that lets our component classes and modules to be interdept 
   <br/>-- while maintaining consistency over ext deps injected in our appns - 
   <br/>-- reduces freq with which class/module base changes 
+  <br/>
+  <br/>---- MVC (Model View Container)
+  <br/>---- DI (pattern)  
+  <br/>---- SOLID pattern
+  <br/>---- Observer pattern
+  <br/>---- immutability - something cant be modified after being instantiated
+  <br/>---- Singleton pattern
+  <br/>---- Composition pattern
+  <br/>---- Lazy pattern
+  <br/>---- Model Adapter pattern
+  <br/>---- Strategy pattern 
+  <br/>---- Factory pattern   
+  <br/>---- Deorator pattern
+  <br/>--
+  <br/>--
+  <br/>--
+  <br/>--
+  
   `,
    ' -- ',
-  '- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time',
-  '-- SSR (Server Side Rendering) - ',
- 
-  `-- Add ons - angular/pwa (Progressive Web Appns) and Service Workers - 
-    angular/elements - angular/webWorkers 
-    - Angular Universal - Angular Material - angular/flex-layout
-  `
+   `ngrx - State Management - Reactive State for Angular 
+    <br/>
+    <br/>- a group of angular libraries for Reactive extensions 
+    <br/>
+    <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
+    <br/>----- State is derived from a single immutable Data Store - 
+    <br/>------- with simpler faster OnPush CD 
+    <br/>
+    <br/>- Unidirectional - 
+    <br/>
+    <br/>- helps simplify appns with many user interactions and multiple data sources
+    <br/>
+    <br/>- Features 
+    <br/>1: Serializability 
+    <br/>2: TypeSafety - using tsc (TypeScript compiler)
+    <br/>3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
+    <br/>4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
+    <br/>5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
+    <br/>
+    <br/>
+    - SHARI -<br/> 
+    <br/>S: - Shared state that is accessed by many components and services
+    <br/>H: - Hydrated state that is persisted and rehydrated from external storage 
+    <br/>A: - Available state that must be available when reentering routes
+    <br/>R: - Retrieved state that must be retrieved with a side effect
+    <br/>I: - Impacted state that is impacted by Actions from other sources
+    `,
+    ' -- ',
+    `--- Angular Material -  
+    `,
+    `--- Angular/elements -
+    `,  
+    `--- Angular/pwa (SW - Service Workers)
+    
+    `,
+   `--- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time
+   `,
+    `--- Angular/WebWorkers -
+  `,  
   ], 
 
   [`Components are the most important part of an Ang appn 
@@ -2719,7 +3255,10 @@ const subTopicsInfo = [
       ' -- ', 
       '- LC-hooks',
       ' -- ', 
-     '-- Component Tree - is all components in the appn in a tree branching structure with each Component having a CD mechanism',
+    ` -- Component Tree - is all components in the appn 
+        <br/>---in a tree branching structure 
+        <br/>------ with each Component having a CD mechanism (CD tree)
+       `,
       ' -- ',   
       '--- applied to every Component  to detect when the Component properties have changed ',
       ' -- ',
@@ -3791,8 +4330,28 @@ for (let x of cars) {
     
     `,
     '- Class binding - [class]="classExpression"',
-    '- Style binding - &lt;nav [style]=\'navStyle\'>',
-    
+    `Why Style - color-size-position
+    <br/>
+    <br/>Colours
+    <br/>Position
+    <br/>Size
+    <br/>Height
+    <br/>Width
+    <br/>
+    <br/>styleUrls
+    <br/>
+    <br/>
+    <br/>Inline Styles
+    <br/>
+    <br/>
+    <br/>CSS
+    <br/>
+    <br/>
+    <br/>SCSS
+    <br/>
+    <br/>
+    <br/>
+    `,
     `- event binding - () 
     <br/>--- from view target to data source 
     <br/>----- 
@@ -3844,7 +4403,7 @@ for (let x of cars) {
     <br/>
     `, 
     '- CSS', 
-    '-- CSS-Box-Model','-- margins','-- padding','-- borders','-- content',
+    '-- CSS-Box-Model',
     ' -- ',     
     `-- Display property - is the most impt property for displaying layout
     <br/>Every HTML element has a default display value dept on type of element - normally block or inline
@@ -3866,23 +4425,16 @@ for (let x of cars) {
     'ngStyle',
     'ngClass', 
     ' -- ',
-    '- SCSS - variables etc.','-- variables', '-- functions()', '-- mixins','inheritance',
-    'ViewEncapsulation'],
-    ['Angular/CLI','- Building', '- Serving the Browser port'],
+    '- SCSS - variables etc.',
+    'ViewEncapsulation'
+    ],
+    ['Angular/CLI',
+    '- Building', 
+    '- Serving the Browser port'
+    
+    ],
        
-    [`Modules - @NgModule({}) - Angular loads a colln of JS Modules - library modules - @angular/core etc.
-    <br/>ng g m xyz
-    <br/>
-    <br/>modules are a great way to organise an appn and extend it with capabilities from ext libraries eg. FormsModule
-    <br/>lets you group related components | directives | pipes | services - 
-    <br/>
-    <br/>Launch appn by bootstrapping the root NgModule
-    <br/>There are Routing Modules - 
-    <br/>Std modules are loaded eagerly
-    <br/>
-    <br/>Lazy loading modules - lets us use Feature Modules and Shared Modules
-    `, 
-    `--- NgModule - is a class marked by the @NgModule decorator 
+    [ `--- NgModule - is a class marked by the @NgModule decorator 
     <br/>takes a metadata object that describes how to compile a components template 
     <br/>and how to create an injector at runtime 
     <br/> 
@@ -4201,14 +4753,116 @@ for (let x of cars) {
         <br/>this.formComponent.createComponent(LazyFormComponent);
         <br/>}    
     `],
-    [`Change Detection is a builtin framework feature that ensures auto sync between changes to data and the view
-      <br/>zone.js but has a class ngZone to help with CD properties and methods
-      <br/>The ChangeDetectionRef is base class that provides CD ftns - A CD tree for changed views
-      <br/>We can also run via ChangeDetectionStrategy.onPush() to inc performance and just check a branch 
-      
-      <br/> NgZone - 
-    
-      `,
+    [`Change Detection is a builtin framework feature 
+    <br/>--- that ensures auto sync using CD (Change Detection)
+    <br/>----- between changes to data and the view
+    <br/>--- Each Appn Component has a change detector 
+    <br/>----- forms a CD tree - of Components with changes 
+    <br/>
+    <br/> topics - Zone.js | NgZone | runOutsideAngular() | OnPush() | ChangeDtectorRef 
+    <br/>
+    <br/>
+    <br/>--- Angular uses Zone.js and NgZone 
+    <br/>------ to know when to trigger UI update (CD)
+    <br/>-------- when our Appn data changes
+    <br/>------ Define Zones to detect when data changes
+    <br/>-------- for all the Components in the whole appliction
+    <br/>
+    <br/>-- zone.js 
+    <br/>----- can monitor all the states of sync|async operations
+    <br/>----- provides a mechanism called Zones 
+    <br/>------- for encapsulating and intercepting async activities
+    <br/>---------- tick()
+    <br/>---------- Angular picks up changes and then calls tick()
+    <br/>------------- any listeners for those changes are fired
+    <br/>------------- loops through views and calls detectChanges() method
+    <br/>
+    <br/>--- NgZone - is an injectable service
+    <br/>---- creates a zone named Angular to automatically trigger CD
+    <br/>-------- when a sync | async function is executed 
+    <br/>-------- for executing work inside or outside the Angular Zone
+    <br/>
+    <br/>--- with Properties and Methods regarding CD
+    <br/>
+    <br/>------ NgZone.runOutsideAngular() - 
+    <br/>--------- Gives an option to run outside Angular Zone
+    <br/>--------- makes Appn more efficient 
+    <br/>
+    <br/> -- 
+    <br/>
+    <br/>--- ChangeDetectionStategy.OnPush() - 
+    <br/>------ runs CD for the Components and their sub-tree only
+    <br/>-------- checks the local branch
+    <br/>------ when new refs are passed to them (not data mutated)
+    <br/>
+    <br/> -- 
+    <br/> 
+    <br/>-- The ChangeDetectorRef - is a base class that provides CD ftns -
+    <br/>----- A CD Tree collects all views 
+    <br/>--------- that are to be checked for changes
+    <br/>------Use methods to 
+    <br/>-------- add | remove views from the tree | 
+      <br/>-------- initiate CD | 
+      <br/>-------- explicit mark views as dirty 
+      <br/>----------- changed Input changed | events -
+      <br/>     
+      <br/>--- ChangeDetectorRef methods
+      <br/>----- markForCheck()
+      <br/>----- detach()
+      <br/>----- detectChanges()
+      <br/>----- checkNoChanges()
+      <br/>----- reattach() 
+   
+      <br/>---- lets us enable local CD
+    <br/>------ on a lone Component 
+    <br/>
+    <br/> -- 
+    <br/>
+    <br/>--- igniteUI for Angular - toolkit for CD
+    <br/>
+    <br/>
+    <br/>-- zone.js 
+    <br/>----- can monitor all the states of sync|async operations
+    <br/>----- provides a mechanism called Zones 
+    <br/>------- for encapsulating and intercepting async activities
+    <br/>-----------tick()
+    <br/>---------- Angular picks up changes and then calls tick()
+    <br/>------------- any listeners for those changes are fired
+    <br/>------------- loops through views and calls detectChanges() method
+    <br/>
+    <br/>--- ngZone service is a wrapper around Zone.js 
+    <br/>------ creates a Zone named angular
+    <br/>----- to automatically trigger CD  
+    <br/>----- to help with CD properties and methods
+    <br/>-------- auto run updates when it detects an async opn event
+    <br/>
+    <br/>- NgZone properties 
+    <br/>--- hasPendingMacroTasks() 
+    <br/>--- hasPendingMicroTasks() 
+    <br/>--- isStable()
+    <br/>--- onStable() 
+    <br/>--- onError()
+    <br/>
+    <br/>- NgZone methods 
+    <br/>--- isInAngularZone()
+    <br/>--- assertInAngularZone()
+    <br/>--- assertNotInAngularZone()
+    <br/>--- hasPendingMacroTasks()
+    <br/>--- hasPendingMicroTasks()
+    <br/>--- isStable()
+    <br/>--- onUnstable()
+    <br/>--- onError()
+    <br/>--- run() 
+    <br/>--- runTask() 
+    <br/>--- runGuarded() - 
+    <br/>--- runOutsideAngular()
+    <br/>
+    <br/> --
+    <br/>
+    <br/> -- 
+    <br/>-----We can also run via ChangeDetectionStrategy.onPush() 
+    <br/>-------- to inc performance and just check a branch 
+    `,
     `- zone.js - provides a method (zones) for encapsulating and intercepting async activities in the browser
     <br/> - are execution contexts lets angular track start | completion of async activities
 
@@ -4218,52 +4872,40 @@ for (let x of cars) {
     `-- Browser JS execution flow (Node.js) is based on an Event Loop
     <br/>
     `,
-    '--- Event Loop - JS Engine waits for tasks | executes them | sleeps',
-  
-    `------ MacroTasks - mouseMove | setTimeoout
-  
-    `,
-    '--------- changes to DOM only after tasks completed',
-    `-------- MicroTasks - come solely from our code
-      <br/> ---------- run before next macrotask is run
-    `,
-     '--------- created by promises',
-     ' -- ',
-    `- ChangeDetectorRef - base class that provides CD functionality 
-      <br/>  
-      <br/>A change detection tree collects all views that are to be checked for changes
-      <br/>
-      <br/>Use methods to add | remove views from the tree | initiate CD | explicit mark views as dirty - changed
-      <br/>Input changed | events -
-      <br/>
-      <br/>markForCheck()
-      <br/>detach()
-      <br/>detectChanges()
-      <br/>checkNoChanges()
-      <br/>reattach() 
-    `,
     `- ngZone - an injectable service 
     <br/>-- for executing for work inside or outside of the Angular zone  
     <br/>
     <br/>-- optimizes performance when starting a work 
-    <br/>-----consisting of 1+ async tasks that dont require UI updates or error handling to be handled by Angular
+    <br/>-----consisting of 1+ async tasks that dont require UI updates or error handling 
+    <br/>--------- to be handled by Angular
     <br/>
     <br/>runOutsideAngular() 
-    <br/>- kicks off but then run inside Angular with run()
+    <br/>- kicks off outside of Angular context 
+    <br/>----- but then run inside Angular with run()
     <br/>
     <br/>isInAngularZone() - assertInAngularZone() - assertNotInAngularZone()
     <br/>
-    <br/>properties 
-    <br/>- hasPendingMacroTasks() - hasPendingMicroTasks() - isStable()- onStable() onError()
-    <br/>methods 
-    <br/>- run() runTask() - runGuarded() - runOutsideAngular()
+    <br/>- NgZone properties 
+    <br/>--- hasPendingMacroTasks() 
+    <br/>--- hasPendingMicroTasks() 
+    <br/>--- isStable()
+    <br/>--- onStable() 
+    <br/>--- onError()
+    <br/>
+    <br/>- NgZone methods 
+    <br/>--- isInAngularZone()
+    <br/>--- assertInAngularZone()
+    <br/>--- assertNotInAngularZone()
+    <br/>--- hasPendingMacroTasks()
+    <br/>--- hasPendingMicroTasks()
+    <br/>--- isStable()
+    <br/>--- onUnstable()
+    <br/>--- on  Error()
+    <br/>--- run() 
+    <br/>--- runTask() 
+    <br/>--- runGuarded() - 
+    <br/>--- runOutsideAngular()
     `, 
-    '- service',
-    '- helps performance',
-    '--- asynchronous tasks',
-    '------- runOutsideAngular()',
-    '----- run() - to re-enter',
-    ' -- ',   
     '- ngZone methods',
     '--- isInAngularZone()',
     '--- assertInAngularZone()',
@@ -4279,36 +4921,107 @@ for (let x of cars) {
     '--- runTask&lt;T>()',
     '--- runGuarded&lt;T>()',  
     '--- runOutsideAngular<T>()',
+
+    `--- Event Loop - JS Engine 
+    <br/>----- waits for tasks | 
+    <br/>----- executes them | 
+    <br/>----- sleeps
+    `,
+  
+    `------ MacroTasks - mouseMove | setTimeoout
+  
+    `,
+    '--------- changes to DOM only after tasks completed',
+    `-------- MicroTasks - come solely from our code
+      <br/> ---------- run before next macrotask is run
+    `,
+     '--------- created by promises',
+     ' -- ',
+    `- ChangeDetectorRef  - is a class 
+    <br/>---- used to manage local CD in our Component
+    <br/>------- base class that provides CD functionality 
+      <br/>  
+      <br/>A change detection tree - corresponds to Component tree 
+      <br/>--- collects all views that are to be checked for changes
+      <br/>
+      <br/>
+      <br/>ChangeDetectorRef  
+      <br/>------Use methods to 
+      <br/>-------- add | remove views from the tree | 
+      <br/>-------- initiate CD | 
+      <br/>-------- explicit mark views as dirty 
+      <br/>----------- changed Input changed | events -
+      <br/>     
+      <br/>ChangeDetectorRef methods
+      <br/>----- markForCheck()
+      <br/>----- detach()
+      <br/>----- detectChanges()
+      <br/>----- checkNoChanges()
+      <br/>----- reattach() 
+    `,
+    '- helps performance',
+    '--- asynchronous tasks',
+    '------- runOutsideAngular()',
+    '----- run() - to re-enter Angular Zone',
+    ' -- ',   
     ' -- ',
     '- manual CD', 
-    '- compares the template expression values before + after an event - for all components of the Component tree',
-    '- ChangeDetectionStrategy.onPush() - ensures only Component tree including source Component', 
-    '- without Angular zone - NgZone.runOutsideAngular()',
-    '--- change detection is not required'
+    `- compares the template expression values 
+      <br/>--- before + after an event 
+      <br/>.-- for all components of the Component tree
+    `,
+    `- ChangeDetectionStrategy.onPush() 
+    <br/>- ensures only Component tree including source Component
+    `, 
+    `- without Angular zone - NgZone.runOutsideAngular()
+    <br/>
+    `,
+    '--- Automatic change detection is not required'
   ],
-    [`AoT - compiler converts HTML + TS code into efficient JS during build phase 
-    <br/>--- before browser downloads and runs the code 
+    [`AoT (Ahead Of Time) - compiler converts HTML + TS code 
+    <br/>--- into efficient JS during build phase 
+    <br/>------ before browser downloads and runs the code 
     <br/>
       <br/>is better due to - the code is compiled at build time 
       <br/> and hence the code to be sent to the browser does not contain the Compiler itsel and is much smaller
-    `,'Compile time build', 
-    'No need for Compiler', 
-    `3 Phases - 
+    `,
+    '---- Compile time build', 
+    '---- No need for Compiler', 
+    `---- 3 Phases - 
     1:Code Analysis- 2:Code generation- 3:Template type checking
     `,
-    `-1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
+    `-1 AOT Collector - analyzes the metadata and reps in best manner 
+    <br/>- recorded in the metadata.json file
     <br/>like a diagram of the overall structure of a decorator's metadata 
     <br/>metadata is like an AST (Abstract Syntax Tree)      
     `    ,
-    '-2 Metadata collected from the Code Analysis phase is interpreted by Compilers Static Reflector + check for metadata errors ',
-    '-3 Angular template compiler - uses tsc to validate binding expns in template - fullTemplateTypeCheck: true in tsconfig',
-    `Benefits are 1: Executable code loaded - 
-    2: inlines all ext HTML+CSS - 3: finds template errors - 4: Reduces injection attacks - 5: Reduces bundle load of Frmwk
+    `-2 Metadata collected from the Code Analysis phase 
+    <br/>is interpreted by Compilers Static Reflector 
+    <br/>+ check for metadata errors 
+    `,
+    `-3 Angular template compiler 
+    <br/>--- uses tsc to validate binding expns in template 
+    <br/>----- fullTemplateTypeCheck: true in tsconfig
+    `,
+    `Benefits are 
+    <br/>1: Executable code loaded - 
+    <br/>2: inlines all ext HTML+CSS - 
+    <br/>3: finds template errors - 
+    <br/>4: Reduces injection attacks - 
+    <br/>5: Reduces bundle load of Frmwk
     `],
     ['Remove dead code from the bundle - unused bits', 
     '- Dead code',
-    'Ivy tree-shakes - DI-CP-View - Content queries - Animations Pipes i18n core frmwork services LCHs - easier to ship librarries', 
-    'View Engine tree-shakes - Static analysis of code and then compiles whats left'
+    `Ivy tree-shakes - DI-CP-View 
+    <br/>- Content queries 
+    <br/>---- Animations Pipes i18n core frmwork services LCHs 
+    <br/>-------- easier to ship librarries
+    
+    `, 
+    `View Engine tree-shakes 
+    <br/>--- Static analysis of code 
+    <br/>------- and then compiles whats left
+    `
     ],  
      [`APF - Ang Package Format 
      <br/>- is an Angular specific specn for the structure 
@@ -4341,18 +5054,32 @@ for (let x of cars) {
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
     '.d.ts files',  
-    '-  package.json - "type": "module" - No CommonJS Modules',
-    `Angular 13 new improved version - Node package exports 
+    `-  package.json - "type": "module" 
+    <br/>- No CommonJS Modules
+    `,
+    `Angular 13 new improved version 
+    <br/>- Node package exports 
     <br/>- es2020 support Ivy partial compilation
     `,
      `- not rely on Internal APIs - using the Node.js 
      <br/>- sub-path pattern feature 
      <br/>- displaying multiple outputs at each entry point
      <br/>`, 
-     '- BigInt - Dynamic Import - Nullish Coascing - Optional Chaining -   Promise.allSettled - string#matchAll - globalThis - Module Namespace exports - import.meta', 
+     `- BigInt 
+     <br/>- Dynamic Import 
+     <br/>- Nullish Coascing 
+     <br/>- Optional Chaining 
+     <br/>-   Promise.allSettled 
+     <br/>- string#matchAll 
+     <br/>- globalThis 
+     <br/>- Module Namespace exports 
+     <br/>- import.meta
+     `, 
      'for Libraries - publishing tsconfig.json - "angularCompilerOptions": {"compilationMode": "partial"}- no particular runtime version - '
   ],
-  [`Ivy - is new Compilation and Rendering Pipeline which creates template instructions to render info to the DOM
+  [`Ivy - is new Compilation and Rendering Pipeline 
+  <br/>---- which creates template instructions to render info to the DOM
+  <br/>
   <br/>Does not need an interpreter or metadata.json file 
   <br/>nor the ngFactory.js file
   <br/>
@@ -4452,7 +5179,8 @@ for (let x of cars) {
     '-------- TNode object',
     '-------- LView object',
   ], 
-    [`ViewEngine old - legacy compilation and rendering pipeline
+    [`ViewEngine old 
+    <br/>--- legacy compilation and rendering pipeline
     <br/>
     `, 
     '- tended to use JIT compilation by default',
@@ -4527,14 +5255,51 @@ for (let x of cars) {
       ` 
 
     ],
-    [`Promises - 
-    
+    [`Promises - a JS object that can produce a value at a pt in time 
+    <br/>execute immediately only once 
+    <br/>--- simplify execution of async ftns that uses callbacks
+    <br/>--- while emitting and completing (resolving or rejecting) 
+    <br/>----- one value at a time 
+    <br/>
+    <br/>var promise = new Promise((resolve, reject) => { 
+      <br/>--- resolve("Promise Resolved"); 
+    <br/>}) 
+    <br/>
+    <br/>---- Enables you to emit 1 event from the API
+    <br/>------- far cleaner solution to writing async code than callbacks
+    <br/>
+    <br/>---- not cancellable -
+    <br/>
+    <br/>---- then(resolve, reject){}
+    <br/>
+    <br/>promise.then((success) => { 
+    <br/>---- console.log(success); 
+    <br/>}) 
+    <br/>.catch(function(error) => { 
+    <br/>---- console.log(error); 
+    <br/>}); 
+    <br/>// Output: Promise Resolved
+    <br/>
+    <br/>--- 4 states
+    <br/>------ fulfilled - action relating to promise succeded     
+    <br/>---------- then     
+    <br/>------ rejected - action relating to promise failing
+    <br/>---------- catch when an error occurs 
+    <br/>------ pending - hasn't fulfilled or rejected yet
+    <br/>------ settled - has fulfilled or rejected 
+    <br/>
+    <br/>
     `,  
     '- then()', 
     '- future tasks', 
     '- new Promise(resolve, reject)',
     '- asynchronous',
-    '- Promise.resolve(\'done\').then((val) => {throw new Error("fail")}).then((val) => console.log(val)).catch((err) => console.error(err));',' -- ',
+    `- Promise.resolve(\'done\').then((val) 
+        <br/>--- => {throw new Error("fail")})
+        <br/>--------.then((val) => console.log(val))
+        <br/>----------- .catch((err) => console.error(err));
+    `,
+    ' -- ',
      `Observables - 
 
      `,
@@ -4801,7 +5566,8 @@ for (let x of cars) {
       <br/>
       <br/>--- Angular provides a set of built-in validators + ability to create custom validators
       `,
-      `--- Template Forms - Template Driven Approach using directives)
+      `--- Template Forms - Template Driven Approach 
+      <br/>----- using directives)
       `,
       '----- NgModel',
       `----- NgForm - creates a top-level FormGroup instance and binds it to a form el 
