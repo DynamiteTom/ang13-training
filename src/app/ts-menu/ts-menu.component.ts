@@ -40,13 +40,13 @@ const features = `
     'Observables',
     'Subjects',
     'RxJS_',
-    'Higher-Order-Mapping-ftns',
+    'Higher-Order-Map  -ftns',
     'Forms',
     'ElementRef',
     'ViewContainerRef',
     'ViewDOM',
     'ContentDOM',
-    'Content-Projection (Transclusion)',
+    'Content-Projection',
     'HTTP_HttpClient',
     'Cusom Libraries',  
     'Caching',
@@ -61,7 +61,7 @@ const features = `
     'Design Patterns',
     'TDD/BDD/DDD',
     'Security',
-    'Authorization/Authentication',
+    'Authorizatn/Authenticatn',
     'Node.js',
     'npm',
     'express',
@@ -108,7 +108,6 @@ const subTopics = [
     ' -- ',
     '--- main parts',
     '----- Components',
-    '------- templateUrl| template',
     '----- Directives',
     '----- Pipes',
     '----- Services & DI',
@@ -121,13 +120,13 @@ const subTopics = [
     '--- Modules',
     '------- Lazy Loading',
     ' -- ',
-    '- ngc Angular compiler',
+    '--- EcmaScript',
+    '------ ESM (ES Modules)',
     '--- TypeScript',
     ' -- ',
     '--- Template Ref Variables',
     ' -- ',
     '--- Data Binding',
-    ' -- ',
     '--- Life Cycle Hooks',
     ' -- ',
     '--- Routing',
@@ -138,7 +137,13 @@ const subTopics = [
     '--- Observables',
     '--- Subjects',
     ' -- ',
+    '--- HTTP | HttpClient',
+    '------ REST', 
+    '------ Swagger',
+    '------ HttpClientInMemoryWebApiModule',
+    ' -- ',
     '- Decorators',
+    '---- @Input | @Output',
     '---- @ViewContainerRef',
     '---- @ViewChild',
     '---- @ContentChild',
@@ -151,9 +156,15 @@ const subTopics = [
     ' -- ',
     '--- design pattern',
     ' -- ',
+    '--- ALS (Lang Service)',
+    ' -- ',
+    '--- ESLint',
+    ' -- ',
     '--- git',
     ' -- ',
-    '--- JIRA',
+    '--- Agile',  
+    '------ JIRA boards',
+    '------ Kanban boards',
     ' -- ',
     '--- Cloud/AWS',
     '------ Azure',
@@ -2166,6 +2177,7 @@ const subTopicsInfo = [
   <br/>Transclusion (Content Projection)
   <br/>
   <br/>HTTP-HttpClient 
+  
   <br/>
   <br/>Angular appns vs Angular custom libraries
   <br/>
@@ -2246,14 +2258,6 @@ const subTopicsInfo = [
     <br/>
     <br/>Subjects - like BehaviorSubject let us turn Observables into multi-cast objects
     <br/>can use this to ref data or methods in the Component - 
-  `,
-  `--- templateUrls 
-  <br/>----- exernal url
-  <br/>
-  <br/>--------  or
-  <br/> 
-  <br/>----- template
-  <br/>----- \` My Info \`
   `,
   `Directives - are classes that add extra behavior to elements in Angular appns 
   <br/>
@@ -2657,9 +2661,64 @@ const subTopicsInfo = [
     <br/>--------------- load time increases 
     `, 
      ' -- ',
-   `ngc c  ompiler uses tsc (TypeScript) compiler 
-   <br/>------ Webpack used by the Angular/CLI
-   <br/>------ 
+  `--- ES EcmaScript - modern JavaScript
+    <br/>is a JS std to ensure interoperability of web pages wrt diff browsers
+    <br/>
+    <br/>------ since then there have been several updates
+    <br/>-------- ES - 2020
+    <br/>-------- ES - 2022
+    <br/>
+    <br/>These add features onto the original JS to simplify coding 
+    <br/>eg. Fat Arrow ftns | const | let with block scope | Promises | \`\` string literals
+    <br/>---- string and array functions too 
+    <br/>
+    <br/>    -- modern JavaScript
+    <br/>    ---- ES6 (ES 2015)
+    <br/>    ------ let const var
+        <br/>----- let - has block scope
+        <br/>----- const - has block scope
+        <br/>----- var - has function or app scope
+        <br/>
+        <br/>---- fat arrow ftns (x)=> x * 2;
+        <br/>---- For/of
+        <br/>
+        <br/>const cars = ["BMW", "Volvo", "Mini"];
+        <br/>let text = "";
+        <br/>
+        <br/>for (let x of cars) {
+          <br/>text += x + " ";
+        <br/>}\`,
+        <br/>---- Map Objects
+        <br/>---- Classes
+        <br/>---- Promises
+        <br/>---- defaul params
+        <br/>---- ftn rest params
+        <br/>
+        <br/>---- String -
+        <br/>------- includes | startsWith | endsWith
+        <br/>
+        <br/>------- string.includes()
+        <br/>------- string.startsWith()
+        <br/>------- string.endsWith()
+        <br/>
+        <br/>---- Array -  
+        <br/>-------    from | keys | find() | findIndex()
+        <br/>------- array.from()
+        <br/>------- array.keys()
+        <br/>------- array.find()
+        <br/>------- array.findIndex()
+
+        <br/>---- Object entries
+        <br/>---- JS Modules
+        <br/> --
+        <br/>--- JavaScript features
+   
+  `,
+  `----- ESM (ES Modules)
+  <br/>---- leads to fast reload speeds and smaller bundles 
+  <br/>------ ES5 is associated with the original JS
+  <br/> 
+  <br/>------ Es2015 (ES6) - is associated with 1st ES roll out
   `,
   `TypeScript - JS with the power of types - 
       <br/>data types - number | string | boolean | Array | 
@@ -2687,6 +2746,11 @@ const subTopicsInfo = [
   <br/>----- transpilation
   <br/>--- tsconfig.json
   <br/>-- TS Libraries  
+  <br/>  
+  <br/>--- ngc c  ompiler uses tsc (TypeScript) compiler 
+   <br/>------ Webpack used by the Angular/CLI
+   <br/>------ 
+
   `,
   ' -- ',
   `- Template Ref Variables
@@ -2753,7 +2817,6 @@ const subTopicsInfo = [
   <br/>&lt;app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event">&lt;/app-sizer> 
   <br/>&lt;div [style.font-size.px]="fontSizePx">Resizable Text&lt;/div>
     `,
-    ' -- ',
     `Life Cycle Hooks - A component has a life-cycle that starts when 
     <br/>Angular instantiates the Component class 
     <br/>and renders the Component view and child views -
@@ -3089,6 +3152,56 @@ const subTopicsInfo = [
      <br/>
      `,
      ' -- ',
+     `---- HTTP HttoClient
+     <br/>--- HTTP CRUD - Create | Read| Update | Delete 
+     <br/>-----  operations which the HTTP can use to manipulate data from a server
+     <br/>
+     <br/>----- HttpClient - performs HTTP requests 
+     <br/>  
+     <br/>---------   uses HttpClientModule from @angular/common/http
+    `,
+    `REST - REST - architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
+ 
+    - IDL for RESTful APIs expressed using JSON
+    <br/>-- design & Doc APIs',
+>
+    <br/>-- Interface Defn Language
+    <br/>-- RESTful APIs
+    <br/>-- JSON
+    <br/>-- CRUD methods
+    <br/>--- REST Servers
+    <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
+    <br/> requires server.js and a db.json file for your database
+    <br/>(jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+    <br/>
+    <br/> ---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
+      <br/>powerful enough for production usage - 
+      <br/>simple and hackable to be used for testing | local devt | learning
+    `,
+    `------ Swagger - rules | specifications | tools  
+    <br/>------ for developing and describing RESTful APIs
+    <br/>
+    <br/>------ Swagger framework - lets us develop
+    <br/>----------- interactive m/c + human readable API documentation
+    <br/>------ 
+    `,
+    `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
+    <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
+    <br/>    
+    <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
+    <br/>------  and redirects them to an in-memory data store - that you control on the frontend.
+    <br/>
+    <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
+    <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
+    <br/>  
+    <br/>------- Angular Demos | Tests 
+    <br/>------- Emulates CRUD ops wrt REST
+    <br/>------- in-memory data store
+    <br/>---------- npm install angular-in-memory-web-api --save 
+    <br/>---------- HttpClientInMemoryWebApiModule
+    <br/>---------- angular/in-memory-web-api
+   `,
+     ' -- ',
    `- Decorators
    <br/>----- metadata
    <br/>
@@ -3110,6 +3223,10 @@ const subTopicsInfo = [
   <br/> Parameter Decorators -
   <br/>----- @Inject() | @Self() | @Host() | @SkipSelf() | 
   <br/>-------       @Optional() | @Output() | EventEmitter()
+   `,
+   `@Input() | @Output()
+    <br/>--- for parent child Component Interaction - 
+    <br/> ----   
    `,
    `ViewContainerRef - reps a container 
    -   lets you attach multiple views to a Component
@@ -3315,6 +3432,33 @@ const subTopicsInfo = [
   <br/>--
   `,
   ' -- ',
+  `Angular Language Service - provides code editors eg VS Code 
+    <br/>with completions | erroers | hints | navigation 
+    <br/>
+    <br/>- eg VS Code with a way to get 
+    <br/>Completions | Errors | Hints | Navigation inside Angular templates
+    <br/>
+    <br/>---It goes straight to your config files 
+    <br/>----- and finds out about all the templates in your project 
+    <br/>-------- and provides adequate support as you open a template 
+    `,
+  ' -- ',
+  `ESLint - statically analyses your code to quickly find problems 
+    <br/>
+    <br/>- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
+    <br/>
+    <br/>- is a JavaScript Linter to lint either JS + TS code 
+    <br/>(TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>
+    <br/>- is built into most Web Editors VS Code or as part of your CI pipeline  -
+    <br/>
+      <br/>- enables you to enforce a set of style | formatting | coding stds for your codebase  
+    <br/>
+    <br/>ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
+    <br/>
+    <br/>ESLint8.15 - May 2022 - 
+    `,
+  ' -- ',
   `GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
     <br/>- designed to handle small to large projects with speed and efficiency
     <br/>
@@ -3435,8 +3579,61 @@ const subTopicsInfo = [
     <br/>--- status -
   `,  
   ' -- ',
-  `JIRA`,
-  ' -- ',
+  `- agile | JIRA | Kanban 
+  <br/>Agile - is an iterative approach to project management 
+  <br/>+ S/W devt that helps teams deliver value to their customers faster 
+  >br/> 
+  <br/>- with fewer headaches 
+    <br/>- suite of Agile work management solutions powering collaboration 
+    <br/>- across all teams
+    <br/>
+    <br/>- iterative means small incremental changes
+    <br/>- (no bigbang) - delivers work in small, 
+    <br/>but consumable, increments,
+    <br/>- Teams can easily work together and ... 
+    <br/>- Requirements | Plans| Results are evaluated continuously 
+    <br/>so teams have a natural mechanisms for responding to change
+   `,
+  `JIRA is a DevOps project management tool
+   <br/>
+   `,  
+    `Kanban Board - management + constraining WIP - includes option of Kanban backlog - fully extendable - with custom extensions and Backlog management
+    <br/>--- Kanban Board - 
+    <br/>is a project management method that helps visualize tasks 
+    <br/>
+    <br/>-------- Parts of Kanban 
+    <br/>----------- Story Cards -
+    <br/>KB displays most rel info for each story | issue | bug | task
+    <br/>Click in to get all details | 
+    <br/>---- related source code | pull requests | priority comments | attachments and more 
+    <br/>
+    <br/>----------- WIP (Work In Progress) limit configuration -
+    <br/>can be set to restrict the number of stories in each status at a time
+    <br/>This is important to prevent particular states 
+    <br/> from becoming bottlenecks and that issues flow smoothly 
+    <br/>through your workflow - 
+    <br/>
+    <br/>----------- Swimlanes and columns  -
+    <br/>Configure columns to rep major workflow states such as
+    <br/>To Do | In Progress | Done 
+    <br/>Add swimlanes to group work into streams by epics | assignees or projects 
+    <br/> or whatever makes sense for your team 
+    <br/>
+    <br/>----------- Flexible workflows -
+    <br/>Define and configure diff workflows for diff issue types
+    <br/>or map all issue types on your board to a single unified workflow
+    <br/>
+    <br/>----------- Cumulative Flow Diagram -
+    <br/>shows the number of issues in each status 
+    <br/>Team can easily spot blockages by seeing the number of issues
+    <br/>that increase in any given state 
+    <br/>
+    <br/>----------- Control Chart  -
+    <br/>See the cycle time for the product | version | or Sprint  
+    <br/>This helps you identify whether data from the current process 
+    <br/>can be used to determine future performance - 
+    `,
+    ' -- ',
   `The Cloud/AWS
   <br/>The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
   <br/>Cloud Servers are located all over the World
