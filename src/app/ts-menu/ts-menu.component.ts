@@ -104,56 +104,39 @@ const features = `
 
 const subTopics = [
    ['Angular',
-    '- JSF |  SPA | Front End appns', 
+    '--- JSF |  SPA | Front End appns', 
     ' -- ',
-    '- main parts',
-    '--- Components',
-    '----- templateUrl| template',
-    '--- Directives',
-    '--- Pipes',
-    '- Services & DI',
-    '--- DI (Dependency Injection)',
-    '----- Injector Hierarchy | tree',
-    '------- dependency - Provider',  
+    '--- main parts',
+    '----- Components',
+    '------- templateUrl| template',
+    '----- Directives',
+    '----- Pipes',
+    '----- Services & DI',
+    '------- DI (Dependency Injection)',
     ' -- ',
-    '--------- injection tree',
-    ' -- ',
-    '- Angular/CLI',
-     '--- server - test locally',
-    '------ ng add | ng generate',
+    '--- Angular/CLI',
     '--------- schematics',
-    ' --- uses ng-packagr',
     ' --- uses webpack',
     ' -- ',
     '--- Modules',
-    '----- Diff Ang Module| ESM',
-    '----- @NgModule',
-    '----- Bootstrapping',
-    '----- Ang AppModule - root',
-    '------- DoBootstrap',
-    '---------- ngDoBootstrap()',
     '------- Lazy Loading',
     ' -- ',
     '- ngc Angular compiler',
     '--- TypeScript',
-    '------ tsc TS compiler',
-    '---------transpilation',
-    '------ tsconfig.json',
-   '--- TS Libraries',
     ' -- ',
-    '- Template Ref Variables',
+    '--- Template Ref Variables',
     ' -- ',
-    '- Data Binding',
+    '--- Data Binding',
     ' -- ',
-    '- Life Cycle Hooks',
+    '--- Life Cycle Hooks',
     ' -- ',
-    '- Routing',
+    '--- Routing',
     ' -- ',
-    '- Styles CSS|SCSS',
+    '--- Styles CSS|SCSS',
     ' -- ',
-    '- Promises',
-    '- Observables',
-    '- Subjects',
+    '--- Promises',
+    '--- Observables',
+    '--- Subjects',
     ' -- ',
     '- Decorators',
     '---- @ViewContainerRef',
@@ -161,13 +144,25 @@ const subTopics = [
     '---- @ContentChild',
     '---- Content Projection',
    ' -- ',
-   '- Template Forms',
-   '- Reactive Forms',
+   '----- Template Forms',
+   '----- Reactive Forms',
    ' -- ',
-    '- Change Detection',
+    '--- Change Detection',
     ' -- ',
     '--- design pattern',
     ' -- ',
+    '--- git',
+    ' -- ',
+    '--- JIRA',
+    ' -- ',
+    '--- Cloud/AWS',
+    '------ Azure',
+    ' -- ',
+    '--- CI/CD',
+    ' -- ',
+    '--- ivy',
+    '--- View Engine',
+   ' -- ', 
     '--- ngrx - State Managmt',
     ' -- ',
     '--- Angular Material',
@@ -1290,7 +1285,9 @@ const subTopics = [
   '-- Retreived',
   '-- Impacted',
   ' -- ',
-  'ngrx Parts',
+  'ivy',
+  ' -- ',
+  'ngrx Parts',  
   '- Store',
   '-- state data',
   '- Reducer',
@@ -2312,9 +2309,9 @@ const subTopicsInfo = [
     `,
     `Services and Dependency Injection 
     <br/> - implemented as a simple class with @Injectable({}) decorator - 
-      - <br/>ng g s my-service
-      - <br/>can be reussssed in several different Components so data can be shared 
-      - <br/>We can have nested services -  
+    <br/>ng g s my-service
+    <br/>can be reussssed in several different Components so data can be shared 
+    <br/>We can have nested services -  
       <br/>
       <br/>A provider is an instruction to the DI (Dep Injection) system 
       <br/>on how to obtain a value for a dependency
@@ -2323,32 +2320,192 @@ const subTopicsInfo = [
       <br/>that you create and provide
       <br/>
       <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
-      - <br/>- ng g s my-service
+      <br/>- ng g s my-service
       <br/> 
       <br/>providedIn? - determines which injectors will provide the injectable 
-      - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+      <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
       <br/>      
-      - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+      <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
       <br/>
       - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
       <br/>
-      - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
-      `,  
-      `- Services and DI - 
-      Services are the provider from Injector hierarchy
+      <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+      <br/>
+      <br/>Services and DI - 
+      <br/>Services are the provider from Injector hierarchy
      `,
-     `--- DI (Dependency Injection) 
-      - to avoid ext dependencies threats - 
-   `,
-   '--- Injector Hierarchy | tree',
-   `----- dependency - Provider      
-     <br/>----- configure the injector and the compiler and help organize related things together
+      `DI (Dependency Injection) - is a design pattern  
+    <br/>--- in which a class requests dependencies from external sources    
+  <br/>------ (wrt creatng them) 
+  <br/>  
+ <br/>---- provides dependencies to a class upon instantiation
+ <br/>
+ <br/>---- is used to increase flexibility + modularity in your appns
+ <br/>
+ <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+ <br/>
+ <br/>---- First injector found 
+ <br/>------- configured with a provider (matching) 
+ <br/>------- supplies the dependency
+ <br/
+ <br/>-- Injector Hierarchy DI system
+ <br/>---- Injector Tree echoes the Component Tree
+ <br/> ------ every Component has its own injector
+ <br/>
+ <br/> ------- When a Component requests a dependency 
+ <br/>------- Angular uses a Provider regd in the Components Injector
+ <br/>
+ <br/>------- if Component injector has no provider - passes to parent Components Injector
+ <br/>
+ <br/>
+  
+     <br/>-- Injector Hierarchy DI system
+     <br/>---- Injector Tree echoes the Component Tree
+   <br/> ------ every Component has its own injector
+   <br/>
+   <br/> ------- When a Component requests a dependency 
+   <br/>---------- Angular uses a Provider regd in the Components Injector
+   <br/>
+   <br/>------- if Component injector has no provider 
+   <br/>--------- passes to parent Components Injector
+   <br/>
+   <br/>
+   
+   <br/>- View object - an internal object that reps Ang template
+   <br/>--- Ang builds a tree of views 
+     <br/>----- which always starts with a fake root View
+     <br/>----- that only contains 1 root element
+     <br/>----- Ivy uses LView and TView.data arrays
+     <br/>
+     <br/>------- Injector Bubbling - 
+     <br/>---------- Components local injector
+     <br/>---------- root injector
+     <br/>---- 2 Injector Hierarchies
+     <br/>------- injectors - key-value pairs 
+     <br/>------- ModuleInjector (Ivy R3Injector)
+     <br/>----------- a Module level injector
+     <br/>--- has a Records property that stores DI info 
+     <br/>------ and stores instances of injectables    
+     <br/>
+     <br/>------ get() records a Map collection
+     <br/>-------- key is a token 
+     <br/>-------- value is instance corresponding to token    
+     <br/>
+     <br/>------- ElementInjector (Ivy NodeInjector)
+     <br/>is an injector that belongs to a node
+     <br/>is an object that has ref to TNode and LView objects
      <br/> 
-     <br/>----- Modules can of course be lazy loaded too!
-     `,
-     `Injection tree - 
-     `,
-   ' -- ', 
+     <br/>--------- NodeInjector implements Injector is saved in
+     <br/>----------- 9 contiguous slots in LView +
+     <br/>----------- 9 contiguous slots in TView.data  
+    <br/>----------- object refs to
+   <br/>------------- TNode - any kind of object : 
+   <br/> - element| ng-template| ng-container
+   <br/>
+   <br/> - Ang creates a injectorIndex property on TNode 
+   <br/>--- where bloom filter is located. 
+   <br/> - The NodeInjector gets required provider by looking at the data 
+   <br/> - contained in TNode and LView objects
+   <br/> - Ivy renderer - stores injection info for the Node in the view data
+   <br/> - start from a header (17 slots) 
+   <br/> --- contains ref to parent injector at index 10  
+   <br/> - It allocates allocates slots in LView + TView.data arrays    
+   <br/>
+   <br/>------------- LView - contains DI info 
+   <br/>  array contains data 
+   <br/>------------- describing a specific template
+   <br/> stores instances -
+   <br/> After each bloom filter - Ang stores parentLocation ptr  
+   <br/> ---   we can walk through all parent injectors     
+   <br/>
+   <br/>------------- TView.data array - Ang keeps data shared x templates 
+   <br/> stores all tokens 
+   <br/>
+   <br/>--------------- These slots rep 2 bloom filters - Cumulative + template    
+   <br/> - 1 view can have as many bloom filters or injectors 
+    <br/> - for nodes located on the view
+    <br/>
+    <br/>
+    <br/>--------------- using Bloom filter
+     <br/> -   8 slots long ([n, n+7] indices) - 
+     <br/>Their number is directly proportional to the num of nodes  
+     <br/>-- for which the injector is created
+     <br/>
+     <br/>Each bloom filter has a ptr to the parent bloom filter 
+     <br/>--- in the "packed" parentLocation slot (n + 8)
+     <br/>
+     <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
+     <br/>---
+     <br/>
+   <br/>---- Sandboxing - Multiple service instances 
+   <br/> ------ at the same level of the Component
+   <br/> ------ eg A Service that holds state for its companion comp instance
+   <br/>
+   <br/>------- Multiple Service Instances
+   <br/>
+   <br/>------ @Host() - limits the search for a matching provider
+   <br/>------- root injector -  
+   <br/>
+   <br/>----- @Optional()
+   <br/>----- @Self() 
+   <br/>----- @SkipSelf()
+   <br/>----- 
+   <br/>- DI Tokens - When you configure an injector with a provider - you are associating that provider with a DI token
+   <br/>The injector lets Angular create a map of any internal dependencies.
+   <br/>
+   <br/>The DI token - acts as a key to that map - 
+   <br/>The dep value is an instance & the class type serves as a look up key 
+   <br/>
+   <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
+   <br/>constructor(private heroService: HeroService){}  
+   <br/>   
+   <br/>-- DI Parts - injector | provide | dependency provider | provide defn key
+   <br/>-- Dependency Provider - configures provider with a DI token 
+   <br/>which that injector uses to provide the runtime version of a dep value
+   <br/>
+   <br/>-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
+   <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
+   <br/>Above is a class provider syntax for providing a Logger class in the providers array
+   <br/>Note the provide property holds the token - key for locating a dep value and config injector
+   <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
+   <br/>
+   
+   <br/>-- [Logger] same as [{provide: Logger, useClass: Logger}]
+   <br/>-- provider defn key - useClass | useExisting | useValue | useFactory
+   <br/> to configure the injector - keys for tokens
+   <br/>
+   <br/>--- Providers with deps
+   <br/>---- aliasing class providers - useClass
+   <br/>[{ provide: Logger, useClass: BetterLogger }]
+   <br/>
+   <br/>---- aliasing class interface - useExisting
+   <br/>---- aliasing multi class i/fs
+   <br/>---- injecting an Object - configure with a useValue option
+   
+   <br/>[{provide: Logger, useValue: SilentLogger}]
+   <br/>
+   <br/>---- injecting a config Object
+   <br/>---- InjectionToken object
+   <br/>---- interfaces and DI  
+   <br/>---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
+   <br/>export const heroServiceProvider =
+   <br/>  { provide: HeroService,
+     <br/>    useFactory: heroServiceFactory,
+     <br/>deps: [Logger, UserService]
+     <br/>  };  
+     <br/>
+     <br/>class +
+     <br/> '@Injectable({}) 
+     <br/> '- declare locn', '- nesting','- Sharing','typical tasks',
+     <br/> '- Providing a Service', 
+     <br/> '-- @injectable({ providedIn: \'root\'})',
+     <br/> '--- providedIn: \'root\'',
+     <br/> '--- providedIn: \'platform\'',
+     <br/> '--- providedIn: \'any\'',
+     <br/>--- providedIn: &lt;T>\' 
+    
+ `,   
+  ' -- ', 
   `Angular CLI (Command Line Interface) tool - 
         <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
         <br/>--- Angular apps directly from a Cmd line - prompt 
@@ -2396,9 +2553,9 @@ const subTopicsInfo = [
          <br/>------ allows multiple Webpack builds to work together 
          <br/>
          <br/>---- Custom Webpack configuration - 
+  ----- server - test locally - default port - localhost:4200
+  -------- ng add | ng generate - uses schematics to create library
   `,
-  '----- server - test locally - default port - localhost:4200',
-  '-------- ng add | ng generate - uses schematics to create library',
  `--------- --- uses Schematics to apply transforms to a web-app project
  <br/>---- guard against errors by creating a virtual file system      
  <br/>-------- Virtual File Syste - is repd bu a tree - 
@@ -2418,9 +2575,7 @@ const subTopicsInfo = [
  <br/>-----------also defines a merge strategy - staged tree to base tree      
  <br/>----- Packaging schematics with libraries - lets you integrate them with CLI
  <br/>----- Schematics can be chained
- `, 
- `--- uses ng-packagr - to produce npm packages in APF format
- <br/> ---- 
+ <br/>--- uses ng-packagr - to produce npm packages in APF format 
  `,
  `--- CLI uses Webpack behind the scenes - to minify and speed up appn 
     <br/>--- is a module bundler with its main purpose is to bundle JS files for usage in a browser
@@ -2467,32 +2622,32 @@ const subTopicsInfo = [
     <br/> 
     <br/>----- configure the injector and the compiler 
     <br/>-------- and help organize related things together
-    `,
-    `-- Diff between JS Module and Angular Module
+    <br/>
+    <br/>-- Diff between JS Module and Angular Module
     <br/>1: JS Module (ESM) is a file 
     <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
-    `, 
-  `----- @NgModule
-  <br/>------ base class of Std Angular libraries
-  <br/>------  
-  `,
-  `----- Bootstrapping
-  <br/>------ 
-  <br/>------ 
-
-  `,
-  `----- Ang AppModule - root
-  <br/>
-  `,
-  `------- DoBootstrap - hook for manual bootstrapping of the appn
+    <br/>
+    <br/>----- @NgModule
+    <br/>------ base class of Std Angular libraries
+    <br/>------  
+    <br/>
+    <br/>----- Bootstrapping
+    <br/>------ 
+    <br/>------ 
+    <br/>
+    <br/>----- Ang AppModule - root
+    <br/>
+    <br/>
+    <br/>------- DoBootstrap - hook for manual bootstrapping of the appn
     <br/>--------- ngDoBootstrap()
-  `,
-  `--------- ngDoBootstrap()
-    class AppModule implements DoBootstrap {
-        ngDoBootstrap(appRef: ApplicationRef) {
-            appRef.bootstrap(AppComponent); // Or some other component
-        }
-    }`,
+    <br/>
+    <br/>--------- ngDoBootstrap()
+    <br/>class AppModule implements DoBootstrap {
+      <br/>ngDoBootstrap(appRef: ApplicationRef) {
+        <br/>  appRef.bootstrap(AppComponent); // Or some other component
+        <br/> }
+        <br/>}
+    `,
     `Lazy Loading - is the process of loading Components | Modules | other assets 
     <br/>--- as they are required 
     <br/>----- NgModules can be lazy loaded -
@@ -2502,7 +2657,7 @@ const subTopicsInfo = [
     <br/>--------------- load time increases 
     `, 
      ' -- ',
-   `ngc compiler uses tsc (TypeScript) compiler 
+   `ngc c  ompiler uses tsc (TypeScript) compiler 
    <br/>------ Webpack used by the Angular/CLI
    <br/>------ 
   `,
@@ -2527,11 +2682,12 @@ const subTopicsInfo = [
       <br/>--- compilerOptions and AngularCompilerOptions
       <br/>
       <br/>tooling - auto-completion | navigation | refactoring - 
-  `,   
-  '--- tsc - TypeScript Compiler',
-  '----- transpilation',
-  '--- tsconfig.json',
-  '-- TS Libraries  ',
+    <br/>
+  <br/>--- tsc - TypeScript Compiler
+  <br/>----- transpilation
+  <br/>--- tsconfig.json
+  <br/>-- TS Libraries  
+  `,
   ' -- ',
   `- Template Ref Variables
   <br/> ---- uses # to access variables in the templlate
@@ -3157,9 +3313,398 @@ const subTopicsInfo = [
   <br/>--
   <br/>--
   <br/>--
-  
   `,
-   ' -- ',
+  ' -- ',
+  `GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
+    <br/>- designed to handle small to large projects with speed and efficiency
+    <br/>
+    <br/>- has 3 parts 
+    <br/>---- 1: Working tree 
+    <br/>---- 2: Staging area (Index) 
+    <br/>---- 3: Local repository 
+    <br/>--------- Remote repository - 
+    <br/>
+    <br/>Git Commits - 
+    <br/>
+    <br/>
+    <br/>- Branches - part of everyday devt process 
+    <br/>---- A pointer to a snapshot of your changes 
+    <br/>---- spawn a new branch to make changes 
+    <br/>
+    <br/>- Forking - creates a indept copy of a Git repository 
+    <br/>
+    <br/>- git clone 
+    <br/>---- creates a linked copy that will continue to sync with the target repo
+    <br/>
+    <br/>- Stashing - lets you change to a diff project 
+    <br/>---- and store the current staged file info 
+    <br/>
+    <br/>- Staging area (Index) and Committing -  
+    <br/>
+    <br/> Parts - ---Working tree | Staging area | Local repository
+      <br/> -- 
+      <br/>- Working directory
+      <br/>--- current work files
+      <br/>----- history of all the files + changes
+      <br/>--- current state of project',
+      <br/>----- including any changes that have been made to files',
+      <br/>--- git init cmd
+      <br/>----- git folder - history of project
+      <br/>----- working directory - 
+      <br/>-- 
+       <br/>- Staging area - holds files to be used in the next commit 
+      <br/> -- lets git know what file changes will exist in next commit
+      <br/>
+      <br/>--- Git index - a crucial Git data structure
+      <br/>---- Staging Area between files on Git filesystem and commit history 
+      <br/> -- 
+      <br/> ----- Prepare Commits
+      <br/> ------- files for next commit
+      <br/> ----- Git add - adds a change in working directory to Staging Area
+      <br/>-------- Nothing changes until the git commit 
+      <br/> ------- adds to Staging Area
+      <br/> -- 
+      <br/> ------- hashes WT files
+      <br/> --------- stored as Objects in Staging Area     
+      <br/> ----- Git commit - save Staged Changes to the local repository
+      <br/> ------- Staged changes
+      <br/> --------- Name changes
+      <br/> -- 
+      <br/>- Local Repository
+      <br/>-- Local computers
+      <br/>---- git Push
+      <br/> --   
+      <br/>- Remote Repository
+      <br/>-- Server for Team
+      <br/>---- git Pull 
+      <br/> --  
+      <br/>-- Branches - 
+       <br/>--- lightweight movable ptr   
+       <br/>----- Commits
+       <br/>----- Snapshot of changes
+       <br/>------- New branch per change
+       <br/>--- default = master',
+       <br/>----- MASTER
+       <br/>------- naming for Branch
+       <br/>----- after clone
+       <br/>------- Local Repo - Master
+       <br/>------- Repos default Branch
+       <br/>--- View branches      
+       <br/>----- local - git branch
+       <br/>----- remote - git branch -r
+       <br/>----- all - git branch -
+      <br/> -- 
+      <br/>-- git checkout
+      <br/>--- only 1 branch checked out
+      <br/>----- HEAD branch
+      <br/>------- active = current
+      <br/>--- navitate between branches
+      <br/> updates files Work Dir
+      <br/>------- work dir = branch
+      <br/>----- record all new commits
+      <br/>--- HEAD = branch name
+      <br/>----- attaches to master
+      <br/> -- 
+      <br/>- Fork - is a copy of a repository 
+      <br/>
+      <br/>--- completely indept copy of a repo (not linked)
+      <br/> -- 
+      <br/>--- git clone - 
+      <br/>-- a git clone op exec on remote repo -  
+      <br/>
+      <br/>----- server repo
+       <br/>----- linked copy of repo
+       <br/>------- hosting service
+       <br/>------- BitBucket
+       <br/> -- 
+       <br/>- stash
+       <br/>--- temp Shelves changes
+       <br/> record work dir + index
+       <br/>--- Clean Working directory
+      <br/> -- 
+    <br/>--- Commands - 
+    <br/>--- Add - 
+    <br/>--- fetch - 
+    <br/>--- branch - 
+    <br/>--- checkout -
+    <br/>--- commit - 
+    <br/>--- init - 
+    <br/>--- push - 
+    <br/>--- pull - 
+    <br/>--- log - 
+    <br/>--- status -
+  `,  
+  ' -- ',
+  `JIRA`,
+  ' -- ',
+  `The Cloud/AWS
+  <br/>The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
+  <br/>Cloud Servers are located all over the World
+  <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
+  <br/>
+  <br/>2 main types of Cloud services - AWS (Amazon Web Services) | Azure 
+  <br/>
+  <br/>--- AWS S3 -   
+     <br/>Serverless S3 service - requires an AWS Account
+     <br/>5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
+     <br/>20000 get requests 
+     <br/>2000 put requests
+     <br/>
+     <br/>S3 Bucket name - unique amongst all AWS accounts  
+     <br/>Select region -  
+    <br/>
+    <br/>--- Properties
+    <br/>Versioning
+    <br/>Server access logging
+    <br/>Static website hosting - entry page and error page  
+    <br/>Object level logging -
+    <br/>Default encryption -
+    <br/>Object lock
+    <br/>Tags - 
+    <br/>Transfer acceleration -
+    <br/>Events
+    <br/>Requester pays
+    <br/>
+     <br/>-- AWS Lambda - Serverless Event driven compute service
+     <br/>--- lets you run code for virtually any type of app'n or backend service 
+     <br/>--- automatically manages the computing resources reqd 
+     <br/>--- without worrying about the infrastructure of servers or OS or clusters or Networking
+     <br/>
+     <br/>----- AWS Lambda Reqts - Computing Service | DB | HTTP Gateway Service 
+     <br/>------ DynamoDB and RDS is the bases of a Serverless soln    
+     <br/>
+     <br/>--- AWS Lambda Users - create functions - self contained appns  
+     <br/>---- written in a supported language and runtimes 
+     <br/>---- uploaded to AWS Lambda for effic exection     
+     <br/>--- AWS Lambda Uses  
+     <br/>---- Serving web pages
+     <br/>---- Processing streams of data 
+     <br/>---- Calling APIs 
+     <br/>---- Integrating with other AWS Services
+     <br/>
+     <br/>--- AWS Lambda Languages - 
+     <br/>---- Node.js 8.1 | 10| 12| xxx
+     <br/>---- Python   
+     <br/>---- Ruby 
+     <br/>---- Java 8 | 11 
+     <br/>---- Go 1.x
+     <br/>---- C# Net Core 1.0 | 2.1   
+     <br/>---- Powershell Core 6.0
+     <br/>--- AWS Lambda Advantages -
+     <br/>---- Pay per use
+     <br/>---- Fully managed infrastructure
+     <br/>---- Automatic scaling 
+     <br/>---- Tight integration with other AWS products
+     <br/>--- AWS Lambda Limitations -
+     <br/>---- Cold Start Time
+     <br/>---- Function Limits
+     <br/>------ Execute time/run time 15 minutes       
+     <br/>------ Memory RAM - 128MB to 3008MB with 64MB Step   
+     <br/>------ Zipped package code size &lt; 50MB - Unzipped < 250MB
+     <br/>------ Concurrency &lt; 1000 
+     <br/>------ Payload Size &lt; 10MB that API Gateway can handle            
+     <br/>---- Not always cost effective - 
+     <br/>----- Maybe AWS EC2 might be better in some cases  
+     <br/>---- Ltd number of supported runtimes
+     `,
+     `Azure - Cloud
+     <br/>New Azure Application Platform
+     <br/>
+     <br/>Azure Web Apps
+     <br/>   - comprise non-managed components - 
+     <br/> - Azure tools
+     <br/> -- 
+     Azure Functions
+     <br/>execute event driven serverless code ftns 
+     <br/> accelerate and simplify serverless App devt 
+     <br/>1: Automated flexible scaling - no infracuture management
+     <br/>2: Integrated Prog Model to respond to events | connect to other services
+     <br/>3: End to End devt with Integd tools + built in DevOps capabilities           
+     <br/>4: Variety of prog languages TypeScript etc  
+     <br/>
+     <br/>-- DevOps - modern day services - 
+     <br/>1: Azure Boards - agile tools to plan| track| discuss work x teams
+     <br/>2: Azure Pipelines - Build test deploy with CI/CD | run in parallel - with any language platform + cloud - Connect to Github | Git and deploy continuously
+     <br/>3: Azure Repos - unlimited cloud hosted private Git repos + collaborate to build better code with pull requests + better fle mgmt      
+     <br/>4: Azure Test plans - Mangual + exploratory testing tools - 
+     <br/>5: Azure Artifacts - Create host and share packages with team - Add artifacts to CI/CD pipeline with 1 click  
+     <br/>6: Extensions market place - Access extns from Stack to SonarCloud  
+     <br/>
+     <br/>---- Azure Boards
+     <br/>---- ssssAzure Pipelines
+     <br/>---- Azure Repos
+     <br/>---- Azure Test plans
+     <br/>---- Azure Artifacts
+      <br/>---- Extensions Marketplace
+      <br/>
+      <br/>-- Azure Logic Application - Visual Workflow Designer - 
+      <br/>design workflows + services (MS | 3rd party)  
+      <br/>
+     <br/>---- Vsual Workflow Designer',
+     <br/>------ Event Grid - manages all events to configure code + logic',
+     <br/>-- 
+    <br/>Azure Serverless Components
+     <br/> sit on top of Serverless Cloud infrastructure services
+     <br/> built for reuse and composition
+     <br/> written in Vanilla JS - 
+     <br/> offers infinite abstractions for all use cases
+     <br/> can be deployed on the Serverless Framework
+     <br/> Messaging plays a crucial part in Serverless Component integration
+     <br/> - examples are AWS SQS (AWS) | Apache Kafka| RabbitMQ
+     <br/>Serverless Functions - run custom code on demand indept of where or scalability
+     <br/>
+     <br/>---- Azure Functions
+     <br/>------ Code run on demand
+     <br/>------ indept of location + scalability
+     <br/>----- built for reuse and composition
+      <br/>
+      <br/>Messaging plays a crucial part in Serverless Component integration
+      <br/>
+      <br/> ------ sit on top of Serverless Cloud infrastructure services
+      <br/>
+      <br/>---- must ensure Servers set up properly
+      
+  `,
+  ' -- ',
+  `Why CI/CD 
+  <br/>- CI - Continuous Integration
+  <br/>---- is a DevOps SD Practice  
+  <br/>------ is practice of automating integration of code changes
+  <br/>-------- from multiple contributers into 1 S/W project
+  <br/>------- Developers merge code changes to central repository
+  <br/>--------- After which automated builds and tests are run
+  <br/>------- CI is generally used alongside an agile S/W dev\'t workflow
+  <br/>--------- org\'n compiles a list of tasks - comprising product roadmap
+  <br/>----------- Tasks allocated to diff team members
+  <br/>---- CI lets orgns scale engineering team size | codebase size | infrastructure
+  <br/>------ helps build DevOps and agile workflows
+  <br/>------- Faster feedback on Business decisions is a side effect of CI
+  <br/>--- TDD (Test Driven Devt) - 
+  <br/>--- Bamboo - 
+  <br/>--- JIRA - agile | DevOps project management tools',
+  <br/>
+  <br/> -- 
+  <br/>- CD - Continuous Delivery Pipeline
+  <br/>---- is a S/W Engineering approach to produce S/W in short cycles
+  <br/>---- ensures S/W can be released at any time
+  <br/>------ releasing code automatically
+  <br/>-------- aims at building | testing | releasing S/W
+  <br/>----------- with greater speed and accuracy
+  <br/> -- 
+  <br/>- CD - Continuous Deployment Pipeline 
+  <br/>---- is a S/W Engineering approach to produce S/W in short cycles',
+  <br/>---- with Automated deployments
+  <br/> -- 
+  <br/>-- Jenkins
+  <br/>----- open source Automation Server
+  <br/>------- automates build | test | deploy S/W
+  <br/>----- largest CI/CD platform
+  <br/>----- simplest way to do CI/CD
+  <br/>-------- faster and robust tools
+  <br/>-------- integrate entire chain
+  <br/>----- open source automation server
+  <br/>----- DevOps tool written in Java
+  <br/>----- used to imp workflows (pipelines)
+  <br/>----- simple to set up CI/CD
+  <br/>----- FREE
+  <br/>----- Pipelines
+  <br/>-------- Create a pipeline script
+  <br/>-------- branch sources can be Git|Subversion
+  <br/>-------- Add plugins for more features and restart Jenkins
+  <br/>----------- Blue Ocean plugin - latest greatest
+  <br/>----------- C/C++ plugin
+  <br/>-------- Jenkinsfile
+  <br/>-------- check it into your repository
+  <br/>-------- nightly builds
+  `,
+  ' -- ',
+  `--- Ivy - is new Compilation and Rendering Pipeline 
+  <br/>---- which creates template instructions to render info to the DOM
+  <br/>
+  <br/>Does not need an interpreter or metadata.json file 
+  <br/>nor the ngFactory.js file
+  <br/>
+  <br/>It just produces the appComponent.js file 
+  <br/>--- from the compilation step
+  <br/>
+  <br/>using AoT Compilation by default
+  <br/>- enableIvy: true
+  <br/> - complete rewrite of RE
+  <br/>- loading is very fast 
+  <br/>- operates very fast too
+  <br/>- smaller size
+  <br/>-- Much more Tree Shakeable
+  <br/>- compile comps more independently than before
+  <br/>-- 
+   <br/>- Locality - single file compilation
+  <br/>--- only one file is compiled at a time 
+  <br/>----- Each component should compile using its own info 
+  <br/>----- components dont need to know about dependencies
+  <br/>------- Hot Reloading - only compiles component you changed 
+  <br/>
+  <br/>--- View Engine suffered from the Global Compilation Problem
+  <br/>
+  <br/>--- Also has ability to create Directive | Component at runtime
+  <br/>
+    <br/>---- Single file - with no other dependencies required ',
+    <br/>---- Components own local infon is used
+    <br/>------- Recompiles partial changes
+    <br/>------- Ability to create Directive | Component at runtime
+    <br/>------- HMR (Hot Module Replacement) - support improved Ang 14
+    <br/> -- 
+    <br/>- Incremental DOM 
+     <br/>---- every component gets compiled 
+     <br/>------  to a series of instructions 
+     <br/>--------- create DOM trees 
+     <br/>------------ updated mutably inplace 
+     <br/>---- Tree Shakable -   
+     <br/> ----It doesnt need any memory to rerender the view
+     <br/> ------- if it doesn't change the DOM 
+     <br/> ---- We only need to allocate memory 
+     <br/> ------- when the DOM nodes are added or removed
+     <br/> ------- Size of allocation is proportional to size of change
+     <br/> ----- Hence large memory savings          
+     <br/>
+     <br/>-------- series of instructions
+     <br/>----------create DOM trees
+     <br/>------------ updated mutably inplace
+     <br/>------ Tree Shakable   
+     <br/>--------- Only memory needed
+     <br/>------------ on Change to DOM
+     <br/>-- Decorators to Static Properties - ngComponentDef etc.',
+     <br/>---- ngComponentDef in .d.ts files   
+     <br/>---- no complete code analysis - 
+     <br/>------ @NgModule metadata
+     <br/>-- Template instructions 
+    <br/>- replace the template data and runtime interpreter 
+    <br/> ---- from the View Engine
+    <br/> ---- Create the correct DOM on their own  
+    <br/> ---- replace the ngFactory and metadata.json phase 
+    <br/>
+    <br/> - no metadata - Renderer2 create a metadata.json file 
+    <br/>Angular ivy does not!
+    <br/>
+    <br/>- AOT with Ivy is faster and should be used by default
+    `,
+    `--- View Engine - Renderer2 - (old Angular 8 and below)
+    <br/>----- all UI frameworks - store a repn of the DOM 
+    <br/>------- to optimize CD (Change Detection) + improve re-rendering performance
+    <br/>----- template HTML | template Data | Angular interpreter | DOM
+    <br/>------- compiled to node_modules/.bin/ngc/  
+    <br/>----- suffered from the Global Compilation Problem
+    <br/>----- needs an runtime interpreter and metadata.json file 
+    <br/>------- and the ngFactory.js file
+    <br/>----- When Angular has a change - all bindings are re-evaluated 
+    <br/>--------for all Components
+    <br/>---------- properties used by the template 
+    <br/>---------- dirt  y checking - isChanged = true
+    <br/>------------ template data is interpreted to DOM with latest bindings
+    <br/>
+    <br/>----- tree-shakes 
+    <br/>------- Static analysis of code 
+    <br/>---------- and then compiles whats left
+    `,
+     ' -- ',
    `ngrx - State Management - Reactive State for Angular 
     <br/>
     <br/>- a group of angular libraries for Reactive extensions 
