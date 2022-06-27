@@ -74,7 +74,7 @@ const features = `
     'Cloud_AWS_Azure',
     'Accessability',
     ' -- ',
-    'Schematics',
+    'Schematics',  
     'Angular Material',
     'Flex Layout',
     'PWA - Service Workers',
@@ -114,11 +114,11 @@ const subTopics = [
     '------- DI (Dependency Injection)',
     ' -- ',
     '--- Angular/CLI',
-    '--------- schematics',
-    ' --- uses webpack',
+    '------ Schematics',
+    '------ Webpack',
     ' -- ',
     '--- Modules',
-    '------- Lazy Loading',
+    '------ Lazy Loading',
     ' -- ',
     '--- EcmaScript',
     '------ ESM (ES Modules)',
@@ -141,6 +141,7 @@ const subTopics = [
     '------ REST', 
     '------ Swagger',
     '------ HttpClientInMemoryWebApiModule',
+    '--------- GraphQL',
     ' -- ',
     '- Decorators',
     '---- @Input | @Output',
@@ -1897,7 +1898,8 @@ const subTopics = [
     ' -- ','- Postman', 
     '-- web based tool',
     '-- access APIs anywhere  ',
-    ' -- ','- GraphQL',
+    ' -- ',
+    '- GraphQL',
     '-- Quey language for API',
     '-- description of data in API',
     '-- Server side runtime',
@@ -3160,11 +3162,21 @@ const subTopicsInfo = [
      <br/>  
      <br/>---------   uses HttpClientModule from @angular/common/http
     `,
-    `REST - REST - architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
- 
-    - IDL for RESTful APIs expressed using JSON
-    <br/>-- design & Doc APIs',
->
+    `REST - API architectual style hat uses HTTP requests 
+    <br/>---- to access and use data
+     '-- APIs',
+     '-- IDLs',
+     '--- humans/auto machine procing',
+     '-- HTTP methods',  
+     '-- List REST API DLs',
+     '--- WSDL',
+     '--- WADL',
+     '--- OData',
+     '--- OpenAPI',
+     '--- RSDL',
+     '--- RAML',
+     - IDL for RESTful APIs expressed using JSON
+    <br/>-- design & Doc API
     <br/>-- Interface Defn Language
     <br/>-- RESTful APIs
     <br/>-- JSON
@@ -3172,7 +3184,7 @@ const subTopicsInfo = [
     <br/>--- REST Servers
     <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
     <br/> requires server.js and a db.json file for your database
-    <br/>(jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+    <br/>---- (jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
     <br/>
     <br/> ---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
       <br/>powerful enough for production usage - 
@@ -3183,13 +3195,14 @@ const subTopicsInfo = [
     <br/>
     <br/>------ Swagger framework - lets us develop
     <br/>----------- interactive m/c + human readable API documentation
-    <br/>------ 
+    <  br/>------ 
     `,
     `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
     <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
     <br/>    
     <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
-    <br/>------  and redirects them to an in-memory data store - that you control on the frontend.
+    <br/>------  and redirects them to an in-memory data store 
+    <br/>--------- that you control on the frontend.
     <br/>
     <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
     <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
@@ -3200,6 +3213,165 @@ const subTopicsInfo = [
     <br/>---------- npm install angular-in-memory-web-api --save 
     <br/>---------- HttpClientInMemoryWebApiModule
     <br/>---------- angular/in-memory-web-api
+   `,
+   `GraphQL (2012) - Write Queries (not Code)
+   <br/>--- is a Query Language for your API  
+   <br/>--- between client and server to exchange info
+   <br/>--- and a Server Side Runtime - for executing queries
+   <br/>--- using a type system you define for your data
+   <br/>--- is backed by your existing code and data 
+   <br/>----Successor to REST
+   <br/>------- get exacly what data you asked for 
+   <br/>
+   <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
+   <br/>
+   <br/>Angular Apolo is the GraphQL client for Angular
+   <br/>--- works with Angular schematics | router | nativeScript | ionic
+   <br/>--- simplifies building UI Components that fetch data with GraphQL
+   <br/>------ should use with View Layer Integrations - 
+   <br/>---------- Angular | React | Vue | WebComponents
+   <br/>
+   <br/>GraphQL is designed to make APIs  
+   <br/>---- fast | flexible| developer friendly 
+   <br/>---- can be deployed within an IDE known as GraphiQL - 
+   <br/>----- alternative to REST 
+   <br/>-------- constructs requests that pull data from multiple data sources in 1 API call
+   <br/>----------- Its for extending + expanding upon their services 
+   <br/>
+   <br/>
+   <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
+   <br/>
+   <br/>--- uses schema to know what properties are queryable - 
+   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+   <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+   <br/>
+   <br/>GraphCMS - has grown to a widely adapted Query Language 
+   <br/>All the new tools being developed for GraphQL   
+   <br/>
+   <br/>
+   <br/>GraphQL server and Angular Apollo 
+   <br/>GraphQL - is a server - is a query language for API - descn of data in API
+   <br/>
+   <br/>GraphQL CLI - 
+   <br/>
+   <br/>GraphQL TS - 
+   <br/>--- TypeGraphQL - to improve Typed GraphQL
+   <br/>
+   <br/>GraphQL Config - 
+   <br/>
+   <br/>GraphQL ESLint - 
+   <br/>
+   <br/>GraphQL Tools - set of npm packages + structure for schema+resolvers
+   <br/>--- A simpler way to create GraphQL APIs
+   <br/>
+   <br/>------ GraphCMS - API first Headless CMS to build GraphQL 
+   <br/>
+   <br/>GraphQL Language Service - 
+   <br/>
+   <br/>GraphQL-WS - WebSockets - 
+   <br/>
+   <br/>GraphQL Live-Query - 
+   <br/>
+   <br/>Angular Apolo is the GraphQL client for Angular
+   <br/>
+   <br/>--- Schemas - used to know what properties are queryable - 
+   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+   <br/>s-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+   <br/>
+   <br/>----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+   <br/> 
+   <br/>--- Servers
+   <br/>------ JS via Node.js
+       <br/>var { graphql, buildSchema } = require(\'graphql\');
+       <br/>
+       <br/>var schema = buildSchema(\`
+       <br/>type Query {
+         <br/>hello: String
+         <br/> }
+         <br/>\`);
+         <br/>
+         <br/>var rootValue = { hello: () => 'Hello world!' };
+         <br/>
+         <br/>var source = 's{ hello }';
+         <br/>
+         <br/>graphql({ schema, source, rootValue }).then((response) => {
+         <br/>console.log(response);
+         <br/>});
+         <br/>
+         <br/>------ C#/Net        
+         <br/>public static async Task Main(string[] args)
+         <br/>{
+           <br/>var schema = Schema.For(@"
+           <br/>type Query {
+             <br/>hello: String
+             <br/>}
+             <br/>");
+             <br/>
+             <br/>var json = await schema.ExecuteAsync(_ =>
+               <br/>{
+                 <br/> _.Query = "{ hello }";
+                 <br/> _.Root = new { Hello = "Hello World!" };
+                 <br/>});
+                 <br/>
+                 <br/>Console.WriteLine(json);
+                 <br/>}
+                 <br/>}
+                 <br/> 
+        <br/>------ Python
+        <br/>------ C/C++
+        <br/>
+        <br/>------ Elm
+         <br/> -- 
+         <br/>--- GraphQL CLI
+         <br/>--- GraphQL TS
+         <br/>--- GraphQL Config
+         <br/>--- GraphQL ESLint
+         <br/>--- GraphQL Tools (@graphql-tools/*)-
+         <br/>is a set of npm packages 
+         <br/>and an opinionated structure for 
+         <br/>how to build a GraphQL schema and resolvers in JS
+         <br/>
+         <br/>------ GraphCMS
+         <br/>-------- is a powerful, easy to use Headless CMS
+         <br/>-------- that allows you to build the essential back end infrastructure reqd
+         <br/>-------- creates a GraphQL endpoint - + endpt for trying out GrpahQL too 
+         <br/>------------ (no need for a server)
+         <br/>
+         <br/>------ GraphQL Voyager
+         <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
+         <br/>
+         <br/>
+         <br/>------ GraphQL Docs
+         <br/>------ Swagger schema to GraphQL
+         <br/>------ GraphQL IDE - GraphQL Playground
+         <br/>------ GraphQL Network - style tab
+         <br/>------ GraphQL Editor - Create backends from schema
+         <br/>
+         <br/>------ GraphQL with HTTP
+         <br/>----- using GraphQL Yaga
+         <br/>-------- bind JS GraphQL schema to an HTTP Server
+         <br/>        <br/>
+         <br/>--- GraphQL Language Service
+         <br/> -- 
+         <br/>--- GraphQL-ws library for - 
+         <br/>
+         <br/>--- GraphQL WS (Web Sockets)
+         <br/>execute subscriptions (or other opns) over WebSocket
+         <br/> with the subscriptions-transport-ws library
+         <br/>
+         <br/>------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
+         <br/>--------- Server holds a steady conection to the client
+         <br/> -- 
+         <br/>--- GraphQL introspection - for developer tooling 
+         <br/>
+         <br/>--- GraphQL Live Query
+         <br/> -- 
+         <br/>--- Apollo - clients  
+         <br/>----- Angular Schematics
+         <br/>----- Angular Router
+         <br/>-------- Angular Universal (SSR)
+         <br/>----- NativeScript
+         <br/>----- Ionic
    `,
      ' -- ',
    `- Decorators
@@ -3248,9 +3420,9 @@ const subTopicsInfo = [
      <br/>---------- Content DOM
     `,
     `transclusion is Content Projection - initialized in ngAfterContentInit LCH 
-    - a pattern to insert/project content to use inside another Component 
-    - lets a Directive to make use of templates + add content to DOM 
-    - lets Directives generate dynamice data driven DOM instns 
+    <br/>- a pattern to insert/project content to use inside another Component 
+    <br/>- lets a Directive to make use of templates + add content to DOM 
+    <br/>- lets Directives generate dynamice data driven DOM instns 
       <br/>you can make reusable components 
       - for scalable appns by inserting content into already created Comps/Dirs 
       uses ng-content
@@ -3258,7 +3430,6 @@ const subTopicsInfo = [
       <br/>3 types of Content projection - Single slot| Multi-slot| Conditional
       `, 
    ' -- ',
-
    `--- Template Forms 
   <br/>--- - Template Driven Approach 
     
@@ -3486,86 +3657,86 @@ const subTopicsInfo = [
     <br/>- Staging area (Index) and Committing -  
     <br/>
     <br/> Parts - ---Working tree | Staging area | Local repository
-      <br/> -- 
-      <br/>- Working directory
-      <br/>--- current work files
-      <br/>----- history of all the files + changes
-      <br/>--- current state of project',
-      <br/>----- including any changes that have been made to files',
-      <br/>--- git init cmd
-      <br/>----- git folder - history of project
-      <br/>----- working directory - 
-      <br/>-- 
-       <br/>- Staging area - holds files to be used in the next commit 
-      <br/> -- lets git know what file changes will exist in next commit
-      <br/>
-      <br/>--- Git index - a crucial Git data structure
-      <br/>---- Staging Area between files on Git filesystem and commit history 
-      <br/> -- 
-      <br/> ----- Prepare Commits
-      <br/> ------- files for next commit
-      <br/> ----- Git add - adds a change in working directory to Staging Area
-      <br/>-------- Nothing changes until the git commit 
-      <br/> ------- adds to Staging Area
-      <br/> -- 
-      <br/> ------- hashes WT files
-      <br/> --------- stored as Objects in Staging Area     
-      <br/> ----- Git commit - save Staged Changes to the local repository
-      <br/> ------- Staged changes
-      <br/> --------- Name changes
-      <br/> -- 
-      <br/>- Local Repository
-      <br/>-- Local computers
-      <br/>---- git Push
-      <br/> --   
-      <br/>- Remote Repository
-      <br/>-- Server for Team
-      <br/>---- git Pull 
-      <br/> --  
-      <br/>-- Branches - 
-       <br/>--- lightweight movable ptr   
-       <br/>----- Commits
-       <br/>----- Snapshot of changes
-       <br/>------- New branch per change
-       <br/>--- default = master',
-       <br/>----- MASTER
-       <br/>------- naming for Branch
-       <br/>----- after clone
-       <br/>------- Local Repo - Master
-       <br/>------- Repos default Branch
-       <br/>--- View branches      
-       <br/>----- local - git branch
-       <br/>----- remote - git branch -r
-       <br/>----- all - git branch -
-      <br/> -- 
-      <br/>-- git checkout
-      <br/>--- only 1 branch checked out
-      <br/>----- HEAD branch
-      <br/>------- active = current
-      <br/>--- navitate between branches
-      <br/> updates files Work Dir
-      <br/>------- work dir = branch
-      <br/>----- record all new commits
-      <br/>--- HEAD = branch name
-      <br/>----- attaches to master
-      <br/> -- 
-      <br/>- Fork - is a copy of a repository 
-      <br/>
-      <br/>--- completely indept copy of a repo (not linked)
-      <br/> -- 
-      <br/>--- git clone - 
-      <br/>-- a git clone op exec on remote repo -  
-      <br/>
-      <br/>----- server repo
-       <br/>----- linked copy of repo
-       <br/>------- hosting service
-       <br/>------- BitBucket
-       <br/> -- 
-       <br/>- stash
-       <br/>--- temp Shelves changes
-       <br/> record work dir + index
-       <br/>--- Clean Working directory
-      <br/> -- 
+    <br/> -- 
+    <br/>- Working directory
+    <br/>--- current work files
+    <br/>----- history of all the files + changes
+    <br/>--- current state of project',
+    <br/>----- including any changes that have been made to files',
+    <br/>--- git init cmd
+    <br/>----- git folder - history of project
+    <br/>----- working directory - 
+    <br/>-- 
+    <br/>- Staging area - holds files to be used in the next commit 
+    <br/> -- lets git know what file changes will exist in next commit
+    <br/>
+    <br/>--- Git index - a crucial Git data structure
+    <br/>---- Staging Area between files on Git filesystem and commit history 
+    <br/> -- 
+    <br/> ----- Prepare Commits
+    <br/> ------- files for next commit
+    <br/> ----- Git add - adds a change in working directory to Staging Area
+    <br/>-------- Nothing changes until the git commit 
+    <br/> ------- adds to Staging Area
+    <br/> -- 
+    <br/> ------- hashes WT files
+    <br/> --------- stored as Objects in Staging Area     
+    <br/> ----- Git commit - save Staged Changes to the local repository
+    <br/> ------- Staged changes
+    <br/> --------- Name changes
+    <br/> -- 
+    <br/>- Local Repository
+    <br/>-- Local computers
+    <br/>---- git Push
+    <br/> --   
+    <br/>- Remote Repository
+    <br/>-- Server for Team
+    <br/>---- git Pull 
+    <br/> --  
+    <br/>-- Branches - 
+    <br/>--- lightweight movable ptr   
+    <br/>----- Commits
+    <br/>----- Snapshot of changes
+    <br/>------- New branch per change
+    <br/>--- default = master',
+    <br/>----- MASTER
+    <br/>------- naming for Branch
+    <br/>----- after clone
+    <br/>------- Local Repo - Master
+    <br/>------- Repos default Branch
+    <br/>--- View branches      
+    <br/>----- local - git branch
+    <br/>----- remote - git branch -r
+    <br/>----- all - git branch -
+    <br/> -- 
+    <br/>-- git checkout
+    <br/>--- only 1 branch checked out
+    <br/>----- HEAD branch
+    <br/>------- active = current
+    <br/>--- navitate between branches
+    <br/> updates files Work Dir
+    <br/>------- work dir = branch
+    <br/>----- record all new commits
+    <br/>--- HEAD = branch name
+    <br/>----- attaches to master
+    <br/> -- 
+    <br/>- Fork - is a copy of a repository 
+    <br/>
+    <br/>--- completely indept copy of a repo (not linked)
+    <br/> -- 
+    <br/>--- git clone - 
+    <br/>-- a git clone op exec on remote repo -  
+    <br/>
+    <br/>----- server repo
+    <br/>----- linked copy of repo
+    <br/>------- hosting service
+    <br/>------- BitBucket
+    <br/> -- 
+    <br/>- stash
+    <br/>--- temp Shelves changes
+    <br/> record work dir + index
+    <br/>--- Clean Working directory
+    <br/> -- 
     <br/>--- Commands - 
     <br/>--- Add - 
     <br/>--- fetch - 
@@ -3635,20 +3806,20 @@ const subTopicsInfo = [
     `,
     ' -- ',
   `The Cloud/AWS
-  <br/>The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
-  <br/>Cloud Servers are located all over the World
-  <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
-  <br/>
-  <br/>2 main types of Cloud services - AWS (Amazon Web Services) | Azure 
-  <br/>
-  <br/>--- AWS S3 -   
-     <br/>Serverless S3 service - requires an AWS Account
-     <br/>5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
-     <br/>20000 get requests 
-     <br/>2000 put requests
-     <br/>
-     <br/>S3 Bucket name - unique amongst all AWS accounts  
-     <br/>Select region -  
+    <br/>The Cloud - refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
+    <br/>Cloud Servers are located all over the World
+    <br/>Cloud Computing offers businesses Scalability of resources for when production expands and contracts
+    <br/>
+    <br/>2 main types of Cloud services - AWS (Amazon Web Services) | Azure 
+    <br/>
+    <br/>--- AWS S3 -   
+    <br/>Serverless S3 service - requires an AWS Account
+    <br/>5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
+    <br/>20000 get requests 
+    <br/>2000 put requests
+    <br/>
+    <br/>S3 Bucket name - unique amongst all AWS accounts  
+    <br/>Select region -  
     <br/>
     <br/>--- Properties
     <br/>Versioning
@@ -3740,7 +3911,7 @@ const subTopicsInfo = [
      <br/>---- Vsual Workflow Designer',
      <br/>------ Event Grid - manages all events to configure code + logic',
      <br/>-- 
-    <br/>Azure Serverless Components
+     <br/>Azure Serverless Components
      <br/> sit on top of Serverless Cloud infrastructure services
      <br/> built for reuse and composition
      <br/> written in Vanilla JS - 
@@ -3754,8 +3925,8 @@ const subTopicsInfo = [
      <br/>------ Code run on demand
      <br/>------ indept of location + scalability
      <br/>----- built for reuse and composition
-      <br/>
-      <br/>Messaging plays a crucial part in Serverless Component integration
+     <br/>
+     <br/>Messaging plays a crucial part in Serverless Component integration
       <br/>
       <br/> ------ sit on top of Serverless Cloud infrastructure services
       <br/>
@@ -3816,33 +3987,33 @@ const subTopicsInfo = [
   `,
   ' -- ',
   `--- Ivy - is new Compilation and Rendering Pipeline 
-  <br/>---- which creates template instructions to render info to the DOM
-  <br/>
-  <br/>Does not need an interpreter or metadata.json file 
-  <br/>nor the ngFactory.js file
-  <br/>
-  <br/>It just produces the appComponent.js file 
-  <br/>--- from the compilation step
-  <br/>
-  <br/>using AoT Compilation by default
-  <br/>- enableIvy: true
-  <br/> - complete rewrite of RE
-  <br/>- loading is very fast 
-  <br/>- operates very fast too
-  <br/>- smaller size
-  <br/>-- Much more Tree Shakeable
-  <br/>- compile comps more independently than before
-  <br/>-- 
-   <br/>- Locality - single file compilation
-  <br/>--- only one file is compiled at a time 
-  <br/>----- Each component should compile using its own info 
-  <br/>----- components dont need to know about dependencies
-  <br/>------- Hot Reloading - only compiles component you changed 
-  <br/>
-  <br/>--- View Engine suffered from the Global Compilation Problem
-  <br/>
-  <br/>--- Also has ability to create Directive | Component at runtime
-  <br/>
+    <br/>---- which creates template instructions to render info to the DOM
+    <br/>
+    <br/>Does not need an interpreter or metadata.json file 
+    <br/>nor the ngFactory.js file
+    <br/>
+    <br/>It just produces the appComponent.js file 
+    <br/>--- from the compilation step
+    <br/>
+    <br/>using AoT Compilation by default
+    <br/>- enableIvy: true
+    <br/> - complete rewrite of RE
+    <br/>- loading is very fast 
+    <br/>- operates very fast too
+    <br/>- smaller size
+    <br/>-- Much more Tree Shakeable
+    <br/>- compile comps more independently than before
+    <br/>-- 
+    <br/>- Locality - single file compilation
+    <br/>--- only one file is compiled at a time 
+    <br/>----- Each component should compile using its own info 
+    <br/>----- components dont need to know about dependencies
+    <br/>------- Hot Reloading - only compiles component you changed 
+    <br/>
+    <br/>--- View Engine suffered from the Global Compilation Problem
+    <br/>
+    <br/>--- Also has ability to create Directive | Component at runtime
+    <br/>
     <br/>---- Single file - with no other dependencies required ',
     <br/>---- Components own local infon is used
     <br/>------- Recompiles partial changes
@@ -3873,56 +4044,57 @@ const subTopicsInfo = [
      <br/>---- no complete code analysis - 
      <br/>------ @NgModule metadata
      <br/>-- Template instructions 
-    <br/>- replace the template data and runtime interpreter 
-    <br/> ---- from the View Engine
-    <br/> ---- Create the correct DOM on their own  
-    <br/> ---- replace the ngFactory and metadata.json phase 
-    <br/>
-    <br/> - no metadata - Renderer2 create a metadata.json file 
-    <br/>Angular ivy does not!
-    <br/>
-    <br/>- AOT with Ivy is faster and should be used by default
+     <br/>- replace the template data and runtime interpreter 
+     <br/> ---- from the View Engine
+     <br/> ---- Create the correct DOM on their own  
+     <br/> ---- replace the ngFactory and metadata.json phase 
+     <br/>
+     <br/> - no metadata - Renderer2 create a metadata.json file 
+     <br/>Angular ivy does not!
+     <br/>
+     <br/>- AOT with Ivy is faster and should be used by default
     `,
     `--- View Engine - Renderer2 - (old Angular 8 and below)
-    <br/>----- all UI frameworks - store a repn of the DOM 
-    <br/>------- to optimize CD (Change Detection) + improve re-rendering performance
-    <br/>----- template HTML | template Data | Angular interpreter | DOM
-    <br/>------- compiled to node_modules/.bin/ngc/  
-    <br/>----- suffered from the Global Compilation Problem
-    <br/>----- needs an runtime interpreter and metadata.json file 
-    <br/>------- and the ngFactory.js file
-    <br/>----- When Angular has a change - all bindings are re-evaluated 
-    <br/>--------for all Components
-    <br/>---------- properties used by the template 
-    <br/>---------- dirt  y checking - isChanged = true
-    <br/>------------ template data is interpreted to DOM with latest bindings
-    <br/>
-    <br/>----- tree-shakes 
-    <br/>------- Static analysis of code 
-    <br/>---------- and then compiles whats left
+     <br/>----- all UI frameworks - store a repn of the DOM 
+     <br/>------- to optimize CD (Change Detection) + improve re-rendering performance
+     <br/>----- template HTML | template Data | Angular interpreter | DOM
+     <br/>------- compiled to node_modules/.bin/ngc/  
+     <br/>----- suffered from the Global Compilation Problem
+     <br/>----- needs an runtime interpreter and metadata.json file 
+     <br/>------- and the ngFactory.js file
+     <br/>----- When Angular has a change - all bindings are re-evaluated 
+     <br/>--------for all Components
+     <br/>---------- properties used by the template 
+     <br/>---------- dirt  y checking - isChanged = true
+     <br/>------------ template data is interpreted to DOM with latest bindings
+     <br/>
+     <br/>----- tree-shakes 
+     <br/>------- Static analysis of code 
+     <br/>---------- and then compiles whats left
     `,
      ' -- ',
    `ngrx - State Management - Reactive State for Angular 
-    <br/>
-    <br/>- a group of angular libraries for Reactive extensions 
-    <br/>
-    <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
-    <br/>----- State is derived from a single immutable Data Store - 
-    <br/>------- with simpler faster OnPush CD 
-    <br/>
-    <br/>- Unidirectional - 
-    <br/>
-    <br/>- helps simplify appns with many user interactions and multiple data sources
-    <br/>
-    <br/>- Features 
-    <br/>1: Serializability 
-    <br/>2: TypeSafety - using tsc (TypeScript compiler)
-    <br/>3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
-    <br/>4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
-    <br/>5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
-    <br/>
-    <br/>
-    - SHARI -<br/> 
+     <br/>
+     <br/>- a group of angular libraries for Reactive extensions 
+     <br/>
+     <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
+     <br/>----- State is derived from a single immutable Data Store - 
+     <br/>------- with simpler faster OnPush CD 
+     <br/>
+     <br/>- Unidirectional - 
+     <br/>
+     <br/>- helps simplify appns with many user interactions and multiple data sources
+     <br/>
+     <br/>- Features 
+     <br/>1: Serializability 
+     <br/>2: TypeSafety - using tsc (TypeScript compiler)
+     <br/>3: Encapsulation - using ngrx Effects and Store - any resource side effects - network requests | db access | business logic can be isolated from the UI - simpler components and helps SRP   
+     <br/>4: Testable - since store uses pure ftns (Reducers) for changing state and (Selectors) for selecting data from state and (Effects) to isolate side effects from UI - this simplifies testing - Ngrx provides special test methods - provideMockStore |   provideMockActions etc.
+     <br/>5: Performance - Store is built on single immutable data state - making CD (Change Detection) simpler using OnPush strategy. NgRx is also powered by Memoized selector ftns - optimizing  state query computations
+     <br/>
+     <br/>
+     <br/>-SHARI -
+     <br/> 
     <br/>S: - Shared state that is accessed by many components and services
     <br/>H: - Hydrated state that is persisted and rehydrated from external storage 
     <br/>A: - Available state that must be available when reentering routes
@@ -3935,7 +4107,6 @@ const subTopicsInfo = [
     `--- Angular/elements -
     `,  
     `--- Angular/pwa (SW - Service Workers)
-    
     `,
    `--- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time
    `,
@@ -3945,8 +4116,8 @@ const subTopicsInfo = [
 
   [`Components are the most important part of an Ang appn 
   - they have a @Component decorator with a selector - template and optional style
-  <br/>
-  - They must have a template - either internal or external with HTML   
+    <br/>
+    <br/>- They must have a template - either internal or external with HTML   
     <br/>
     <br/>The class can have constructor - properties - methods - events 
     <br/>
@@ -4086,13 +4257,13 @@ const subTopicsInfo = [
           <br/>  \`,
           <br/> })
           <br/>export class AppListComponent {
-            <br/> @Input()
-            <br/>public items: Item[];
-            <br/>
-            <br/> public trackById(index: number, item: Item) {
-              <br/>return item.id;
-              <br/> }
-              <br/> }
+          <br/> @Input()
+          <br/>public items: Item[];
+          <br/>
+          <br/> public trackById(index: number, item: Item) {
+          <br/>return item.id;
+          <br/> }
+          <br/> }
           `,
           ' -- ', 
           `----- *ngSwitch &lt;div *ngSwitch with case statements
@@ -4126,8 +4297,7 @@ const subTopicsInfo = [
            <br/>&lt;/ng-template>
            `,
            ' -- ', 
-       '---- 3: Components are a form of Directive but have a template'
-      
+       '---- 3: Components are a form of Directive but have a template'  
       ],  
       [`Why Pipes - transform data in the template
         <br/>pure and impure - decoraor - @Pipe() 
@@ -4176,27 +4346,27 @@ const subTopicsInfo = [
   ],
     [`Services and Dependency Injection 
     <br/> - implemented as a simple class with @Injectable({}) decorator - 
-      - <br/>ng g s my-service
-      - <br/>can be reussssed in several different Components so data can be shared 
-      - <br/>We can have nested services -  
-      <br/>
-      <br/>A provider is an instruction to the DI (Dep Injection) system 
-      <br/>on how to obtain a value for a dependency
-      <br/>
-      <br/>- most of the time these dependencies are services 
-      <br/>that you create and provide
-      <br/>
-      <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
-      - <br/>- ng g s my-service
-      <br/> 
-      <br/>providedIn? - determines which injectors will provide the injectable 
-      - <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
-      <br/>      
-      - <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
-      <br/>
-      - <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
-      <br/>
-      - <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
+    <br/>ng g s my-service
+    <br/>can be reussssed in several different Components so data can be shared 
+    <br/>We can have nested services -  
+    <br/>
+    <br/>A provider is an instruction to the DI (Dep Injection) system 
+    <br/>on how to obtain a value for a dependency
+    <br/>
+    <br/>- most of the time these dependencies are services 
+    <br/>that you create and provide
+    <br/>
+    <br/>@Injectable({}) - ensures the compiler will generate the reqd metadata to create classs deps when class is injected 
+    <br/>- ng g s my-service
+    <br/> 
+    <br/>providedIn? - determines which injectors will provide the injectable 
+    <br/>- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn     
+    <br/>      
+    <br/>- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page    
+    <br/>
+    <br/>- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance 
+    <br/>
+    <br/>- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types 
       `,  
       '-- simplifies Components',
       `- A Service - is a TypeScript class - with shareable properties and methods 
