@@ -33,6 +33,7 @@ const features = `
     'AoT-compilation', 
     'tree-shaking_',
     'APF',
+    'ESBuild',
     'Ivy_Locality', 
     'View-Engine',
     'Template Rendering',
@@ -52,6 +53,7 @@ const features = `
     'Caching',
     'Storage mechanisms',
     'Nx Nrwl',
+    'CQRS', 
     'ngrx_CRUD',
     ' -- ',
     'install app from github',
@@ -91,7 +93,7 @@ const features = `
     '-- Chrome Devtools',
     'Angular Performance',
     '- SourceMap Explorer',
-    'REST_APIs_Swagger',
+    'REST_APIs_Swagger_Postman',
     'GraphQL',
     'Real Time Appns',
     'Ag-grid',
@@ -137,12 +139,6 @@ const subTopics = [
     '--- Observables',
     '--- Subjects',
     ' -- ',
-    '--- HTTP | HttpClient',
-    '------ REST', 
-    '------ Swagger',
-    '------ HttpClientInMemoryWebApiModule',
-    '--------- GraphQL',
-    ' -- ',
     '- Decorators',
     '---- @Input | @Output',
     '---- @ViewContainerRef',
@@ -172,8 +168,10 @@ const subTopics = [
     ' -- ',
     '--- CI/CD',
     ' -- ',
-    '--- ivy',
+    '--- ivy', 
     '--- View Engine',
+    ' -- ', 
+    '---- CQRS',
    ' -- ', 
     '--- ngrx - State Managmt',
     ' -- ',
@@ -854,7 +852,11 @@ const subTopics = [
        '- Node package exports', 
        '- es2020 support', 
        '- Ivy partial compilation'
-    ],  
+    ],
+    ['ESBuild',
+      '--- CommonJS',
+      '--- ESMs'
+    ],
     ['Ivy new', 
     '- enableIvy: true',
     '- Complete rewrite of RE',
@@ -969,13 +971,15 @@ const subTopics = [
      '-------- subscribe()',
      ' -- ',
      '--- rxjs operators',
-     ' -- ',
+  ],
+    [
      'Subjects', 
      '---- Combn Observable + Observer',
      '--- behaviorSubject', 
      '--- asyncSubject', 
      '--- replaySubject'
     ],
+    
     ['rxjs - Reactive Extensions',
     '-- library',
     '---- npm install rxjs', 
@@ -1019,23 +1023,54 @@ const subTopics = [
     ],
     
     ['Why forms',
-    ' -- ',  
-    '- Template Forms', 
-    '-- Template directives',
-    '-- ngForm', 
-    '-- Asynchronous data flow', 
-    '-- complex test setup',
-    '-- complex validation', 
-    '-- [(ngModel)]',
+    '--- Capture view user inputs',
+    '--- Validate user input',
+    '--- create a Form Modal',
+    '--- create a data model',
     ' -- ',
-    ' -- Template Validation', 
+    '--- FormControl',
+    '----- FormGroup',
+    '----- FormArray',
+    '----- ControlValueAccessor',
+    ' -- ',
+    '--- SetValue() | PatchValue()',
+    '--- ',  
+    '- Template Forms', 
+    '--- Template directives',
+    '------ work on Data Model',
+    '--- ngForm', 
+    '--- FormsModule',
+    ' -- ',
+    '-----   Asynchronous data flow', 
+    '----- complex test setup',
+    '----- complex validation', 
+    '-- [(ngModel)]',
+    '--- Unstructured | Mutable',
+    '--- Asynchronous Data flow',
+    ' -- ',
+    ' --- Template Validation',
+    '------ Directives', 
     ' -- ',
     '- Reactive Forms',
-    '-- direct access',
-    '-- Synchronous data flow',
-    '-- simpler test setup','-- simpler validation', '-- new FormControl("")','FormBuilder',  
+    '--- defined programmatically',
+    '----- forms object model',
+    '--- Synchronous data flow',
+    '--- Structured | Immutable',
+    '--- Synchronous Data flow',
+    '--- ReactiveFormsModule',
     ' -- ',
-    '  -- Reactive Validation' 
+    '----- Advantages',
+    '------- Simple Forms',
+    '------- Tesable',
+    '------- Reusable',
+    '------- Scalable',
+    '----- simpler validation', 
+    '----- new FormControl("")',
+    ' -- ',
+    '--- FormBuilder',  
+    ' -- ',
+    '  --- Reactive Validation', 
+    '------ Functions', 
     ],
     ['ElementRef',
       '--- access native DOM Element',
@@ -1276,7 +1311,17 @@ const subTopics = [
     '-- nx monorepo', 
     '-- nx cli',
     '-- nx build', 
-    '-- nx serve'],  
+    '-- nx serve'
+  ],
+  ['CQRS',
+    '--- opns wrt CRUD',
+    '------ READ',
+    '------ UPDATE',
+    '--- Advantages',
+    '------ Performance',
+    '------ Scalability',
+    '------ Security'
+  ],  
     ['State Management', 
     'RxJS and Observables', 
     'BehaviorSubject',
@@ -1816,6 +1861,7 @@ const subTopics = [
     ' -- ',
     '--- VS Code extension',  
     'webpack- source-maps',
+    '-- Lighthouse',
     '-- Call Stack',
     '---- Stack of ftn calls',
     '---- Restart from Frame', 
@@ -1874,9 +1920,13 @@ const subTopics = [
   'sourceMaps: true'
 ], 
   ['- RESTitutional file transfer',
-  '-- APIs',
-  '-- IDLs',
-  '--- humans/auto machine procing',
+  '----- REST HTTP Methods',
+  '----- APIs',
+  '----- RAML',
+  '----- IDLs',
+  '------ humans/auto machine procing',
+  ' -- ',
+  '- HTTP',
   '-- HTTP methods',
     '-- List REST API DLs',
     '--- WSDL',
@@ -1886,8 +1936,10 @@ const subTopics = [
     '--- RSDL',
     '--- RAML',
     '--- REST Servers',
-    '---- json-server', ' --',
-    '---- http-server', ' -- ',
+    '------ json-server', 
+    ' --',
+    '------ http-server', 
+    ' -- ',
     '- Swagger', 
     '-- design & Doc APIs',
     '-- enable Teams',
@@ -1895,9 +1947,15 @@ const subTopics = [
     '--   RESTful APIs',
     '-- JSON',
     '-- CRUD methods', 
-    ' -- ','- Postman', 
+    ' -- ',
+    '- Postman', 
     '-- web based tool',
-    '-- access APIs anywhere  ',
+    '-- access APIs anywhre  ',
+    ' -- ',
+    '- Postman',
+    '--- inspect HTTP/HTTPS',
+    '--- Capture Network traffic',
+    '--- Postman Proxy',
     ' -- ',
     '- GraphQL',
     '-- Quey language for API',
@@ -2090,22 +2148,32 @@ const subTopicsInfo = [
   <br/>
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
   <br/>
-  <br/>Components - (must have a template) 
-  <br/>Directives - (no template)
-  <br/>Pipes - (pure or impure)
-  <br/>Services - DI (Dependency Injection)
-  <br/>Modules - contain groups of above els
+  <br/>--- Components - (must have a template) 
   <br/>
-  <br/>Change Detection to id when events occur 
+  <br/>--- Directives - (no template)
+  <br/>
+  <br/>--- Pipes - (pure or impure)
+  <br/>
+  <br/>--- Services - DI (Dependency Injection)
+  <br/>
+  <br/>--- Modules - contain groups of above els
+  <br/>--- 
+  <br/>
+  <br/>Change Detection to id when events occur
+  <br/>--- zones | ngZone|  ChangeDetectorRef | ChangeDetectionStrategy.onPush() 
   <br/>
   <br/>- Dependency Injection - 
   <br/>--- Services
+  <br/>------- @Injectable({})
   <br/>
   <br/>Decorators    
+  <br/>--- @xxx({}) -  Component | Directive| Pipe| Input| Output| 
   <br/>
   <br/>ES (EcmaScript)
+  <br/>--- block scope - const | let | wrt var in JS - Promise - String constants using \`\` 
   <br/>
-  <br/>TypeScript 
+  <br/>TypeScript - ts - 
+  <br/>--- Strong types - tools - tsc transpiles ts down to js - tsconfig.json -    
   <br/>
   <br/>Special files - package.json (diff libraries used) - angular.json - tsconfig.json - main/index.htmls and main/main.ts file 
   <br/>
@@ -2114,16 +2182,27 @@ const subTopicsInfo = [
   <br/>ng build gives the dist folder - ang13-training/favicon.ico | index.html | main.js 300kb | polyfill.js | runtime.js
   <br/>
   <br/>Data Binding
+  <br/>--- interpolation {{ x }} | Property binding | Event binding | 2 way data binding
   <br/>
-  <br/>Styles CSS | SCSS  
+  <br/>Styles CSS | SCSS |  
+  <br/>--- visual property of an element - Box Model - border| margin | padding | content
   <br/>
-  <br/>Bootstrapping    
+  <br/>Bootstrapping 
+  <br/>--- normal bootstrapping the AppModule
+  <br/>--- can manually with ngBootStrap()
+  <br/>--- can now have module free - standalone - app with bootstrapApplication(comp)    
   <br/>
   <br/>LCH (Life Cycle Hooks)
+  <br/>--- ngOnChanges() | ngOnInit()| ngDoCheck()| 
+  <br/>--- ngAfterContentInit() | ngAfterContentChecked() | ngAfterViewInit() | ngAfterViewChecked()
+  <br/>--- ngOnDestroy()
   <br/>
-  <br/>Promises - 
-  
-  <br/>Observables - 
+  <br/>Promises
+  <br/>--- emits 1 object | not cancellable | asynchronous
+  <br/>
+  <br/>Observables -
+  <br/>--- emits many objects (stream) over time - Cancellable | Hot\Code| Subscribe() | 
+  <br/>
   <br/>--- Observables and the RxJS operators can manipulate 
   <br/>----- streams of data over time 
   <br/>
@@ -2179,7 +2258,6 @@ const subTopicsInfo = [
   <br/>Transclusion (Content Projection)
   <br/>
   <br/>HTTP-HttpClient 
-  
   <br/>
   <br/>Angular appns vs Angular custom libraries
   <br/>
@@ -2187,7 +2265,9 @@ const subTopicsInfo = [
   <br/>
   <br/>Storage
   <br/>
-  <br/>ngrx ()
+  <br/>CQRS (Command Query Responsibility Segretation)
+  <br/>
+  <br/>ngrx - () (State Management)
   <br/>
   <br/>Angular main libraries
   <br/>
@@ -3153,228 +3233,7 @@ const subTopicsInfo = [
      <br/>------- can be used to transform a Subject into an Observable 
      <br/>
      `,
-     ' -- ',
-     `---- HTTP HttoClient
-     <br/>--- HTTP CRUD - Create | Read| Update | Delete 
-     <br/>-----  operations which the HTTP can use to manipulate data from a server
-     <br/>
-     <br/>----- HttpClient - performs HTTP requests 
-     <br/>  
-     <br/>---------   uses HttpClientModule from @angular/common/http
-    `,
-    `REST - API architectual style hat uses HTTP requests 
-    <br/>---- to access and use data
-     '-- APIs',
-     '-- IDLs',
-     '--- humans/auto machine procing',
-     '-- HTTP methods',  
-     '-- List REST API DLs',
-     '--- WSDL',
-     '--- WADL',
-     '--- OData',
-     '--- OpenAPI',
-     '--- RSDL',
-     '--- RAML',
-     - IDL for RESTful APIs expressed using JSON
-    <br/>-- design & Doc API
-    <br/>-- Interface Defn Language
-    <br/>-- RESTful APIs
-    <br/>-- JSON
-    <br/>-- CRUD methods
-    <br/>--- REST Servers
-    <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
-    <br/> requires server.js and a db.json file for your database
-    <br/>---- (jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
-    <br/>
-    <br/> ---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
-      <br/>powerful enough for production usage - 
-      <br/>simple and hackable to be used for testing | local devt | learning
-    `,
-    `------ Swagger - rules | specifications | tools  
-    <br/>------ for developing and describing RESTful APIs
-    <br/>
-    <br/>------ Swagger framework - lets us develop
-    <br/>----------- interactive m/c + human readable API documentation
-    <  br/>------ 
-    `,
-    `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
-    <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
-    <br/>    
-    <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
-    <br/>------  and redirects them to an in-memory data store 
-    <br/>--------- that you control on the frontend.
-    <br/>
-    <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
-    <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
-    <br/>  
-    <br/>------- Angular Demos | Tests 
-    <br/>------- Emulates CRUD ops wrt REST
-    <br/>------- in-memory data store
-    <br/>---------- npm install angular-in-memory-web-api --save 
-    <br/>---------- HttpClientInMemoryWebApiModule
-    <br/>---------- angular/in-memory-web-api
-   `,
-   `GraphQL (2012) - Write Queries (not Code)
-   <br/>--- is a Query Language for your API  
-   <br/>--- between client and server to exchange info
-   <br/>--- and a Server Side Runtime - for executing queries
-   <br/>--- using a type system you define for your data
-   <br/>--- is backed by your existing code and data 
-   <br/>----Successor to REST
-   <br/>------- get exacly what data you asked for 
-   <br/>
-   <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
-   <br/>
-   <br/>Angular Apolo is the GraphQL client for Angular
-   <br/>--- works with Angular schematics | router | nativeScript | ionic
-   <br/>--- simplifies building UI Components that fetch data with GraphQL
-   <br/>------ should use with View Layer Integrations - 
-   <br/>---------- Angular | React | Vue | WebComponents
-   <br/>
-   <br/>GraphQL is designed to make APIs  
-   <br/>---- fast | flexible| developer friendly 
-   <br/>---- can be deployed within an IDE known as GraphiQL - 
-   <br/>----- alternative to REST 
-   <br/>-------- constructs requests that pull data from multiple data sources in 1 API call
-   <br/>----------- Its for extending + expanding upon their services 
-   <br/>
-   <br/>
-   <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
-   <br/>
-   <br/>--- uses schema to know what properties are queryable - 
-   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
-   <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
-   <br/>
-   <br/>GraphCMS - has grown to a widely adapted Query Language 
-   <br/>All the new tools being developed for GraphQL   
-   <br/>
-   <br/>
-   <br/>GraphQL server and Angular Apollo 
-   <br/>GraphQL - is a server - is a query language for API - descn of data in API
-   <br/>
-   <br/>GraphQL CLI - 
-   <br/>
-   <br/>GraphQL TS - 
-   <br/>--- TypeGraphQL - to improve Typed GraphQL
-   <br/>
-   <br/>GraphQL Config - 
-   <br/>
-   <br/>GraphQL ESLint - 
-   <br/>
-   <br/>GraphQL Tools - set of npm packages + structure for schema+resolvers
-   <br/>--- A simpler way to create GraphQL APIs
-   <br/>
-   <br/>------ GraphCMS - API first Headless CMS to build GraphQL 
-   <br/>
-   <br/>GraphQL Language Service - 
-   <br/>
-   <br/>GraphQL-WS - WebSockets - 
-   <br/>
-   <br/>GraphQL Live-Query - 
-   <br/>
-   <br/>Angular Apolo is the GraphQL client for Angular
-   <br/>
-   <br/>--- Schemas - used to know what properties are queryable - 
-   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
-   <br/>s-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
-   <br/>
-   <br/>----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
-   <br/> 
-   <br/>--- Servers
-   <br/>------ JS via Node.js
-       <br/>var { graphql, buildSchema } = require(\'graphql\');
-       <br/>
-       <br/>var schema = buildSchema(\`
-       <br/>type Query {
-         <br/>hello: String
-         <br/> }
-         <br/>\`);
-         <br/>
-         <br/>var rootValue = { hello: () => 'Hello world!' };
-         <br/>
-         <br/>var source = 's{ hello }';
-         <br/>
-         <br/>graphql({ schema, source, rootValue }).then((response) => {
-         <br/>console.log(response);
-         <br/>});
-         <br/>
-         <br/>------ C#/Net        
-         <br/>public static async Task Main(string[] args)
-         <br/>{
-           <br/>var schema = Schema.For(@"
-           <br/>type Query {
-             <br/>hello: String
-             <br/>}
-             <br/>");
-             <br/>
-             <br/>var json = await schema.ExecuteAsync(_ =>
-               <br/>{
-                 <br/> _.Query = "{ hello }";
-                 <br/> _.Root = new { Hello = "Hello World!" };
-                 <br/>});
-                 <br/>
-                 <br/>Console.WriteLine(json);
-                 <br/>}
-                 <br/>}
-                 <br/> 
-        <br/>------ Python
-        <br/>------ C/C++
-        <br/>
-        <br/>------ Elm
-         <br/> -- 
-         <br/>--- GraphQL CLI
-         <br/>--- GraphQL TS
-         <br/>--- GraphQL Config
-         <br/>--- GraphQL ESLint
-         <br/>--- GraphQL Tools (@graphql-tools/*)-
-         <br/>is a set of npm packages 
-         <br/>and an opinionated structure for 
-         <br/>how to build a GraphQL schema and resolvers in JS
-         <br/>
-         <br/>------ GraphCMS
-         <br/>-------- is a powerful, easy to use Headless CMS
-         <br/>-------- that allows you to build the essential back end infrastructure reqd
-         <br/>-------- creates a GraphQL endpoint - + endpt for trying out GrpahQL too 
-         <br/>------------ (no need for a server)
-         <br/>
-         <br/>------ GraphQL Voyager
-         <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
-         <br/>
-         <br/>
-         <br/>------ GraphQL Docs
-         <br/>------ Swagger schema to GraphQL
-         <br/>------ GraphQL IDE - GraphQL Playground
-         <br/>------ GraphQL Network - style tab
-         <br/>------ GraphQL Editor - Create backends from schema
-         <br/>
-         <br/>------ GraphQL with HTTP
-         <br/>----- using GraphQL Yaga
-         <br/>-------- bind JS GraphQL schema to an HTTP Server
-         <br/>        <br/>
-         <br/>--- GraphQL Language Service
-         <br/> -- 
-         <br/>--- GraphQL-ws library for - 
-         <br/>
-         <br/>--- GraphQL WS (Web Sockets)
-         <br/>execute subscriptions (or other opns) over WebSocket
-         <br/> with the subscriptions-transport-ws library
-         <br/>
-         <br/>------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
-         <br/>--------- Server holds a steady conection to the client
-         <br/> -- 
-         <br/>--- GraphQL introspection - for developer tooling 
-         <br/>
-         <br/>--- GraphQL Live Query
-         <br/> -- 
-         <br/>--- Apollo - clients  
-         <br/>----- Angular Schematics
-         <br/>----- Angular Router
-         <br/>-------- Angular Universal (SSR)
-         <br/>----- NativeScript
-         <br/>----- Ionic
-   `,
-     ' -- ',
-   `- Decorators
+`- Decorators
    <br/>----- metadata
    <br/>
    <br/>----- TS features - 
@@ -4114,8 +3973,9 @@ const subTopicsInfo = [
   `,  
   ], 
 
-  [`Components are the most important part of an Ang appn 
-  - they have a @Component decorator with a selector - template and optional style
+  [`Components 
+  <br/>are the most important part of an Ang appn 
+    <br/>- they have a @Component decorator with a selector - template and optional style
     <br/>
     <br/>- They must have a template - either internal or external with HTML   
     <br/>
@@ -5532,9 +5392,10 @@ for (let x of cars) {
      <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
      <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
      `,
-     '- interprets a browser URL to change View', 
-     'routes:Routes = [{path:"first-comp",component: FirstComponent}]',
-     '<base href=\/"\">', 
+     `routes:Routes = [{path:"first-comp",component: FirstComponent}]
+      <br/>--- uses a path to ref a Component to direct to the View of that Component
+     `,
+     '&lt;base href=\/"\">', 
      '-- HTML5 Urls', 
      '- &lt;router-outlet>&lt;/router-outlet> location where the router links will go', 
      '- &lt;a routerLink="/first_comp">link&lt;/a>',
@@ -5542,8 +5403,16 @@ for (let x of cars) {
      '-- RouterModule.forChild(routes) - lazy load the Component or Module',
      '- Nested Routes - ',
      ' -- ','- get Route Info',
-     '-- ActivatedRoute',
-     '-- ActivatedRouteSnapshot',
+     `-- ActivatedRoute - 
+         <br/>---- Currently activated route
+         <br/> -
+         <br/>---- contains a lot of info regarding the route
+         `,
+     `-- ActivatedRouteSnapshot
+         <br/>---- route loading a Component loaded in a certain outlet
+         <br/>---- associated with a particular moment in time
+       
+     `,
      '-- RouterStateSnapshot',
      '-- .snapshot.paramMap.get(\'id\') ',
      '-- ParamMap',
@@ -5551,9 +5420,13 @@ for (let x of cars) {
      '-- PageNotFoundComponent',
      'redirectTo()', 
      ' -- ',
-     '- Router Guards',
-     'Componentless-routes',
-     '-- 5 Guard options',
+     `- Router Guards
+     <br/>--- interfaces when implemented let us  
+     <br/>---- control accessability of a route dept on conditions 
+     
+     `,
+     '-----Componentless-routes',
+     '------- 5 Guard options',
      '---- canActivate',
      '---- canActivateChild',
      '---- canDeactivate',
@@ -5583,6 +5456,7 @@ for (let x of cars) {
       <br/>
       `,
       `--- ngOnChanges() - intercept input property changes 
+      <br/>
       <br/>import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
       <br/>ngOnChanges(changes: SimpleChanges) {
       <br/>
@@ -5989,9 +5863,32 @@ for (let x of cars) {
      `, 
      'for Libraries - publishing tsconfig.json - "angularCompilerOptions": {"compilationMode": "partial"}- no particular runtime version - '
   ],
+  [`ESBuild - suoerfast build b  undler
+  <br/>dramatically speeds up bundling speed of both CommonJS and ESMs
+  <br/>(no need of a cache)  
+  <br/>--- used by the more modern versions of Ang 13 | 14 
+  <br/>--- Tree Shakes ESMs - 
+  
+ `,
+    `CommonJS - 
+      <br/>- more suitable for Node.js (Not JS)
+    `,
+    `ESMs - (EcmaScript Modules) -
+    <br/>- FESM (Flat ESMs)
+    <be/>
+    <br/>---Tree Shaking of ESMs
+    <br/>
+    <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
+    <br/>- performs clever static analysis of the AST of your code - 
+    <br/>--- has an evaluation engine to evaluate simple expressions 
+    <br/> ------ supports most libraries out of the box
+  `],  
   [`Ivy - is new Compilation and Rendering Pipeline 
   <br/>---- which creates template instructions to render info to the DOM
   <br/>
+  <br/>- features - Template Instructions | Incremental DOM | Locality | TreeShaking | 
+  <br/>- Libraries - ngcc but now uses Linker and partial compilation
+  <br/> -- 
   <br/>Does not need an interpreter or metadata.json file 
   <br/>nor the ngFactory.js file
   <br/>
@@ -6256,8 +6153,8 @@ for (let x of cars) {
     '-------- subscribe()',
     ' -- ',
     '--- rxjs operators',
-    ' -- ',
-    '- Subjects', 
+  ],
+  ['- Subjects', 
     '--- behaviorSubject', 
     '--- asyncSubject', 
     '--- replaySubject'
@@ -7014,8 +6911,27 @@ for (let x of cars) {
     '-- nx cli',
     '-- nx build', 
     '-- nx serve'
-    ],  
-    [`ngrx - State Management - Reactive State for Angular 
+    ],
+    [`CQRS - (Command Query Responsibility Segregation) - 
+      <br/>--- pattern that separates Read | Update operations for a data store  
+      <br/>------ can maximise the performance | scalability| security  
+    `,
+    'Indept Models wrt standard CRUD ops',
+      `------ Read - Query that returns data
+      
+      `,
+      `------ Update - Command that performs an Action
+       
+       `
+  ,
+  '--- Advantages',
+  ``,
+  `------ Performance - burdon on the data store`,
+  `------ Scalability - Parallel operations`,
+  `------ Security and Permissions - impropper context `,
+  
+  ],  
+    [` - State Management - Reactive State for Angular 
     <br/>
     <br/>- a group of angular libraries for Reactive extensions 
     <br/>
@@ -7573,7 +7489,8 @@ for (let x of cars) {
      <br/>
      <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
      <br/>- performs clever static analysis of the AST of your code - 
-     <br/>- has an evaluation engine to evaluate simple expressions - supports most libraries out of the box
+     <br/>--- has an evaluation engine to evaluate simple expressions 
+     <br/> ------ supports most libraries out of the box
      <br/>
      <br/>Code Splitting - lets you split your codebase - into multiple chunks 
      <br/>
@@ -8132,7 +8049,13 @@ for (let x of cars) {
       <br/> Not owned by anyone or anything 
       <br/>- but can be imported into other components and modules
       <br/> ImportProvidersFrom(RouterModule.forRoot(APP_ROUTES))  
-      <br/> We just update Angular Schematics 
+      <br/> 
+      <br/>--- We just update Angular Schematics
+      <br/>------ ng g c no-mod --standalone
+      <br/>
+      <br/>---- The CommonModule is used to assign 
+      <br/>------- StandAlone Components | Pipes | Directives
+      <br/>-------  
     `, 
     `--- standalone: true - provide a simplified way to build Ang appns
     <br/>----- standalone components | directives | pipes 
@@ -8362,6 +8285,8 @@ for (let x of cars) {
   `- Webpack - module bundler
   <br/> - provide - source maps 
   `,
+  `--- Lighthouse - tool - 
+  `,
   `- Call Stack - Chrome Devtools shows the Current CallStack
   <br/> - gives info about the stack of ftn calls indicating 
   <br/> - what triggered the execution of the ftn that is being executed          
@@ -8506,15 +8431,297 @@ for (let x of cars) {
   '- Tree-Shaking', 
   '- Modern Angular'
  ],
-  ['SourceMap Explorer', 'sourceMaps: true'],
+  ['SourceMap Explorer', 
+  'sourceMaps: true',
+  `ng build --prod --source-map
+  <br/>--- Every JS file has a corresponding SourceMap
+  <br/>
+  <br/>--- maps production bundle code to original dev code
+  <br/>
+  <br/>--- in package.json file - 
+  <br/>--- 'explore:"source-map-explorer dist/**/*.js"
+  `  
+],
   ['REST - architectual style that for an API that uses HTTP requests to access and use data','-- APIs','-- IDLs','--- humans/auto machine procing','-- HTTP methods',  '-- List REST API DLs','--- WSDL','--- WADL','--- OData','--- OpenAPI','--- RSDL','--- RAML',
     ' -- ',
-    '- IDL for RESTful APIs expressed using JSON', 
+    '- IDL for RESTful APIs expressed using JSON',
+    `---- RAML - (RESTful API Modelling Language)
+    <br/>------ YAML based modeling language to describe RESTful APIs 
+    <br/?------ Defn of HTML based APIs 
+    <br/>---------- allows any file content - code fragments wrt OpenAPI (only ext files)
+    `, 
     '-- design & Doc APIs','-- ',
     '-- Interface Defn Language',
     '-- RESTful APIs',
     '-- JSON',
-    '-- CRUD methods', 
+    `---- 5 REST HTTP methods
+    <br/>------- 1: POST - operates on resource collns
+    <br/>------- 2: PUT - replaces a resources content entirely
+    <br/>------- 3: PATCH - modifies resource contents - JSON | XML
+    <br/>------- 4: GET - returns a repn view of a resources contents and data
+    <br/>---------- Read Only (most common method)
+    <br/>------- 5: DELETE - deletes 1 resource
+    `, 
+    ' -- ',
+    `HTTP (HyperText Transfer Protocol) - is an app'n layer protocol 
+    <br/>---- for transmitting hypermedia documents - eg HTML
+    <br/>---- Designed for comm'n between web browsers and web servers
+    `,
+    `---- HTTP Methods
+
+
+    `,
+    `---- HTTP HttpClient
+    <br/>--- HTTP CRUD - Create | Read| Update | Delete 
+    <br/>-----  operations which the HTTP can use to manipulate data from a server
+    <br/>
+    <br/>----- HttpClient - performs HTTP requests 
+    <br/>----- HTTP Request - is an HTTP message 
+    <br/>-------- that a client sends to an HTTP Server
+    <br/>-------- 2 most common methods are get | post
+    <br/>
+    <br/>---------   uses HttpClientModule from @angular/common/http
+   `,
+   `REST - API architectual style hat uses HTTP requests 
+   <br/>---- to access and use data
+   `,
+    '-- APIs',
+    '-- IDLs',
+    '--- humans/auto machine procing',
+    `---- 5 REST HTTP methods
+    <br/>------- 1: POST - operates on resource collns
+    <br/>------- 2: PUT - replaces a resources content entirely
+    <br/>------- 3: PATCH - modifies resource contents - JSON | XML
+    <br/>------- 4: GET - returns a repn view of a resources contents and data
+    <br/>---------- Read Only (most common method)
+    <br/>------- 5: DELETE - deletes 1 resource
+    `, 
+    '-- List REST API DLs',
+    '--- WSDL',
+    '--- WADL',
+    '--- OData',
+    '--- OpenAPI',
+    '--- RSDL',
+    '--- RAML',
+   `- IDL for RESTful APIs expressed using JSON
+   <br/>-- design & Doc API
+   <br/>-- Interface Defn Language
+   <br/>-- RESTful APIs
+   <br/>-- JSON
+   <br/>-- CRUD methods
+   <br/>--- REST Servers
+   <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
+   <br/> requires server.js and a db.json file for your database
+   <br/>---- (jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+   <br/>
+   <br/> ---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
+   <br/>powerful enough for production usage - 
+   <br/>simple and hackable to be used for testing | local devt | learning
+   `,
+   `--  Swagger - rules | specifications | tools  
+   <br/>------ for developing and describing RESTful APIs
+   <br/>
+   <br/>------ Swagger framework - lets us develop
+   <br/>----------- interactive m/c + human readable API documentation
+   <br/>------ 
+   `,
+   `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
+   <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
+   <br/>    
+   <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
+   <br/>------  and redirects them to an in-memory data store 
+   <br/>--------- that you control on the frontend.
+   <br/>
+   <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
+   <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
+   <br/>  
+   <br/>------- Angular Demos | Tests 
+   <br/>------- Emulates CRUD ops wrt REST
+   <br/>------- in-memory data store
+   <br/>---------- npm install angular-in-memory-web-api --save 
+   <br/>---------- HttpClientInMemoryWebApiModule
+   <br/>---------- angular/in-memory-web-api
+  `,
+  `-- Postman
+  <br/>--- sending | observing the HTTP requests + responses 
+  <br/>------ has a GUI and and can be used on Linux | Windows | Mac
+  <br/>
+  <br/>--- simplifies every step of the API Life Cycle  
+  `,
+  `--- inspect HTTP/HTTPS request traffic 
+  <br/>------ sent/received in the appn 
+  <br/>----- 
+  `,
+  `--- Capture Network traffic - 
+  <br/>-----   
+  <br/>----- 
+  `,
+  `--- Postman Proxy
+  <br/>----- 
+  <br/>----- 
+  `, 
+  ' --- ',
+  `GraphQL (2012) - Write Queries (not Code)
+  <br/>--- is a Query Language for your API  
+  <br/>--- between client and server to exchange info
+  <br/>--- and a Server Side Runtime - for executing queries
+  <br/>--- using a type system you define for your data
+  <br/>--- is backed by your existing code and data 
+  <br/>----Successor to REST
+  <br/>------- get exacly what data you asked for 
+  <br/>
+  <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
+  <br/>
+  <br/>Angular Apolo is the GraphQL client for Angular
+  <br/>--- works with Angular schematics | router | nativeScript | ionic
+  <br/>--- simplifies building UI Components that fetch data with GraphQL
+  <br/>------ should use with View Layer Integrations - 
+  <br/>---------- Angular | React | Vue | WebComponents
+  <br/>
+  <br/>GraphQL is designed to make APIs  
+  <br/>---- fast | flexible| developer friendly 
+  <br/>---- can be deployed within an IDE known as GraphiQL - 
+  <br/>----- alternative to REST 
+  <br/>-------- constructs requests that pull data from multiple data sources in 1 API call
+  <br/>----------- Its for extending + expanding upon their services 
+  <br/>
+  <br/>
+  <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
+  <br/>
+  <br/>--- uses schema to know what properties are queryable - 
+  <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+  <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+  <br/>
+  <br/>GraphCMS - has grown to a widely adapted Query Language 
+  <br/>All the new tools being developed for GraphQL   
+  <br/>
+  <br/>
+  <br/>GraphQL server and Angular Apollo 
+  <br/>GraphQL - is a server - is a query language for API - descn of data in API
+  <br/>
+  <br/>GraphQL CLI - 
+  <br/>
+  <br/>GraphQL TS - 
+  <br/>--- TypeGraphQL - to improve Typed GraphQL
+  <br/>
+  <br/>GraphQL Config - 
+  <br/>
+  <br/>GraphQL ESLint - 
+  <br/>
+  <br/>GraphQL Tools - set of npm packages + structure for schema+resolvers
+  <br/>--- A simpler way to create GraphQL APIs
+  <br/>
+  <br/>------ GraphCMS - API first Headless CMS to build GraphQL 
+  <br/>
+  <br/>GraphQL Language Service - 
+  <br/>
+  <br/>GraphQL-WS - WebSockets - 
+  <br/>
+  <br/>GraphQL Live-Query - 
+  <br/>
+  <br/>Angular Apolo is the GraphQL client for Angular
+  <br/>
+  <br/>--- Schemas - used to know what properties are queryable - 
+  <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
+  <br/>s-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+  <br/>
+  <br/>----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+  <br/> 
+  <br/>--- Servers
+  <br/>------ JS via Node.js
+      <br/>var { graphql, buildSchema } = require(\'graphql\');
+      <br/>
+      <br/>var schema = buildSchema(\`
+      <br/>type Query {
+        <br/>hello: String
+        <br/> }
+        <br/>\`);
+        <br/>
+        <br/>var rootValue = { hello: () => 'Hello world!' };
+        <br/>
+        <br/>var source = 's{ hello }';
+        <br/>
+        <br/>graphql({ schema, source, rootValue }).then((response) => {
+        <br/>console.log(response);
+        <br/>});
+        <br/>
+        <br/>------ C#/Net        
+        <br/>public static async Task Main(string[] args)
+        <br/>{
+          <br/>var schema = Schema.For(@"
+          <br/>type Query {
+            <br/>hello: String
+            <br/>}
+            <br/>");
+            <br/>
+            <br/>var json = await schema.ExecuteAsync(_ =>
+              <br/>{
+                <br/> _.Query = "{ hello }";
+                <br/> _.Root = new { Hello = "Hello World!" };
+                <br/>});
+                <br/>
+                <br/>Console.WriteLine(json);
+                <br/>}
+                <br/>}
+                <br/> 
+       <br/>------ Python
+       <br/>------ C/C++
+       <br/>
+       <br/>------ Elm
+        <br/> -- 
+        <br/>--- GraphQL CLI
+        <br/>--- GraphQL TS
+        <br/>--- GraphQL Config
+        <br/>--- GraphQL ESLint
+        <br/>--- GraphQL Tools (@graphql-tools/*)-
+        <br/>is a set of npm packages 
+        <br/>and an opinionated structure for 
+        <br/>how to build a GraphQL schema and resolvers in JS
+        <br/>
+        <br/>------ GraphCMS
+        <br/>-------- is a powerful, easy to use Headless CMS
+        <br/>-------- that allows you to build the essential back end infrastructure reqd
+        <br/>-------- creates a GraphQL endpoint - + endpt for trying out GrpahQL too 
+        <br/>------------ (no need for a server)
+        <br/>
+        <br/>------ GraphQL Voyager
+        <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
+        <br/>
+        <br/>
+        <br/>------ GraphQL Docs
+        <br/>------ Swagger schema to GraphQL
+        <br/>------ GraphQL IDE - GraphQL Playground
+        <br/>------ GraphQL Network - style tab
+        <br/>------ GraphQL Editor - Create backends from schema
+        <br/>
+        <br/>------ GraphQL with HTTP
+        <br/>----- using GraphQL Yaga
+        <br/>-------- bind JS GraphQL schema to an HTTP Server
+        <br/>        <br/>
+        <br/>--- GraphQL Language Service
+        <br/> -- 
+        <br/>--- GraphQL-ws library for - 
+        <br/>
+        <br/>--- GraphQL WS (Web Sockets)
+        <br/>execute subscriptions (or other opns) over WebSocket
+        <br/> with the subscriptions-transport-ws library
+        <br/>
+        <br/>------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
+        <br/>--------- Server holds a steady conection to the client
+        <br/> -- 
+        <br/>--- GraphQL introspection - for developer tooling 
+        <br/>
+        <br/>--- GraphQL Live Query
+        <br/> -- 
+        <br/>--- Apollo - clients  
+        <br/>----- Angular Schematics
+        <br/>----- Angular Router
+        <br/>-------- Angular Universal (SSR)
+        <br/>----- NativeScript
+        <br/>----- Ionic
+  `,
+    ' -- ',
+ 
     '--- REST Servers',
     `---- json-server - JS library for mocking REST APIs - npm install -g json-server
       <br/> requires server.js and a db.json file for your database
@@ -8884,11 +9091,14 @@ for (let x of cars) {
   `------- containerized appns`
     ],
     ['- Ang Versions',
-    `Ang 14 TS 4.7 - Strictly typed Reactive Forms | 
-    adv extended template diagnostics | 
-    optional ngModules (standalone : true) | 
-    router title added
-    ng cache
+    `Ang 14 TS 4.7 - 
+    <br/>--- Strictly typed Reactive Forms | 
+    <br/>--- adv extended template diagnostics | 
+    <br/>--- optional ngModules (standalone : true) 
+    <br/>--- router title added
+    <br/>--- improved inject()
+    <br/>--- ng cache
+    
     `,
       '-- TS 4.7',
       '-- strictly typed Reactive Forms',
