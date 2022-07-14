@@ -2220,26 +2220,31 @@ const subTopicsInfo = [
   <br/>----- and use Subjects to aid working with them -
   <br/>-------simplifying subscription and allow 
   <br/>---------multi-casting events around the application. 
-
-  <br/>Routing and Component Router -  
+  <br/>
+  <br/>Routing and Component Router -
+  <br/>--- path | component | router-outlet| routerLink | ActivatedRoute | Router Guards 5 |   
   <br/>
   <br/>@Input and @Output
+  <br/>--- for updating child with parent info and sending data from child to parent 
   <br/>
   <br/>Lazy Loading 
+  <br/>--- So you only load modules when info is required and hence smaller initial load 
+  <br/>----- lazy load Components too - 
   <br/>
   <br/>Change Detection
+  <br/>--- Zones - ngZone | ChangeDetectorRef - 
   <br/>
-  <br/>AoT Compilation
+  <br/>AoT (Ahead of Time) Compilation - 
   <br/>
-  <br/>Tree Shaking
+  <br/>Tree Shaking - Dead code elimination - 
   <br/>
   <br/>APF (Angular Package Format)
   <br/>
-  <br/>Ivy
+  <br/>Ivy (new Ang 9)
   <br/>
-  <br/>View Engine 
+  <br/>View Engine (old Angu 4 to 8)
   <br/>
-  <br/>Promises
+  <br/>Promises - emit 1 object - not cancellable - async 
   <br/>
   <br/>Observables and the RxJS operators 
   <br/>--- can manipulate streams of data over time 
@@ -2258,12 +2263,17 @@ const subTopicsInfo = [
   <br/>Transclusion (Content Projection)
   <br/>
   <br/>HTTP-HttpClient 
+  <br/>--- Get or Post information / data between server and client - 
+  <br/>--- HttpInterceptor - 
   <br/>
   <br/>Angular appns vs Angular custom libraries
+  <br/>--- Libraries - 
   <br/>
   <br/>Caching
+  <br/>--- Stored on disk or memory - 
   <br/>
-  <br/>Storage
+  <br/>Storage -  
+  <br/>--- 
   <br/>
   <br/>CQRS (Command Query Responsibility Segretation)
   <br/>
