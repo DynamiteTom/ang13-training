@@ -70,6 +70,7 @@ const features = `
     'VS-Code',
     'Angular Language Service',
     'TSServer',
+    'ALS (Language Service)',
     'ESLint',
     'CI_CD_Jenkins',
     'Webpack',
@@ -594,6 +595,9 @@ const subTopics = [
     '-- index.html',
     '-- main.js',
     '-- dist folder',
+    '----- vendor.js',
+    '----- main.js',
+    '----- runtime.js',
     '-- node_modules folder',
     'core.d.ts' 
     ],
@@ -1369,23 +1373,58 @@ const subTopics = [
   ['Core libraries',
       '- @angular/core',
       '- @angular/common',
+      ' -- ',
       '--- CommonModule',
-      '----- default template Directives',
-      '----- default pipes',
+      
+      '---- default template Directives',
+      '------- NgClass - ',
+      '------- NgComponentOutlet - ',
+      '------- NgForOf - ',
+      '------- NgIf - ',
+      '------- NgPlural - ',
+      '------- NgPluralCase - ',
+      '------- NgStyle - ',
+      '------- NgSwitch - ',
+      '------- NgSwitchCase - ',
+      '------- NgSwitchDefault - ',
+      '------- NgTemplateOutlet - ',
+     
+      '---- default pipes',
+      '------- AsyncPipe - ',
+      '------- CurrencyPipe - ',
+      '------- DatePipe - ',
+      '------- DecimalPipe - ',
+      '------- I18nPluralPipe - ',
+      '------- I18nSelectPipe - ',
+      '------- JsonPipe - ',
+      '------- KeyValuePipe - ',
+      '------- LowerCasePipe - ',
+      '------- PercentPipe - ',
+      '------- SlicePipe - ',
+      '------- TitleCasePipe - ',
+      '------- UpperCasePipe - ',
+      ' -- ',
       '----- location services',
       '- @angular/compiler',
         '-- ngc',
       '- @angular/browser',
       '--- BrowserModule',
+      ' -- ',
       '- @angular/router',
       '--- RouerModule',
+      ' -- ',
       '- @angular/platform-browser',
-      '- @angular/platform-browser-dynamic',
+      '--- main.ts',  
+      '------ @angular/platform-browser-dynamic',
+      '------ bootstrapApplication()',
+      ' -- ',
       '- @angular/forms',
       '--- FormsModule',
       '--- ReactiveFormsModule',
+      ' -- ',
       '- @angular/animations',
       '---  AnimationsModule',
+      ' -- ',
       '- @angular/material',
       '- @angular/cdk',
       '--',
@@ -1596,6 +1635,18 @@ const subTopics = [
     '- Navigation', 
     '-- Angular Templates'],
     ['TSServer-',''],  
+    ['Angular Language Service',
+        '--- inside Angular templates',
+        '------ completions',
+        '------ errors',
+        '------ hints',
+        '------ navigations',
+        ' -- ',
+        '--- tsconfig.json',
+        '------ strictTemplates: true',
+        ' -- ',
+        '----------- GetSamanticsDiagnostics'
+    ],
     ['ESLint', 
     'JS + TS', 
     'Static Analysis',
@@ -2170,7 +2221,7 @@ const subTopicsInfo = [
   <br/>--- @xxx({}) -  Component | Directive| Pipe| Input| Output| 
   <br/>
   <br/>ES (EcmaScript)
-  <br/>--- block scope - const | let | wrt var in JS - Promise - String constants using \`\` 
+  <br/>--- block scope - const | let | wrt var in JS - | Fat arrow => | Promise | multi-line strings  |- String constants using s\`\` 
   <br/>
   <br/>TypeScript - ts - 
   <br/>--- Strong types - tools - tsc transpiles ts down to js - tsconfig.json -    
@@ -2234,17 +2285,26 @@ const subTopicsInfo = [
   <br/>Change Detection
   <br/>--- Zones - ngZone | ChangeDetectorRef - 
   <br/>
-  <br/>AoT (Ahead of Time) Compilation - 
+  <br/>AoT (Ahead of Time) Compilation -compiler runs once at build time
+  <br/>--- browser downloads a pre-compiled version of an application 
+  <br/>--- browser loads executable code - render app'n immediately
+  <br/>------ few async requests - 
   <br/>
   <br/>Tree Shaking - Dead code elimination - 
   <br/>
   <br/>APF (Angular Package Format)
   <br/>
-  <br/>Ivy (new Ang 9)
+  <br/> -- 
+  <br/>Ivy (new Ang 9+)
+  <br/>--- Incremental DOM -
+  <br/>--- Locality - 
+  <br/>--- 3 phase Compiler - Code Analysis | Code Generation | Template TypeChecking
   <br/>
   <br/>View Engine (old Angu 4 to 8)
+  <br/>--- rotating 8 phase AOT Compiler  
   <br/>
   <br/>Promises - emit 1 object - not cancellable - async 
+  <br/>--- 
   <br/>
   <br/>Observables and the RxJS operators 
   <br/>--- can manipulate streams of data over time 
@@ -2256,6 +2316,10 @@ const subTopicsInfo = [
   <br/>Higher Ordrer Mapping ftns
   <br/>
   <br/>Forms
+  <br/>--- Template - 
+  <br/>------- 
+  <br/>--- Reactive -
+  <br/>-------  
   <br/>
   <br/>ElementRef | ViewContainerRef| View DOM | Content DOM
   <br/>@ViewChild and @ViewChildren | @ContentChild | @ContentChildren
@@ -2266,38 +2330,145 @@ const subTopicsInfo = [
   <br/>--- Get or Post information / data between server and client - 
   <br/>--- HttpInterceptor - 
   <br/>
+  <br/>GIT (Global Info Tracker) - 
+  <br/>--- 3 parts - Working tree | Staging area| Local repo + Remote repo
+  <br/>------ Git cmds - Staging (index) | Stashing | Branches | 
+  <br/>------ Checkout | commit | push| pull | Master | HEAD |
+  <br/>
   <br/>Angular appns vs Angular custom libraries
   <br/>--- Libraries - 
   <br/>
   <br/>Caching
   <br/>--- Stored on disk or memory - 
+  <br/>--- Cache HTTP Requests helps to optimize your appn 
+  <br/>------- HttpInterceptor 
+  <br/>--- ng cache 
   <br/>
   <br/>Storage -  
   <br/>--- 
   <br/>
   <br/>CQRS (Command Query Responsibility Segretation)
   <br/>
-  <br/>ngrx - () (State Management)
+  <br/>NGXS - simpler to learn | less boilerplate code
+  <br/>----- is modeled on CQRS pattern - 
   <br/>
+  <br/>ngrx - () (Reactive State Management)
+  <br/>--- ngrx Store -
+  <br/>------ provides reactive state management for Ang Apps
+  <br/>------ is a controlled state container - simplifies state to objects
+  <br/>---------- State is Read only - Single source of truth
+  <br/>---------- Data stored in Observable in a service called Store in client
+  <br/>---------- Changes made with Reducer 
+  <br/>--------- Unify events in your appn and derive state using rxjs 
+  <br/>------ composes map of Reducers mapped into 1 Reducer 
+  <br/>
+  <br/>--- Actions - express unique events 
+  <br/>------ extend NgRx Action - 
+  <br/>--------- type property -
+  <br/>--------- payload property  
+  <br/>
+  <br/>--- Reducer - pure functions -  
+  <br/>
+  <br/>--- Selector - read store | state - 
+  <br/>
+  <br/>--- Effects - asynchronous actions - 
+  <br/>------- DJ of the ngrx dance floor
+  <br/>
+  <br/>--- store-devtools - 
+  <br/>
+  <br/>--- schematics
+  <br/>
+  <br/>--- meta-Reducers - hooks into action reducer pipeline  
+  <br/>------ higher order reducer ftn - takes reducer - returns new reducer
+  <br/>
+  <br/>--- ngrx-Entity - small library to help keep entities in ideal Entity state format
+  <br/>------- array of ids + map Entities 
+  <br/>------- used with ngrx Store 
+  <br/>------ entity-adapter -   is a JS object containing 
+  <br/>---------- generated Reducer ftns
+  <br/>---------- original provided selectId 
+  <br/>---------- sortComparer callbacks
+  <br/>---------- method to generate initial Entity State value 
+  <br/>---------- ftns to generate memoized selector ftns for this entity (global| non-global)
+  <br/>
+  <br/>--- ngrx Data - 
+  <br/>
+  <br/>SHARI - Shared Hydraded Available Retrieved Impacted
+  <br/>
+  <br/>--- 
   <br/>Angular main libraries
   <br/>
-  <br/>Security
   <br/>
-  <br/>Schematics  
+  <br/>---
+  <br/>Security -
+  <br/>--- XSS - CSRF |
+   XSRF | Output encoding | Sanitation | OWASP | SNYK 
   <br/>
-  <br/>CI/CD Jenkins
+  <br/>--- 
+  <br/>Schematics -  
+  <br/>--- template based code generator - supports complex logic
+  <br/>--- Angular CLI uses schematics - to apply transforms to a web project 
+  <br/>------- ng g | ng add
   <br/>
+  <br/>CI/CD Jenkins - automation server | reliably build | test | deploy S/W
+  <br/>
+  <br/>--- Continuous Integration - pipeline 
+  <br/>----- drive devt teams to freq imp small code canges 
+  <br/>----- check them in to a version control repo 
+  <br/>
+  <br/>--- Continuous Delivery 
+  <br/>------
+  <br/>
+  <br/>--- 
   <br/>Testing - Unit | Integration | End to End
   <br/>-- Unit
-  <br/>-- Integration
-  <br/>-- End to End 
+  <br/>----- Jasmine Spy - 
+  <br/>----- Karma 
+  <br/>-------- Component Harness - test interact with a Component
   <br/>
-  <br/>Security
+  <br/>-------- TestBed - creates Angular testing Module (@NgModule)
+  <br/>------------configureTestingModule - dyn constructed Ang test module
+  <br/>------------lets us test the Component DOM 
+  <br/>----- Wallaby.js
+  <br/> -- 
+  <br/>-- Integration
+  <br/>----- combine 2 or more Unit Tests 
+  <br/> --  
+  <br/>-- End to End
+  <br/>----- Protractor
+  <br/>----- Cypress 
+  <br/> --  
+  <br/>
+  <br/>--- 
+  <br/>ESLint - 
+  <br/>--- id + report on patterns found in ES/JS code for TS|JS code
+  <br/>--- goal of making code more consistant and avoiding bugs  
+  <br/>--- Static Analysis - AST (Abstract Syntax Tree)
   <br/>
   <br/>Webpack 
-  <br/>
-  <br/>Cloud - AWS | Azure 
-  <br/>
+  <br/>--- is a module bundler - bundle JS files for usage in a browser 
+  <br/>--------- supports both ESM and CommonJS
+  <br/>--- extended to support HTML| CSS| images | fonts| stylesheets
+  <br/> -- 
+  <br/>Cloud - AWS | Azure
+  <br/>------ long running reliable storage services
+  <br/>------ services - Servers| Storage| DBs| Networking| S/W| Analytics| etc.
+  <br/>  
+  <br/>--- AWS (Amazon Web Services) -
+  <br/>------ S3 -
+  <br/>------ EC2 -
+  <br/>------ EBS -
+  <br/>------ ECS
+  <br/>------ Glacier -  
+  <br/> 
+  <br/>--- Azure - cheaper -  
+  <br/>------ Blob Storage
+  <br/>------ Disk Storage
+  <br/>------ Queue Storage 
+  <br/>------ Standard Archive
+  <br/> 
+  <br/> --
+  <br/> 
   <br/>REST - Swagger | 
   <br/>
   <br/>Debugging Angular 
@@ -2660,12 +2831,12 @@ const subTopicsInfo = [
  <br/>---------- only applied to real file system - once checked to be valid
  <br/>
  <br/>---- custom schematics - 
- ------ virtual file system
- --------  tree
- ----------  base + staging area (changes)',
- --------  Rule object = transformations',
- --------  4 Actions - Create | Rename | Overwrite | Delete',
- --------  SchematicContext - Each Schematic runs in a context repd by a SchematicContext object 
+ <br/>------ virtual file system
+ <br/>--------  tree
+ <br/>----------  base + staging area (changes)',
+ <br/>--------  Rule object = transformations',
+ <br/>--------  4 Actions - Create | Rename | Overwrite | Delete',
+ <br/>--------  SchematicContext - Each Schematic runs in a context repd by a SchematicContext object 
  <br/>------- The context object passed into a rule provides access to utility ftns + metadata - wrt schematic 
  <br/>---------- including logging API to help debugging
  <br/>-----------also defines a merge strategy - staged tree to base tree      
@@ -3243,6 +3414,7 @@ const subTopicsInfo = [
      <br/>------- can be used to transform a Subject into an Observable 
      <br/>
      `,
+     ' -- ',
 `- Decorators
    <br/>----- metadata
    <br/>
@@ -3941,7 +4113,12 @@ const subTopicsInfo = [
      <br/>------- Static analysis of code 
      <br/>---------- and then compiles whats left
     `,
-     ' -- ',
+    ' -- ',
+    `CQRS (Command Query Responsibility Segregation)
+    <br/>--- Read -  Get
+    <br/>--- Update - Command
+    `,
+    ' -- ',
    `ngrx - State Management - Reactive State for Angular 
      <br/>
      <br/>- a group of angular libraries for Reactive extensions 
@@ -5038,8 +5215,28 @@ for (let x of cars) {
      `  
     ],
     ['- package.json', 
-     '- angular.json',  
+     '- angular.json',
+     `--- package-lock.json - 
+      <br/>------ automatically generated for any opns 
+      <br/>------ where npm modules modifies either
+      <br/>---------- node_modules tree
+      <br/>---------- package.json
+     `,  
      '-- dist folder',
+     `----- vendor.js - 
+     <br/>-------- contains all libraries imported into your appn
+     <br/>------------ AppModule (including Angular library)
+     
+     `,
+     `----- main.js
+     <br/>------- contains the action related code of the appn
+     <br/>------- contains the code of Angular appn  
+     `,
+     `----- runtime.js
+     <br/>------- used by webpack to load code at runtime  
+     <br/>------- bundles are generated by webpack 
+     `,
+   
      '-- node_modules folder','- primary entry point for @angular/core lib' 
     
     ],
@@ -5784,7 +5981,9 @@ for (let x of cars) {
     '---- Compile time build', 
     '---- No need for Compiler', 
     `---- 3 Phases - 
-    1:Code Analysis- 2:Code generation- 3:Template type checking
+    1:Code Analysis- 
+    2:Code generation- 
+    3:Template type checking
     `,
     `-1 AOT Collector - analyzes the metadata and reps in best manner 
     <br/>- recorded in the metadata.json file
@@ -5812,7 +6011,6 @@ for (let x of cars) {
     <br/>- Content queries 
     <br/>---- Animations Pipes i18n core frmwork services LCHs 
     <br/>-------- easier to ship librarries
-    
     `, 
     `View Engine tree-shakes 
     <br/>--- Static analysis of code 
@@ -5845,7 +6043,8 @@ for (let x of cars) {
       <br/>
       <br/>  fix breaking changes in a dep | add new confign | add a framewok)  
      <br/>
-     <br/>Added in the @schematis/angular colln - ng g   and ng add     
+     <br/>---- Added in the @schematis/angular colln 
+     <br/>---- ng g   and ng add     
     `,
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
@@ -5965,6 +6164,10 @@ for (let x of cars) {
       <br/>Angular ivy does not!
     `,
     `- AOT with Ivy is faster and should be used by default
+    - 3 Phases - 
+    <br/>---- 1:Code Analysis- 
+    <br/>---- 2:Code generation- 
+    <br/>---- 3:Template type checking
     `,
     ' -- ',
      `Libraries - used to use the ngcc (Angular Compatability Compiler) 
@@ -6002,12 +6205,10 @@ for (let x of cars) {
     <br/>--- legacy compilation and rendering pipeline
     <br/>
     `, 
+
     '- tended to use JIT compilation by default',
-    `- 3 Phases - 
-    <br/>1:Code Analysis- 
-    <br/>2:Code generation- 
-    <br/>3:Template type checking
-    `,
+    `---- 8 phase AOT Compiler
+  `,  
     `-- Code Analysis - 
     <br/>--1 AOT Collector - analyzes the metadata and reps in best manner - recorded in the metadata.json file
     <br/>like a diagram of the overall structure of a decorator's metadata 
@@ -7037,6 +7238,7 @@ for (let x of cars) {
       <br/>directives | pipes |  
       <br/>exports are re-exported by BrowserModule - included in the root AppModule wrt Ang CLI
       `,
+      ' -- ',
       `CommonModule - exports all the basic Angular directives and pipes 
           <br/>- defines template binding directives *ngIf | *ngFor | *ngSwitch
           <br/>- and pipes - DecimalPipe | 
@@ -7044,7 +7246,33 @@ for (let x of cars) {
           <br/>--- Re-exported by the BrowserModule - 
             `,
             '---- default template Directives',
+            '------- NgClass - ',
+            '------- NgComponentOutlet - ',
+            '------- NgForOf - ',
+            '------- NgIf - ',
+            '------- NgPlural - ',
+            '------- NgPluralCase - ',
+            '------- NgStyle - ',
+            '------- NgSwitch - ',
+            '------- NgSwitchCase - ',
+            '------- NgSwitchDefault - ',
+            '------- NgTemplateOutlet - ',
+           
             '---- default pipes',
+            '------- AsyncPipe - ',
+            '------- CurrencyPipe - ',
+            '------- DatePipe - ',
+            '------- DecimalPipe - ',
+            '------- I18nPluralPipe - ',
+            '------- I18nSelectPipe - ',
+            '------- JsonPipe - ',
+            '------- KeyValuePipe - ',
+            '------- LowerCasePipe - ',
+            '------- PercentPipe - ',
+            '------- SlicePipe - ',
+            '------- TitleCasePipe - ',
+            '------- UpperCasePipe - ',
+            ' -- ',
             '---- location services used in routing | HTTP services | localization support',        
       `- @angular/compiler - ngc - is the tool used to compile Angular appns and the Libraries
        <br/>built on top of the TypeScript compiler (tsc) - extended for Angular decorators etc      
@@ -7053,6 +7281,7 @@ for (let x of cars) {
        '---- ngc',
       '- @angular/browser - loaded into the root folder automatically when creata a project with ng new xxx',
       '--- BrowserModule',
+      ' -- ',
       `- @angular/router - imps the Angular router service - enables navn from 1 view to the next wrt appn tasks
       <br/>Defines the Route object that maps a URL path to a Component
       <br/>and RouterOutlet directive - places a RoutedView in a template 
@@ -7060,6 +7289,7 @@ for (let x of cars) {
       <br/>import { RouterModule } to use the Router service in apps   
       `,
       '--- RouterModule',
+      ' -- ',
       `- @angular/platform-browser - supports exec of Ang apps on diff browsers 
       <br/>library for using Angular in a web browser
       <br/>BrowserModule - included by default  
@@ -7072,11 +7302,14 @@ for (let x of cars) {
       <br/>eg Bootstrapping 
       `,
       '--------- bootstrapApplication()',
+      ' -- ',
       '- @angular/forms',
       '--- FormModule',
       '--- ReactiveFormsModule',
+      ' -- ',
       '- @angular/animations',
       '--- AnimationsModule',
+      ' -- ',
       '- @angular/material',
       '- @angular/cdk',
       '--',
@@ -7391,6 +7624,42 @@ for (let x of cars) {
     '- lets you enforce a set of style | formatting | coding stds for your codebase',
     'ESLint 8.09 (7th Feb 2022) -  ',
     'ESLint 8.15 (7th May 2022) -  ',
+    ],
+    [`ALS (Angular Language Service )
+      
+      <br/>  
+      <br/>--- ALS reads the tsconfig.json file
+      <br/>------ finds all templates in app'n -provides Lang Services for any open templates
+    `,
+    `--- inside Angular templates
+    
+    `,
+    `------ completions
+    
+    `,
+    `------ errors
+    
+    `,
+    `------ hints
+    `,
+    `------ Quick info and navigations
+    
+    `,
+    ' -- ',
+    `--- tsconfig.json
+      <br/>has both
+      <br/>---- compilerOptions
+      <br/>---- angularCompilerOptions
+    `,
+    `------ strictTemplates: true
+    <br/>"angularCompilerOptions": {
+      <br/>"      strictTemplates": true
+    <br/>}
+    `,
+    ' -- ',
+    `----------- GetSamanticsDiagnostics
+    
+    `
     ],
     ['Why CI/CD', 
   '- CI - Continuous Integration',
@@ -8729,6 +8998,17 @@ for (let x of cars) {
         <br/>-------- Angular Universal (SSR)
         <br/>----- NativeScript
         <br/>----- Ionic
+  `,
+    ' -- ',
+  `NoSQL - 
+  <br/>DynamoDB - Amazon flexible   NoSQL db service 
+  <br/>--- for single-digit millisec performance at any scale  
+  <br/>------ a fully managed | serverless | key-value db
+  <br/>------ designed to run high perf app'ns at any scale
+  <br/>------ offers built-in security | continuous backups| auto multi-Region repn
+  <br/>------ in-memory caching | data export tools 
+  
+  
   `,
     ' -- ',
  
