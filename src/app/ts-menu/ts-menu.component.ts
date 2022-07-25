@@ -1326,7 +1326,7 @@ const subTopics = [
     '------ Scalability',
     '------ Security'
   ],  
-    ['State Management', 
+    ['ngrx - State Management', 
     'RxJS and Observables', 
     'BehaviorSubject',
     '- appn State', 
@@ -1351,10 +1351,25 @@ const subTopics = [
   'ngrx Parts',  
   '- Store',
   '-- state data',
-  '- Reducer',
+  ' -- ',
   '- Action',
-  '- Selector', 
+  '---- Events',
+  '---- Document messages',
+  '---- Commands',
+  ' -- ',
+  '---- Props - Payload',
+  ' -- ',
+  '--- createAction',
+  ' -- ',
+  '- Reducer',
+  ' -- ',
+  '- Selector',
+  ' -- ', 
   '- Effects',  
+  ' -- ',
+  '--- createActionGroups',
+  ' -- ',
+  '--- Feature creators',
   ' -- ',
   '-- Store Devtools',
   '--- Action Log',
@@ -6523,7 +6538,7 @@ for (let x of cars) {
     <br/>only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust
     `
     ],
-    [`Why forms - to handle user input - eg Login - Register
+    [`Forms - to handle user input - eg Login - Register
     <br/>
     <br/>-- Both Template and Reactive forms 
     <br/>---- track value changes between form Input elements and form data 
@@ -6585,6 +6600,12 @@ for (let x of cars) {
       <br/>Validation is an integral part of managing any type of forms 
       <br/>
       <br/>--- Angular provides a set of built-in validators + ability to create custom validators
+      <br/>
+      <br/>--- Conditional Validators
+      <br/>
+      <br/>--- Typed Reactive Forms 
+      
+      
       `,
       `--- Template Forms - Template Driven Approach 
       <br/>----- using directives)
@@ -7142,9 +7163,21 @@ for (let x of cars) {
   `------ Security and Permissions - impropper context `,
   
   ],  
-    [` - State Management - Reactive State for Angular 
+  [`ngrx - State Management - Reactive State for Angular 
     <br/>
     <br/>- a group of angular libraries for Reactive extensions 
+    <br/>
+    <br/>--- originating from CQRS(Command Query Responsibility Segregation)
+    <br/>--- and Event driven systems - 
+    <br/>------- 3 diff action types - Events | Document messages | Commands  
+    <br/>
+    <br/>--- 3 main building blocks of ngrx
+    <br/>-------- actions | reducers| selectors
+    <br/>
+    <br/>-------- actions - cause state transitions  
+    <br/>-------- reducers - create a reducer for handling state transitions 
+    <br/>-------- selectors - obtain slices of feature state 
+  
     <br/>
     <br/>- inspired by the Redux pattern - derives state using RxJS and Observables
     <br/>----- State is derived from a single immutable Data Store - 
@@ -7202,11 +7235,81 @@ for (let x of cars) {
      '-- stores the data in an RxJS Observable inside an Angular Service called Store',
 
     '- Reducer are pure functions which take an action and output data to state or on to Effects (if async)',
-    '- Action - express state changes - acts as input to Reducer to produce new State and if async then to feed the effects library'
-    ,
+    `- Action - express state changes - acts as input to Reducer to produce new State and if async then to feed it to the effects library'
+    <br/> --- store rel info for the state 
+    <br/> --- reach the store via the dispatch() method on the store object - 
+    <br/>
+    <br/> --- Props - gives the payload with an action 
+    <br/> ------- defines any extra metadata for handling an action  
+    <br/> ----------- emptyProps() ftn - defines an action without payload within action group
+    <br/>
+    <br/>------- 3 diff action types - Events | Document messages | Commands  
+    `,
+     `------ Events - most recommended way to use Actions
+     <br/>------ simplify tracing where the action is dispatched from 
+     <br/>----- what has happened in the app - btn clicked | x updated  
+     <br/>-------- can be used to inc scalability - handled by many reducers/effects
+     `,
+     `------- Document messages
+     <br/>--- an entity has been updated 
+     <br/>------- used to sync changes/behaviors in entities 
+     `,
+     `------- Commands
+     <br/>------ we are explicit about how action should be handled - imperative control flow
+     <br/>------ fast and simple to work with - low scale - dont scale
+     <br/>------ for many to one communication 
+     <br/>
+     `,
+     ' -- ',
+     `---- Props - gives the payload with an action 
+     <br/> ------- defines any extra metadata for handling an action  
+     <br/> ----------- emptyProps() ftn - defines an action without payload within action group
+    `,
+    ' -- ',
+     `--- createAction()
+      <br/>------ creates a configured creator function returns an Object
+      <br/>---------- Action creator - 
+      <br/>-------------- provide a consistent | type safe way to constructor an action that is being dispatched 
+      <br/>
+      <br/> --- import { createAction, props } from "@ngrx/store";
+      <br/>
+      <br/>------ createAction&lt;T extends string, 
+       <br/>--------- C extends Creator>(type: T, config?: C | { _as: "props"; })
+       <br/>----------------: ActionCreator&lt;T>
+       <br/>
+       <br/>------ config: C | {_as : "props";}
+       <br/>
+       <br/>------ ActionCreator&lt;T, () => TypedAction&lt;T>>       
+       `,
+    `--- createActionGroup(source, events[]) - new June 2022
+    <br/>----- creates a group of action creators from 1 source
+    <br/>--------- accepts an action group source and an event dictionary as input args
+    <br/>------------ event is a key-value pair - event name + event props  
+    <br/>
+    <br/>--------- returns a dictionary of action creators 
+    <br/>------------ name of each action creator - camel case event name
+    <br/>------------ Pagination Changed - paginationChanged 
+    <br/>
+    <br/>------ import {createActionGroup, emptyProps, props} from "@ngrx/store";  
+    `,
     '- Selector - Read state data - are pure functions for getting slices of the state from the Store - how appns listen to State Changes', 
     '- Effects - (side Effects - commn with ext API HTTP or dispatching another action  ) asynchronous parts of code which take effect after Reducer functions - DJ of the NGRX dancefloor', 
     ' -- ',
+    `FeatureCreator
+    <br/>--- uses the createFeature() ftn 
+    <br/>---- reduces repetitive code in selector files 
+    <br/>-------- dont need to create feature + child selectors
+    <br/>
+    <br/>---- type World = "world";
+    <br/>---- type Greeting = \`hello ${World}\`;
+    <br/>
+    <br/>-------- selectors have a 'select' prefix
+    <br/>-------- feature selector has a 'State' prefix
+    <br/>
+    <br/>------ uses the power of template literal types - TS4.1  
+    <br/>----------- build on string literal types    
+    <br/>-------------- expand to many strings via unions
+    `,
     `-- Store Devtools - @ngrx/store-devtools - provides dev tools and instrumentation for Store - npm install @ngrx/store-devtools - StoreDevtoolsModule -  
     <br/>StoreDevtoolsModule.instrument({name: 'NgRx Demo App',logOnly: environment.production})     
     <br/> - Key benefit of Devtools is it gives us some immediate visual indication about what the appn is doing at all times  
@@ -7301,7 +7404,7 @@ for (let x of cars) {
       <br/>- for using JIT with Angular in a web browser 
       <br/>eg Bootstrapping 
       `,
-      '--------- bootstrapApplication()',
+     '--------- bootstrapApplication()',
       ' -- ',
       '- @angular/forms',
       '--- FormModule',
