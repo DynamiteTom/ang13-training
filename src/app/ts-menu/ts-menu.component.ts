@@ -287,7 +287,6 @@ const subTopics = [
     '-- @Pipe({})',
     '-- PipeTransform - transform',
   ],
-
   ['Services and DI',
     '-- wrt Components',
     '- A Service',
@@ -318,23 +317,75 @@ const subTopics = [
     'typical tasks',
     ' -- ',
     '- Providing a Service', 
-    '-- @injectable({ providedIn: \'root\'})',
-    '--- providedIn: \'root\'',
-    '--- providedIn: \'platform\'',
-    '--- providedIn: \'any\'',
-    '--- providedIn: \'<T>\'',
+    '--- @injectable({ providedIn: \'root\'})',
+    '------- providedIn: \'root\'',
+    '------- providedIn: \'platform\'',
+    '------- providedIn: \'any\'',
+    '------- providedIn: \'<T>\'',
     'providers'
     ], 
     ['Dependency Injection',
-    '-- Injector Hierarchy DI system',
-    '--- Injector Tree',
-    '----- parallel Component Tree',
-    '----- Injector Bubbling',
-    '-------- Components local injector',
-    '-------- root injector',
+    '--- Providers',  
+    '-------- Dependencies (Services)',
+    '----------- class | ftn| value',
+    '-------- Metadata - accept deps',
+    ' -- ',
+    '------------ DI token on Injector',
+    '--------------- Runtime value',
+    '--------------- Type| String| Injection',
+    '--------------- ProviderToken',
+   ' -- ',
+    '-------- StaticProvider',
+    '------------ in Injector abstract class',
+    '------------ provides Tokens to injector',
+    ' -- ',
+    '-------- How create dep instance',
+    '----------- provider-definitin key',
+    '----------- 1:   useClass (Class prov)',
+    '----------- 2:   useValue (Value prov)',
+    '----------- 3:   useFactory (Factory prov)',
+    '----------- 4:   useExisting (Alias prov)',
+    ' -- ',
+    '--- 3 types of DI',
+    ' -- ',
+    '---- DI - Helps in Unit Testing',
+    ' -- ',
+    '- Providing a Service', 
+    '------- providedIn: \'root\'',
+    '------- providedIn: \'platform\'',
+    '------- providedIn: \'any\'',
+    '------- providedIn: \'<T>\'',
+    '------------ other values',
+    ' -- ',
+    '----- Sandboxing',
+    '---------- Multiple Service Instances',
+    ' -- ',
+    '--- Injector',
+    '-------  Configure inj with Providers',
+    '----------- create|obtain dependencies',
+    '----------- injector instance per class',
+    '-------- map of internal deps',
+    '------------ DI Token is map key',
+    '---------------- Runtime version of dep',
+    '------- Root Module',
+    '------- for each Component/Directive',
+    '------- for each Lazy loaded Modules',
+    ' -- ',
+    '------- Injector.create()',
+    '------------ get()',
+    ' -- ',
+    '--- Injectors', 
+    '------ backbone of DI framework',
+    '------- injectors - key-value pairs ',
+    '------ container of dep instances',
+    '------ Injector Hierarchy DI system',
+    '--------- Injector Tree',
+    '------------ parallel Component Tree',
+    '--------- Injector Bubbling',
+    '------------ Components local injector',
+    '------------ root injector',
     ' -- ',
     '---- 2 Injector Hierarchies',
-    '------- injectors - key-value pairs ',
     '------- ModuleInjector (Ivy R3Injector)',
     '-----------',
     '------- ElementInjector (Ivy NodeInjector)',
@@ -345,8 +396,6 @@ const subTopics = [
     '------------- LView.   - array',
     ' -- ',
     '----------- using Bloom filter',
-    '----- Sandboxing',
-    '------- Multiple Service Instances',
     '----- @Host()',
     '----- @Optional()',
     '----- @Self()',
@@ -361,6 +410,7 @@ const subTopics = [
     '------ provide example',
     '------ provider-definition key',
     ' -- ',
+    '--- Providers',
     '-- Providers with deps',
     '--- aliasing class providers',
     '--- aliasing class interface',
@@ -695,7 +745,13 @@ const subTopics = [
      '------- BrowserModule',  
      '------- AppRoutingModule',  
      '------- AppComponent',  
-     '---- root Module/Component',    
+     '---- root Module/Component', 
+     ' -- ',
+     '----- faster appn',
+     '----- APP_INITIALIZER',
+     '-------- delays root comp render',
+     '-------- StaticProvider[]',
+     ' -- ',   
      '-- webpack --- 2 dep graphs',
      '---- 1: app.js',
      '---- 2: vender.js'
@@ -4214,7 +4270,10 @@ const subTopicsInfo = [
       '--- Observables',
       '--- Subjects',
       ' -- ',   
-      'name of the External HTML file or inline HTML <br/>  templateUrl: \'./ts-menu.component.html\' or "Hello World" - Note directives dont have a template file',
+      `name of the External HTML file or inline HTML 
+      <br/>  templateUrl: \'./ts-menu.component.html\' 
+      or "Hello World" - Note directives dont have a template file
+      `,
       '- Pipes', 
       ' -- ',   
       'Decorators - eg @Component - define metadata for Angular annotations to class',  
@@ -4406,7 +4465,7 @@ const subTopicsInfo = [
     'Custom Pipes', 
     '@Pipe({})','-- custom transformation',
   ],
-    [`Services and Dependency Injection 
+  [`Services and Dependency Injection 
     <br/> - implemented as a simple class with @Injectable({}) decorator - 
     <br/>ng g s my-service
     <br/>can be reussssed in several different Components so data can be shared 
@@ -4481,21 +4540,51 @@ const subTopicsInfo = [
      '- Sharing',
      'fetching data from a server - logging - validating user input ', 
      'class with injectable decorator',
-     '@Injectable({providedIn: \'root\'})',
-     '-- @Injectable({ providedIn : \'root\',}) - (appn - or root level injector) you can now inject the service anywhere in your appn',     
-     '-- @Injectable({ providedIn : \'platform\',}) - a special singleton platform injector via a service - shared by all appns on page',    
-     '-- @Injectable({ providedIn : \'any\',}) - provides a unique instance in each lazy loaded module | all eagerly loaded modules share one instance', 
-     '-- @Injectable({ providedIn : \'Type<any>\',}) - associates the injectable with an @NgModule or other injector types',       
+     ' -- ',
+     `Service @Injectable({ providedIn: \'xxx\'\})
+     <br/>
+     `,
+     `-- @Injectable({ providedIn : \'root\',}) - 
+     (appn - or root level injector) you can now inject the service anywhere in your appn
+     `,     
+     ' -- ',
+     `-- @Injectable({ providedIn : \'platform\',}) 
+     <br/>--- a special singleton platform injector via a service 
+     - shared by all appns on page
+     `, 
+     ' -- ',   
+     `-- @Injectable({ providedIn : \'any\',}) 
+     <br/>---- provides a unique instance in each lazy loaded module | 
+     <br/>---- all eagerly loaded modules share one instance
+     `, 
+     ' -- ',
+     `-- @Injectable({ providedIn : \'Type<any>\',}) 
+     <br/>---- associates the injectable with an @NgModule or other injector types
+     `,       
      'other values',
      'privders:[MyService]'
     ], 
     [`DI (Dependency Injection) - is a design pattern 
-    <br/>--- in which a class requests dependencies from external sources 
-    <br/>------ (wrt creatng them) 
+    <br/>--- a class requests dependencies from external sources 
+    <br/>------ (instead of creatng them) 
     <br/>
-    <br/>---- provides dependencies to a class upon instantiation 
+    <br/>--- Providers -
+    <br/>------ how to get value for a Dependency (Service)
     <br/>
-    <br/>---- is used to increase flexibility + modularity in your appns
+    <br/>------ by default - DI searches for a Provider in the Injector Hierarchy
+    <br/>--- 
+    <br/>--- 3 types of DI 
+    <br/>-------- 1:  Constructor Injection - interface passed to constructor
+    <br/>-------- 2:  Method Injection - interface based injection
+    <br/>-------- 3:  Property Injection - setter inection
+    <br/>
+    <br/>--- Injectors 
+    <br/>------ form the backbone of the DI framework
+    <br/>------ key-value pairs ',
+    <br/>
+    <br/>------ provides dependencies to a class upon instantiation 
+    <br/>
+    <br/>------ is used to increase flexibility + modularity in your appns
     <br/>
     <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
     <br/>
@@ -4503,18 +4592,201 @@ const subTopicsInfo = [
     <br/>------- configured with a provider (matching) 
     <br/>------- supplies the dependency
     <br/
-    <br/>-- Injector Hierarchy DI system
-    <br/>---- Injector Tree echoes the Component Tree
-    <br/> ------ every Component has its own injector
+    <br/>--- Injector Hierarchy DI system
+    <br/>------- Injector Tree echoes the Component Tree
+    <br/> --------- every Component has its own injector
     <br/>
     <br/> ------- When a Component requests a dependency 
     <br/>------- Angular uses a Provider regd in the Components Injector
     <br/>
-    <br/>------- if Component injector has no provider - passes to parent Components Injector
+    <br/>------- if Component injector has no provider 
+    <br/>------------ passes to parent Components Injector
     <br/>
-  
     `,
-  '-- Injector Hierarchy DI system',
+    `--- Providers -
+    <br/>------ how to get value for a Dependency (Service)
+    <br/>---------- using DI system  
+    <br/>
+    <br/>------ by default - DI searches for a Provider in the Injector Hierarchy
+    <br/>
+    <br/>------ Providers metadata accept services - that register within class injector
+    <br/>--------- Provider field adds instns to let injector <ftn
+    <br/>
+    <br/> -    
+    <br/>------ Providers configure an Injector with a DI token
+    <br/>---------- injector provides runtime value of dependency value
+    <br/>-------------- 3 types Token - Type| String| Injection
+    <br/>
+    <br/>------ 4 ways to create a Dependency - Provider tells Injector How  
+    <br/>---------- 1:   useClass (Class provider)
+    <br/>---------- 2:   useValue (Value provider)
+    <br/>---------- 3:   useFactory (Factory provider)
+    <br/>---------- 4:   useExisting (Alias provider)
+    `,
+    `-------------- Dependencies (Services)
+    <br/>-------------- normally Services but can be Objects 
+    <br/>------------------- class | functions | values 
+    <br/>---------------------- that a class needs to perform itsftn 
+    <br/>
+    <br/>-------------- Runtime value - DI token on injector via Provider    
+    <br/>
+    <br/>------------ Providers metadata accept services 
+    <br/>---------------- that register within class injector
+    <br/>---------------- Provider field adds instns to let injector ftn
+    <br/>
+    `,
+    `------------------ 3 types of Dependencies - class | functions | values
+    <br/>------------------ Class - 
+    <br/>------------------ Function - 
+    <br/>------------------ Values - 
+    `,  
+    `------------ Providers metadata accept services 
+    <br/>------------- that register within class injector
+    <br/>------------- Provider field adds instns to let injector ftn
+   `,
+   ' -- ',
+   `--------------- DI Token on injector
+    <br/> 
+    <br/>---------------- registers the provider
+    <br/>---------------- used to locate the depenency
+    <br/>---------------- provides Runtime value of Dependency   
+    <br/>
+    <br/>-------------------- 3 types Token - Type| String| Injection
+    `,
+    `-------------------- Runtime value of Dependency
+    `,
+    `-------------------- 3 types Token'
+    <br/> ------------------------ 1: Type
+    <br/> ------------------------ 2: String
+    <br/> ------------------------ 3: Injection
+    `,
+    `---------------- ProviderToken
+      <br/>-------------- Token that can be used to retrieve instance from injector (or by query)
+      <br/>-------------- type ProviderToken<T> = Type<T> | AbstractType<T> | InjectionToken<T>;
+    `,
+    ' -- ',
+    `------- StaticProvider 
+    <br/>--------- type StaticProvider = 
+    <br/>--------- ValueProvider | ExistingProvider | StaticClassProvider | ConstructorProvider | FactoryProvider | any[];
+    <br/>
+    <br/>--------- provides tokens to an injector for various types of dependencies
+    <br/>
+    <br/>--------- injector should be configured as static (without Reflection)
+    `,
+    `------------ used in Injector static class
+    `,
+    `------------ returns deps to Injector
+    `,
+    ' -- ',
+    `-------- 4 ways to create dep instance
+    `,
+    `----------- Provider definition Key
+    <br/>  useClass | useValue| useFactory| useExisting
+    `,
+    `----------- 1:   useClass (Class provider)
+    <br/>
+    <br/>------------- inject a class
+    `,
+    `----------- 2:   useValue (Value provider)
+    <br/>
+    <br/>------------- inject a boolean or string, etc.
+    `,
+    `----------- 3:   useFactory (Factory provider)
+    <br/>
+    <br/>------------- inject a function - returns value
+    <br/>------------- return objects based on a condition
+    <br/>------------- can have a deps array of extra deps
+    `,
+    `----------- 4:   useExisting (Alias provider)
+    <br/>
+    <br/>------------- replace provider with a new one
+    `,
+    ' -- ',
+    `3 types of DI
+    <br/>-------- 1:  Constructor Injection - interface passed to constructor
+    <br/>-------- 2:  Method Injection - interface based injection
+    <br/>-------- 3:  Property Injection - setter inection
+    `,
+    ' -- ',
+    `---- DI - Helps in Unit Testing
+    `,
+    ' -- ',
+    `----- Providing a Service
+    <br/>------- Service @Injectable({ providedIn: \'xxx\'\})
+    <br/>------------ root | platform | any | Type<any> | other values
+    `,
+     `-- @Injectable({ providedIn : \'root\',}) - 
+     (appn - or root level injector) you can now inject the service anywhere in your appn
+     `,     
+     `-- @Injectable({ providedIn : \'platform\',}) 
+     <br/>--- a special singleton platform injector via a service 
+     - shared by all appns on page
+     `,    
+     `-- @Injectable({ providedIn : \'any\',}) 
+     <br/>---- provides a unique instance in each lazy loaded module | 
+     <br/>---- all eagerly loaded modules share one instance
+     `, 
+     `-- @Injectable({ providedIn : \'Type&lt;any>\',}) 
+     <br/>---- associates the injectable with an @NgModule or other injector types
+     `,       
+     'other values',
+     ' -- ',
+     `----- Sandboxing - Multiple service instances 
+      <br/> ------ at the same level of the Component
+      <br/> ------ eg A Service that holds state for its companion comp instance       
+      `,
+        '------- Multiple Service Instances',
+
+  
+     ' -- ',
+    `--- Injector
+    <br/>----- provides a runtime version of dependency 
+    <br/>-------- by dependency provider configuring injector with DI Token 
+    `,
+    `------- Configure injectors with Providers
+    `,
+    `---------- Provider - lets injector - obtain | create deps
+    `,
+    `------- Injector instance / class 
+    `,
+    `----------- map of dependencies
+    
+    `,
+    `--------------- DI Token is the key
+    `,
+    `------------------ DI Token and Runtime version of Dependency value 
+    `,
+    `------- RootModule`,
+    `------- for each Component`,
+    `------- for each Lazy Loaded Module`,
+    ' -- ',
+     `----- Injector.create()
+    <br/>-------- static create(options: {providers: StaticProvider[]: parent?: Injector; name?: string;}): Injector
+    <br/>
+    `,
+    `------------ get() - 
+    `,
+    ' -- ',
+    `--- Injectors 
+    <br/>--- form backbone of DI framework
+    <br/>
+    <br/>------ create + retrieve services (Deps) in an app
+    <br/>
+    <br/>------ are data structures storing instns
+    <br/>--------- detailing where + how services form
+    <br/>--------- instantiate services 
+    <br/>
+    <br/>------ Acting as intermediaries within Ang DI system
+    <br/>
+    <br/>------ Module | Directive| Component classes 
+    <br/>----------- contain metadata specific wrt injectors
+    <br/>----------- each class contains a new injector instance
+    <br/>
+    <br/>------ Providers metadata accept services - that register within class injector
+    <br/>--------- Provider field adds instns to let injector ftn
+    <br/>
+    `,
+    '-- Injector Hierarchy DI system',
   `---- Injector Tree echoes the Component Tree
   <br/> ------ every Component has its own injector
   <br/>
@@ -4534,8 +4806,8 @@ const subTopicsInfo = [
   '------- Injector Bubbling - ',
   '---------- Components local injector',
   '---------- root injector',
-  '---- 2 Injector Hierarchies',
-  '------- injectors - key-value pairs ',
+  ' -- ',
+  '-- 2 Injector Hierarchies',
   '------- ModuleInjector (Ivy R3Injector)',
   `----------- a Module level injector
       <br/>--- has a Records property that stores DI info 
@@ -4548,7 +4820,7 @@ const subTopicsInfo = [
       `,
 
   `------- ElementInjector (Ivy NodeInjector)
-        <br/>is an injector that belongs to a node
+        <br/>----is an injector that belongs to a node
         <br/>is an object that has ref to TNode and LView objects
      `, 
      '--------- NodeInjector implements Injector is saved in', 
@@ -4593,12 +4865,7 @@ const subTopicsInfo = [
     <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
     <br/>---   
   `,
-  `----- Sandboxing - Multiple service instances 
-  <br/> ------ at the same level of the Component
-  <br/> ------ eg A Service that holds state for its companion comp instance       
-  `,
-  '------- Multiple Service Instances',
-
+  
   `------ @Host() - limits the search for a matching provider
   <br/>------- root injector -  
   `,
@@ -7233,8 +7500,7 @@ for (let x of cars) {
       <br/> A reactive state mgmt library powered by RxJS - manages flow of data through appn - actions dispatched - reducers act on them and mutate the Store
      `,
      '-- stores the data in an RxJS Observable inside an Angular Service called Store',
-
-    '- Reducer are pure functions which take an action and output data to state or on to Effects (if async)',
+    ' -- ',
     `- Action - express state changes - acts as input to Reducer to produce new State and if async then to feed it to the effects library'
     <br/> --- store rel info for the state 
     <br/> --- reach the store via the dispatch() method on the store object - 
@@ -7280,6 +7546,43 @@ for (let x of cars) {
        <br/>------ config: C | {_as : "props";}
        <br/>
        <br/>------ ActionCreator&lt;T, () => TypedAction&lt;T>>       
+       <br/>
+       <br/>No payoad
+       <br/>export const opened = createAction('[Products Page'].Opened');
+       <br/>
+       <br/>2 ways to create Payload
+       <br/>export const pageChanged = createAction('[Products Page] Page Changed',
+       <br/>------ props<{page: number; offset: number}>() 
+       <br/>);
+       <br/>
+       <br/>or using the props factory
+       <br/>export const queryChanged = createAction('[Products Page] Query Changed',
+       <br/>------ (query: string) => ({ query }) 
+       <br/>);
+       <br/>
+       <br/>
+       <br/>
+       <br/>Problems solved by using createActionGroup()
+       <br/>--- uses source | events - key-value pairs 
+       <br/>
+       <br/>export const ProductsPageActions = createActionGroup({
+        <br/>source: 'Products Page',
+        <br/>events: {
+        <br/>// No Payload
+        <br/>Opened : emptyProps(),
+        <br/>  
+        <br/>'Pagination Changed': props<{page: number; offset: number}>()
+        <br/>
+        <br/>'Query Changed': (query: string) => ({ query }) 
+        <br/>}
+        <br/>
+        <br/>ProductsPageActions.opened();
+        <br/>
+        <br/>ProductsPageActions.pageChanged( page: 10, offset: 100})
+        <br/>
+        <br/>ProductsPageActions.queryChanged('ngrx'})
+       <br/>})
+       <br/>
        `,
     `--- createActionGroup(source, events[]) - new June 2022
     <br/>----- creates a group of action creators from 1 source
@@ -7301,7 +7604,7 @@ for (let x of cars) {
     <br/>-------- dont need to create feature + child selectors
     <br/>
     <br/>---- type World = "world";
-    <br/>---- type Greeting = \`hello ${World}\`;
+    <br/>---- type Greeting = \`hello \${World}\`;
     <br/>
     <br/>-------- selectors have a 'select' prefix
     <br/>-------- feature selector has a 'State' prefix
@@ -7310,10 +7613,59 @@ for (let x of cars) {
     <br/>----------- build on string literal types    
     <br/>-------------- expand to many strings via unions
     `,
+    `- Reducer are pure functions 
+    <br/>--- which take an action and output data to state or on to Effects (if async)
+    <br/>
+    <br/>--- are responsible for handling transitions from one state to another state
+    <br/>------ determining which transitions to handle which actions based on the type
+    <br/>
+    <br/>--- createReducer()
+    <br/>
+    <br/>--- Registering root state 
+    <br/>
+    <br/>------- @NgModule({ 
+      <br/>--------- import: [ StoreModule.forRoot({ game: fromScoreBoard.reducer})]
+    <br/>----  --- }) 
+    `,
+    `--- createReducer()
+    
+    `,
+    `--- Registering root state
+    <br/>------- @NgModule({ 
+      <br/>--------- import: [ StoreModule.forRoot({ game: fromScoreBoard.reducer})]
+    <br/>}) 
+    
+    `,
+    ' -- ',
+    `Side effects - createEffects()
+    <br/>--- asynchronous jobs - to call the services - action - new Reducer
+    <br/>------ cant use Reducers for these - use effects
+    <br/>
+    <br/>--- npm install @ngrx/effects --save
+    <br/>
+    <br/>--- import { Actions, createEffect, ofType } from '@ngrx/effects';
+    <br/>
+    <br/>--- @Injectable()
+    <br/>--- export class MovieEffects {
+    <br/>
+    <br/>--- loadMovies$ = createEffect(() => this.actions$.pipe(
+    <br/>--- ofType('[Movies Page] Load Movies'),
+    <br/>--- mergeMap(() => this.moviesService.getAll()
+    <br/>---   .pipe(
+    <br/>------     map(movies => ({ type: '[Movies API] Movies Loaded Success', payload: movies })),
+    <br/>------      catchError(() => EMPTY)
+    <br/>---   ))
+    <br/>)
+    <br/> );
+    
+    `,
+    ' -- ',
+
     `-- Store Devtools - @ngrx/store-devtools - provides dev tools and instrumentation for Store - npm install @ngrx/store-devtools - StoreDevtoolsModule -  
     <br/>StoreDevtoolsModule.instrument({name: 'NgRx Demo App',logOnly: environment.production})     
     <br/> - Key benefit of Devtools is it gives us some immediate visual indication about what the appn is doing at all times  
     `,
+    ' -- ',
     '--- Action Log - gives a good understanding of how appn works and which parts are trigered by which actions',
     '--- State inspector - easily inspect memory store state',
     '--- Time Travelling Debugger - Play button and timeline at the bottom - replay any action at a given pt in debugging session - nav gate through multiple screens  ',
@@ -8388,7 +8740,7 @@ for (let x of cars) {
     <br/>
     <br/> --- lets you share Components between various languages
     <br/> -----  AngularJS | Angular | React | Vue  
-    <br/> --- Ex must contain a - eg <my-world></my-world>
+    <br/> --- Ex must contain a - eg &lt;my-world>&lt;/my-world>
     `,
     '--- framework agnostic way',
     '--- 4 types of Web Components',
