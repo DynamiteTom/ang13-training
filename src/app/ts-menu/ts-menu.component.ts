@@ -325,6 +325,7 @@ const subTopics = [
     'providers'
     ], 
     ['Dependency Injection',
+    '--- DI Guide',
     '--- Providers',  
     '-------- Dependencies (Services)',
     '----------- class | ftn| value',
@@ -4603,9 +4604,14 @@ const subTopicsInfo = [
     <br/>------------ passes to parent Components Injector
     <br/>
     `,
+    `--- DI GUIDE
+    
+    `,
     `--- Providers -
     <br/>------ how to get value for a Dependency (Service)
     <br/>---------- using DI system  
+    <br/>
+    <br/>------- useClass| useValue| useFactory| useExisting
     <br/>
     <br/>------ by default - DI searches for a Provider in the Injector Hierarchy
     <br/>
@@ -4736,8 +4742,6 @@ const subTopicsInfo = [
       <br/> ------ eg A Service that holds state for its companion comp instance       
       `,
         '------- Multiple Service Instances',
-
-  
      ' -- ',
     `--- Injector
     <br/>----- provides a runtime version of dependency 
