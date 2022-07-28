@@ -1703,14 +1703,17 @@ const subTopics = [
     '-- Chrome',
     '-- Node.js',
     '- backend JS runtime',
-     '- can generate dynamic pages',
-     '- can CRUD + close files',
-     '- collect form data',
-    '- add|delete|modify db',
-    '- tasks exec on events',
-    '- event - server port',
-    '- files initiated on server', 
-    '--*.js'
+     '---- can generate dynamic pages',
+     '---- can CRUD + close files',
+     '---- collect form data',
+     '---- add|delete|modify db',
+     '---- tasks exec on events',
+     '---- event - server port',
+     '---- files initiated on server', 
+     '---- ',
+     '---- traspiled to *.js',
+     '--------- esbuild',
+
     ],
     ['npm'],
     ['express','express impn',
@@ -8256,6 +8259,11 @@ for (let x of cars) {
     `,
       '-- Chrome',
       '-- Node.js',
+      `----- nodemod - CLI    
+      <br/>-------- simple monitor script for use during devt of a Node.js app
+      <br/>-------- Restarts appn when file changes in dir are detected
+      <br/>-------- restarts the server - 
+      `,    
     '-- backend JS runtime',
      '- can generate dynamic pages',
      '- can CRUD + close files',
@@ -8263,8 +8271,205 @@ for (let x of cars) {
     '- add|delete|modify db',
     '- tasks exec on events',
     '- event - server port',
-    '- files initiated on server',   
-    '--*.js'
+    ' -- ',
+    '- files initiated on server',
+    `---- Express.js - middleware - 
+    
+    `,   
+    `---- Fastify - 5x faster than express
+    <br/>------ Web framework - 
+    <br/>-------- 30000 requests per sec
+    <br/>-------- better response under load 
+    <br/>-------- powerfull plugin architecture - 
+    <br/>------------ extensible via hooks | plugins| decorators
+    <br/>-------- schema based - JSON Schema 
+    <br/>------------- validate routes | serialize outputs 
+    <br/>-------- uses Pino logger 
+    <br/>-------- Highly secure and performant  
+    <br/>-------- TS Ready -   
+    <br/>
+    <br/>-------- npm install fastify
+    <br/>
+    <br/>------------ server.js
+    <br/>
+    <br/>-------- npm install -g fastify-cli
+    <br/>
+    <br/>-------- fastify generate myfproj
+     
+    `,
+    `--- server.js - 
+<br/>    
+<br/>// Require the framework and instantiate it
+<br/>const fastify = require('fastify')({ logger: true })
+<br/>
+<br/>// Declare a route
+<br/>fastify.get('/', async (request, reply) => {
+  <br/>--- return { hello: 'world' }
+  <br/>})
+  <br/>
+<br/>// Run the server!
+<br/>const start = async () => {
+  <br/>--- try {
+    <br/>------ await fastify.listen({ port: 3000 })
+    <br/>---} catch (err) {
+    <br/>------ fastify.log.error(err)
+    <br/>------ process.exit(1)
+    <br/>---}
+  <br/>}
+<br/>start()
+<br/>
+    `,
+    `--- Fastify Request Response
+    <br/>     
+    <br/>// Require the framework and instantiate it
+    <br/>const fastify = require('fastify')({ logger: true })
+    <br/>
+    <br/>// Declare a route
+    <br/>fastify.route({
+      <br/>---- method: 'GET',  
+      <br/>---- url: '/',
+      <br/>---- schema: {
+       <br/>-------- // request needs to have a querystring with a \`name\` parameter
+       <br/>------------ querystring: {
+          <br/>------------- name: {type: 'string'}
+      <br/>------------- },
+      <br/>------------- response:{
+        <br/>---------------- 200: {
+          <br/>------------------- type: 'object',
+          <br/>------------------- properties: {
+            <br/>----------------- hello: { type: 'string' }
+            <br/>------------- }
+            <br/>---------- }
+            <br/>-------- }
+            <br/>------},
+      <br/>
+      <br/>------ // this function is executed for every request before the handler is executed
+      <br/>------ preHandler: async (request, reply) => {
+      <br/>----------- // E.g. check authentication
+      <br/>------ },
+      <br/>------ handler: async (request, reply) => {
+      <br/>---------- return { hello: 'world' }
+      <br/>------}
+      <br/>}) 
+      <br/>
+      <br/>// Run the server!
+      <br/>const start = async () => {
+      <br/>--- try {
+      <br/>  ------ await fastify.listen({ port: 3000 })
+      <br/>---} catch (err) {
+      <br/>------ fastify.log.error(err)
+      <br/>------ process.exit(1)
+      <br/>---}
+      <br/>}
+    <br/>start()
+`, 
+`TypeScript support 
+<br/>--- Fastify is shipped with a Typings file     
+<br/>--------- (may need @types/node)
+<br/>
+<br/>http2
+<br/>---- <http2.Http2Server, http2.Http2ServerRequest, http2.Http2ServerResponse>.
+<br/>
+<br/>https 
+<br/>---- http2.Http2SecureServer or http.SecureServer instead of Server.
+<br/>
+<br/>import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
+<br/>import { Server, IncomingMessage, ServerResponse } from 'http'
+<br/>
+<br/>const server: FastifyInstance = Fastify({})
+<br/>
+<br/>const opts: RouteShorthandOptions = {
+  <br/>---schema: {
+  <br/>-----response: {
+  <br/>------- 200: {
+  <br/>---------- type: 'object',
+  <br/>---------- properties: {
+  <br/>------------  pong: {
+  <br/>-----------------type: 'string'
+  <br/>------------------- }
+  <br/>----------------- }
+  <br/>-------------  }
+  <br/>---------- }
+  <br/>------ }
+  <br/>--- }
+  <br/>
+  <br/>server.get('/ping', opts, async (request, reply) => {
+    <br/>---- return { pong: 'it worked!' }
+  <br/>})
+  <br/>
+  <br/>const start = async () => {
+  <br/>--- try {
+  <br/>-------- await server.listen({ port: 3000 })
+  <br/>
+  <br/>-------- const address = server.server.address()
+  <br/>-------- const port = typeof address === 'string' ? address : address?.port
+  <br/>
+  <br/>-----} catch (err) {
+  <br/>-------- server.log.error(err)
+  <br/>------ process.exit(1)
+  <br/>--- }
+  <br/>}
+  <br/>start()
+`,
+`After installing esbuild with esbuild-node-tsc
+<br/> -- latest June 14th 2022  a7ul 1.8.6
+<br/> 
+<br/> ------- npm install -D nodemon esbuild esbuild-node-tsc 
+<br/>--------------- note esbuild-node-tsc  
+<br/>------------------- takes into account tsconfig.json
+<br/>------------------- but the build is done with esbuild
+<br/>   
+<br/>--- configure nodemon.json
+<br/>
+<br/>  {
+<br/>----  "watch": ["src"],
+<br/>----  "ignore": ["src/**/*.test.ts", "node_modules"],
+<br/>----  "ext": "ts,mjs,js,json,graphql",
+<br/>----  "exec": "etsc && node ./dist/server.js",
+<br/>----  "legacyWatch": true
+<br/>}
+`,
+`package.json - 
+<br/> use ESM  
+<br/>{
+<br/>---- // ...
+<br/>---- "main": "server.js",
+<br/>---- "scripts": {
+<br/>-------- "dev": "nodemon",
+<br/>-------- "build": "etsc",
+<br/>-------- "start": "node dist/server.js"
+<br/>---- },
+<br/>---- // ...
+<br/>} 
+`,  
+`using Fastify - create simple fasify api
+// @/src/server.ts
+import fastify, {
+<br/>---- FastifyRequest,
+<br/>---- FastifyReply,
+<br/>---- FastifyInstance,
+<br/>} from "fastify";
+<br/>
+<br/>const startServer = async (): Promise<FastifyInstance> => {
+<br/>----  const app = fastify();
+<br/>----  app.get("/", async (request: FastifyRequest, reply: FastifyReply): Promise<FastifyReply> => {
+<br/>---------    return reply.send({ hello: "world" });
+<br/>
+<br/>----});
+<br/>
+<br/>----  return app;
+<br/>};
+<br/>
+<br/>startServer()
+<br/>----  .then((app) => app.listen(3333))
+<br/>----  .catch(console.error);    
+`,
+
+    '-- transpiled to *.js',
+    `------- esbuild
+    <br/> ------- superfast transpiler from ts to js
+    <br/> ------- npm install -D nodemon esbuild esbuild-node-tsc 
+    `
     ],
     [`npm (Node Package Manager) - 
     
