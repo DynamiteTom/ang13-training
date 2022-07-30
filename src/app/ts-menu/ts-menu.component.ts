@@ -27,6 +27,7 @@ const features = `
     'life-cycle-hooks',
     'routing_router',
     '@Input_@Output',
+    'funny operators',
     ' -- ',
     'lazy-loading', 
     'Change Detection',
@@ -381,8 +382,9 @@ const subTopics = [
     '------- for each Lazy loaded Modules',
     ' -- ',
     '------ 2 types of Injector Hierarchy DI system',
+    '--------- 2 Injector trees',
  '----1: ModuleInjector (Ivy R3Injector)',
-    '---------- A: @NgModule',
+    '---------- A: Providers Metadata and @NgModule',  
     '---------------- null injector - top',  
     '---------------- Platform injector',
     '---------------- Root Module injector',
@@ -770,7 +772,10 @@ const subTopics = [
      '----- APP_INITIALIZER',
      '-------- delays root comp render',
      '-------- StaticProvider[]',
-     ' -- ',   
+     '-------- ENVIRONMENT_INITIALIZER',
+     '-------- EnvironmentInjector (Ang 14)',
+     '-------- RouterInjector (Ang 14)',
+     ' -- ',
      '-- webpack --- 2 dep graphs',
      '---- 1: app.js',
      '---- 2: vender.js'
@@ -846,6 +851,14 @@ const subTopics = [
     '-- EventEmitter()', 
     '--- [()]', 
    ], 
+   ['Funny Operators',
+      'Non null operator !',
+      'Safe navigation operator ?.',
+      'Optional operator ?: ',
+      'Ternary operator ? :',
+      'Null Coalescence ??',
+      'Template Ref Variable #'
+    ],
     [' -- '],
     ['Lazy Loading',
     '- Modules',
@@ -2231,6 +2244,7 @@ const subTopics = [
       '-- Node Package Exports',
       '-- cli.cache',
       '-- ES 2020',
+      '-- simpler dyn Comp creation',
   ' -- ',
     'Ang 12',
       '-- TS 4.2',
@@ -4756,6 +4770,30 @@ const subTopicsInfo = [
     <br/>----------- parameterized on T - type of object to be returned by Injector
     <br/>----------- provides an additional level of Type safety
     <br/>
+    <br/>
+    <br/>Injectors can have 1+   child Injectors - 
+    <br/>
+    <br/>
+    <br/>ReflectiveInjector implements Injector 
+    <br/>---- ReflectiveDependency Injection container 
+    <br/>-------- used for instantiating objects and resolving dependencies
+    <br/>---------DEPRECATED
+    <br/>  
+    <br/>StaticInjector - Angular 5 
+    <br/>---- much faster thant ReflectiveInjector          
+    <br/>---- doesent resolve implicit deps at all
+    <br/>---- developer must explicitly spec deps for each provider
+    <br/>
+    <br/>--- New Provider Type
+    <br/>
+    <br/>export interface StaticClassProvider {
+      <br/> ---- provide: any;
+      <br/> ---- useClass: Type<any>;
+      <br/> ---- deps: any[];
+      <br/> ---- multi?: boolean;
+      <br/>}
+      <br/>
+      <br/>Injector.create(providers);
     `,
     `--- DI GUIDE
     `,
@@ -4934,6 +4972,92 @@ const subTopicsInfo = [
     `,
     `------------ returns deps to Injector
     `,
+    `------- ENVIRONMENT_INITIALIZER Injection Token 
+    <br/>---- multi-provider token for initn ftns 
+    <br/>------- that run on construction of an environment injector
+    <br/>   
+    <br/>const ENVIRONMENT_INITIALIZER: InjectionToken<() => void>;
+    <br/>
+    <br/>--- bootstrapApplication(AppComponent, {
+    <br/>-------  providers: [
+    <br/>-----------  {
+    <br/>-----------------      provide: ENVIRONMENT_INITIALIZER,
+    <br/>-----------------      multi: true,
+    <br/>-----------------      useValue() {
+    <br/>-------------------        inject(FooService).init()
+    <br/>-----------------      }
+    <br/>------------  }
+    <br/>-------  ]
+    <br/>--- })
+    <br/>
+    <br/>
+    <br/>export const todosRoutes: Routes = [
+      <br/>{
+      <br/>---  path: '',
+      <br/>---  loadComponent: () =>
+      <br/>------    import('./todos-page.component').then((m) => m.TodosPageComponent),
+      <br/>--------- providers: [
+      <br/>------------- {
+      <br/>-----------------  provide: ENVIRONMENT_INITIALIZER,
+      <br/>-----------------  multi: true,
+      <br/>-----------------  useValue() {
+      <br/>---------------------  inject(TodosService).init();
+      <br/>----------------- },
+      <br/>------------- },
+      <br/>------- ],
+      <br/>--- },
+      <br/>];
+    <br/>
+  `,
+    `--- Environment Injector - (Angular 14)
+    <br/>------- is a generalized version of NgModuleRef (Module Injector)
+    <br/>------- one of the primitives supporting standalone component APIs
+    <br/>
+    <br/>--- import { ENVIRONMENT_INITIALIZER, inject } from '@angular/core';
+    <br/>--- import { bootstrapApplication } from '@angular/platform-browser';
+    <br/>
+    <br/>Angular 14 Injectors - since we can be Module-less
+      <br/>ModuleInjector was renamed EnvironmentInjector
+      <br/>---- EnvironmentInjector is a generalized version of NgModuleRef 
+      <br/>-------- also known as Module Injector
+      <br/>
+      <br/>NodeInjector (ElementInjector) service has priority over EnvironmentInjector
+      <br/>---- (priority over EnvironmentInjector)
+      <br/>
+      <br/>RouterInjector (New Ang 14)
+      <br/>-------- Providers in Angular Route  
+      <br/>------------ has a 
+      <br/>--------------- can be parent to Lazy Loaded Modules
+      <br/>
+      <br/>------------ Normally our Routes 
+      <br/>---------------- use path and Component
+      <br/>---------------- or path and loadChildren
+      <br/>
+      <br/>@Component({
+      <br/>----- selector: '',
+      <br/>----- standalone: true,
+      <br/>----- imports: [CommonModule, UsersModule],
+      <br/>----- templateUrl: 'x.component.html',
+      <br/>----- styleUrls: ['x.component.scss'],
+      <br/>})
+      <br/>------------- RouterInjector
+      <br/>----------------- path: 'admin', 
+      <br/>----------------- providers : [
+      <br/>-------------------- { provide: UserService, useExisting: ExperimentUserService}
+      <br/>----------------- ],
+      <br/>----------------- loadComponent: () => import('./feature/admin/admin.component').
+      <br/>--------------------- then(c => c.then(m => m.adminComponent))   
+      <br/>
+      <br/>NgModuleRef&lt;T>{
+        <br/> abstract  injector: EnvironmentInjector
+        <br/>----    abstract  instance: T  
+        <br/>----    abstract  destroy(): void
+        <br/>----    abstract  onDestroy(callback: () => void): void 
+        <br/>}  
+        <br/>
+        <br/>Angular 13
+        <br/>ViewContainerRef.createComponent(x:MyComponent);
+    `,
     ' -- ',
      `----- Injector.create()
     <br/>-------- static create(options: {providers: StaticProvider[]: parent?: Injector; name?: string;}): Injector
@@ -4968,13 +5092,18 @@ const subTopicsInfo = [
   
   `,
   '-- 2 Injector Hierarchies',
-  '-------1: ModuleInjector (Ivy R3Injector)',
+  `-------1: ModuleInjector 
+  <br/>---------- (Ivy R3Injector)
+  <br/>---------- (Angular 14 - EnvironmentInjector)
+  `,
   `----------- a Module level injector
-      <br/>--- has a Records property that stores DI info 
-      <br/>------ and stores instances of injectables    
+      <br/>------- Angular creates the Module Injector tree when the appn starts
+      <br/>  
+      <br/>---------- has a Records property that stores DI info 
+      <br/>-------------- and stores instances of injectables    
       <br/>
       <br/>------- can be configured in 1 of 2 ways
-      <br/>----------- 1: @NgModule() providers array
+      <br/>----------- 1:s @NgModule() providers array
       <br/>----------- 2: @Injectable() providedIn - to @NgModule() or root 
       <br/>------- is a flattening of all the providers arrays  
       <br/>------- that can be reached by following the NgModules.imports recursively 
@@ -4983,15 +5112,22 @@ const subTopicsInfo = [
       <br/>---------------- key is a token 
       <br/>---------------- value is instance corresponding to token    
       `,
-      '----------- A: @NgModule',
+      '----------- A: Providers Metadata of the @NgModule',
       `--------------- nullInjector - top of tree
-      ------------------- doesnt keep any tokens
+      <br/>------------------ doesnt keep any tokens
+      <br/>------------------ always throws error unless @Optional - null
       `,
       `--------------- platformInjector
-      
+      <br/>----------------- under nullInjector is an instance of the PlatformInjector
+      <br/>--------------------- usually has built in providers like DomSanatizer   
       `,
       `--------------- RootModuleInjector
-      
+      <br/>-----------------  under platformInjector is an injector for the Root Module
+      <br/>-----------------  root (alias) -  
+      `,
+      `---- When a dynamically loaded component is created
+      <br/>-------- gives you option to create child ModuleInjector hierarchies
+      <br/>-------- such as with the Router 
       `,
       ' and ',
       `--------------- for each Lazy Loaded Module`,
@@ -5040,35 +5176,43 @@ const subTopicsInfo = [
        'other values',
        ' -- ',  
   `-------2: ElementInjector (Ivy NodeInjector)
-        <br/>-------- is an injector that belongs to a node
-        <br/>-------- is an object that has ref to TNode and LView objects
-     `, 
-     `------------ Injector Tree echoes the Component Tree
-     <br/> -------------- every Component has its own injector
-     <br/>
-     <br/> ----------- When a Component requests a dependency 
-     <br/>----------------- Angular uses a Provider regd in the Components Injector
-     <br/>
-     <br/>------- if Component injector has no provider 
-     <br/>--------- passes to parent Components Injector
-     <br/>
-     `,
-     `--- Resolution Modifiers
-     <br/>------ 3 categories
+  <br/> ------------ Injector Tree echoes the Component Tree
+  <br/> -------------- every Component has its own injector
+  <br/>
+  <br/> ----------- When a Component requests a dependency 
+  <br/>----------------- Angular uses a Provider regd in the Components Injector
+  <br/>
+  <br/>------- if Component injector has no provider 
+  <br/>--------- passes to parent Components Injector
+  <br/>
+  <br/>@Component({
+   <br/>----- providers: [{ provide: ItemService, useValue: { name: 'lamp' } }]
+   <br/>})
+   <br/>export class TestComponent
+   <br/>  
    `,
-   '------------ @Optional()',
-   '------------ @SkipSelf()',
-   `------------ @Host() and @Self 
-   <br/>---------- @Host - limits the search for a matching provider
-     <br/>------------ root injector -  
-     `,
-     '----- @Self()',    
+  `--- Resolution Modifiers
+  <br/>------ 3 categories
+`,
+'------------ @Optional()',
+'------------ @SkipSelf()',
+`------------ @Host() and @Self 
+  <br/>---------- @Host - limits the search for a matching provider
+  <br/>------------ root injector -  
+  `,
+  '----- @Self()',    
+
+  ' -- ',
      
-     ' -- ',
-     
-     '--------- NodeInjector implements Injector is saved in', 
-      '----------- 9 contiguous slots in LView +', 
-      '----------- 9 contiguous slots in TView.data',  
+  `--------- NodeInjector implements Injector is saved in
+  <br/>-------- is an injector that belongs to a node
+  <br/>-------- is an object that has ref to TNode and LView objects
+  `, 
+  `----------- 9 contiguous slots in LView +
+  `, 
+  `----------- 9 contiguous slots in TView.data
+  
+  `,  
   '----------- object refs to',
   `------------- TNode - any kind of object : 
   <br/> - element| ng-template| ng-container
@@ -5756,9 +5900,8 @@ for (let x of cars) {
      `,  
      '-- dist folder',
      `----- vendor.js - 
-     <br/>-------- contains all libraries imported into your appn
-     <br/>------------ AppModule (including Angular library)
-     
+     <br/>-------- contains all libraries 
+     <br/>------------ imported into your appn AppModule (including Angular library)     
      `,
      `----- main.js
      <br/>------- contains the action related code of the appn
@@ -6212,6 +6355,26 @@ for (let x of cars) {
      `--- Combine Property and Event Binding by using Banana in a Box 
      `
     ], 
+    ['Funny Operators',
+      `Non null assertion operator !
+      <br/>----- ! bang operator
+      `,
+      `Safe navigation operator ?.
+      <br/>-----  Ensures path does not have values of null or undefined
+      `,
+      `optional ?:
+      <br/> ----- means a value is optional
+      `,
+      `Ternary operator ? :
+      <br/>----- a = (x === 4) ? 4 : 3;
+      `,
+      `Null Coalescence ??
+      <br/>----- 
+      `,
+      `Template Reference Variable #
+      <br/>----- #xxx
+      `
+    ],
      [' -- '],
      [`Lazy Loading - is the process of loading Components | Modules | other assets 
      <br/>--- as they are required 
@@ -10294,8 +10457,7 @@ import fastify, {
     <br/>--- optional ngModules (standalone : true) 
     <br/>--- router title added
     <br/>--- improved inject()
-    <br/>--- ng cache
-    
+    <br/>--- ng cache  
     `,
       '-- TS 4.7',
       '-- strictly typed Reactive Forms',
@@ -10311,6 +10473,9 @@ import fastify, {
       '-- Node Package Exports',
       '-- cli.cache',
       '-- ES 2020',
+      `-- Simpler Dynamic Component Creation 
+      <br/>---- no need for Factories
+      `,
  ' -- ',
       'Ang 12 TS 4.2 - cleaner code - Ivy everywhere - templates - Nullish Coalescing - Critters for CSS inlining - ',
       '-- TS 4.2',
@@ -10336,11 +10501,14 @@ import fastify, {
     '-- ModuleWithProviders<T>',
 ' -- ',
     `Ang 09 TS 3.6/7 
-    - Ivy enabled by default 
-    - Updates to Zone.js and RxJS 
-    - smaller bundle size
-        ModuleWithProviders - Language Service 
-        - Faster Testing with ComponentHarness
+    <br/>- Ivy enabled by default 
+    <br/>- Updates to Zone.js and RxJS 
+    <br/>- smaller bundle size
+    <br/>    ModuleWithProviders - Language Service 
+    <br/>    - Faster Testing with ComponentHarness
+    <br/>
+    <br/>Deprecated NgModuleFactory&lt;T>  
+    <br/>
     `,
     '-- TS 3.6',
     '-- Ivy enabled by default',
@@ -10356,7 +10524,10 @@ import fastify, {
     - uses dynamic import syntax -    
     <br/>Simplifies Web Worker creation -   ng g 
     <br/>new APIs 
-    <br/>bazel and Ivy are coming - 
+    <br/>bazel and Ivy are coming -
+    <br/>
+    <br/>- still used NgModuleFactory for ViewEngine based Jit API  
+    <br/>----- Deprecated in Ivy JIT mode
     `,
     '-- TS 3.4',
     '-- Differential loading ES5 | ES2015',
