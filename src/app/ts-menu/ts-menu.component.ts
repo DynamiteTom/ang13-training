@@ -800,8 +800,8 @@ const subTopics = [
     '--- Routes path:\'x\' component: XXX',
     '------ children', 
     '--- router-outlet',
-    '-------  multiple outlets', 
     '---  routerLink',   
+    '-------  multiple outlets',    
     '--- ',
     ' loadChildren() - Lazy loading',
     ' -- ',
@@ -6364,11 +6364,15 @@ for (let x of cars) {
       <br/>--- }]
       <br/>}]
      `,
-     `--- &lt;router-outlet>&lt;/router-outlet> 
+     `--- router-outlet
+     <br/> 
+     <br/>------ &lt;router-outlet>&lt;/router-outlet> 
      <br/>
      <br/>------ location where the router links will go
      `, 
-     `--- &lt;a routerLink="/first_comp">link&lt;/a>
+     `--- routerLink 
+     <br/>
+     <br/>--- &lt;a routerLink="/first_comp">link&lt;/a>
      <br/>
      <br/>------ lets us jump to a certain location to load a certain component
      <br/>     
@@ -6391,16 +6395,15 @@ for (let x of cars) {
      <br/>export class AppRoutingModule { }
     <br>/>
     `, 
-     `-------- @angular/router
+     `--- @angular/router
      <br/>-------- library for the Router items in appn
      <br/>-------- RouterModule, Routes, Route, 
      <br/>
      `, 
-     `RouterModule.forRoot(routes)
+     `--- RouterModule.forRoot(routes)
      <br/>
      <br/>---- for eagerly loaded modules / components 
      <br/>---- routes defines the paths etc.
-
      `,
     `--- routerLink 
     <br/>
@@ -6418,10 +6421,13 @@ for (let x of cars) {
     <br/>--- &lt;/ul>
     <br/>&lt;/nav>  
     `,
+    `--- Multi-outlets
+    <br/>----- 
+    `,
     ' -- ',
-    `-- RouterModule.forChild(routes) - lazy load the Component or Module
-     
-
+    `--- forChild() and Lazy Loading
+    <br/>------ RouterModule.forChild(routes) - lazy load the Component or Module
+    <br/> 
 
      `,
      `-------- loadChildren() - Lazy Loading 
@@ -6432,30 +6438,44 @@ for (let x of cars) {
      <br/>
      `,
    
-     `- Nested Routes - 
+     `--- Nested Routes - 
      
      `,
     
      ' -- ',
-     '&lt;base href=\/"\">', 
-     '-- HTML5 Urls', 
-     ' -- ','- get Route Info',
-     `-- ActivatedRoute - 
+     `--- &lt;base href=\/"\">
+     
+     `, 
+    ` --- HTML5 Urls 
+       `, 
+       ' -- ',
+       `--- get Route Info 
+         
+         `,
+         ` --- ActivatedRoute  
          <br/>---- Currently activated route
          <br/> -
          <br/>---- contains a lot of info regarding the route
          `,
-     `-- ActivatedRouteSnapshot
+         `-- ActivatedRouteSnapshot
          <br/>---- route loading a Component loaded in a certain outlet
          <br/>---- associated with a particular moment in time
        
+       `,
+        `--- RouterStateSnapshot 
+        `,
+        `--- .snapshot.paramMap.get(\'id\') 
+        `,
+        `--- ParamMap `,
+     `--- Wildcard Routes **
+     
      `,
-     '-- RouterStateSnapshot',
-     '-- .snapshot.paramMap.get(\'id\') ',
-     '-- ParamMap',
-     '- Wildcard Routes **',
-     '-- PageNotFoundComponent',
-     'redirectTo()', 
+     `-- PageNotFoundComponent
+     
+     `,
+     `--- redirectTo()
+     
+     `, 
      ' -- ',
      `- Router Guards
      <br/>--- interfaces when implemented let us  
@@ -6463,51 +6483,85 @@ for (let x of cars) {
      
      `,
      '-----Componentless-routes',
-     '------- 5 Guard options',
-     '---- canActivate',
-     '---- canActivateChild',
-     '---- canDeactivate',
-     '---- Resolve',
-     '---- CanLoad', 
-     ' -- ',
-     `- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center
+     `------- 5 Guard options
      `,
-     '-- LocationStrategy',
-     '--- PathLocationStrategy',
-     '---- HTML5 style navigation',
-     '--- HashLocationStrategy', 
-     '---- useHash:true',
+     `---- canActivate
+     `,
+     `---- canActivateChild
+     `,
+     `---- canDeactivate
+     
+     `,
+     `---- Resolve
+     `,
+     `---- CanLoad
+     `, 
      ' -- ',
-     '-- pre-fetches data before deciding if to jump to the URL or not', '-- create a new Component but include rooting in it','-- The router is used for Lazy Loading'],
-     [`Parent Child commn - is normally implemented using the @Input() and @Output() decorators.
-     <br/>to share info between a parent and one or more child components 
+     `--- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center
+     `,
+     `--- LocationStrategy
+     `,
+     `--- PathLocationStrategy
+     `,
+     `--- HTML5 style navigation
+     
+     `,
+     `--- HashLocationStrategy
+     
+     `, 
+     `---- useHash:true
+     
+     `,
+     ' -- ',
+     `--- pre-fetches data before deciding 
+     <br/>----- if to jump to the URL or not
+     
+     `, 
+     `--------- create a new Component but include rooting in it
+     
+     `,
+     `-- The router is used for Lazy Loading
+     
+     `],
+     [`Parent Child communication 
+     <br/>--- is normally implemented using the @Input() and @Output() decorators.
+     <br/>--- to share info between a parent and one or more child components 
      <br/>
-     <parent-component>
-         &lt;child-component>&lt;/child-component>
-     </parent-component>
+     <br/>&lt;parent-component>
+     <br/>&lt;child-component>&lt;/child-component>
+     <br/>&lt;/parent-component>
      <br/>
-     `,`- @Input() - lets a parent Component update a child component data 
+     `,
+     `- @Input() - 
+     <br/>--- lets a parent Component 
+     <br/>------ update a child component data 
        <br/> 
       `, 
-      `-- Property Binding [] - sets a property on a component class 
+      `--- Property Binding [] - 
+      <br/>--- sets a property on a component class 
       <br/>
       `,
       `--- ngOnChanges() - intercept input property changes 
       <br/>
-      <br/>import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-      <br/>ngOnChanges(changes: SimpleChanges) {
+      <br/>--- import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+      <br/>--- ngOnChanges(changes: SimpleChanges) {
       <br/>
         `,
-     `- @Output() - lets a child send data to the parent component
-       <br/>
+     `- @Output() - 
+      <br/>--- lets a child send data to the parent component
+      <br/>
+      <br/>------ @Output() newItemEvent = new EventEmitter&lt;string>()
     `,
-     `-- Event Binding - () to fire an event
+     `-- Event Binding - () 
+     <br/>--- to fire an event
      
      `,
-     `  --- EventEmitter() - should have a type of EventEmitter()
-     <br/>@Output() newItemEvent = new EventEmitter<string>()      
+     `  ------- EventEmitter() - should have a type of EventEmitter()
+     <br/>---- @Output() newItemEvent = new EventEmitter&lt;string>()      
      `,
-     `--- Combine Property and Event Binding by using Banana in a Box 
+     `--- Two way binding - Combine Property and Event Binding 
+     <br/>---- by using Banana in a Box
+     <br/>--------- [(NgModel)] 
      `
     ], 
     ['Funny Operators',
@@ -7126,8 +7180,7 @@ for (let x of cars) {
       <br/>--------- Angular Development Mode
       <br/>----------- runs the rendering process twice
       <br/>------------- to ensure 1st rendering process does not change data  
-      ` 
-
+      `
     ],
     [`Promises - a JS object that can produce a value at a pt in time 
     <br/>execute immediately only once 
