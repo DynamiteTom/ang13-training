@@ -800,22 +800,20 @@ const subTopics = [
     '--- Routes path:\'x\' component: XXX',
     '------ children', 
     '--- router-outlet',
-    '---  routerLink',   
-    '-------  multiple outlets',    
-    '--- ',
-    ' loadChildren() - Lazy loading',
-    ' -- ',
-    '<base href=\/"\">',
-    ' -- ', 
-    '-- HTML5 Urls', 
-    ' --- ',
-    ' -- ',
+    '--- routerLink',   
     '--- RouterModule', 
     '------- @angular/router',
-    '------- forRoot()',
-    '------- forChild()',
-    '------- Nested Routes',
-    ' -- ', 
+    '------- forRoot() - eager',
+    '------- multiple outlets',
+    ' -- ',
+    '--- forChild() - Lazy loading',
+    '------ loadChildren()',
+    '------ Nested Routes',
+    '--------- Routed Sub-Module',
+    ' -- ',
+    '<base href=\/"\">', 
+    '-- HTML5 Urls', 
+    ' -- ',
     '--- get Route Info',
     '------ ActivatedRoute',
     '------ ActivatedRouteSnapshot',
@@ -824,18 +822,17 @@ const subTopics = [
     '-------- ParamMap',
     ' -- ',
     '--- Wildcard Routes **',
+    '--- PageNotFoundComponent',
+    '--- redirectTo()',
     ' -- ',
-    '--- PageNotFoundComponent','redirectTo()', 
-    ' -- ',
-    ' -- ','- Router Guards', 
-    '---- Componentless-routes',
-    ' -- ', 
-    '-- 5 Guard options',
-    '--- canActivate',
-    '--- canActivateChild',
-    '--- canDeactivate',
-    '--- Resolve',
-    '--- CanLoad',
+    '--- Router Guards', 
+    '------ Componentless-routes',
+    '------ 5 Guard options',
+    '----------- canActivate',
+    '----------- canActivateChild',
+    '----------- canDeactivate',
+    '----------- Resolve',
+    '----------- CanLoad',
     ' -- ',
     '------ ActivationStart',
     '------ ActivationEnd',
@@ -6376,8 +6373,20 @@ for (let x of cars) {
      <br/>
      <br/>------ lets us jump to a certain location to load a certain component
      <br/>     
-     `,
-     ' -- ',
+     <br/>--- assign links to the two components - using anchor tag
+     <br/>--- adding route to the routerLink attribute 
+     <br/>------- updating the component template to include router-outlet - 
+     <br/>----------- updating the appn view with Component for selected route  
+     <br/>
+     <br/>--- Order is important - Router uses 1st match wins approach
+     <br/>
+     <br/>--- &lt;nav>
+     <br/>------ &lt;ul>
+     <br/>--------- &lt;li>&lt;a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component&lt;/a>&lt;/li>
+     <br/>--------- &lt;li>&lt;a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component&lt;/a>&lt;/li>
+     <br/>------ &lt;/ul>
+     <br/>--- &lt;/nav>  
+     `, 
      `--- RouterModule  
      <br/>
      <br/>--- import RouterModule and Routes into the routing module (or AppModule)
@@ -6405,46 +6414,26 @@ for (let x of cars) {
      <br/>---- for eagerly loaded modules / components 
      <br/>---- routes defines the paths etc.
      `,
-    `--- routerLink 
-    <br/>
-    <br/>--- assign links to the two components - using anchor tag
-    <br/>--- adding route to the routerLink attribute 
-    <br/>------- updating the component template to include router-outlet - 
-    <br/>----------- updating the appn view with Component for selected route  
-    <br/>
-    <br/>--- Order is important - Router uses 1st match wins approach
-    <br/>
-    <br/>&lt;nav>
-    <br/>--- &lt;ul>
-    <br/>------ &lt;li>&lt;a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component&lt;/a>&lt;/li>
-    <br/>------ &lt;li>&lt;a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component&lt;/a>&lt;/li>
-    <br/>--- &lt;/ul>
-    <br/>&lt;/nav>  
+     `--- Multi-outlets
+     <br/>----- 
+     `,
+      ' -- ',
+     `--- forChild() and Lazy Loading
+     <br/>------ RouterModule.forChild(routes) - lazy load the Component or Module
+     <br/> 
+      `,
+      `-------- loadChildren() - Lazy Loading 
+      <br/>
+      <br/>--- by default it uses Modules for Lazy Loading
+      <br/>------ but you can now Lazy Load Components
+      <br/>
+      <br/>
+      `, 
+    `------ Nested Routes - 
     `,
-    `--- Multi-outlets
-    <br/>----- 
-    `,
+    `---------- SubModules and forChild()`,
     ' -- ',
-    `--- forChild() and Lazy Loading
-    <br/>------ RouterModule.forChild(routes) - lazy load the Component or Module
-    <br/> 
-
-     `,
-     `-------- loadChildren() - Lazy Loading 
-     <br/>
-     <br/>--- by default it uses Modules for Lazy Loading
-     <br/>------ but you can now Lazy Load Components
-     <br/>
-     <br/>
-     `,
-   
-     `--- Nested Routes - 
-     
-     `,
-    
-     ' -- ',
      `--- &lt;base href=\/"\">
-     
      `, 
     ` --- HTML5 Urls 
        `, 
@@ -6467,48 +6456,203 @@ for (let x of cars) {
         `--- .snapshot.paramMap.get(\'id\') 
         `,
         `--- ParamMap `,
+        ' -- ',
      `--- Wildcard Routes **
-     
      `,
-     `-- PageNotFoundComponent
-     
+     `--- PageNotFoundComponent
      `,
      `--- redirectTo()
      
      `, 
      ' -- ',
-     `- Router Guards
+     `--- Router Guards
      <br/>--- interfaces when implemented let us  
      <br/>---- control accessability of a route dept on conditions 
      
      `,
-     '-----Componentless-routes',
+     `----- Componentless-routes
+     
+     `,
      `------- 5 Guard options
      `,
-     `---- canActivate
+     `------ canActivate
      `,
-     `---- canActivateChild
+     `------ canActivateChild
      `,
-     `---- canDeactivate
-     
+     `------ canDeactivate
      `,
-     `---- Resolve
+     `------ Resolve
      `,
-     `---- CanLoad
+     `------ CanLoad
      `, 
      ' -- ',
-     `--- When a router navigates to a new Comp view - it updates browser location and history with URL for view - ', '- for modern browsers - HTML5 History push state - no server page request','-- older browsers - use # for no server request - localhost:3002/src/#/crisis-center
+     `--- ActivationStart`,
+     `--- ActivationEnd`,
+     `--- ChildActivationEnd`,
+     ' -- ',
+     `--- hisory
+     <br/>------- When a router navigates to a new Comp view 
+     <br/>------- it updates browser location and history with URL for view 
+     - `, 
+     `--- for modern browsers - 
+     <br/>-------- HTML5 History push state - no server page request
+     ',
+     '--- older browsers 
+     <br/>-------- use # for no server request 
+     <br/>-------- localhost:3002/src/#/crisis-center
      `,
      `--- LocationStrategy
+     <br/>------ Enables the Location service to read route state from the browser's URL. 
+     <br/>------ Angular provides two strategies: HashLocationStrategy and PathLocationStrategy.
+     <br/>
+       
+     <br/>abstract class LocationStrategy {
+      <br/>--- abstract path(includeHash?: boolean): string
+      <br/>--- abstract prepareExternalUrl(internal: string): string
+      <br/>--- abstract getState(): unknown
+      <br/>--- abstract pushState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract replaceState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract forward(): void
+      <br/>--- abstract back(): void
+      <br/>--- historyGo(relativePosition: number)?: void
+      <br/>--- abstract onPopState(fn: LocationChangeListener): void
+      <br/>--- abstract getBaseHref(): string
+    <br/>}
      `,
-     `--- PathLocationStrategy
-     `,
-     `--- HTML5 style navigation
-     
+     `--- PathLocationStrategy 
+     <br/>------ extends LocationStrategy
+     <br/>------ http://example.com/foo
+     <br/>
+     <br/>---
+     <br/>class PathLocationStrategy extends LocationStrategy implements OnDestroy {
+      <br/>--- onPopState(fn: LocationChangeListener): void
+      <br/>--- getBaseHref(): string
+      <br/>--- prepareExternalUrl(internal: string): string
+      <br/>--- path(includeHash: boolean = false): string
+      <br/>--- pushState(state: any, title: string, url: string, queryParams: string)
+      <br/>--- replaceState(state: any, title: string, url: string, queryParams: string)
+      <br/>--- forward(): void
+      <br/>--- back(): void
+      <br/>--- getState(): unknown
+      <br/>--- historyGo(relativePosition: number = 0): void
+      <br/>--- // inherited from common/LocationStrategy
+      <br/>--- abstract path(includeHash?: boolean): string
+      <br/>--- abstract prepareExternalUrl(internal: string): string
+      <br/>--- abstract getState(): unknown
+      <br/>--- abstract pushState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract replaceState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract forward(): void
+      <br/>--- abstract back(): void
+      <br/>--- historyGo(relativePosition: number)?: void
+      <br/>--- abstract onPopState(fn: LocationChangeListener): void
+      <br/>--- abstract getBaseHref(): string
+      <br/>}
      `,
      `--- HashLocationStrategy
-     
+     <br/>------ URL can contain some data prepended with a #
+     <br/>---------- called the hash fragment
+     <br/>---------- uses hash fragment part of URL to store state for the client 
+     <br/>--------------- easier to set up and doesnt require any coord from Server side 
+     <br/>
+     <br/>------ "http://example.com#/foo" - #   
+     <br/>--------- but wont work with Angular universal
+     <br/>
+     <br/>------ RouterModule.forRoot(routes, {useHash: true})
+     <br/>--------- enables HashLocationStrategy
+     <br/>------------- extends LocationStrategy - 
+     <br/>
+     <br/>class HashLocationStrategy extends LocationStrategy implements OnDestroy {
+      <br/>--- onPopState(fn: LocationChangeListener): void
+      <br/>--- getBaseHref(): string
+      <br/>--- path(includeHash: boolean = false): string
+      <br/>--- prepareExternalUrl(internal: string): string
+      <br/>--- pushState(state: any, title: string, path: string, queryParams: string)
+      <br/>--- replaceState(state: any, title: string, path: string, queryParams: string)
+      <br/>--- forward(): void
+      <br/>--- back(): void
+      <br/>--- getState(): unknown
+      <br/>--- historyGo(relativePosition: number = 0): void
+      <br/>
+      <br/>--- // inherited from common/LocationStrategy
+      <br/>--- abstract path(includeHash?: boolean): string
+      <br/>--- abstract prepareExternalUrl(internal: string): string
+      <br/>--- abstract getState(): unknown
+      <br/>--- abstract pushState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract replaceState(state: any, title: string, url: string, queryParams: string): void
+      <br/>--- abstract forward(): void
+      <br/>--- abstract back(): void
+      <br/>--- historyGo(relativePosition: number)?: void
+      <br/>--- abstract onPopState(fn: LocationChangeListener): void
+      <br/>--- abstract getBaseHref(): string
+    <br/>}
+
+     <br/>
      `, 
+     `--- HTML5 style navigation
+     <br/>------ nav tag  &lt;nav /> tag   
+     <br/>------ is one of the new elements introduced in HTML5 specn
+     <br/>
+     <br/>------ &lt;!DOCTYPE html>
+     <br/>------ &lt;html>  
+     <br/>------ &lt;head lang="en">
+     <br/>------ &lt;meta charset="UTF-8">
+     <br/>------ &lt;title>HTML5 Navigation Bar Example - Example 1&lt;/title>
+     <br/>------ &lt;link href="style3.css" rel="stylesheet"/>
+     <br/>------ &lt;/head>
+     <br/>------ &lt;body>
+     <br/>------ &lt;nav>
+     <br/>------ &lt;ul>
+     <br/>---------  &lt;li>
+     <br/>---------  &lt;a href="home.html">Home&lt;/a>
+     <br/>-------------- &lt;ul>
+     <br/>-----------------  &lt;li>&lt;a href="presentation.html">presentation&lt;/a>&lt;/li>
+     <br/>--------------------- &lt;li>
+     <br/>--------------------- &lt;a href="contact.html">contact&lt;/a>
+     <br/>--------------------- &lt;ul>
+     <br/>------                    &lt;li>&lt;a href="one.html">One&lt;/a>&lt;/li>
+     <br/>------                    &lt;li>&lt;a href="two.html">Two&lt;/a>&lt;/li>
+     <br/>------                    &lt;li>&lt;a href="three.html">Three&lt;/a>&lt;/li>
+     <br/>------                &lt;/ul>
+     <br/>------            &lt;/li>
+     <br/>------        &lt;/ul>
+     <br/>------    &lt;/li>
+     <br/>------    &lt;li>
+     <br/>------        &lt;a href="blog.html">Blog&lt;/a>
+     <br/>------------  &lt;ul>
+     <br/>----------------  &lt;li>&lt;a href="one.html">One&lt;/a>&lt;/li>
+     <br/>----------------  &lt;li&lt;a href="two.html">Two&lt;/a>&lt;/li>
+     <br/>----------------  &lt;li><a href="three.html">Three&lt;/a&lt;/li>
+     <br/>----------- &lt;/ul>
+     <br/>------    &lt;/li>
+     <br/>------    &lt;li>
+     <br/>------ &lt;title>HTML5 Navigation Bar Example - Example 1&lt;/title>
+     <br/>------ &lt;a href="shop.html">Shop&lt;/a>
+     <br/>------    &lt;ul>
+     <br/>--------- &lt;li>
+     <br/>------------ &lt;a href="candy.html">candy&lt;/a>
+     <br/>--------------  &lt;ul>
+     <br/>-----------------  &lt;li><a href="one.html">One</a></li>
+     <br/>-----------------  &lt;li><a href="two.html">Two</a></li>
+     <br/>-----------------  &lt;li><a href="three.html">Three</a></li>
+     <br/>--------------- &lt;/ul>
+     <br/>------------ &lt;/li>
+     <br/>------------ &lt;li>&lt;a href="chocolate.html">chocolate&lt;/a>&lt;/li>
+     <br/>------------- &lt;li>
+     <br/>-------------   &lt;a href="icecream.html">ice cream</a>
+     <br/>------------------  &lt;ul>
+     <br/>---------------------  &lt;li>&lt;a href="one.html">One&lt;/a&lt;/li>
+     <br/>---------------------  &lt;li>&lt;a href="two.html">Two&lt;/a&lt;/li>
+     <br/>---------------------  &lt;li&lt;a href="three.html">Three&lt;/a></li>
+     <br/>------------------- &lt;/ul>
+     <br/>---------------- &lt;/li>
+     <br/>--------------  &lt;/ul>
+     <br/>------------  &lt;/li>
+     <br/>----------  &lt;li>&lt;a href="news.html">News&lt;/a>&lt;/li>
+     <br/>-------- &lt;/ul>
+     <br/>------ &lt;/nav>
+     <br/>--- &lt;/body>
+     <br/> &lt;/html>     
+     `,
      `---- useHash:true
      
      `,
