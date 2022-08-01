@@ -383,13 +383,13 @@ const subTopics = [
     ' -- ',
     '------ 2 types of Injector Hierarchy DI system',
     '--------- 2 Injector trees',
- '----1: ModuleInjector (Ivy R3Injector)',
+ '----1: ModuleInjector (14- EnvironmentInjector)',
     '---------- A: Providers Metadata and @NgModule',  
     '---------------- null injector - top',  
     '---------------- Platform injector',
     '---------------- Root Module injector',
     ' -- ',
-    '---------- B: @Injectable',
+    '---------- B: @Injectable({providedIn:\'\'})',
     ' -- ',
     '------- Automatic Provisioning',
     '----------- @Injectable({providedIn: })',
@@ -796,29 +796,40 @@ const subTopics = [
      '- ngOnDestroy()'
     ],
     ['ComponentRouter', 
-    'Routes path:\'x\' - component', 
-    '<base href=\/"\">', 
-    '-- HTML5 Urls', 
-    '- router-outlet', 
-    '- routerLink',   
+    '- Routes: Route[]',
+    '--- Routes path:\'x\' component: XXX',
+    '------ children', 
+    '--- router-outlet',
+    '-------  multiple outlets', 
+    '---  routerLink',   
+    '--- ',
+    ' loadChildren() - Lazy loading',
     ' -- ',
-    '- Routes',
-    '- RouterModule', 
-    '-- @angular/router',
-    '--- forRoot()',
-    '--- forChild()',
-    '--- Nested Routes',
+    '<base href=\/"\">',
     ' -- ', 
-    '- get Route Info',
-    '-- ActivatedRoute',
-    '-- ActivatedRouteSnapshot',
-    '-- RouterStateSnapshot',
-    '-- .snapshot.paramMap.get(\'id\') ',
-    '-- ParamMap',
-    '- Wildcard Routes **',
-    '-- PageNotFoundComponent','redirectTo()', 
+    '-- HTML5 Urls', 
+    ' --- ',
+    ' -- ',
+    '--- RouterModule', 
+    '------- @angular/router',
+    '------- forRoot()',
+    '------- forChild()',
+    '------- Nested Routes',
+    ' -- ', 
+    '--- get Route Info',
+    '------ ActivatedRoute',
+    '------ ActivatedRouteSnapshot',
+    '------ RouterStateSnapshot',
+    '----- .snapshot.paramMap.get(\'id\') ',
+    '-------- ParamMap',
+    ' -- ',
+    '--- Wildcard Routes **',
+    ' -- ',
+    '--- PageNotFoundComponent','redirectTo()', 
+    ' -- ',
     ' -- ','- Router Guards', 
-    '-- Componentless-routes', 
+    '---- Componentless-routes',
+    ' -- ', 
     '-- 5 Guard options',
     '--- canActivate',
     '--- canActivateChild',
@@ -826,21 +837,25 @@ const subTopics = [
     '--- Resolve',
     '--- CanLoad',
     ' -- ',
-    '-- ActivationStart',
-    '-- ActivationEnd',
-    '-- ChildActivationEnd', 
-    '- history',
-    '- history.pushState',
-    '- older browsers',
-    '-- LocationStrategy',
-    '--- PathLocationStrategy',
-    '---- HTML5 style navigation',
-    '--- HashLocationStrategy', 
-    '---- useHash:true',
+    '------ ActivationStart',
+    '------ ActivationEnd',
+    '------ ChildActivationEnd', 
     ' -- ',
-    'Route Resolver', 
-    '- new Comp --routing',
-    '-- Lazy Loading'
+    '--- history',
+    '--- history.pushState',
+    '--- older browsers',
+    '--- LocationStrategy',
+    '--- PathLocationStrategy',
+    ' -- ',
+    '--- HTML5 style navigation',
+    '------ HashLocationStrategy', 
+    '------ useHash:true',
+    ' -- ',
+    '--- Route Resolver', 
+    '------ new Comp --routing',
+    '------ Lazy Loading',
+    ' -- ',
+    '--- Angular 14 providers'
   ],
    ['Parent Child communication', 
     '- @Input() decorator',
@@ -2756,7 +2771,7 @@ const subTopicsInfo = [
      <br/>---------- root injector
      <br/>---- 2 Injector Hierarchies
      <br/>------- injectors - key-value pairs 
-     <br/>------- ModuleInjector (Ivy R3Injector)
+     <br/>------- ModuleInjector (Ivy R3Injector) but (Ang 14 - EnvironmentInjector)
      <br/>----------- a Module level injector
      <br/>--- has a Records property that stores DI info 
      <br/>------ and stores instances of injectables    
@@ -5178,6 +5193,7 @@ const subTopicsInfo = [
   `-------2: ElementInjector (Ivy NodeInjector)
   <br/> ------------ Injector Tree echoes the Component Tree
   <br/> -------------- every Component has its own injector
+  <br/> -------------- has priority over Module(Environment) Injector
   <br/>
   <br/> ----------- When a Component requests a dependency 
   <br/>----------------- Angular uses a Provider regd in the Components Injector
@@ -6263,27 +6279,166 @@ for (let x of cars) {
      '- ngAfterViewInit() - (called once after ngAfterContentChecked) Responds after Ang Initialises Comp View + Child Views      ', 
      '- ngAfterViewChecked() - Responds after Ang checks Comp View + Child Views - (After every ngAfterContentChecked + ngAfterViewInit()_',
      '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '],  
-     [`ComponentRouter - to handle the navigation from 1 view to the next 
+     [`ComponentRouter - 
+     <br/>to handle the navigation from 1 view to the next 
      <br/>- Interpreting browser URLs as an instn to change view -
+     <br/>
+     <br/>Routes: Route[] where Route interface has many properties
+     <br/>--- at its simplest path and component
+     <br/>
+     <br/>const routes: Routes = [
+      <br/> ---- { path: 'first-component', component: FirstComponent },
+      <br/> ---- { path: 'second-component', component: SecondComponent },
+     <br/>];
      <br/>ng new ang-app --routing --defaults 
+     <br/>
      <br/>using the Angular CLI to generate a basic Ang appn with routing enabled 
+     <br/>
      <br/>We can use ActivatedRoute and to get data about the Routes
-    <br/>&lt;router-outlet>&lt;/router-outlet> lets us position the routing infon in our Component template -
-    <br/>   
+     <br/>
+     <br/>&lt;router-outlet>&lt;/router-outlet> 
+     <br/>lets us position the routing infon in our Component template -
+     <br/>   
      <br/>routing normally uses RouterModule.forRoot(routes) where routes defines the actual component routes linking URL paths with various components 
      <br/>Note that Lazy Loading can use Routing using a RouteModule.forChild(routes)
      <br/>We can use the Router Resolver to prefetch data to ensure the data is objtained first - 
      `,
-     `routes:Routes = [{path:"first-comp",component: FirstComponent}]
-      <br/>--- uses a path to ref a Component to direct to the View of that Component
+     `--- Routes: Route[]
+     <br/>
+     <br/>------ array of Route interfaces  
      `,
+     `Route - is an interface   
+      <br/>--- supports static  | parameterised | redirect | wildcard routes
+      <br/>------ and custom route data and resolve methods  
+      <br/>
+      <br/>--- Can involve
+      <br/>------- modules 
+      <br/>-------  but can use standalone components (no Modules)
+      <br/>------- children
+      <br/>------- lazy loading 
+      <br/>------- router Guards
+        <br/>
+      <br/>--- at its simplest path and component
+      <br/>
+      <br/>const routes: Routes = [
+      <br/> ---- { path: 'first-component', component: FirstComponent },
+      <br/> ---- { path: 'second-component', component: SecondComponent },
+      <br/>];
+      <br/>
+      <br/>interface Route {
+      <br/>---  title?: string | Type<Resolve<string>>
+      <br/>---  path?: string
+      <br/>---    pathMatch?: 'prefix' | 'full'
+      <br/>---    matcher?: UrlMatcher
+      <br/>---    component?: Type<any>
+      <br/>---    loadComponent?: () => Type<unknown> | Observable<Type<unknown>> | Promise<Type<unknown>>
+      <br/>---    redirectTo?: string
+      <br/>---    outlet?: string
+      <br/>---    canActivate?: any[]
+      <br/>---    canMatch?: Array<Type<CanMatch> | InjectionToken<CanMatchFn>>
+      <br/>---    canActivateChild?: any[]
+      <br/>---    canDeactivate?: any[]
+      <br/>---    canLoad?: any[]
+      <br/>---    data?: Data
+      <br/>---    resolve?: ResolveData
+      <br/>---    children?: Routes
+      <br/>---    loadChildren?: LoadChildren
+      <br/>---    runGuardsAndResolvers?: RunGuardsAndResolvers
+      <br/>---    providers?: Array<Provider | ImportedNgModuleProviders>
+      <br/>}
+      <br/>
+      <br/>routes:Routes = [{path:"first-comp",component: FirstComponent}]
+      <br/>--- uses a path to ref a Component to direct to the View of that Component
+    
+      `,
+     `--- children - 
+     <br/>
+     <br/>------ children of the Component element 
+     <br/>
+     <br/>[{
+      <br/>--- path: 'team/:id',
+      <br/>--- component: Team,
+      <br/>--- children: [{
+      <br/>------ path: 'user/:name',
+      <br/>------ component: User
+      <br/>--- }]
+      <br/>}]
+     `,
+     `--- &lt;router-outlet>&lt;/router-outlet> 
+     <br/>
+     <br/>------ location where the router links will go
+     `, 
+     `--- &lt;a routerLink="/first_comp">link&lt;/a>
+     <br/>
+     <br/>------ lets us jump to a certain location to load a certain component
+     <br/>     
+     `,
+     ' -- ',
+     `--- RouterModule  
+     <br/>
+     <br/>--- import RouterModule and Routes into the routing module (or AppModule)
+     <br/>--- Define routes in the Routes array - normally a JS object with path and component
+     <br/>---------- Path defines URL path for the route
+     <br/>---------- component defines the Compoonent to load
+     <br/> 
+     <br/>import { Routes, RouterModule } from '@angular/router'; // CLI imports router <br/>// configures NgModule imports and exports
+     <br/>
+     <br/>@NgModule({ 
+     <br/>
+     <br/>--- imports: [RouterModule.forRoot(routes)],
+     <br/>--- exports: [RouterModule]
+     <br/>})
+     <br/>export class AppRoutingModule { }
+    <br>/>
+    `, 
+     `-------- @angular/router
+     <br/>-------- library for the Router items in appn
+     <br/>-------- RouterModule, Routes, Route, 
+     <br/>
+     `, 
+     `RouterModule.forRoot(routes)
+     <br/>
+     <br/>---- for eagerly loaded modules / components 
+     <br/>---- routes defines the paths etc.
+
+     `,
+    `--- routerLink 
+    <br/>
+    <br/>--- assign links to the two components - using anchor tag
+    <br/>--- adding route to the routerLink attribute 
+    <br/>------- updating the component template to include router-outlet - 
+    <br/>----------- updating the appn view with Component for selected route  
+    <br/>
+    <br/>--- Order is important - Router uses 1st match wins approach
+    <br/>
+    <br/>&lt;nav>
+    <br/>--- &lt;ul>
+    <br/>------ &lt;li>&lt;a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component&lt;/a>&lt;/li>
+    <br/>------ &lt;li>&lt;a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component&lt;/a>&lt;/li>
+    <br/>--- &lt;/ul>
+    <br/>&lt;/nav>  
+    `,
+    ' -- ',
+    `-- RouterModule.forChild(routes) - lazy load the Component or Module
+     
+
+
+     `,
+     `-------- loadChildren() - Lazy Loading 
+     <br/>
+     <br/>--- by default it uses Modules for Lazy Loading
+     <br/>------ but you can now Lazy Load Components
+     <br/>
+     <br/>
+     `,
+   
+     `- Nested Routes - 
+     
+     `,
+    
+     ' -- ',
      '&lt;base href=\/"\">', 
      '-- HTML5 Urls', 
-     '- &lt;router-outlet>&lt;/router-outlet> location where the router links will go', 
-     '- &lt;a routerLink="/first_comp">link&lt;/a>',
-     ' -- ','- Routes','- RouterModule', '-- @angular/router', 'RouterModule.forRoot(routes)',
-     '-- RouterModule.forChild(routes) - lazy load the Component or Module',
-     '- Nested Routes - ',
      ' -- ','- get Route Info',
      `-- ActivatedRoute - 
          <br/>---- Currently activated route
@@ -6427,6 +6582,8 @@ for (let x of cars) {
       <br/>this.viewContainerRef.createComponent( this.cfr.resolveComponentFactory(Lazy2Component));}
       `,
       `--- Simplified in Angular 13
+    <br/>--- Deprecated router.loadChildren() using a string value
+    <br/>
     <br/>Ivy creates the Component in ViewContainerRef (without a factory)
     <br/>
     <br/>export class AppComponent {
@@ -6889,7 +7046,9 @@ for (let x of cars) {
     'EntryComponents - are no longer required',
     ' -- ',
     'Ivy DI (Dep Injection)',
-    '---- R3Injector (ModuleInjector)',
+    `---- R3Injector (ModuleInjector) - Angular 14 - EnvironmentInjector
+    <br/>---- 
+    `,
     '-------- Store property',  
     ' -- ',
     '---- NodeInjector (ElementInjector)',
