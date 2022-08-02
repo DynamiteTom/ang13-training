@@ -6452,43 +6452,202 @@ for (let x of cars) {
        
        `,
         `--- RouterStateSnapshot 
+        <br/>------- an immutable data structure representing 
+        <br/>------- the state of the router at a particular moment in time  
+        <br/>
+        <br/>------- Ant time a component is added | removed | parameter updated
+        <br/>---------- a new snapshot is created
         `,
         `--- .snapshot.paramMap.get(\'id\') 
         `,
-        `--- ParamMap `,
+        `--- ParamMap 
+        <br/>----- a map that provides access to the reqd and optional pars specific to route
+        <br/>----- The map supports retrieving a single value with get() 
+        <br/>----- or multiple values with getAll()
+        <br/>
+        <br/>interface ParamMap {
+          <br/>----- keys: string[]
+          <br/>----- has(name: string): boolean
+          <br/>----- get(name: string): string | null
+          <br/>----- getAll(name: string): string[]
+        <br/>}
+        `,
         ' -- ',
      `--- Wildcard Routes **
+     <br/>
+     <br/>
      `,
      `--- PageNotFoundComponent
+     <br/>
+     <br/>
      `,
      `--- redirectTo()
-     
+     <br/>------ a URL to redirect when the path matches
+     <br/>------ Absolute if path begines '/'
+     <br/>------ else relative path URL  
+     <br/>-------  
+     <br/>------- After an absolute path - 
+     <br/>------------ no further redirects are evaluated  
+    
+
      `, 
      ' -- ',
      `--- Router Guards
-     <br/>--- interfaces when implemented let us  
-     <br/>---- control accessability of a route dept on conditions 
-     
+     <br/>------- interfaces when implemented let us  
+     <br/>------- control accessability of a route dept on conditions 
+     <br/>------- determine if route can be executed or not
      `,
      `----- Componentless-routes
+     <br/>------- provide data to children
+     <br/>----------- without instantiating any Component  
+     <br/>----------- 
      
      `,
      `------- 5 Guard options
+     <br/>--------- canActivate()
+     <br/>--------- canActivateChild()
+     <br/>--------- canDeactivate()
+     <br/>--------- Resolve()
+     <br/>--------- CanLoad()
+     <br/>
      `,
-     `------ canActivate
+     `------ canActivate()
+     <br/>--- can implement a route guard 
+     <br/>------ deciding if a route can be activated  
+     <br/>------ If all guards return true - then activate
+     <br/>------ else returns false - navigation cancelled
+     <br/>
+     <br/>------ If any guard returns a UrlTree - 
+     <br/>---------- current nav cancelled and a new navigation begins
+     <br/>
+     <br/>interface CanActivate {
+      <br/>---- canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+      <br/>}
+      <br/>
+      <br/>class UserToken {}
+      <br/>class Permissions {
+      <br/>---- canActivate(user: UserToken, id: string): boolean {
+        <br/>----- return true;
+      <br/>----}
+      <br/>}
+      <br/>
+      <br/>
+      <br/>@Injectable()
+      <br/>class CanActivateTeam implements CanActivate {
+        <br/>---- constructor(private permissions: Permissions, private currentUser: UserToken) {}
+        <br/>
+        <br/>---- canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
+        <br/>--------- return this.permissions.canActivate(this.currentUser, route.params.id);
+        <br/>---- }
+        <br/>}
+
      `,
-     `------ canActivateChild
+     `------ canActivateChild()
+     <br/>
+     <br/>--- can implement a child route guard 
+     <br/>------ deciding if a child route can be activated  
+     <br/>------ If all child guards return true - then activate
+     <br/>------ else returns false - navigation cancelled
+     <br/>
+     <br/>------ If any child guard returns a UrlTree - 
+     <br/>---------- current nav cancelled and a new navigation begins
+    
      `,
-     `------ canDeactivate
+     `------ canDeactivate()
+     <br/>
+     <br/>------- decide if a route can be deactivated 
+     <br/>---------- canDeactivate(component: T, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot):
+     <br/>--------------- Observable&lt;boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+     
      `,
-     `------ Resolve
+     `------ Resolve()
+     <br/>-------- resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Hero>|Promise<Hero>|Hero
+     <br/>-------- {
+     <br/>-----------  return this.service.getHero(route.paramMap.get('id'));
+     <br/>------ }
+     <br/>--- }
+    
+     <br/>  
+     <br/>---  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Hero>|Promise<Hero>|Hero
+     <br/>------ {
+     <br/>-----------  return this.service.getHero(route.paramMap.get('id'));
+     <br/>------ }
+     <br/>--- }
+    
      `,
-     `------ CanLoad
+     `------ CanLoad()
+     <br/>interface that a class can implement 
+     <br/>
+     <br/>------ Interface that a class can implement 
+     <br/>---------- to be a guard deciding if children can be loaded. 
+     <br/>------ If all guards return true, navigation continues. 
+     <br/>------ If any guard returns false, navigation is cancelled. 
+     <br/>ss------ If any guard returns a UrlTree, 
+     <br/>-----------  current navigation is cancelled and a new navigation starts 
+     <br/>-------------to the UrlTree returned from the guard.
+     <br/>
+     <br/>interface CanLoad {
+     <br/>---- canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+     <br/>}
      `, 
      ' -- ',
-     `--- ActivationStart`,
-     `--- ActivationEnd`,
-     `--- ChildActivationEnd`,
+     `--- Routing Resolve phase
+     <br/>-------- it resolves the required data for the router state
+     <br/>-------- It activates the Angular components to display the page 
+     <br/>-------- Managing the navigation and repeats when a new URL is requested
+     <br/>-------- 
+     <br/>-------- Resolve() retrieves the data needed to activate the requested route
+     <br/>
+     <br/>-------- resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable&lt;T> | Promise&lt;T> | T
+     <br/>-------- 
+     <br/>@Injectable({ providedIn: 'root' })
+      <br/>export class HeroResolver implements Resolve<Hero> {
+      <br/>--- constructor(private service: HeroService) {}
+      <br/>
+      <br/>---  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Hero>|Promise<Hero>|Hero
+      <br/>------ {
+      <br/>-----------  return this.service.getHero(route.paramMap.get('id'));
+      <br/>------ }
+      <br/>--- }
+     `,
+     `--- ActivationStart
+     <br/>----- event triggered at the start of the activation part 
+     <br/>----------- of the Resolve phase of routing
+     <br/>
+     class ActivationStart {
+      <br/>--- constructor(snapshot: ActivatedRouteSnapshot)
+      <br/>--- type: EventType.ActivationStart
+      <br/>--- snapshot: ActivatedRouteSnapshot
+      <br/>--- toString(): string
+    }
+     `,
+     `--- ActivationEnd
+     <br/>----- event triggered at the end of the activation part 
+     <br/>----------- of the Resolve phase of routing
+     <br/>
+     `,
+     `--- ChildActivationStart
+     <br/>------ An event triggered at the start of the child-activation part 
+     <br/>--------- of the Resolve phase of routing.
+     <br/>
+     <br/>class ChildActivationStart {
+      <br/>--- constructor(snapshot: ActivatedRouteSnapshot)
+      <br/>--- type: EventType.ChildActivationStart
+      <br/>--- snapshot: ActivatedRouteSnapshot
+      <br/>--- toString(): string
+      <br/>}
+     `,
+     `--- ChildActivationEnd
+     <br/>------ An event triggered at the end of the child-activation part 
+     <br/>--------- of the Resolve phase of routing.
+     <br/>
+     <br/>class ChildActivationEnd {
+      <br/>--- constructor(snapshot: ActivatedRouteSnapshot)
+      <br/>--- type: EventType.ChildActivationEnd
+      <br/>--- snapshot: ActivatedRouteSnapshot
+      <br/>--- toString(): string
+      <br/>}
+     `,
      ' -- ',
      `--- hisory
      <br/>------- When a router navigates to a new Comp view 
@@ -6585,9 +6744,11 @@ for (let x of cars) {
       <br/>--- abstract onPopState(fn: LocationChangeListener): void
       <br/>--- abstract getBaseHref(): string
     <br/>}
-
      <br/>
      `, 
+     `---- useHash:true
+     
+     `,
      `--- HTML5 style navigation
      <br/>------ nav tag  &lt;nav /> tag   
      <br/>------ is one of the new elements introduced in HTML5 specn
@@ -6652,9 +6813,6 @@ for (let x of cars) {
      <br/>------ &lt;/nav>
      <br/>--- &lt;/body>
      <br/> &lt;/html>     
-     `,
-     `---- useHash:true
-     
      `,
      ' -- ',
      `--- pre-fetches data before deciding 
