@@ -284,9 +284,12 @@ const subTopics = [
    ' -- ', 
     '- Pure', 
     '- Impure',
+    ' -- ',
     'Custom Pipes', 
     '-- @Pipe({})',
     '-- PipeTransform - transform',
+    ' -- ',
+    'pipe wrt ftn'
   ],
   ['Services and DI',
     '-- wrt Components',
@@ -781,22 +784,23 @@ const subTopics = [
      '---- 2: vender.js'
     ],
     ['Life Cycle Hooks',
-    '- Instantiates class',
-    '- Renders View + Child',
-    '- Change detection',
-    '- Updates View + Comp Instance',
-     '- imports @angular/core',
-     'LCH parts','- ngOnChanges()', 
-     '- ngOnInit() most popular',
-     '- ngDoCheck()', 
-     '- ngAfterContentInit()', 
-     '- ngAfterContentChecked()', 
-     '- ngAfterViewInit()', 
-     '- ngAfterViewChecked()',
-     '- ngOnDestroy()'
+    '--- Instantiates class',
+    '--- Renders View + Child',
+    '--- Change detection',
+    '------- Updates View + Comp Instance',
+     '------ imports @angular/core',
+     'LCH parts',
+     '------- ngOnChanges()', 
+     '------- ngOnInit() most popular',
+     '------- ngDoCheck()', 
+     '------- ngAfterContentInit()', 
+     '------- ngAfterContentChecked()', 
+     '------- ngAfterViewInit()', 
+     '------- ngAfterViewChecked()',
+     '------- ngOnDestroy()'
     ],
     ['ComponentRouter', 
-    '- Routes: Route[]',
+    '--- Routes: Route[]',
     '--- Routes path:\'x\' component: XXX',
     '------ children', 
     '--- router-outlet',
@@ -826,7 +830,6 @@ const subTopics = [
     '--- redirectTo()',
     ' -- ',
     '--- Router Guards', 
-    '------ Componentless-routes',
     '------ 5 Guard options',
     '----------- canActivate',
     '----------- canActivateChild',
@@ -837,6 +840,7 @@ const subTopics = [
     '------ ActivationStart',
     '------ ActivationEnd',
     '------ ChildActivationEnd', 
+    '------ Componentless-routes',
     ' -- ',
     '--- history',
     '--- history.pushState',
@@ -852,16 +856,19 @@ const subTopics = [
     '------ new Comp --routing',
     '------ Lazy Loading',
     ' -- ',
-    '--- Angular 14 providers'
+    '--- Angular 14 Route providers',
+    '------  Inject()'
   ],
    ['Parent Child communication', 
-    '- @Input() decorator',
-    '-- Property Binding - []', 
-    '--- ngOnChanges()',
-    '- @Output()',
-    '-- Event Binding - ()', 
-    '-- EventEmitter()', 
-    '--- [()]', 
+    '--- @Input() decorator',
+    '------- Property Binding - []', 
+    '------- ngOnChanges()',
+    ' -- ',
+    '--- @Output()',
+    '------ Event Binding - ()', 
+    '------ EventEmitter()',
+    ' -- ', 
+    '-- 2 way data binding [()]', 
    ], 
    ['Funny Operators',
       'Non null operator !',
@@ -959,19 +966,23 @@ const subTopics = [
     ],
     ['ESBuild',
       '--- CommonJS',
-      '--- ESMs'
+      '--- ESMs',
+      ' -- ',
+      '--- Node.js - Backend',
+      '-------- fastify wrt express.js',
+      '-------- fastify-node-tsc'
     ],
     ['Ivy new', 
-    '- enableIvy: true',
-    '- Complete rewrite of RE',
-    '- Very fast loading',
-    '- operates Very fast',
-    '- reduced bundle size',
-    '-- Tree Shakeable',
-    '- Comp compilation independently',
+    '--- enableIvy: true',
+    '--- Complete rewrite of RE',
+    '--- Very fast loading',
+    '--- operates Very fast',
+    '--- reduced bundle size',
+    '--- Tree Shakeable',
+    '--- Comp compilation independently',
     ' -- ',
-    '- Locality',
-    '-- Single file',
+    '--- Locality',
+    '--- Single file',
     '--- own local infon',
     '--- Recompiles partial changes',
     '--- Create Comp|Dir at runtime',
@@ -1085,47 +1096,67 @@ const subTopics = [
     ],
     
     ['rxjs - Reactive Extensions',
-    '-- library',
-    '---- npm install rxjs', 
-    '-- rxjs operators',
-    '---- are immutable',
-    '---- return Observables',
-    '-- asynchronous',
-    '-- Event based ops',
-    '-- Observable sequences',
-    '---- imps Observable type',
+    '--- library',
+    '------- npm install rxjs', 
+    '--- rxjs operators',
+    '------- are immutable',
+    '------- return Observables',
+    '--- asynchronous',
+    '--- Event based ops',
+    '--- Observable sequences',
+    '------- imps Observable type',
     ' -- ',
     '--- rxjs Pipeable Operators',
     ' -- ',
-    'Utility ftns',
-    '- Convert async to Observables',
-    '- iterating over stream',
-    '- map vals to types',
-    '- filtering streams',
-    '- multiple streams',
+    '--- Utility ftns',
+    '--- Convert async to Observables',
+    '-------- iterating over stream',
+    '-------- map vals to types',
+    '-------- filtering streams',
+    '-------- multiple streams',
     ' -- ',
-    'Pipeable operators',
-    '- Combination',
-    '- Conditional',
-    '- Creation',
-    '- Errors',
-    '- Multi-cast',
-    '- Filters',
-    '- Transform'
+    '--- Pipeable operators',
+    '-------- Combination',
+    ' -- ', 
+    '-------- Conditional',
+    ' -- ', 
+    '-------- Creation',
+    ' -- ', 
+    '-------- Errors',
+    ' -- ', 
+    '-------- Multi-cast',
+    ' -- ', 
+    '-------- Filters',
+    ' -- ', 
+    '-------- Transform'
     ],
-    ['Higher Order Operators',
+    ['Higher Order Mapping Operators',
+     '--- transforms higher order Observables',
      '--- maps a value into an Observable',
      '------ value is an Observable too',
-     '-------- Observable of Observables',
-     '---- mapping happens all the time',
+     '--- 4 types of HOOs',
+     '-------- Concat| Merge| Switch| Exhaust',
+     '----------- Observable of Observables',
+     '--- mapping happens all the time',
      ' -- ',
-     '--- 4 types of HOO',
      '----- ConcatMap',
+     '-------- Sequence opns (Queue)',
+     '-------- stores calls - ops',
+     ' -- ', 
      '----- MergeMap',
+     '--------- Parallel opns',
+     '--------- lets HTTP requests finish',
+     ' -- ', 
      '----- SwitchMap',
-     '----- ExhaustMap'
+     '--------- cancels prev HTTP requests',
+     '--------- maps value from src to inner Observable',
+     '--------- subscribes + starts emitting immed',
+     ' -- ', 
+     '----- ExhaustMap',
+     '--------- combines exhaust + map opns',
+     '--------- maps value from src to inner Observable',
+     '--------- subscribes and waits to finish'  
     ],
-    
     ['Why forms',
     '--- Capture view user inputs',
     '--- Validate user input',
@@ -1738,7 +1769,6 @@ const subTopics = [
      '---- ',
      '---- traspiled to *.js',
      '--------- esbuild',
-
     ],
     ['npm'],
     ['express','express impn',
@@ -6497,12 +6527,6 @@ for (let x of cars) {
      <br/>------- control accessability of a route dept on conditions 
      <br/>------- determine if route can be executed or not
      `,
-     `----- Componentless-routes
-     <br/>------- provide data to children
-     <br/>----------- without instantiating any Component  
-     <br/>----------- 
-     
-     `,
      `------- 5 Guard options
      <br/>--------- canActivate()
      <br/>--------- canActivateChild()
@@ -6647,6 +6671,17 @@ for (let x of cars) {
       <br/>--- snapshot: ActivatedRouteSnapshot
       <br/>--- toString(): string
       <br/>}
+     `,
+     `----- Componentless-routes
+     <br/>------- provide data to children
+     <br/>----------- without instantiating any Component  
+     <br/>
+     <br/>----------- Consume URL segments
+     <br/>----------- provide data to its children
+     <br/>--------------- without instantiating any Components 
+     <br/>----------- Parameters captured by these 
+     <br/>--------------- are merged into their children's parameters
+     <br/>
      `,
      ' -- ',
      `--- hisory
@@ -7582,18 +7617,20 @@ for (let x of cars) {
     [`rxjs - Reactive Extensions - 
     <br/>--- is a library for reactive programming using Observables
     <br/>------ for composing asynch + event based programs
-    <br/>------ simplifying composing asynch impn or callback based code 
-    <br/>--- using Observable sequences
-    <br/>--- based on Observables -
+    <br/>------ 
+    <br/>
+    <br/>--- simplifying composing asynch impn or callback based code 
+    <br/>------ using Observable sequences
+    <br/>------ based on Observables -
     <br/>
     <br/>--- RxJS concepts -
-    <br/>----- Observable - reps invokable colln of future values of values or events 
-    <br/>----- Observer - is a colln of callbacks knowing how to lisen  
-    <br/>----- Subscription - reps the execn of an Observable - cancel execn
-    <br/>----- Operators - pure ftns enable ftnal programming 
-    <br/>----- Subject - like an EventEmitter() 
-    <br/>-------- mulit-casting a value or even to multiple observers
-    <br/>----- Schedulers - centralised dispatchers to control concurrency
+    <br/>------- Observable - reps invokable colln of future values of values or events 
+    <br/>------- Observer - is a colln of callbacks knowing how to lisen  
+    <br/>------- Subscription - reps the execn of an Observable - cancel execn
+    <br/>------- Operators - pure ftns enable ftnal programming 
+    <br/>------- Subject - like an EventEmitter() 
+    <br/>------- mulit-casting a value or even to multiple observers
+    <br/>------- Schedulers - centralised dispatchers to control concurrency
     <br/>
     <br/>-------   
     <br/>--- rxjs Pipeable operators - 
@@ -7602,29 +7639,30 @@ for (let x of cars) {
     <br/>------ return Observables  
     <br/>------ always creates new Observables
     <br/>
-    <br/>Using pipe()
-    <br/>--- lets us use multiple operators in one method
+    <br/>--- Using pipe()
+    <br/>------ lets us use multiple operators in one method
     <br/>
     <br/>Pipeable operators
-    <br/>- Combination
+    <br/>--- Combination
     <br/>------ combineAll
     <br/>------ combineLatest   
     <br/>------ concat 
     <br/>------ forkjoin 
-    <br/>------ merge
+    <br/>
+    ------ merge
     <br/>------ mergeAll 
     <br/>------ race
     <br/>------ startWith 
     <br/>------ withLatestFrom
     <br/>------ zip   
     <br/> 
-    <br/>- Conditional
+    <br/>--- Conditional
     <br/>------ defaultEmpty
     <br/>------ every 
     <br/>------ iif 
     <br/>------ sequenceEqual   
     <br/>
-    <br/>- Creation
+    <br/>--- Creation
     <br/>------ ajax   
     <br/>------ create 
     <br/>------ defer
@@ -7637,12 +7675,12 @@ for (let x of cars) {
     <br/>------ throw
     <br/>------ timer 
     <br/>
-    <br/>- Errors',
+    <br/>--- Errors',
     <br/>------ catch/catchError 
     <br/>------ retry
     <br/>------ retryWhen
     <br/>
-    <br/>- Filtering
+    <br/>--- Filtering
     <br/>------ audit
     <br/>------ debounce
     <br/>------ distinct   
@@ -7655,36 +7693,37 @@ for (let x of cars) {
     <br/>------ take 
     <br/>------ throttle 
     <br/>
-    <br/>- Multi-cast
-    <br/>------ multicast
-    <br/>------ publish 
-    <br/>------ share 
+    <br/>--- Multi-cast
+    <br/>-------- multicast
+    <br/>------ 
+    <br/>--- publish 
+    <br/>-------- share 
     <br/>
-    <br/>- Transformation -
+    <br/>--- Transformation -
     <br/>------ buffer
     <br/>------ concatMap   
-    <br/>------ expand 
+    <br/>--------- expand 
     <br/>------ map - data stream transformation operator wrt arrays
     <br/>----------- map(x => x*x )
     <br/>------ mergeScan 
-    <br/>------ reduce - reduces value from source Observable to 1 value 
-    <br/>------ scan - like reduce for Arrays
+    <br/>---------- reduce - reduces value from source Observable to 1 value 
+    <br/>---------- scan - like reduce for Arrays
     <br/>------ switchMap 
-    <br/>------ toArray 
-    <br/>------ window 
+    <br/>--------- toArray 
+    <br/>--------- window 
     <br/>
     `,
     '- library',
-    '- npm install rxjs', 
-    `- rxjs operators
+    '--- npm install rxjs', 
+    `------ rxjs operators
     `,
     '--- are immutable',
     '--- return Observables',
-    '-- asynchronous',
-    '-- Event based ops',
-    '-- Observable sequences',
+    '--- asynchronous',
+    '--- Event based ops',
+    '--- Observable sequences',
     '---- imps Observable type',
-
+    ' -- ',
     'Utility ftns',
     '- Convert async to Observables',
     '- iterating over stream','- map vals to types',
@@ -7692,44 +7731,78 @@ for (let x of cars) {
     '- multiple streams',
     ' -- ',
     'Pipeable operators',
-    '- Combination',
-    '- Conditional',
-    '- Creation',
-    '- Errors',
-    '- Multi-cast',
-    '- Filters',
-    '- Transform'
+    '--- Combination',
+    ' -- ',
+    '--- Conditional',
+    ' -- ',
+    '--- Creation',
+    ' -- ',
+    '--- Errors',
+    ' -- ',
+    '--- Multi-cast',
+    ' -- ',
+    '--- Filters',
+    ' -- ',
+    '--- Transform'
     ],
     [`Higher-Order-Mapping-ftns
-    <br/>- Produces an Observable as an output 
+    <br/>--- Produces an Observable as an output 
+    <br/>------- are among the most widely used RxJS operators
+    <br/>--- transform higher order Observables  
     <br/>
-    <br/>- Different types of HOM
-    <br/>--- ConcatMap
-    <br/>--- MergeMap
-    <br/>--- SwitchMap
-    <br/>--- ExhaustMap 
+    <br/>--- Different types of HOM
+    <br/>------ ConcatMap - flatten but order is impt - serial 
+    <br/>------ MergeMap - flatten to one Observable  
+    <br/>------ SwitchMap - flatten but need latest
+    <br/>------ ExhaustMap 
+    `,
+    `--- 4 types of HOMFs
+    ConcatMap | MergeMap| SwitchMap| ExhaustMap
+    `,
+    `--- map source Observable - emitted value
+    <br/>----- into other Observable(s)
+    <br/>-------- returns Observable of Observables
+    `,
+    `--- OuterObservables
+    `,
+    `------ InnerObservables
     `,
     `--- ConcatMap
-    <br/>- Sequence opn (order of opns is important) 
-    <br/>- map values to inner Observable subscribe 
-    <br/>- and emit in order - delayed subscribe to inner Observables
+    <br/>------- Sequence opn (order of opns is important) 
+    <br/>------- map values to inner Observable subscribe 
+    <br/>------- and emit in order - delayed subscribe to inner Observables
     `,
+    `------- Sequence opn 
+    `,
+    ' -- ',
     `--- MergeMap - (alias FlatMap) Parallel opn 
-    <br/>- Multiple simultaneous active inner subscriptions 
-    <br/>- possible memory leaks 
-    <br/>- subscribes immed to inner Observables 
-    <br/>-  map to Observable with inner timer or a stream of DOM events
+    <br/>------ Multiple simultaneous active inner subscriptions 
+    <br/>------ possible memory leaks 
+    <br/>------ subscribes immed to inner Observables 
+    <br/>------ map to Observable with inner timer or a stream of DOM events
     `,
-    `--- ConcatMap - map to Observable 
-    <br/>- complete previous inner Observable 
-    <br/>- emit values 
-    <br/>- immed cancel prev opn and emit new one 
-    <br/>- can have a cancelling operator - 
+    `-------- multiple simultaneous active inner subscriptions`,
+    ' -- ',
+    `--- switcMap - map to Observable 
+    <br/>------ complete previous inner Observable 
+    <br/>------ emit values 
+    <br/>------ immed cancel prev opn and emit new one 
+    <br/>------ can have a cancelling operator - 
     `,
+    `------- maintains only 1 inner subscription at a time
+    <br/>
+    `,
+    `------ avoiding nested subscription
+    <br/>--------- 
+    `,
+    ' -- ',
     `--- ExhaustMap 
-    <br/>- projects each source value to an Observale 
-    <br/>which is merged in the o/p Observable 
-    <br/>only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust
+    <br/>------ projects each source value to an Observale 
+    <br/>------ which is merged in the o/p Observable 
+    <br/>------ only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust
+    `,
+    `------- projects each source value to an Observable
+    <br/>
     `
     ],
     [`Forms - to handle user input - eg Login - Register
