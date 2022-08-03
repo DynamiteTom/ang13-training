@@ -1131,15 +1131,15 @@ const subTopics = [
     '-------- Transform'
     ],
     ['Higher Order Mapping Operators',
-     '--- transforms higher order Observables',
-     '--- maps a value into an Observable',
-     '------ value is an Observable too',
-     '--- 4 types of HOOs',
-     '-------- Concat| Merge| Switch| Exhaust',
-     '----------- Observable of Observables',
-     '--- mapping happens all the time',
-     ' -- ',
-     '----- ConcatMap',
+    '--- Concat| Merge| Switch| Exhaust',
+    '--- OuterObservable',
+    '------- InnerObservable',
+    '--- Observable of Observables',
+    '--- transforms higher order Observables',
+    '------ maps a value into an Observable',
+    '--- Network calls - HTTP',
+    ' -- ',
+    '----- ConcatMap',
      '-------- Sequence opns (Queue)',
      '-------- stores calls - ops',
      ' -- ', 
@@ -1157,11 +1157,14 @@ const subTopics = [
      '--------- maps value from src to inner Observable',
      '--------- subscribes and waits to finish'  
     ],
-    ['Why forms',
+    ['Forms',
     '--- Capture view user inputs',
-    '--- Validate user input',
-    '--- create a Form Modal',
-    '--- create a data model',
+    '--- Data field binding',
+    '------ create a Form Modal',
+    '------ create a data model',
+    
+    '--- Form field Validation',
+    '--- Form value and validity',
     ' -- ',
     '--- FormControl',
     '----- FormGroup',
@@ -7749,7 +7752,10 @@ for (let x of cars) {
     <br/>--- Produces an Observable as an output 
     <br/>------- are among the most widely used RxJS operators
     <br/>--- transform higher order Observables  
-    <br/>
+    <br/>--- emit values that are Observables  
+    <br/>--- Most of the network calls will use these oprs
+    <br/>------- Http(s) calls - 
+
     <br/>--- Different types of HOM
     <br/>------ ConcatMap - flatten but order is impt - serial 
     <br/>------ MergeMap - flatten to one Observable  
@@ -7759,51 +7765,93 @@ for (let x of cars) {
     `--- 4 types of HOMFs
     ConcatMap | MergeMap| SwitchMap| ExhaustMap
     `,
-    `--- map source Observable - emitted value
-    <br/>----- into other Observable(s)
-    <br/>-------- returns Observable of Observables
-    `,
     `--- OuterObservables
     `,
     `------ InnerObservables
     `,
-    `--- ConcatMap
+    '--- Observable of Observables',
+    `--- map source Observable - emitted value
+    <br/>----- into other Observable(s)
+    <br/>-------- returns Observable of Observables
+    `,
+    `--- emit values that are Observables  
+     `,
+     `--- most of the network calls use these
+    <br/>------- HTTP and HttpClient
+    `,
+    ' -- ',
+    `--- ConcatMap extends Concat strategy
+    <br/>
+    <br/>--- Concat strategy
+    <br/>------- waits for 1st Observable to complete before next
+    <br/>
+    <br/>--- ConcatMap
     <br/>------- Sequence opn (order of opns is important) 
     <br/>------- map values to inner Observable subscribe 
     <br/>------- and emit in order - delayed subscribe to inner Observables
     `,
     `------- Sequence opn 
     `,
+    `------- xxx
+    `,
     ' -- ',
-    `--- MergeMap - (alias FlatMap) Parallel opn 
+    `--- MergeMap extends merge strategy
+    <br/>
+    <br/>--- Merge strategy
+    <br/>------- works in Parallel - 
+    <br/>------- without waiting for previous inner Observable to complete       
+    <br/>  
+    <br/>--- MergeMap 
+    <br/>------ (alias FlatMap) Parallel opn 
     <br/>------ Multiple simultaneous active inner subscriptions 
-    <br/>------ possible memory leaks 
+    s<br/>------ possible memory leaks 
     <br/>------ subscribes immed to inner Observables 
     <br/>------ map to Observable with inner timer or a stream of DOM events
     `,
-    `-------- multiple simultaneous active inner subscriptions`,
+    `-------- multiple simultaneous active inner subscriptions
+    `,
+    `----- parallel ops without waiting 
+    `,
     ' -- ',
-    `--- switcMap - map to Observable 
-    <br/>------ complete previous inner Observable 
-    <br/>------ emit values 
-    <br/>------ immed cancel prev opn and emit new one 
-    <br/>------ can have a cancelling operator - 
+    `--- switcMap extends switch strategy
+    <br/>
+    <br/>--- switch strategy
+    <br/>------- on a new search - cancels previous search 
+    <br/>
+    <br/>--- switchMap - maps to Observable 
+    <br/>------- complete previous inner Observable 
+    <br/>------- emit values 
+    <br/>------- immed cancel prev opn and emit new one 
+    <br/>------- can have a cancelling operator - 
     `,
     `------- maintains only 1 inner subscription at a time
     <br/>
-    `,
-    `------ avoiding nested subscription
+    `,  
+    `------ Avoiding nested subscription
     <br/>--------- 
     `,
+    `----- Cancelling 
+    `,
     ' -- ',
-    `--- ExhaustMap 
+    `--- ExhaustMap extends the Exhaust strategy
+    <br/>
+    <br/>--- Exhaust Strategy - 
+    <br/>------ ignore new vals in source 
+    <br/>------ till prev value completes 
+    <br/>
+    <br/>ExhaustMap - 
     <br/>------ projects each source value to an Observale 
     <br/>------ which is merged in the o/p Observable 
     <br/>------ only if prev has completed - maps each value to an Observable then flattens all the inner Observables usng exhaust
     `,
     `------- projects each source value to an Observable
     <br/>
-    `
+    `,
+    `--------- maps value 
+    <br/>-------------from src to inner Observable
+    `,
+    `---- only merge if prev has completed 
+    `,
     ],
     [`Forms - to handle user input - eg Login - Register
     <br/>
@@ -7811,10 +7859,15 @@ for (let x of cars) {
     <br/>---- track value changes between form Input elements and form data 
     <br/>----in the Component Model
     <br/>
+    <br/>--- Data Binding
+    <br/>--- Form Validation
+    <br/>
+    <br/>--- Form value and validity
+    <br/>
     <br/>--- sharing common building blocks but differ how to create + manage common form-control instances 
     <br/>
     <br/>---- 2 types of Forms - 
-    <br/>------  Templsate Forms - for simple forms 
+    <br/>---  1: Templsate Forms - for simple forms 
       <br/>------- not as reusable or scalable
       <br/>
       <br/>------ use async data flow between the View and data model - 
@@ -7861,7 +7914,7 @@ for (let x of cars) {
       <br/>------- FormModel is the source of truth
       <br/>------- FormControl instance emits the new value via the valueChanges observable 
       <br/>
-      <br/>------- ReactiveFormsModule - 
+      <br/>--- 2: ReactiveFormsModule - 
       <br/> -- 
       <br/>
       <br/>Validation is an integral part of managing any type of forms 
@@ -7870,44 +7923,114 @@ for (let x of cars) {
       <br/>
       <br/>--- Conditional Validators
       <br/>
+      <br/>Angular 14
       <br/>--- Typed Reactive Forms 
       
+      `,
+      `--- Data Binding
       
       `,
-      `--- Template Forms - Template Driven Approach 
-      <br/>----- using directives)
-      `,
-      '----- NgModel',
-      `----- NgForm - creates a top-level FormGroup instance and binds it to a form el 
-      <br/>------- to track aggregated form value and validation status 
-      `,
-      `NgModelGroup - creates a FormGroup instance to a DOM element
+      `--- Form Validation
       
+      `,
+      
+      `--- Form value 
+      `,
+      `--- Form validity
+      `,
+      `--- 2 types of Forms
       `,
 
+      `--- 1: Template Forms 
+      <br/>----- Template Driven Approach using directives)
+      `,
+      `-------- NgForm - 
+      <br/>------- creates a top-level FormGroup instance 
+      <br/>----------- and binds it to a form el 
+      <br/>------- to track aggregated form value and validation status 
+      `,
+      `------ Template Directives
+        <br/>------- NgModel
+        <br/>------- Required| MinLength| MaxLength| 
+      `,
+      '-------- NgModel',
+
+      `-------- NgModelGroup - creates a FormGroup instance to a DOM element
+      
+      `,
+      `----------- container 
+      <br/>-------------- series of fields
+      <br/>------------------ each field has validators
+      <br/>------------------ a value - valid/invalid
+      `,
+      `------ FormsModule
+      
+      `,
       '----- directives in template',
       '----- simple directives',
       '----- asynchronous forms',
       '----- FormsModule',
+      '----- Dont scale very well',
       '----- Unstructured and Mutable',
       '----- More complex Testing',
       '----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">',
 
-      `--- Reactive Forms - (Model Driven Approach)
-      <br/>---- complex forms
-      <br/>---- FormModel
-      <br/>---- FormControl
+      `--- 2: Reactive Forms 
+      <br/>------ (Model Driven Approach)
+      <br/>
+      <br/>------ complex forms
+      <br/>------ FormModel
+      <br/>------ FormControl
+      <br/>
       <br/>---- Structured and Immutable
       <br/>---- Sync forms
       <br/>---- simplifies Testing
-      <br/><form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-      <br/><div>
-      <br/><label>
-      <br/>Name: <input formControlName="name" placeholder="Your name">
-      <br/></label>
-      <br/></div>
-      <br/><button type="submit">Send</button>
-      <br/></form>
+      <br/>
+      <br/>--- &lt;form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      <br/>
+      <br/>-------- &lt;div>
+      <br/>------------- &lt;label>
+      <br/>----------------- Name: <input formControlName="name" placeholder="Your name">
+      <br/>------------- &lt;/label>
+      <br/>-------- &lt;/div>
+      <br/>
+      <br/>-------- &lt;button type="submit">Send&lt;/button>
+      <br/>
+      <br/>--- &lt;/form>
+      `,
+      `------- uses FormGroup and FormControl for fields 
+       <br/>-------- and validation
+       <br/>-------- directives 
+       <br/>------------ formGroup and formControlName 
+      `,
+      `------- define in class - a form of type FormGroup
+      <br/>--------- form: FormGroup
+      <br/>--------- form = new FormGroup({
+      <br/>-------------- email: new FormControl('',{validators: [Validators.requi  red, Validators.email]}),
+      <br/>-------------- password: new FormControl('', {validators: [Validators.required, Validators.minLength(8)]})
+      <br/>--------- })
+    <br/>------------ gives good separation of concerns - 
+      `,
+      `--------- within template - bind the form 
+      <br/>----------- with a new Reactive Forms Directive called FormGroup
+      <br/>----------- &lt;form [formGroup]="form">  
+      `,
+      `-------- defined in the ReactiveFormsModule
+      <br/>
+      `,
+      `---------- formControlName directive
+      <br/>------------ &lt;input type="email" name="email" 
+      <br/>------------------- placeholder="Email" formControlName="email">
+
+      
+      `,
+
+      `------- expose API - Observab
+les - 
+      <br/>---------- simplify certain use cases 
+      `,
+      `----- logic defined in Component Class
+      <br/>-------- expose Observables -
       `,
       '----- for more complex forms',
       '----- FormModel is single source of truth',
