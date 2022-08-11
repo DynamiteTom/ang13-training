@@ -21,7 +21,7 @@ const features = `
     'Template ref variables',
     'Data binding',
     'Styles_CSS_SCSS',
-    'ng-build_ng-serve',
+    'ViewEncapsulation',
     'modules',   
     '- Bootstrapping',
     'life-cycle-hooks',
@@ -699,47 +699,58 @@ const subTopics = [
       '----- Web Component',
     ],
     ['Data Binding',
-    '- String interpolation {{x}}',
+    '--- String interpolation {{x}}',
     'ex',
-    '- property binding[]',
+    '--- property binding[]',
     'ex',
-    '- event binding()',
+    '--- event binding()',
     'ex', 
-    '- 2-way data binding','ex'
-  ],
-    ['Why Style - color-size-position', 
-    '- position',
-
-    '- CSS',
+    '--- 2-way data binding','ex'
+  ],  
+    ['Style - color-size-position', 
+    '--- position',
+    '--- CSS',
     ' -- ', 
-    '-- CSS-Box-Model',
-    '----- margins',
-    '----- padding',
-    '----- borders',
-    '----- content',
+    '------- CSS-Box-Model',
+    '---------- margins',
+    '---------- padding',
+    '---------- borders',
+    '---------- content',
     ' -- ',     
-    '-- Display property', 
-    '---- block',
-    '---- inline',
-    '---- none',
+    '------- Display property', 
+    '---------- block',
+    '---------- inline',
+    '---------- none',
     ' -- ',     
-    '-- Z-index', 
+    '------ Z-index', 
     ' -- ',     
-    'inline - ext', 
-    'ngStyle',
-    'ngClass', 
+    '------ inline - ext', 
+    '---------- ngStyle',
+    '---------- ngClass', 
      ' -- ',
-     '- SCSS - variables etc.',
-     '--- variables', 
-     '--- functions()', 
-     '--- mixins',
-     '------inheritance', 
+     '--- SCSS - variables etc.',
+     '------- variables', 
+     '------- functions()', 
+     '------- mixins',
+     '------- inheritance', 
+     ' -- ',
      '----ViewEncapsulation'
      ],
-     ['Angular/CLI',
-     '- Building', 
-     '- Serving the Browser port'],
-    ['Modules','NgModule', 
+     ['ViewEncapsulation',
+     '--- Browser\'s builtin ShadowDOM',
+     '------- ShadowRoot',
+     '--- ',
+     '------ ViewEncapsulation.ShadowDom',
+     '------ ViewEncapsulation.Emulated',
+     '---------- _nghost',
+     '---------- _ngcontent',
+     '------ ViewEncapsulation.None',
+     '--- :host',
+     '--- :host-context',
+     '--- _content'
+ 
+     ], 
+     ['Modules','NgModule', 
     'dynamic imports (Ang 08)',
     '- Libraries ', 'decorator', 
     '- declares Components', 
@@ -1254,7 +1265,7 @@ const subTopics = [
     ['Whats View DOM', 
     '--- component template',  
     '--- Template ref variables',
-    '------ <p #title>Hi</p>',
+    '------ &lt;p #title>Hi&lt;/p>',
     '- @ViewChild', 
     '--- alt to ElementRef',
     '------ access a DOM element',
@@ -1356,7 +1367,7 @@ const subTopics = [
     '--- insert or project content',
     '----- inside another Component',
     '------- Eg CardComponent',
-    '------- uses <ng-content></ng-content>',
+    '------- uses &lt;ng-content>&lt;/ng-content>',
     '--- Directives- templates',
     '--- Directives dyn data driven DOM',
     '--- make reusable components',
@@ -1366,7 +1377,7 @@ const subTopics = [
     '---- 3 Types of Transclusion',
     '------ Single Slot',
     '--------- content from 1 source', 
-    '--------- <ng-conttent></ng-content>',
+    '--------- &lt;ng-conttent>&lt;/ng-content>',
     
     '------ Multi-Slot',
     '--------- multiple slots',
@@ -2350,15 +2361,15 @@ const subTopicsInfo = [
   Angular uses View DOM in the template HTML and Content DOM inside other Components
   <br/>
   <br/>using the Angular/CLI to generate the main parts of Angular appns -
-  <br/>
+  <br/>ng g c
   <br/>--- Components - (must have a template) 
-  <br/>
+  <br/>ng g d
   <br/>--- Directives - (no template)
-  <br/>
+  <br/>ng g p
   <br/>--- Pipes - (pure or impure)
-  <br/>
+  <br/>ng g s
   <br/>--- Services - DI (Dependency Injection)
-  <br/>
+  <br/>ng g m
   <br/>--- Modules - contain groups of above els
   <br/>--- 
   <br/>
@@ -2402,6 +2413,79 @@ const subTopicsInfo = [
   <br/>
   <br/>Promises
   <br/>--- emits 1 object | not cancellable | asynchronous
+  <br/>
+  <br/>RxJS operators
+  <br/><br/>Pipeable operators
+  <br/>--- Combination
+  <br/>------ combineAll
+  <br/>------ combineLatest   
+  <br/>------ concat 
+  <br/>------ forkjoin 
+  <br/>
+  <br/>------ merge
+  <br/>------ mergeAll 
+  <br/>------ race
+  <br/>------ startWith 
+  <br/>------ withLatestFrom
+  <br/>------ zip   
+  <br/> 
+  <br/>--- Conditional
+  <br/>------ defaultEmpty
+  <br/>------ every 
+  <br/>------ iif 
+  <br/>------ sequenceEqual   
+  <br/>
+  <br/>--- Creation
+  <br/>------ ajax   
+  <br/>------ create 
+  <br/>------ defer
+  <br/>------ empty
+  <br/>------ from
+  <br/>------ fromEvent 
+  <br/>------ interval 
+  <br/>------ of
+  <br/>------ range 
+  <br/>------ throw
+  <br/>------ timer 
+  <br/>
+  <br/>--- Errors',
+  <br/>------ catch/catchError 
+  <br/>------ retry
+  <br/>------ retryWhen
+  <br/>
+  <br/>--- Filtering
+  <br/>------ audit
+  <br/>------ debounce
+  <br/>------ distinct   
+  <br/>------ filter 
+  <br/>------ find 
+  <br/>------ first 
+  <br/>------ last
+  <br/>------ single 
+  <br/>------ skip   
+  <br/>------ take 
+  <br/>------ throttle 
+  <br/>
+  <br/>--- Multi-cast
+  <br/>-------- multicast
+  <br/>------ 
+  <br/>--- publish 
+  <br/>-------- share 
+  <br/>
+  <br/>--- Transformation -
+  <br/>------ buffer
+  <br/>------ concatMap   
+  <br/>--------- expand 
+  <br/>------ map - data stream transformation operator wrt arrays
+  <br/>----------- map(x => x*x )
+  <br/>------ mergeScan 
+  <br/>---------- reduce - reduces value from source Observable to 1 value 
+  <br/>---------- scan - like reduce for Arrays
+  <br/>------ switchMap 
+  <br/>--------- toArray 
+  <br/>--------- window 
+  <br/>
+  <br/>
   <br/>
   <br/>Observables -
   <br/>--- emits many objects (stream) over time - Cancellable | Hot\Code| Subscribe() | 
@@ -3165,7 +3249,6 @@ const subTopicsInfo = [
   <br/>--- ngc c  ompiler uses tsc (TypeScript) compiler 
    <br/>------ Webpack used by the Angular/CLI
    <br/>------ 
-
   `,
   ' -- ',
   `- Template Ref Variables
@@ -3442,7 +3525,8 @@ const subTopicsInfo = [
     <br/>--------- functions     
    `,
      ' -- ',  
-     `Promises - a JS object that can produce a value at a pt in time 
+     `Promises - 
+     <br/>a JS object that can produce a value at a pt in time 
      <br/>execute immediately only once - part of ES std 
      <br/>--- simplify execution of async ftns that uses callbacks
      <br/>--- while emitting and completing (resolving or rejecting) 
@@ -3484,6 +3568,10 @@ const subTopicsInfo = [
      <br/>--------.then((val) => console.log(val))
      <br/>----------- .catch((err) => console.error(err));
      `,  
+     `RxJS operators
+     
+
+     `,
      `Observables - included in RxJS library 
      <br/>--- variable with a trailing $ ie timer$
      <br/>------ often with async ops
@@ -3652,14 +3740,14 @@ const subTopicsInfo = [
    <br/>---- Structured and Immutable
    <br/>---- Sync forms
    <br/>---- simplifies Testing
-   <br/><form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-   <br/><div>
-   <br/><label>
-   <br/>Name: <input formControlName="name" placeholder="Your name">
-   <br/></label>
-   <br/></div>
-   <br/><button type="submit">Send</button>
-   <br/></form>
+   <br/>&lt;form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+   <br/>--- &lt;div>
+   <br/>------- &lt;label>
+   <br/>-----------Name: <input formControlName="name" placeholder="Your name">
+   <br/>------- &lt;/label>
+   <br/>--- &lt;/div>
+   <br/>--- &lt;button type="submit">Send&lt;/button>
+   <br/>&lt;/form>
    `,
   
     ' -- ',
@@ -5428,10 +5516,10 @@ get message(): string {
         <br/>this.myOutput.emit(this.outputMessage);  
     <br/>}  
     <br/> 
-    <br/> &lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+    <br/> &lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)">&lt;/app-student>   
      `, 
      ` using the myOutput() event
-     <br/>&lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)"></app-student>   
+     <br/>&lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)">&lt;/app-student>   
      `, 
      ' -- ',
      `----- @HostBinding() - declares a host property binding
@@ -5929,7 +6017,7 @@ for (let x of cars) {
        - Identity
        - Noop
        - Chaining
-       - FLow   
+       - Flow   
   `,`
        - Map -    
        - Filter
@@ -5986,7 +6074,8 @@ for (let x of cars) {
     '----- TemplateRef in ng-template',
     '----- Web Component'
     ],
-    [`Data binding - is a technique where data stays in sync between the Component and the View
+    [`Data Binding 
+    <br/>- is a technique where data stays in sync between the Component and the View
     <br/>automatically keeps your page up to date based on appn state
     <br/>  
     <br/>- When user updates data in the view 
@@ -6026,61 +6115,11 @@ for (let x of cars) {
     `--- <img [alt]="hero.name" [src]="heroImageUrl">
     
     `,
-    `- Attribute binding - &lt;button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria&lt;/button>
-    
+    `- Attribute binding - &lt;button type="button" [attr.aria-label]="actionName">{{actionName}} with Aria&lt;/button> 
     `,
     '- Class binding - [class]="classExpression"',
-    `Why Style - color-size-position
-    <br/>
-    <br/>Colours
-    <br/>Position
-    <br/>Size
-    <br/>Height
-    <br/>Width
-    <br/>
-    <br/>styleUrls
-    <br/>
-    <br/>
-    <br/>Inline Styles
-    <br/>
-    <br/>
-    <br/>CSS
-    <br/>
-    <br/>
-    <br/>SCSS
-    <br/>
-    <br/>
-    <br/>
-    `,
-    `- event binding - () 
-    <br/>--- from view target to data source 
-    <br/>----- 
-    <br/>
-    <br/>
-    <br/>
-    `,
-    
-    `---- <button type="button" (click)="onSave()">Save</button>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    `, 
-    `- 2-way data binding - Banana in a box - [(target)]
-    <br/>--- is a combination of propert and event binding
-    <br/>----- combination of [] and () 
-    <br/>----- [] displays info to end user
-    <br/>----- () responds to user making changes to undrelying data 
-    <br/>------ makes a connection between the view (tempplate) and component class
-    <br/>  
-    `, 
-    `-- [(ngModel)] = "name"
-    <br/>  
-    <br/>
-    <br/>
-    `
   ],
-    [`Why Style - color-size-position
+  [`Why Style - color-size-position
     <br/>
     <br/>Colours
     <br/>Position
@@ -6127,13 +6166,53 @@ for (let x of cars) {
     ' -- ',
     '- SCSS - variables etc.',
     'ViewEncapsulation'
-    ],
-    ['Angular/CLI',
-    '- Building', 
-    '- Serving the Browser port'
-    
-    ],
-       
+    ],   
+    [`ViewEncapsulation
+     <br/>--- lets us write simpler styles - simple to read
+     <br/>------- and wont interfere with other styles
+     
+    `,
+     `--- Browser\'s builtin ShadowDOM
+     <br/>-------
+     `,
+     `------- ShadowRoot
+     
+     `,
+     '--- ',
+     `------ ViewEncapsulation.ShadowDom
+     <br/>-------- Angular uses the browser's built in Shadow DOM API  
+     <br/>-------- to enclose the component's host element
+     <br/>------------ and apply the provided styles in an isolated manner
+     `,
+     `------ ViewEncapsulation.Emulated (default)
+     <br/>-------- Angular modifies component's CSS selectors
+     <br/>------------ so only applied to component's view 
+     <br/>--------------- dont affect other els of appn (emulate Shadow Dom)
+     <br/>------------ Preprocesses all component styles   
+     <br/>--------------- so only applied to the Component's view
+     <br/>
+     <br/>--------- Emulated View encapsulation Component's DOM
+     <br/>-------------- has extra attributes attached to them
+     <br/>-------------------- _nghost - added to els that enclose a component's view 
+     <br/>-------------------- _ngcontent - added to a child element within Component's view 
+     
+     `,
+     `---------- _nghost 
+     <br/>------------ added to els that enclose a component's view
+     <br/>---------------- would be ShadowRoots in a native Shadow DOM encapsulation
+     `,
+     `---------- _ngcontent
+     <br/>------------ added to a child el within Component's view
+     <br/>---------------- used to match els with respective em ShadowRoots
+     `,
+     `------ ViewEncapsulation.None
+     
+     `,
+     '--- :host',
+    '--- :host-context',
+    '--- _content'
+
+    ],    
     [ `--- NgModule - is a class marked by the @NgModule decorator 
     <br/>takes a metadata object that describes how to compile a components template 
     <br/>and how to create an injector at runtime 
@@ -6308,7 +6387,8 @@ for (let x of cars) {
      '- ngAfterContentChecked() - Responds after Ang checks content projected into Comp/Dir - after all ngDoChecks + ngAfterContentInit()', 
      '- ngAfterViewInit() - (called once after ngAfterContentChecked) Responds after Ang Initialises Comp View + Child Views      ', 
      '- ngAfterViewChecked() - Responds after Ang checks Comp View + Child Views - (After every ngAfterContentChecked + ngAfterViewInit()_',
-     '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '],  
+     '- ngOnDestroy() - Cleanup just before Comp - Unsubscribes Observables - detach event handlers - avoid memory leaks   '
+    ],  
      [`ComponentRouter - 
      <br/>to handle the navigation from 1 view to the next 
      <br/>- Interpreting browser URLs as an instn to change view -
@@ -6830,18 +6910,18 @@ for (let x of cars) {
      <br/>--------- &lt;li>
      <br/>------------ &lt;a href="candy.html">candy&lt;/a>
      <br/>--------------  &lt;ul>
-     <br/>-----------------  &lt;li><a href="one.html">One</a></li>
-     <br/>-----------------  &lt;li><a href="two.html">Two</a></li>
-     <br/>-----------------  &lt;li><a href="three.html">Three</a></li>
+     <br/>-----------------  &lt;li><a href="one.html">One&lt;/a>&lt;/li>
+     <br/>-----------------  &lt;li><a href="two.html">Two&lt;/a>&lt;/li>
+     <br/>-----------------  &lt;li><a href="three.html">Three&lt;/a>&lt;/li>
      <br/>--------------- &lt;/ul>
      <br/>------------ &lt;/li>
      <br/>------------ &lt;li>&lt;a href="chocolate.html">chocolate&lt;/a>&lt;/li>
      <br/>------------- &lt;li>
-     <br/>-------------   &lt;a href="icecream.html">ice cream</a>
+     <br/>-------------   &lt;a href="icecream.html">ice cream&lt;/a>
      <br/>------------------  &lt;ul>
      <br/>---------------------  &lt;li>&lt;a href="one.html">One&lt;/a&lt;/li>
      <br/>---------------------  &lt;li>&lt;a href="two.html">Two&lt;/a&lt;/li>
-     <br/>---------------------  &lt;li&lt;a href="three.html">Three&lt;/a></li>
+     <br/>---------------------  &lt;li&lt;a href="three.html">Three&lt;/a>&lt;/li>
      <br/>------------------- &lt;/ul>
      <br/>---------------- &lt;/li>
      <br/>--------------  &lt;/ul>
@@ -7652,7 +7732,7 @@ for (let x of cars) {
     <br/>------ concat 
     <br/>------ forkjoin 
     <br/>
-    ------ merge
+    <br/>------ merge
     <br/>------ mergeAll 
     <br/>------ race
     <br/>------ startWith 
@@ -7746,7 +7826,10 @@ for (let x of cars) {
     ' -- ',
     '--- Filters',
     ' -- ',
-    '--- Transform'
+    '--- Transform',
+    ' -- ',
+    '-- Higher Order Map Ftns',
+    'concatMap| mergeMap| switchMap| exhaustMap'
     ],
     [`Higher-Order-Mapping-ftns
     <br/>--- Produces an Observable as an output 
@@ -7755,15 +7838,15 @@ for (let x of cars) {
     <br/>--- emit values that are Observables  
     <br/>--- Most of the network calls will use these oprs
     <br/>------- Http(s) calls - 
-
+    <br/>
     <br/>--- Different types of HOM
-    <br/>------ ConcatMap - flatten but order is impt - serial 
-    <br/>------ MergeMap - flatten to one Observable  
-    <br/>------ SwitchMap - flatten but need latest
-    <br/>------ ExhaustMap 
+    <br/>------ concatMap - flatten but order is impt - serial 
+    <br/>------ mergeMap - flatten to one Observable  
+    <br/>------ switchMap - flatten but need latest
+    <br/>------ exhaustMap 
     `,
     `--- 4 types of HOMFs
-    ConcatMap | MergeMap| SwitchMap| ExhaustMap
+    eoncatMap | mergeMap| switchMap| exhaustMap
     `,
     `--- OuterObservables
     `,
@@ -7850,7 +7933,7 @@ for (let x of cars) {
     `--------- maps value 
     <br/>-------------from src to inner Observable
     `,
-    `---- only merge if prev has completed 
+    `---- only merge new Observables if prev has completed 
     `,
     ],
     [`Forms - to handle user input - eg Login - Register
@@ -8121,13 +8204,13 @@ les -
    <br/>@Component({
     <br/>selector: 'sample',
     <br/>template: \`
-    <br/><span>I am first span</span>
-        <br/><ng-container #vc></ng-container>
-        <br/><span>I am last span</span>
-        <br/><ng-template #tpl>
-        <br/><span>I am span in template</span>
-            <br/></ng-template>
-        <br/>\`
+    <br/>&lt;span>I am first span&lt;/span>
+    <br/>&lt;ng-container #vc>&lt;/ng-container>
+    <br/>&lt;span>I am last span&lt;/span>
+    <br/>&lt;ng-template #tpl>
+    <br/>--- &lt;span>I am span in template&lt;/span>
+    <br/>&lt;/ng-template>
+    <br/>\`
     <br/>})
 <br/>export class SampleComponent implements AfterViewInit {
   <br/>@ViewChild("vc", {read: ViewContainerRef}) vc: ViewContainerRef;
@@ -8139,9 +8222,12 @@ les -
         <br/>}
         <br/>}
    `,
-   `---- createComponent(componentType: Type<C>,
-    <br/>options?:{index: number; injector?: Injector; ngModuleRef?: NgModuleRef<unknown>;environmentInjector?: EnvironmentInjector|ngModuleRef?: NgModuleRef<unknown>; projectableNodes: Node[][];): ComponentRef<C>
-   <br/> createa a Component
+   `---- createComponent(componentType: Type&lt;C>,
+    <br/>options?:{index: number; injector?: Injector; 
+    <br/>ngModuleRef?: NgModuleRef<unknown>;
+    <br/>environmentInjector?: EnvironmentInjector|ngModuleRef?: NgModuleRef&lt;unknown>; 
+    <br/>projectableNodes: Node[][];): ComponentRef&lt;C>
+   <br/> creates a Component
  `,
 
  `------ Ex of using createComponent()
@@ -8150,7 +8236,7 @@ les -
   <br/>template: \`
   <br/>&lt;template #alertContainer>&lt;/template>
   <br/>&lt;button (click)="createComponent('success')">Create success alert&lt;/button>
-    <br/>&lt;button (click)="createComponent('danger')">Create danger alert<&lt;/button>
+    <br/>&lt;button (click)="createComponent('danger')">Create danger alert&lt;/button>
   \`,
   <br/>})
 <br/>export class App {
@@ -8172,7 +8258,7 @@ les -
    <br/>@Component({
     <br/>selector: 'sample',
        <br/>template: \`
-       <br/><span>I am first span</span>
+       <br/><span>I am first span&lt;/span>
            <br/>&lt;ng-container [ngTemplateOutlet]="tpl">&lt;/ng-container>
            <br/>&lt;span>I am last span &lt;/span>
            <br/>&lt;ng-template #tpl>
@@ -8187,7 +8273,7 @@ les -
    `,
    `------ use of ngComponentOutlet
    <br/>
-   <ng-container *ngComponentOutlet="ColorComponent"></ng-container>
+   <br/>&lt;ng-container *ngComponentOutlet="ColorComponent">&lt;/ng-container>
    `,
    '-- use with ng-container',
    '---- use @ViewChild | @ConentChild',
@@ -8223,7 +8309,7 @@ les -
 ['Whats View DOM',   
     '--- component template',  
     '--- Template ref variables',
-    '------ <p #title>Hi</p>',
+    '------ &lt;p #title>Hi&lt;/p>',
     `- @ViewChild 
        - is within the template of the Component
        <br/>--- configures a Vew Query
@@ -8341,7 +8427,7 @@ les -
     '--- pattern to insert| project content to use inside another Component',
     '----- inside another Component',
     '-- eg a Component projecting data into a CardComponent',
-    '--- uses <ng-content></ng-content>',
+    '--- uses &lt;ng-content>&lt;/ng-content>',
     '--- let Directives make use of templates + add content',
     '--- let Directives generate dynamic data driven DOM instans',
     '--- make reusable components',
@@ -8351,7 +8437,7 @@ les -
     '--- 3 types of Content Projection',
     '------ Single Slot',
     '--------- content from 1 source', 
-    '--------- <ng-conttent></ng-content>',
+    '--------- &lt;ng-conttent>&lt;/ng-content>',
     
     '------ Multi-Slot',
     '--------- multiple slots',
@@ -9911,7 +9997,7 @@ import fastify, {
      <br/>&lt;html lang="en">
      <br/>&lt;head>
      <br/>&lt;meta charset="utf-8">
-     <br/>&lt;title>ngElements</title>
+     <br/>&lt;title>ngElements&lt;/title>
      <br/>&lt;base href="/">
      <br/>&lt;meta name"viewport" content="width=device-width, initial-scale=1:1
      <br/>&lt;link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -10988,7 +11074,7 @@ import fastify, {
     <br/>2: Pagination - 
     <br/>3: Sortable  - 
     <br/>4: Row selection
-    <br/> - <ag-grid></ag-grid>
+    <br/> - &lt;ag-grid>&lt;/ag-grid>
     `,
     `- fully customizable -   
     `, `- Outstanding performance`,
@@ -11022,12 +11108,12 @@ import fastify, {
     `,
     `-- ag-grid example
     <br/>
-    <ag-grid-angular 
+    &lt;ag-grid-angular 
       	style="width: 500px; height: 500px;" 
       	class="ag-theme-balham"
       	[rowData]="rowData" 
       	[columnDefs]="columnDefs">
-    </ag-grid-angular>
+    &lt;/ag-grid-angular>
     `
     ],
     [`Why Micro-FEs (MFEs) - are the idea that 1 SPA can be divided into sep specialised sections 
