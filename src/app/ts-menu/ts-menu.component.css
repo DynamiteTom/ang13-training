@@ -78,8 +78,8 @@ mat-list-item{
   display: block;
   top: 30px;
   color: blue;
-  height: 35px;
-  font-size: 20px;
+  height: 25px;
+  font-size: 16px;
 }
 
 .tsHead {
@@ -118,11 +118,11 @@ mat-list-item{
 .info {
   position: relative;
   font-weight: bold;
-  left: 220px;
+  left: 260px;
   top: -50px !important;
   color: black;
   font-size: 18px;
-  width: 92%;
+  width: 85%;
   padding: 15px;
   height: 3  000px;
   background-color: pink;
