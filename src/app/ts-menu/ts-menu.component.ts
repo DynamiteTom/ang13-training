@@ -563,7 +563,9 @@ const subTopics = [
   '--- browser scripting lang',
   '--- Interpreter based',
   '--- data types',  
-  '--- variables var x',  
+  '--- variables var x',
+  '--- const',
+  '--- static',
   '--- case sensitive',
   '--- control statemen  ts',
   '--- dynamic typing',
@@ -1738,6 +1740,9 @@ const subTopics = [
     '------- hashes WT files',
     '--------- stored as Objects',     
     '----- Git commit -',
+    '-------- Git Squash',
+    '------------ simplify history',
+    '------------ Git Squash Merge',
     '------- Staged Changes',
     '------- Name changes',
     ' -- ',
@@ -1791,18 +1796,20 @@ const subTopics = [
     '--- record work dir + index',
     '--- Clean Working directory',
     ' -- ',    
-    '- Commands - ',
-    '- Add',
-    '- fetch',
-    '- branch',
-    '- checkout', 
-    '- commit',
-    '- init',
-    '- push',
-    '- pull',
-    '- log',
-    '- status',
-    '- GitHub'
+    '--- Commands - ',
+    '--- Add',
+    '--- fetch',
+    '--- branch',
+    '--- checkout', 
+    '------ HEAD',
+    '--- commit',
+    '--- init',
+    '--- push',
+    '--- pull',
+    '--- log',
+    '--- status',
+    ' -- ',
+    '--- GitHub'
     ],
     ['Environment Variables',
       '--- user variable for dynap',
@@ -2878,8 +2885,8 @@ const subTopicsInfo = [
   <br/>CI/CD Jenkins - automation server | reliably build | test | deploy S/W
   <br/>
   <br/>--- Continuous Integration - pipeline 
-  <br/>----- drive devt teams to freq imp small code canges 
-  <br/>----- check them in to a version control repo 
+  <br/>------ drive devt teams to freq imp small code canges 
+  <br/>------ check them in to a version control repo   
   <br/>
   <br/>--- Continuous Delivery 
   <br/>------
@@ -4197,6 +4204,7 @@ const subTopicsInfo = [
     <br/> -- 
     <br/> ------- hashes WT files
     <br/> --------- stored as Objects in Staging Area     
+    <br/>
     <br/> ----- Git commit - save Staged Changes to the local repository
     <br/> ------- Staged changes
     <br/> --------- Name changes
@@ -4258,6 +4266,7 @@ const subTopicsInfo = [
     <br/>--- fetch - 
     <br/>--- branch - 
     <br/>--- checkout -
+
     <br/>--- commit - 
     <br/>--- init - 
     <br/>--- push - 
@@ -5967,10 +5976,22 @@ const subTopicsInfo = [
       '-- this to ref the class object properties and methods'
     ],
     ['JavaScript',
-  '--- browser scripting lang',
+  '--- browser scripting lang',---
   '--- Interpreter based',
-  '--- data types',  
+  '--- data types
   '--- variables var x',  
+  `--- const 
+  <br/>------- const MAX_CNT = 5;
+  `,
+  `--- static
+  <br/>------ can be a variable or function
+  <br/>--------- static variable 
+  <br/>--------- used throughout the appn
+  <br/>
+  <br/>--------- static function like main
+  <br/>-------------- static main(){} 
+ 
+  `,
   '--- case sensitive',
   '--- control statemen  ts',
   '--- dynamic typing',
@@ -10156,7 +10177,29 @@ les -
       '----- adds to Staging Area',
       '----- hashes WT files',
        '------- stored as Objects in Staging Area',     
-      `--- Git commit - save Staged Changes to the local repository`,
+      `--- Git commit 
+      <br/>------ save Staged Changes to the local repository
+      <br/>------ 
+      `,
+      `--- Squash commits
+      <br/>------ Combine multiple commits into one
+      <br/>---------- most often done when merging branches
+      <br/>---------- Can be done using interactive rebase cmd
+      <br/>
+      <br/>------ is a way to rewrite Commit history 
+      <br/>---------- helps to clean up and simplify the Commit history 
+      <br/>---------- before sharing work with team members
+      <br/>
+      <br/>------ merge it back into default branch 
+      `,
+      `------ git merge history 
+      <br/>--------- simplified by merging of commits into one 
+      `,
+      `------ Squash Merging 
+      <br/>-------- means combining lots of commits into one on the default branch 
+      <br/>-------- before you merge it - means a much simpler history 
+      
+      `,
       '----- Staged changes',
       '------- Name changes',
       ' -- ',
@@ -10184,17 +10227,27 @@ les -
        '----- remote - git branch -r',
          '----- all - git branch -a',
          ' -- ',
-         '- git checkout',
-         '--- only 1 branch checked out',
-         '----- HEAD branch',
-         '------- active = current',
-         '--- navitate between branches',
-         '----- updates files Work Dir',
-         '------- work dir = branch',
-         '----- record all new commits',
-         '--- HEAD = branch name',
-         '----- attaches to master',
-         ' -- ',
+         `--- git checkout
+         <br/>------ switch to feature branch
+         <br/>------ only 1 branch checked out
+         <br/>------ HEAD branch
+         <br/>--------- active = current
+         <br/>--------- navitate between branches
+         <br/>--------- updates files Work Dir
+         <br/>------ working dir = branch
+         <br/>------ record all new commits
+         <br/>------ HEAD = branch name
+         <br/>------ attaches to master
+         `,
+         `--- HEAD
+         <br/>------ points to latest commit of a branch  
+         <br/>--------- repos heads in path -   ./git/refs/heads/
+         <br/>-------------- one file for each branch 
+         <br/>-------------- each file has Commit ID of latest Commit
+
+         
+         `,
+          ' -- ',
        `- Fork - is a copy of a repository 
        `,
        '--- completely indept copy of a repo (not linked)',
@@ -10207,22 +10260,35 @@ les -
        '------- hosting service',
        '------- BitBucket',
        ' -- ',
-       '- stash',
-       '--- temp Shelves changes',
-       '--- record work dir + index',
-       '--- Clean Working directory',
+       '--- Stash',
+       '------ temp Shelves changes',
+       '------ record work dir + index',
+       '------ Clean Working directory',
        ' -- ',    
        '- Commands - ',
     '--- Add - ',
     '--- fetch - ',
-    '--- branch - ',
-    '--- checkout -',
+    `--- branch - 
+    <br/>------ Creates a new branch 
+    <br/>
+    <br/>------ 3 types of branches
+    <br/>---------- 1: Production
+    <br/>---------- 2: Latest working
+    <br/>---------- 3: Feature (any code)
+    `,
+    `--- checkout -
+    <br/>------ switches to feature branch 
+    <br/>------ 
+    `,
     '--- commit - ',
     '--- init - ',
     '--- push - ',
     '--- pull - ',
     '--- log - ',
     '--- status -',
+    `--- bisect
+    <br/>------ search for failed commits 
+    `
     ], 
     [`Environment Variables
      <br/>--- User Variables for dynap
