@@ -78,6 +78,7 @@ const features = `
     'ESLint',
     'CI_CD_Jenkins',
     'Webpack',
+    'Machine Learning',  
     'Cloud_AWS_Azure',
     'Accessability',
     ' -- ',
@@ -103,10 +104,10 @@ const features = `
     'Real Time Appns',
     'Ag-grid',
     'Databases',
-    'Micro Frontends',
-    'Web 3',
     'Docker',
     'Kubernettes',
+    'Web 3',
+    'Micro Frontends',
     'Angular Versions'
  `;
 
@@ -1708,7 +1709,7 @@ const subTopics = [
       '--- FormsModule',
       '--- ReactiveFormsModule',
       ' -- ',
-    s  '- @angular/animations',
+      '- @angular/animations',
       '---  AnimationsModule',
       ' -- ',
       '- @angular/material',
@@ -2331,7 +2332,7 @@ const subTopics = [
  <br/>------- 
  `
 ], 
-['- RESTitutional file transfer',
+['REST (RESTitutional file transfer)',
   '----- 5 REST HTTP Methods',
   '----- 6 Architectural constraints',
   '----- Problems with REST',
@@ -2433,6 +2434,53 @@ const subTopics = [
      '--- NoSQL Dbs',
 
     ],
+    ['Docker ',   
+     '--- Containerization platform',
+     '------ deals with dependencies',
+     '------ package appn into Docker Container', 
+     '------ std exec comps + OS libs + deps', 
+     '---------- Building',
+     '---------- Running',
+     '---------- Managing',
+     '---------- Distributing appns',    
+     '--- vs VM',
+     '------- virtualizations of same OS',
+     '--- Docker images', 
+     ],
+    ['Kubernetties K8s', 
+     '--- clusters| nodes| pods',
+     ' -- ',
+     '--- deal with multiple containers',
+     '------- What if one goes down',
+     '------- scaling',
+     '------- failovers',
+     '--- Clusters', 
+     '-------- multiple worker nodes',  
+     '------------ fault tolerance',
+     '------------ high availability',
+     '------------ set of worker m/cs',
+     '-------- Pods',
+     '------------ hosted by a Node',
+     '------------ smalles deployable units',
+     '------------ componens of appn workload',
+     '-------- Conrol plane',
+     '------------- manages worker nodes + Pods',
+     '------------- runs across mult comps',
+     '--- Open source system', 
+     '--- automating deployment',
+     '--- scaling',
+     '--- management',
+     '------- containerized appns'
+    ],
+    ['Web 3 - new WWW -',
+     '--- DApps', 
+     '--- Blockchain technology', 
+     '--- Ethereum',
+     '--- Turing complete',
+     '--- inherent decentralization',
+     '--- native token ETH (Ether)  ',
+     '--- for Everyone'
+    ],
     ['Why Micro-FEs',
      '--- MicroService in a browser',
      '--- Multiple MFEs',
@@ -2470,90 +2518,69 @@ const subTopics = [
      '------ loadRemoteModule()',
      '---- '
     ],
-     ['Web 3 - new WWW -',
-     '--- DApps', 
-     '--- Blockchain technology', 
-    '--- Ethereum',
-    '--- Turing complete',
-    '--- inherent decentralization',
-    '--- native token ETH (Ether)  ',
-    '--- for Everyone'
-    ],
-    ['Docker ', 
-    '--- Docker images', 
-    '--- Docker Container'
-    ],
-    ['Kubernetties K8s', 
-    '--- Clusters', 
-    '--- Open source system', 
-    '--- automating deployment',
-    '--- scaling',
-    '--- management',
-    '------- containerized appns'
-    ],
     ['Ang Versions',
-    '--- Ang 14 (02/06/2022)',
-        '------ TS 4.7',
-        '------ strictly typed Reactive Forms',
-        '------ adv extended template diagnostics',
-        '------ optional ngModules (standalone: true)',
-        '------ Router title',
-        '------ ng cache',
+     '--- Ang 14 (02/06/2022)',
+     '------ TS 4.7',
+     '------ strictly typed Reactive Forms',
+     '------ adv extended template diagnostics',
+     '------ optional ngModules (standalone: true)',
+     '------ Router title',
+     '------ ng cache',
     ' -- ',
-    '--- Ang 13 (Nov 2021)', 
-      '------- TS 4.5',
-      '------- new APF (Angular Package Format) ',
-      '------- ESBuild ',
-      '------- Node Package Exports',
-      '------- cli.cache',
-      '------- ES 2020',
-      '------- simpler dyn Comp creation',
+     '--- Ang 13 (Nov 2021)', 
+     '------- TS 4.5',
+     '------- new APF (Angular Package Format) ',
+     '------- ESBuild ',
+     '------- Node Package Exports',
+     '------- cli.cache',
+     '------- ES 2020',
+     '------- simpler dyn Comp creation',
   ' -- ',
-      '--- Ang 12',
-      '------ TS 4.2',
-      '------ cleaner code and Ivy everywhere',
-      '------ templates Nullish coalescing',
-      '------ Critters for CSS inlining',
-      ' -- ',
-      '--- Ang 11',
-      '------ TS 4.0',
-      '------ Font inlining',
-      '------ ESLint - stricter types',
-      '------ Partial Compilation - linker',
-      '------ HMR (Hot Module Replacement',
-      '------ webpack 5 - Module Federation',
-      ' -- ',
-      '--- Ang 10',
-      '------ TS 3.9',
-      '------ new default browser config',
-      '------ Ivy ngcc optional strict',
-      '------ performance improvements',
-      '------ ModuleWithProviders<T>',
-      ' -- ',
-      '--- Ang 09',
-      '------ TS 3.6',
-      '------ Ivy enabled by default',
-      '------ Smaller bundle size',
-      '------ Update Zone.js | RxJS',
-      '------ ModuleWithProviders',
-      '------ Language Service',
-      '------ ComponentHarness',
-      ' -- ',
-      '--- Ang 08',
-      '------ TS 3.4',
-      '------ Differential loading',
-      '------ dynamic imports',
-      '------ simplifies Web Workers',
-      '------ new APIs',
-      '------ bazel | Ivy coming',
-      ' -- ',
-      '--- Ang 07',
-      '------ TS 3.1',
-      '------ Ang Material | SDK',
-      '------ Angullar Do-Bootstrap',
-      '------ 8 phase rot AOT Compiln',
-      '------ Angular error handling']
-      ];
+     '--- Ang 12',
+     '------ TS 4.2',
+     '------ cleaner code and Ivy everywhere',
+     '------ templates Nullish coalescing',
+     '------ Critters for CSS inlining',
+     ' -- ',
+     '--- Ang 11',
+     '------ TS 4.0',
+     '------ Font inlining',
+     '------ ESLint - stricter types',
+     '------ Partial Compilation - linker',
+     '------ HMR (Hot Module Replacement',
+     '------ webpack 5 - Module Federation',
+     ' -- ',
+     '--- Ang 10',
+     '------ TS 3.9',
+     '------ new default browser config',
+     '------ Ivy ngcc optional strict',
+     '------ performance improvements',
+     '------ ModuleWithProviders<T>',
+     ' -- ',
+     '--- Ang 09',
+     '------ TS 3.6',
+     '------ Ivy enabled by default',
+     '------ Smaller bundle size',
+     '------ Update Zone.js | RxJS',
+     '------ ModuleWithProviders',
+     '------ Language Service',
+     '------ ComponentHarness',
+     ' -- ',
+     '--- Ang 08',
+     '------ TS 3.4',
+     '------ Differential loading',
+     '------ dynamic imports',
+     '------ simplifies Web Workers',
+     '------ new APIs',
+     '------ bazel | Ivy coming',
+     ' -- ',
+     '--- Ang 07',
+     '------ TS 3.1',
+     '------ Ang Material | SDK',
+     '------ Angullar Do-Bootstrap',
+     '------ 8 phase rot AOT Compiln',
+     '------ Angular error handling']
+     ];
 
 const subTopicsInfo = [
 
@@ -11223,7 +11250,11 @@ import fastify, {
     <br/>-- Webpack 5s Module Federation simplifies this wrt before 
     `
     ],
-    
+    ['Machine Learning',
+    '--- Tensorflow'
+
+    ],
+     
     [`Cloud 
       <br/>- refers to Servers accessed over the Internet and the S/W and DBs that run on those servers 
       <br/>Cloud Servers are located all over the World
@@ -12344,7 +12375,6 @@ import fastify, {
   <br/>--- in package.json file - 
   <br/>--- 'explore:"source-map-explorer dist/**/*.js"
 `],
-  [  ],
   [`REST (REpresentational State Transfer) 
   <br/>--- architectual style that for an API that 
   <br/>--- uses HTTP requests to access and use data
@@ -13022,6 +13052,59 @@ import fastify, {
     <br/>------ var db = new PouchDB('my_db');`
 
    ],
+   [`Docker - open platform for developing | shipping | running appns 
+    <br/>- lets you separate appns from infrastructure - 
+    <br/>- so you can deliver S/W quickly 
+    <br/>- manage infrastructure like you manage your appns   
+    `,
+    `- Docker images - are usually very small - rapid delivery 
+    <br/>-- reduces time to deploy new application containers 
+    <br/>-- reduces effort and risk of problems with appn deps 
+     `,
+     `- Docker Container -  Build | Share | Run appn
+     <br/>-- an image is a lightweight | standalone | exec package of S/W
+     <br/>-- that includes everything needed to run an appn code | runtime | system tools | system libs | seettings
+     `
+  ],
+  [`- Kubernetties K8s
+  <br/>-- Cluster orchestration system  
+   
+  `,
+  `-- Clusters - set of worker machines (Nodes)
+  <br/>---- that run containerised appns 
+  <br/>---- has at least 1 Node
+  <br/>------- Nodes - host the Pods that are components of the appn workload 
+  <br/>--------- Control Plane - manages worker nodes and Pods in cluster 
+  `, 
+  '----- Node',
+  '------- Containerised appns',
+  '----- Pod - ',
+  '----- Control Plane',
+  ' -- ',
+  `-- Open source system`, 
+  `---- automating deployment`,
+  `---- scaling`,
+  `---- management`,
+  `------- containerized appns`
+    ],
+    [`Web 3 - new WWW - based on blockchain technology
+    <br/>- based on decentralised Web and token based economics - 
+    <br/>- Ethereum decentralised apps (DApps) that run on the blockchain
+    <br/>- Allow anyone to participate without monitising personal data
+    <br/>
+    `,
+    `- DApps - 
+    <br/>
+    `,
+    `- based on blockchain technology
+    `, 
+    `-- Ethereum
+    `,
+    '--- Turing complete means you can program anything',
+    '--- Decentralised ',
+    '--- native token ETH (Ether) - has payments built in',
+    '--- Anyone welcome'
+    ],
     [`Why Micro-FEs (MFEs) - are the idea that 1 SPA can be divided into sep specialised sections 
     <br/>- Gives dev teams the ability to complete their work independently
     <br/>- Shell (Host) - 
@@ -13100,58 +13183,7 @@ import fastify, {
     '---- ng serve shell',
     '---- ng serve mfe1',
     ],  
-    [`Web 3 - new WWW - based on blockchain technology
-    <br/>- based on decentralised Web and token based economics - 
-    <br/>- Ethereum decentralised apps (DApps) that run on the blockchain
-    <br/>- Allow anyone to participate without monitising personal data
-    <br/>
-    `,
-    `- DApps - 
-    <br/>
-    `,
-    `- based on blockchain technology
-    `, 
-    `-- Ethereum
-    `,
-    '--- Turing complete means you can program anything',
-    '--- Decentralised ',
-    '--- native token ETH (Ether) - has payments built in',
-    '--- Anyone welcome'],
-    [`Docker - open platform for developing | shipping | running appns 
-    <br/>- lets you separate appns from infrastructure - 
-    <br/>- so you can deliver S/W quickly 
-    <br/>- manage infrastructure like you manage your appns   
-    `,
-    `- Docker images - are usually very small - rapid delivery 
-    <br/>-- reduces time to deploy new application containers 
-    <br/>-- reduces effort and risk of problems with appn deps 
-     `,
-     `- Docker Container -  Build | Share | Run appn
-     <br/>-- an image is a lightweight | standalone | exec package of S/W
-     <br/>-- that includes everything needed to run an appn code | runtime | system tools | system libs | seettings
-     `
-  ],
-  [`- Kubernetties K8s
-  <br/>-- Cluster orchestration system  
    
-  `,
-  `-- Clusters - set of worker machines (Nodes)
-  <br/>---- that run containerised appns 
-  <br/>---- has at least 1 Node
-  <br/>------- Nodes - host the Pods that are components of the appn workload 
-  <br/>--------- Control Plane - manages worker nodes and Pods in cluster 
-  `, 
-  '----- Node',
-  '------- Containerised appns',
-  '----- Pod - ',
-  '----- Control Plane',
-  ' -- ',
-  `-- Open source system`, 
-  `---- automating deployment`,
-  `---- scaling`,
-  `---- management`,
-  `------- containerized appns`
-    ],
     ['- Ang Versions',
     `Ang 14.2.0 TS 4.8
     <br/>--- NgOptimizedImage  
