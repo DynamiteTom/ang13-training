@@ -5976,9 +5976,9 @@ const subTopicsInfo = [
       '-- this to ref the class object properties and methods'
     ],
     ['JavaScript',
-  '--- browser scripting lang',---
+  '--- browser scripting lang',
   '--- Interpreter based',
-  '--- data types
+  '--- data types',
   '--- variables var x',  
   `--- const 
   <br/>------- const MAX_CNT = 5;
@@ -10125,25 +10125,117 @@ les -
       <br/>package contains Architect builders used to build + test Ang Appns + libraries
       `,    
     ],
-    [`GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
-    <br/>- designed to handle small to large projects with speed and efficiency
+    [`GIT
+    <br/>--- is a free open source distributed VCS (Version Control System) 
+    <br/>--- designed to handle small to large projects with speed and efficiency
     <br/>
-    <br/>- has 3 parts 
-    <br/>---- 1: Working tree 
-    <br/>---- 2: Staging area (Index) 
-    <br/>---- 3: Local repository 
+    <br/>
+    <br/>--- Distributed Revision Control System 
+    <br/>------- A bit more complex wrt SubVersion client server system
+    <br/>------- contains History | Branches | Merges | 
+    <br/>------------ Conten Tracker - tracks files or directory changes
+    <br/>------------ Maps keys to values - stored on Git
+    <br/>-------------- Persistent Map 
+    <br/>-------------- Keys use SHA1 hash 
+    <br/>----------------- Every value (a file) has its own SHA1 hash
+    <br/>-------------- 20 bytes or 40 hex digits 
+    <br/>------------ a filname + permissions are stored in the tree that points to the blob
+    <br/>---------------  A blob is the content of a file
+    <br/>
+    <br/>--- Object Database (git/objects directory)
+    <br/>-------- gives unique key that refers to that data object 
+    <br/>-------- git hash-object - returns key (simplest form) 
+    <br/>-------- open .git 
+    <br/>------------ where git stores all data wrt project 
+    <br/>------------ contains
+    <br/>---------------- HEAD
+    <br/>---------------- config
+    <br/>---------------- description
+    <br/>---------------- hooks/
+    <br/>---------------- info/
+    <br/>---------------- objects/  
+    <br/>-------------------- 4 types - blobs| trees| commits| annotated tabs
+    <br/>------------------------ 1: blobs - Content of object as binary data
+    <br/>------------------------ 2: trees - list of named refs to other objects
+    <br/>------------------------------- eg blobs | trees| commits
+    <br/>------------------------ 3: commits - lots of info
+    <br/>------------------------------- are full snapshots in time 
+    <br/>------------------------------- refs to parent commits  
+    <br/>------------------------------- Author and Commitee info
+    <br/>------------------------------- ref to a tree 
+    <br/>------------------------------- commit message
+    <br/>---------------------------------- git cat-file -t longstringof hex gives tree or something
+    <br/>---------------------------------- git cat-file -p longstringof hex gives other info like filename| auhor| etc
+    <br/>------------------------ 4: (Annotated) tags
+    <br/>------------------------------- message - ref to the object 
+    <br/>
+    <br/>--- Plumbing commands 
+    <br/>------- hash-object, 
+    <br/>----------- echo "Applie Pie" | git hash-object --stdin
+    <br/>----------- prints out the hash for the string
+    <br/>
+    <br/>--- has 3 parts 
+    <br/>------ 1: Working tree 
+    <br/>------ 2: Staging area (Index) 
+    <br/>------ 3: Local repository 
     <br/>--------- Remote repository - 
     <br/>
-    <br/>Git Commits - 
+    <br/>------- git repository 
+    <br/>------------ tracks and saves the history of all changes made to files
+    <br/>------------ saving data in folder called .git (Repository folder  )   
+    <br/>----------------- can have multiple branches 
+    <br/>------------ stores data but also metadata - data about the data
+    <br/>----------------- Commits | trees| blobs
+    <br/>------- a branch is aa version of your repository 
+    <br/>------------ an indept line of devt
+    <br/>
+    <br/>---------- git init cmd
+    <br/>------------- .git folder - history of project
+    <br/>----------------- git init --bare (remote repo is a bare one)
+    <br/>----------------------git push -u file:///path/to/remote/ --all
+    <br/>
+    <br/>--------------- write some code - multiple files
+    <br/>--------------- git add 
+    <br/>--------------- git commit   
+    
+    <br/>
+    <br/>------ filesystem vs repository
+
+    <br/>--- Commands
+    <br/>-------- Porcelain commands (user friendly)
+    <br/>-------- Plumbing commands (low level)
+    <br/>
+    <br/>--- git init - .git folder 
+    <br/>
+    <br/>--- Git Commits - 
     <br/>
     <br/>
-    <br/>- Branches - part of everyday devt process 
-    <br/>---- A pointer to a snapshot of your changes 
-    <br/>---- spawn a new branch to make changes 
+    <br/>--- Branches - part of everyday devt process 
+    <br/>------ A pointer to a snapshot of your changes 
+    <br/>------ spawn a new branch to make changes 
     <br/>
-    <br/>- Forking - creates a indept copy of a Git repository 
+    <br/>------ git branch -a 
+    <br/>---------- tells you of all the branches in your repository
+
+    <br/>------ Orphans
+    <br/>----------- branches have no parents (git history)
+    <br/>----------- to share branche with no history 
+    <br/>----------- starts with a diff root commit - first commit
+    <br/>----------- git checkout —orphan new_branch_name.
+    <br/>------------git --rm --rf (removes a file recursively and forcefully)
     <br/>
-    <br/>- git clone 
+    <br/>----------- git --prune 
+    <br/>------------------ not connected to any other branches and left unused 
+    <br/>------------------ removes orphaned branches
+    <br/>
+    <br/>----------- git cache
+    <br/>------------------ git --rm --cached (one file or entire working directory)
+    <br/>---------------------- git --rm --cached  
+
+
+    <br/>?--- Forking - creates a indept copy of a Git repository 
+    <br/>
+    <br/>--- git clone 
     <br/>---- creates a linked copy that will continue to sync with the target repo
     <br/>
     <br/>- Stashing - lets you change to a diff project 
@@ -10151,33 +10243,55 @@ les -
     <br/>
     <br/>- Staging area (Index) and Committing -  
     `,
-      `Parts - ---Working tree | Staging area | Local repository
+      `--- 3 Parts 
+      <br/>------ 1: Working directory  
+      <br/>------ 2: Staging area  
+      <br/>------ 3: Local repository
+      <br/>----------4: Remote repository
       `,
       ' -- ',
-      '- Working directory', 
-      '--- current work files', 
-      '----- history of all the files + changes',
-      '--- current state of project',
-      '----- including any changes that have been made to files',
-      '--- git init cmd',
-      '----- git folder - history of project',
-      '----- working directory - ',
+      `--- Working directory 
+      <br/>------ current work files 
+      <br/>--------- history of all the files + changes
+      <br/>--------- is where a repository is checked out
+      <br/>------------working tree reps its status
+      <br/>------ current state of project
+      <br/>---------- including any changes that have been made to files
+      <br/>---------- git init cmd
+      <br/>------------- .git folder - history of project
+      `,
       ' -- ',  
-      `- Staging area - holds files to be used in the next commit 
-      <br/> -- lets git know what file changes will exist in next commit
+      `--- Staging area 
+      <br/>------- holds files to be used in the next commit 
+      <br/>------- lets git know what file changes will exist in next commit
+      <br/>------- Git index - a crucial Git data structure
+      <br/>------- Staging Area between files on Git filesystem and commit history 
+      <br/>----------- Prepare Commits
+      <br/>-------------- files for next commit
+      <br/>----------- Git add - adds a change in working directory to Staging Area
+      <br/>------------ Nothing changes until the git commit
+      <br/>---------------- adds to Staging Area',
+      <br/>-------- hashes WT files',
+      <br/>------------- stored as Objects in Staging Area',     
       `,
-      `--- Git index - a crucial Git data structure
-      <br/>---- Staging Area between files on Git filesystem and commit history 
+       `--- Local Repository
+       <br/>------ Local computers
+       <br/>-------- git Push
+       `,
+       ' -- ',  
+       `--- Remote Repository',
+       <br/>------ Server for Team',
+       <br/>--------- git Pull
+       `,
+       ' -- ', 
+      `--- Commands
+      
+      
       `,
-      '--- Prepare Commits',
-      '----- files for next commit',
-      `--- Git add - adds a change in working directory to Staging Area
-        <br/>Nothing changes until the git commit 
+      `------- Porcelain Commands
+      <br/>-------
       `,
-      '----- adds to Staging Area',
-      '----- hashes WT files',
-       '------- stored as Objects in Staging Area',     
-      `--- Git commit 
+       `--- Git commit 
       <br/>------ save Staged Changes to the local repository
       <br/>------ 
       `,
@@ -10203,31 +10317,25 @@ les -
       '----- Staged changes',
       '------- Name changes',
       ' -- ',
-      '- Local Repository',
-      '-- Local computers',
-      '---- git Push',
-      ' -- ',  
-      '- Remote Repository',
-      '-- Server for Team',
-      '---- git Pull', 
-      ' -- ', 
-       'Branches - ',
-       '--- lightweight movable ptr',   
-       '----- Commits',
-       '----- Snapshot of changes',
-       '------- New branch per change',
-       '--- default = master',
-       '----- MASTER',
-       '------- naming for Branch',
-       '----- after clone',
-       '------- Local Repo - Master',
-       '------- Repos default Branch',   
-       '--- View branches',      
-       '----- local - git branch',
-       '----- remote - git branch -r',
-         '----- all - git branch -a',
-         ' -- ',
-         `--- git checkout
+       `--- Branches
+       <br/>------ lightweight movable ptr   
+       <br/>------ Commits
+       <br/>------ Snapshot of changes
+       <br/>------ New branch per change
+       <br/>-------- default = master
+       <br/>---------- MASTER
+       <br/>----------- naming for Branch
+       
+       <br/>----- after clone
+       <br/>------- Local Repo - Master
+       <br/>--------- Repos default Branch   
+       <br/>------- View branches   
+       <br/>------- local - git branch
+       <br/>----- remote - git branch -r
+       <br/>----- all - git branch -a
+       `, 
+       ' -- ',
+        `--- git checkout
          <br/>------ switch to feature branch
          <br/>------ only 1 branch checked out
          <br/>------ HEAD branch
@@ -10238,57 +10346,101 @@ les -
          <br/>------ record all new commits
          <br/>------ HEAD = branch name
          <br/>------ attaches to master
-         `,
-         `--- HEAD
+         `,         
+         `--- HEAD wrt Commit
          <br/>------ points to latest commit of a branch  
          <br/>--------- repos heads in path -   ./git/refs/heads/
          <br/>-------------- one file for each branch 
          <br/>-------------- each file has Commit ID of latest Commit
-
-         
+         `,
+         `--- switch
+         <br/>------ to move to a new branch 
+         <br/>----------- instead of using checkout (older)   
          `,
           ' -- ',
-       `- Fork - is a copy of a repository 
+       `--- Fork 
+       <br/>------- is a copy of a repository 
+       <br/>----------- completely indept copy of a repo (not linked)',
        `,
-       '--- completely indept copy of a repo (not linked)',
        ' -- ',
        `--- git clone - 
-           <br/>-- a git clone op exec on remote repo -  
-      `,
-       '----- server repo',
-       '----- linked copy of repo',
-       '------- hosting service',
-       '------- BitBucket',
+       <br/>------ a git clone op exec on remote repo -  
+       <br/>------ server repo
+       <br/>--------- linked copy of repo
+       <br/>------- hosting service
+       <br/>----------- BitBucket
+       `,
        ' -- ',
-       '--- Stash',
-       '------ temp Shelves changes',
-       '------ record work dir + index',
-       '------ Clean Working directory',
-       ' -- ',    
-       '- Commands - ',
-    '--- Add - ',
-    '--- fetch - ',
-    `--- branch - 
-    <br/>------ Creates a new branch 
-    <br/>
-    <br/>------ 3 types of branches
-    <br/>---------- 1: Production
-    <br/>---------- 2: Latest working
-    <br/>---------- 3: Feature (any code)
-    `,
-    `--- checkout -
-    <br/>------ switches to feature branch 
-    <br/>------ 
-    `,
-    '--- commit - ',
-    '--- init - ',
-    '--- push - ',
-    '--- pull - ',
-    '--- log - ',
-    '--- status -',
-    `--- bisect
-    <br/>------ search for failed commits 
-    `
+       `--- Stash
+       <br>------- temp Shelves changes
+       <br/>------ record Work directory + index (Staging Area)
+       <br/>------ Cleans Working directory
+       `,
+       ' -- ',
+       `--- Git Model 
+       
+       `,
+        ' -- ',    
+        '--- Commands - ',
+        `------ init - 
+        <br/>
+       
+        `,
+       `------ Add - 
+
+        `,
+        `------ fetch - 
+        
+        `,
+        `------- branch - 
+        <br/>------ Creates a new branch 
+        <br/>
+        <br/>------ 3 types of branches
+        <br/>---------- 1: Production
+        <br/>---------- 2: Latest working
+        <br/>---------- 3: Feature (any code)
+        `,
+        `------ checkout -
+        <br/>--------- switches to feature branch 
+        <br/>------ 
+        `,
+        `------ commit - 
+        <br/>-------
+        `,
+        `------ push 
+        <br/>
+        
+        `,
+        `------ pull - 
+        <br/>
+        `,
+        `------ log - 
+        <br/>--------- lists commands reachable from following parent(s)
+        <br/>--------- Q to exit log
+        `,
+        '----------- Q to exit',
+        `------ status -
+        <br/>------- displays the state of the Working Directory and Staging Area 
+        <br/>------------ gives the working tree 
+        <br/>
+        <br/>------- lets you see 
+        <br/>-------------which commits have been staged     
+        <br/>-------------which commits have not been staged 
+        <br/>-------------which files are not being tracked by git    
+        <br/>
+        <br/>-------- but not any commit history info  
+        `,
+        `------ bisect
+         <br/>------ search for failed commits 
+        `,
+        `--- Merge 
+        <br/>------ joins 2+ development histories together  
+        <br/>------ git merge topic
+        <br/>--------- replays changes made to topic branch since it diverged from Master  
+        <br/>--------- until its current commit
+        <br/>--------- and record result in a new commit + names of 2 paren commits  
+        <br/>------------- along with a log message from user describing changes  
+        `
     ], 
     [`Environment Variables
      <br/>--- User Variables for dynap
