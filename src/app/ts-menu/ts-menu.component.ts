@@ -22,9 +22,10 @@ const features = `
     'Template ref variables',
     'Data binding',
     'Styles_CSS_SCSS',
+    '--- SCSS',
     'ViewEncapsulation',
     'modules',   
-    '- Bootstrapping',
+    '--- Bootstrapping',
     'life-cycle-hooks',
     'routing_router',
     '@Input_@Output',
@@ -34,7 +35,7 @@ const features = `
     'lazy-loading', 
     'Change Detection',
     'AoT-compilation', 
-    'tree-shaking_',
+    'tree-shaking',
     'APF',
     'ESBuild',
     'Ivy_Locality', 
@@ -46,13 +47,15 @@ const features = `
     'RxJS_',
     'Higher-Order-Map  -ftns',
     'Forms',
+    '--- Template Forms',
+    '--- Reactive Forms',
     'ElementRef',
     'ViewContainerRef',
     'ViewDOM',
     'ContentDOM',
     'Content-Projection',
     'HTTP_HttpClient',
-    'Cusom Libraries',  
+    'Custom Libraries',  
     'Caching',
     'Storage mechanisms',
     'Nx Nrwl',
@@ -64,8 +67,11 @@ const features = `
     'Git_distd-VCS',
     'Environment variables',
     'Testing_unit',
-    'Design Patterns',
+    '--- Unit Testing',
+    '--- Integration Testing',
+    '--- End to End Testing',
     'TDD/BDD/DDD',
+    'Design Patterns',
     'Security',
     'Authorizatn/Authenticatn',
     'Node.js',
@@ -77,9 +83,14 @@ const features = `
     'ALS (Language Service)',
     'ESLint',
     'CI_CD_Jenkins',
+    '--- DevOps',
     'Webpack',
     'Machine Learning',  
     'Cloud_AWS_Azure',
+    '--- AWS',
+    '--- Azure',
+    '--- Google',
+    '--- CloudFlare',
     'Accessability',
     ' -- ',
     'Schematics',  
@@ -775,7 +786,7 @@ const subTopics = [
     'ex', 
     '--- 2-way data binding','ex'
   ],  
-    ['Style - color-size-position', 
+    ['Sstyle - color-size-position', 
     '--- position',
     '--- CSS',
     ' -- ', 
@@ -795,7 +806,9 @@ const subTopics = [
     '------ inline - ext', 
     '---------- ngStyle',
     '---------- ngClass', 
-     ' -- ',
+    ' -- ',
+    '--- Document.querySelector()',
+    ' -- ',
      '--- SCSS - variables etc.',
      '------- variables', 
      '------- functions()', 
@@ -804,6 +817,12 @@ const subTopics = [
      ' -- ',
      '----ViewEncapsulation'
      ],
+     ['SCSS (Sassy CSS)',
+     '--- variables', 
+     '--- functions()', 
+     '--- mixins',
+     '--- inheritance'
+    ],
      ['ViewEncapsulation',
      '--- Browser\'s builtin ShadowDOM',
      '------- ShadowRoot',
@@ -1223,7 +1242,6 @@ const subTopics = [
      '--- asyncSubject', 
      '--- replaySubject'
     ],
-    
     ['rxjs - Reactive Extensions',
     '--- library',
     '------- npm install rxjs', 
@@ -1306,29 +1324,29 @@ const subTopics = [
     ' -- ',
     '--- SetValue() | PatchValue()',
     '--- ',  
-    '- Template Forms', 
-    '--- Template directives',
+    '--- Template Forms', 
+    '------ Template directives',
     '------ work on Data Model',
-    '--- ngForm', 
-    '--- FormsModule',
+    '------ ngForm', 
+    '------ FormsModule',
     ' -- ',
-    '-----   Asynchronous data flow', 
-    '----- complex test setup',
-    '----- complex validation', 
-    '-- [(ngModel)]',
-    '--- Unstructured | Mutable',
-    '--- Asynchronous Data flow',
+    '------ Asynchronous data flow', 
+    '------ complex test setup',
+    '------ complex validation', 
+    '------ [(ngModel)]',
+    '------ Unstructured | Mutable',
+    '------ Asynchronous Data flow',
     ' -- ',
-    ' --- Template Validation',
-    '------ Directives', 
+    ' -------- Template Validation',
+    '-------------- Directives', 
     ' -- ',
-    '- Reactive Forms',
-    '--- defined programmatically',
-    '----- forms object model',
-    '--- Synchronous data flow',
-    '--- Structured | Immutable',
-    '--- Synchronous Data flow',
-    '--- ReactiveFormsModule',
+    '--- Reactive Forms',
+    '------ defined programmatically',
+    '-------- forms object model',
+    '------ Synchronous data flow',
+    '------ Structured | Immutable',
+    '------ Synchronous Data flow',
+    '------ ReactiveFormsModule',
     ' -- ',
     '----- Advantages',
     '------- Simple Forms',
@@ -1338,10 +1356,16 @@ const subTopics = [
     '----- simpler validation', 
     '----- new FormControl("")',
     ' -- ',
-    '--- FormBuilder',  
+    '------ FormBuilder',  
     ' -- ',
-    '  --- Reactive Validation', 
-    '------ Functions', 
+    '  -------- Reactive Validation', 
+    '------------- Functions', 
+    ],
+    ['--- Template Forms'
+  
+    ],
+    ['--- Reactive Forms'
+  
     ],
     ['ElementRef',
       '--- access native DOM Element',
@@ -1423,7 +1447,7 @@ const subTopics = [
     '---------- title:ElementRef',
     '---------- this.title.nativeElement',
     '------Default - return a Component instance',  
-    '------- @ViewChild(\'AComponent\')',
+    '------- \@ViewChild(\'AComponent\')',
     '----------  aComp: AComponent',
     '----- Using 2nd arg - read',
     '------- { read: ElementRef}',
@@ -1799,27 +1823,15 @@ const subTopics = [
     '------- Protractor', 
     '------- Cypress'
   ],
-    ['Design Patterns', 
-    '--- SOLID Principles',
-    '--- Single Responsibility',
-    '--- Open-Closed',
-    '--- Liskov Substn',
-    '--- Interface Segn',
-    '--- Dep Inv', 
-    ' -- ',
-    '--- DRY',
-    ' -- ', 
-    '--- DIP',  
-    ' -- ',
-    '--- Singleton Pattern',  
-    ' -- ',
-    '--- Factory Pattern',  
-    ' -- ',
-    '--- Decorator Pattern',  
-    ' -- ',
-    '--- Lazy',
-    ' -- ',
-    '--- Composition'
+  ['--- Unit Testing',
+  ],
+  ['--- Integration Testing',
+   '-------- Shallow IT',
+   '-------- Deep IT'
+   ],
+   ['--- End to End Testing',
+   '------- Protractor',
+   '------- Cypress'
     ],
     ['TDD Test Driven Devt', 
     '--- Test First fail',
@@ -1850,6 +1862,28 @@ const subTopics = [
     '------------ domain and domain logic',
     '------------ complex design',
     '------------ init creative collabn - refine', 
+    ],
+    ['Design Patterns', 
+    '--- SOLID Principles',
+    '--- Single Responsibility',
+    '--- Open-Closed',
+    '--- Liskov Substn',
+    '--- Interface Segn',
+    '--- Dep Inv', 
+    ' -- ',
+    '--- DRY',
+    ' -- ', 
+    '--- DIP',  
+    ' -- ',
+    '--- Singleton Pattern',  
+    ' -- ',
+    '--- Factory Pattern',  
+    ' -- ',
+    '--- Decorator Pattern',  
+    ' -- ',
+    '--- Lazy',
+    ' -- ',
+    '--- Composition'
     ],
     ['Security',
     '--- XSS',
@@ -1946,25 +1980,29 @@ const subTopics = [
     ['Why CI/CD', 
     '--- CI - Continuous Integration',
     '--- CD - Continuous Development', 
-    '--- CD - Continuous Delivery', 
-    '--- Jenkins',
-    '-------- scriptive | declarative',
-    '-------- Scriptive Pipeline (initial)',
-    '------------ begin with word node',
-    '------------ imperative programming model',
-    '------------ Complex Groovy|JAVA Apis',    
-    '-------- Declarative Pipeline - now',
-    '------------ begine with word pipeline',
-    '------------ Jenkins DSL',
-    '------------ conditional statement logic',
-    '------------ access to env variables',      
-    '------------ add logging|error handling',
-    '------------ series of steps',
-    '------------ Jenkins plugins',
-    '------------ shared libraries',
-    ' -- ',
+    '--- CD s- Continuous Delivery', 
     '--- TeamCity',
     '--- Artifactory'
+    ],
+    ['--- DevOps',
+     '------ Jenkins',
+     '-------- scriptive | declarative',
+     '-------- Scriptive Pipeline (initial)',
+     '------------ begin with word node',
+     '------------ imperative programming model',
+     '------------ Complex Groovy|JAVA Apis',    
+     '-------- Declarative Pipeline - now',
+     '------------ begine with word pipeline',
+     '------------ Jenkins DSL',
+     '------------ conditional statement logic',
+     '------------ access to env variables',      
+     '------------ add logging|error handling',
+     '------------ series of steps',
+     '------------ Jenkins plugins',
+     '------------ shared libraries',
+     ' -- ', 
+     '------ TeamCity',
+     '------ Artifactory' 
     ],
     ['Webpack', 
     '--- bundles HTML | css | ts/js',
@@ -1998,43 +2036,12 @@ const subTopics = [
     '------- FAAS (Ftn as a Service)',
     '------- Advantages',
     ' -- ',  
-    '--- AWS - Amazon Web Services',
-    '------- S3 - Simple Storage Service',
-    '------- EC2 - Elastic Compute Cloud',
-    '------- Amazon Connect',
-    '------- AWS Lambda',    
-  ' -- ',
-  '--- AWS S3',
-  '---- AWS Lambda',
-  '----- AWS Lambda Properties',
-  '----- AWS Lambda Reqts',
-  '----- AWS Lambda Users',
-  '----- AWS Lambda Uses',
-  '----- AWS Lambda Languaged',
-  '----- AWS Lambda Advantages',
-  '----- AWS Lambda Limitations',  
-  '----- Deployment', 
+    '----- Deployment', 
   '----- Dynamic Data',
   '----- Node.js',
   '--- Amazon CloudFront (CDN)',
   ' -- ', 
-  '--- MS Azure',
-  '-------- services - ',
-  '-------- virtual m/c - IaaS',
-  '-------- App Services - PaaS',
-  '-------- Websites - ',
-  '-------- WebJobs - ',
-  '----------- Identity',
-  '----------- AAD ',
-  '----------- AAD - B2C',
-  '----------- AAD Domain Services  ',
-  '----------- Azure Info Protn',
-  '----------- location',
-  '----------- on-premise - ',
-  '----------- hybrid -',
-  '----------- multicloud -',
-  '----------- at the edge -',
-' -- ',
+  ' -- ',
   '--- Google Cloud', 
   '------ GCP | G Suite', 
   '------- Google Cloud Platform (GCP)',
@@ -2058,11 +2065,68 @@ const subTopics = [
   '--- Cloudinary SAAP',
   '------- image processing | management',
   ],
+  ['AWS (Amazon Web Services)',
+  '--- S3 - Simple Storage Service',
+  '--- EC2 - Elastic Compute Cloud',
+  '--- Amazon Connect',
+  '--- AWS Lambda',    
+  ' -- ',
+  '--- AWS S3',
+ 
+  '--- AWS Lambda',
+  '----- AWS Lambda Properties',
+  '----- AWS Lambda Reqts',
+  '----- AWS Lambda Users',
+  '----- AWS Lambda Uses',
+  '----- AWS Lambda Languaged',
+  '----- AWS Lambda Advantages',
+  '----- AWS Lambda Limitations' 
+  ],
+  ['Azure',
+  '--- MS Azure',
+  '-------- services - ',
+  '-------- virtual m/c - IaaS',
+  '-------- App Services - PaaS',
+  '-------- Websites - ',
+  '-------- WebJobs - ',
+  '----------- Identity',
+  '----------- AAD ',
+  '----------- AAD - B2C',
+  '----------- AAD Domain Services  ',
+  '----------- Azure Info Protn',
+  '----------- location',
+  '----------- on-premise - ',
+  '----------- hybrid -',
+  '----------- multicloud -',
+  '----------- at the edge -',
+  ],
+  ['Google Cloud', 
+  '--- GCP | G Suite', 
+  '--- Google Cloud Platform (GCP)',
+  '--- suite of modular cloud services',
+  '--- Computing',
+  '------ Data Storage',
+  '------ Data Analytics',
+  '------ ML Machine Learning',
+  '---- management tools',
+  '------- Envts',
+  '----------- IAAS',
+  '----------- PAAS',
+  '----------- Serverless Computing',
+  '------ G Suite (Google Workspace)',
+  '------ Enterprise Chrome',
+  '------ Enterprise Android',
+  '------ APIs for M/L and enterprise mapping',
+  ],
+  ['--- CloudFlare',
+  
+  ],
   ['Accessability',
     '--- ARIA attrbutes', 
     '--- WCAG', 
-    '--- POUR'
-   ],
+    '------ POUR',
+    '--- ESLint Accessability'
+    ],
     [' -- '],
     ['Schematics',
     '--- template based code generator',
@@ -3595,21 +3659,23 @@ const subTopicsInfo = [
     <br/>We can fine tune the hehavior of our components during creatin | update | destruction
     <br/>
     <br/>
-    <br/>ngOnChanges - details which properties have changed and how theyve changed  
+    <br/>Life Cycle Hooks (LCH)
+    <br/>--- ngOnChanges - details which properties have changed and how theyve changed  
     <br/>
-    <br/>ngOnInit - the most common LCH contains initialisation logic for the Component
+    <br/>--- ngOnInit - the most common LCH contains initialisation logic for the Component
     <br/>
-    <br/>ngDoCheck()
+    <br/>--- ngDoCheck()
     <br/>
-    <br/>ngAfterContentInit
+    <br/>--- ngAfterContentInit
     <br/>
-    <br/>ngAfterContentChecked
+    <br/>--- ngAfterContentChecked
     <br/>
-    <br/>ngAfterViewInit
+    <br/>--- ngAfterViewInit
     <br/>
-    <br/>ngAfterViewChecked
+    <br/>--- ngAfterViewChecked
     <br/>
-    <br/>ngOnDestroy - which is where we place the cleanup logic for the Component
+    <br/>--- ngOnDestroy 
+    <br/>-------- which is where we place the cleanup logic for the Component
     `,
     ' -- ',
     `Routing - ComponentRouter - to handle the navigation from 1 view to the next 
@@ -4002,8 +4068,7 @@ const subTopicsInfo = [
    <br/>----- Unstructured and Mutable
    <br/>----- More complex Testing
   
-   <br/>
-  ----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+   <br/>----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">
   `,
    `--- Reactive Forms - (Model Driven Approach)
    <br/>---- complex forms
@@ -4021,15 +4086,13 @@ const subTopicsInfo = [
    <br/>--- &lt;button type="submit">Send&lt;/button>
    <br/>&lt;/form>
    `,
-  
     ' -- ',
-    `Change Detection is a builtin framework feature 
+    `--- Change Detection is a builtin framework feature 
     <br/>--- ensuring rerender the display when the state changes
     <br/>------- due to an event - User interaction (btn clk)| HTTP| Timer
     <br/>----------- cascading changes (to child components)
     <br/>----------- Zone.js - creates a wrapper around any async opn
     <br/>------- Re-render display 
-
     <br/>
     <br/>--- that ensures auto sync using CD (Change Detection)
     <br/>----- between changes to data and the view
@@ -4448,11 +4511,11 @@ const subTopicsInfo = [
      <br/>---- Azure Repos
      <br/>---- Azure Test plans
      <br/>---- Azure Artifacts
-      <br/>---- Extensions Marketplace
-      <br/>
-      <br/>-- Azure Logic Application - Visual Workflow Designer - 
-      <br/>design workflows + services (MS | 3rd party)  
-      <br/>
+     <br/>---- Extensions Marketplace
+     <br/>
+     <br/>-- Azure Logic Application - Visual Workflow Designer - 
+     <br/>design workflows + services (MS | 3rd party)  
+     <br/>
      <br/>---- Vsual Workflow Designer',
      <br/>------ Event Grid - manages all events to configure code + logic',
      <br/>-- 
@@ -5886,7 +5949,7 @@ const subTopicsInfo = [
      '------- selects projected content - 1st el matching selector from Content DOM',
      '---------- Content DOM',
      ' -- ',
-     `-------   @ContentChildren() 
+     `------- @ContentChildren() 
      <br/>-------- fetch a QueryList of els from Content DOM
      <br/>-------- configures a content query 
    `,
@@ -5895,15 +5958,16 @@ const subTopicsInfo = [
    '----------- configure content query',
    '------------- list of queries',
      ' -- ',
-     `----- @ViewChild() - configures a View Query from template of Component    
+     `--- @ViewChild()
+     <br/>------- configures a View Query from template of Component    
      <br/>------- matching selector in View DOM tree
      <br/>------- Provides instance of another component in a parent component 
      <br/>------- parent component can access methods of  
      <br/>------- used in ngAfterViewInit LCH
      `,
      `----- Simple Ex - 
-     @ViewChild(ColorSampleComponent)
-     primarySampleComponent: ColorSampleComponent;
+     <br/>------- @ViewChild(ColorSampleComponent)
+     <br/>------- primarySampleComponent: ColorSampleComponent;
      `,
     '------- config a View Query', 
     '--------- from template of Comp',    
@@ -5931,12 +5995,14 @@ const subTopicsInfo = [
      '------------- View Queries',
      ' -- ',
      '--- Method',
-     `----- @HostListener() - decorator that declares a DOM event to listen for  
-     -------- also provides a handler method to run when event occurs
-     ---------- which is invoked when host element emits specified event 
-     `,
-     '------- provides a handler',
-     '------- triggered on event',  
+     `----- @HostListener() 
+     <br/>------ decorator that declares a DOM event to listen for  
+     <br/>-------- also provides a handler method to run when event occurs
+     <br/>---------- which is invoked when host element emits specified event 
+     <br/>
+     <br/>------- provides a handler
+     <br/>------- triggered on event
+     `,  
     ' -- ',
      '--- Parameter',
      `----- @Inject() - 
@@ -5944,10 +6010,10 @@ const subTopicsInfo = [
        <br/>--------- a par decorator on a dep par of a class constructor 
        <br/>------ specifying a cust provider of the dep
      `,
-     '----- DI token',
-     `----- @Self() - instructs Ang to look for dep only in local injector  
-     <br/>- part of current Component or Directive
-     <br/>--- Resolution Modifiers - mod injector behavior
+     '--- DI token',
+     `------ @Self() - instructs Ang to look for dep only in local injector  
+     <br/>------ part of current Component or Directive
+     <br/>------ Resolution Modifiers - mod injector behavior
      `,
      '------- local injector',
      `----- @Optional() - marks dep as being an optional parameter 
@@ -5983,88 +6049,88 @@ const subTopicsInfo = [
       <br/>------ can have constructor| properties| methods| events
       `,
       `--- constructor 
-      <br/>- important for DI of services
+      <br/>------ important for DI of services
       `, 
-      `- properties - class data - can be private 
-      <br/>-- default public
+      `--- properties - class data - can be private 
+      <br/>------- default public
       `, 
       '- methods - functions on the class', 
       '- events - ', 
       '-- this to ref the class object properties and methods'
     ],
     ['JavaScript',
-  '--- browser scripting lang',
-  '--- Interpreter based',
-  '--- data types',
-  '--- variables var x',  
-  `--- const 
-  <br/>------- const MAX_CNT = 5;
-  `,
-  `--- static
-  <br/>------ can be a variable or function
-  <br/>--------- static variable 
-  <br/>--------- used throughout the appn
-  <br/>
-  <br/>--------- static function like main
-  <br/>-------------- static main(){} 
+    '--- browser scripting lang',
+    '--- Interpreter based',
+    '--- data types',
+    '--- variables var x',  
+    `--- const 
+      <br/>------- const MAX_CNT = 5;
+    `,
+      `--- static
+      <br/>------ can be a variable or function
+      <br/>--------- static variable 
+      <br/>--------- used throughout the appn
+      <br/>
+      <br/>--------- static function like main
+      <br/>-------------- static main(){} 
  
-  `,
-  '--- case sensitive',
-  '--- control statemen  ts',
-  '--- dynamic typing',
-  `--- document.getElementById()
+      `,
+      '--- case sensitive',
+      '--- control statemen  ts',
+      '--- dynamic typing',
+      `--- document.getElementById()
   
-  `,
-  '--- operators',    
-  '--- first class citizens',
-  '------ Objects',
-  '------ Functions',
-  '--- Event handling',
-  '--- Closures',
-  '--- Hoisting',
-  '--- IIFE',
-  '--- Array features',
-  `-------- length
-  `,
-  `--------- sort()
-  `,
-  `--------- toString()
+      `,
+      '--- operators',    
+      '--- first class citizens',
+      '------ Objects',
+      '------ Functions',
+      '--- Event handling',
+      '--- Closures',
+      '--- Hoisting',
+      '--- IIFE',
+      '--- Array features',
+      `-------- length
+      `,
+      `--------- sort()
+      `,
+      `--------- toString()
   
-  `,
-  `---------- filter()
-  `,
-   `--------- push()
-  `,
-  `---------- pop()
-  `,
-  `---------- indexOf()
+      `,
+      `---------- filter()
+      `,
+       `--------- push()
+      `,
+      `---------- pop()
+      `,
+      `---------- indexOf()
   
-  `,
-  `-  ------- splice()
+      `,
+     `-  ------- splice()
   
-  `,
-  `---------- slice()
+      `,
+      `---------- slice()
   
-  `,
-  `---------- shift()
-  `,
+      `,
+      `---------- shift()
+      `,
   `---------- unshift()
   
-  `,
-  `---------- fill()
-  `,
+      `,
+      `---------- fill()
+      `,
   `---------- every()
-  `,
-  `---------- entries()
-  `,
+      `,
+      `---------- entries()
+      `,
   `---------- join()
-  `,
-  `---------- concat()
+      `,
+        `---------- concat()
   
-  `
+      `
     
     
-  ],
+      ],
     [`ES EcmaScript 
     <br/>--- modern JavaScript
     <br/>--- is a JS std to ensure interoperability of web pages wrt diff browsers
@@ -6078,11 +6144,11 @@ const subTopicsInfo = [
     <br/>-------- ES - 2020
     <br/>-------- ES - 2022
     <br/>
-    <br/>These add features onto the original JS to simplify coding 
-    <br/>eg. Fat Arrow ftns | const | let with block scope | Promises | \`\` string literals
+    <br/>--- These add features onto the original JS to simplify coding 
+    <br/>--- eg. Fat Arrow ftns | const | let with block scope | Promises | \`\` string literals
     <br/>---- string and array functions too 
     `,
-    '-- modern JavaScript',
+    '--- modern JavaScript',
     '---- ES6 (ES 2015)',
     `------ let const var
     <br/>----- let - has block scope
@@ -6732,6 +6798,11 @@ const subTopicsInfo = [
     ],
     
     [`Template Ref Variables
+      <br/>--- uses a #  &lt;input ngModel #username>
+      <br/>------- gives direct access to the DOM element 
+      <br/>------- rebinds our input every time we type 
+      <br/>--- the ngModel directive to set a local model and updae on change
+      <br/>-------- display the value by {{ username.value }}
     `,
     `  --- using a #`,
     `--- 4 types of variables
@@ -6788,8 +6859,7 @@ const subTopicsInfo = [
     `,
     '--- Class binding - [class]="classExpression"',
   ],
-  [
-    `Style - color-size-position
+  [`Style - color-size-position
     <br/>
     <br/>--- Colours
     <br/>--- Position
@@ -6852,17 +6922,37 @@ const subTopicsInfo = [
     `--- ngStyle
     
     `,
-    
     `--- ngClass
     <br/>------ 
     `, 
-    
+    ' -- ',
+    `--- Document.querySelector()
+    <br/>------ function targets CSS elements in a web page
+    <br/>----------- eg &lt;a> or &lt;p> tags
+    `,
     ' -- ',
     '- SCSS - variables etc.',
         `--- ViewEncapsulation
     <br/>------ 
     `],
- 
+     [`SCSS (Sassy CSS)
+      <br/>--- variables
+      <br/>--- functions
+      <br/>--- mxins
+      <br/>--- inheritance 
+     `,
+    `--- variables
+    
+    `, 
+    `--- functions()
+    
+    `, 
+    `--- mixins
+    `,
+     `--- inheritance
+    
+     `
+    ],
     [`ViewEncapsulation
      <br/>--- lets us write simpler styles - simple to read
      <br/>------- and wont interfere with other styles
@@ -7199,6 +7289,7 @@ const subTopicsInfo = [
      `--- <b>ngAfterViewInit()</b> 
      <br/>------- (called once after ngAfterContentChecked) 
      <br/>------- Responds after Ang Initialises Comp View + Child Views     
+     <br/>------- place to access DOM els
      `, 
      `--- <b>ngAfterViewChecked()</b> - 
      <br/>------ Responds after Ang checks Comp View + Child Views 
@@ -8586,7 +8677,8 @@ const subTopicsInfo = [
       `,
       `--- abstract base class - to render template to DOM - 
      <br/>------ can be overridden for Custom Rendering - 
-     <br/>------ RendererFactory2`, 
+     <br/>------ RendererFactory2
+     `, 
     '--- 1: Template Parsing + creating Data Structure', 
     '--- 2: '  ,
     '------ Interpreter', 
@@ -9003,11 +9095,12 @@ const subTopicsInfo = [
     `---- only merge new Observables if prev has completed 
     `,
     ],
-    [`Forms - to handle user input - eg Login - Register
+    [`Forms 
+    <br/>--- to handle user input - eg Login - Register
     <br/>
-    <br/>-- Both Template and Reactive forms 
-    <br/>---- track value changes between form Input elements and form data 
-    <br/>----in the Component Model
+    <br/>--- Both Template and Reactive forms 
+    <br/>--- track value changes between form Input elements and form data 
+    <br/>--- in the Component Model
     <br/>
     <br/>--- Data Binding
     <br/>--- Form Validation
@@ -9018,64 +9111,63 @@ const subTopicsInfo = [
     <br/>
     <br/>---- 2 types of Forms - 
     <br/>---  1: Templsate Forms - for simple forms 
-      <br/>------- not as reusable or scalable
-      <br/>
-      <br/>------ use async data flow between the View and data model - 
-      <br/>
-      <br/>------ Most of the work uses NgModel and template directives - 
-      <br/>
-      <br/>------ uses ngForm - 
-      <br/>
-      <br/>------ rely on mutability with 2 way data binding 
-      <br/>
-      <br/>------ to update the data model in the Comp as changes 
-      <br/>
-      <br/>------ are made in the template
-      <br/>
-      <br/>------ Testing is reliant on angular CD 
-      <br/>
-      <br/>------ to run properly and require more setup
-      <br/>
-      <br/>------ FormsModule - 
-      <br/>
-      <br/> -- 
-      <br/>
-      <br/>---- Reactive Forms 
-      <br/>------- more scalable and reusable and use Observable streams 
-      <br/>
-      <br/>------- explicit and immutable approach to managing the state of a form at a given point in time
-      <br/>
-      <br/>------- Most of the code is in the class (not the template) 
-      <br/>
-      <br/>------- provides a Model-driven approach
-      <br/>
-      <br/>------- to handling form inputs whose values change over time
-      <br/>
-      <br/>------- FormControl instance always return a new value when the controls 
-      <br/>
-      <br/>------- Each change to form state returns a new state - 
-      <br/>
-      <br/>------- maintains the integrity of the model between changes - 
-      <br/>
-      <br/>------- where form inputs and values are provided as streams of input values which can be accessed asynchronously 
-      <br/>
-      <br/>------- provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
-      <br/>
-      <br/>------- FormModel is the source of truth
-      <br/>------- FormControl instance emits the new value via the valueChanges observable 
-      <br/>
-      <br/>--- 2: ReactiveFormsModule - 
-      <br/> -- 
-      <br/>
-      <br/>--- Validation is an integral part of managing any type of forms 
-      <br/>
-      <br/>--- Angular provides a set of built-in validators + ability to create custom validators
-      <br/>
-      <br/>--- Conditional Validators
-      <br/>
-      <br/>--- Angular 14
-      <br/>------- Typed Reactive Forms 
-      
+    <br/>------- not as reusable or scalable
+    <br/>
+    <br/>------ use async data flow between the View and data model - 
+    <br/>
+    <br/>------ Most of the work uses NgModel and template directives - 
+    <br/>
+    <br/>------ uses ngForm - 
+    <br/>
+    <br/>------ rely on mutability with 2 way data binding 
+    <br/>
+    <br/>------ to update the data model in the Comp as changes 
+    <br/>
+    <br/>------ are made in the template
+    <br/>
+    <br/>------ Testing is reliant on angular CD 
+    <br/>
+    <br/>------ to run properly and require more setup
+    <br/>
+    <br/>------ FormsModule - 
+    <br/>
+    <br/> -- 
+    <br/>
+    <br/>---- Reactive Forms 
+    <br/>------- more scalable and reusable and use Observable streams 
+    <br/>
+    <br/>------- explicit and immutable approach to managing the state of a form at a given point in time
+    <br/>
+    <br/>------- Most of the code is in the class (not the template) 
+    <br/>
+    <br/>------- provides a Model-driven approach
+    <br/>
+    <br/>------- to handling form inputs whose values change over time
+    <br/>
+    <br/>------- FormControl instance always return a new value when the controls 
+    <br/>
+    <br/>------- Each change to form state returns a new state - 
+    <br/>
+    <br/>------- maintains the integrity of the model between changes - 
+    <br/>
+    <br/>------- where form inputs and values are provided as streams of input values which can be accessed asynchronously 
+    <br/>
+    <br/>------- provide synchronous access to the data model| immutability with Observable operators | change tracking through observable streams
+    <br/>
+    <br/>------- FormModel is the source of truth
+    <br/>------- FormControl instance emits the new value via the valueChanges observable 
+    <br/>
+    <br/>--- 2: ReactiveFormsModule - 
+    <br/> -- 
+    <br/>
+    <br/>--- Validation is an integral part of managing any type of forms 
+    <br/>
+    <br/>--- Angular provides a set of built-in validators + ability to create custom validators
+    <br/>
+    <br/>--- Conditional Validators
+    <br/>
+    <br/>--- Angular 14
+    <br/>------- Typed Reactive Forms  
       `,
       `--- Data Binding
       
@@ -9100,8 +9192,8 @@ const subTopicsInfo = [
       <br/>------- to track aggregated form value and validation status 
       `,
       `------ Template Directives
-        <br/>------- NgModel
-        <br/>------- Required| MinLength| MaxLength| 
+      <br/>------- NgModel
+      <br/>------- Required| MinLength| MaxLength| 
       `,
       '-------- NgModel',
 
@@ -9124,7 +9216,6 @@ const subTopicsInfo = [
       '----- Unstructured and Mutable',
       '----- More complex Testing',
       '----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">',
-
       `--- 2: Reactive Forms 
       <br/>------ (Model Driven Approach)
       <br/>
@@ -9218,8 +9309,10 @@ les -
     ' -- ',
     '--- Reactive Validation'
   ], 
-  [`ElementRef 
-  <br/>--- a wrapper around a native DOM element inside a View
+  [`--- Template Forms`],
+  [`--- Reactive Forms`],
+  [`ElementRef
+  <br/>--- is   a wrapper around a native DOM element inside a View
   <br/>--- permits direct access to a DOM element 
   <br/>------- more vulnerable to XSS attacks 
   <br/>--- tightly couples appn and rendering layers
@@ -9367,71 +9460,73 @@ les -
     <br/>// outputs \`template bindings={}\`
     <br/>console.log(this.vc.element.nativeElement.textContent);
     <br/>}
-}
+    }
    `,
    `---- @ContentChild VCF defn
    <br/>@ContentChild(\'nameInput\', {static:false, read: ViewContainerRef }) 
                 nameVarAsViewContainerRef;
 `
-],
-['View DOM',   
+    ],
+    ['View DOM',   
     '--- component template',  
     '--- Template ref variables',
     '------ &lt;p #title>Hi&lt;/p>',
     ' -- ',
-    `- @ViewChild 
-       - is within the template of the Component
-       <br/>--- configures a Vew Query
-       <br/>----- 3 types to inect
-       <br/>------- HTML - using ElementRef and nativeElement
-       <br/>------- Component (Default) - 
-       <br/>------- Directive
-       <br/>--- uses the ngAfterViewInit LCH    
-`,
-'--- alt to ElementRef',
-'------ access a DOM element',
-'--- configures a Vew Query',
-    '----- only sees template',
-    '------ Queries the Comp template',
-    '--- Metadata properties',
-    '------ selector',
-    '------ read',
-    '------ static',
-    '--- Selectors supported',
-    '----- Component|Directive class',
-    '----- temp ref var #cmp',
-    '----- Any provider - service',
-    '----- Provider string token',
-    '----- TemplateRef',
-    '--- read supports',
-    '----- Comp/Dir class',
-    '----- TemplateRef',
-    '----- ElementRef',
-    '----- ViewContainerRef',
-    '--- static - boolean',
-    '----- true - resolve before CD',
-    '----- false - resolve after CD',
-    '--- ngAfterViewInit LCH',
-    ' -- ',
-    '--- inject into Comp class',
-    '----- refs to els from template',
-    '--------- using ElementRef',
-    '3 types to inject',
-    '----  Wraps DOM el',
-    '------ @ViewChild(\'title\')',
-    '---------- title:ElementRef',
-    '---------- this.title.nativeElement',
-    '------Default - return a Component instance',  
-    '------- @ViewChild(\'AComponent\')',
+    `--- @ViewChild 
+     <br/>------- can return many differet things eg ElementRef 
+     <br/>------- is within the template of the Component
+     <br/>------ configures a Vew Query
+     <br/>------ 3 types to inject
+     <br/>--------- 1: HTML - using ElementRef and nativeElement
+     <br/>--------- 2: Component (Default) - 
+     <br/>--------- 3: Directive
+     <br/>--- uses the ngAfterViewInit LCH    
+     `,
+     '--- alt to ElementRef',
+     '------ access a DOM element',
+     '------ used with @ViewChild',
+     '--- configures a Vew Query',
+     '----- only sees template',
+     '------ Queries the Comp template',
+     '--- Metadata properties',
+     '------ selector',
+     '------ read',
+     '------ static',
+     '--- Selectors supported',
+     '----- Component|Directive class',
+     '----- temp ref var #cmp',
+     '----- Any provider - service',
+     '----- Provider string token',
+     '----- TemplateRef',
+     '--- read supports',
+     '----- Comp/Dir class',
+     '----- TemplateRef',
+     '----- ElementRef',
+     '----- ViewContainerRef',
+     '--- static - boolean',
+     '----- true - resolve before CD',
+     '----- false - resolve after CD',
+     '--- ngAfterViewInit LCH',
+     ' -- ',
+     '--- inject into Comp class',
+     '----- refs to els from template',
+     '--------- using ElementRef',
+     '--- 3 types to inject',
+    '--------  Wraps DOM el',
+    '----------- @ViewChild(\'title\')',
+    '-------------- title:ElementRef',
+    '--------------- this.title.nativeElement',
+    '--------------- Default - return a Component instance',  
+    '---------------- @ViewChild(\'AComponent\')',
     '----------  aComp: AComponent',
-    '----- Using 2nd arg - read',
-    '------- { read: ElementRef}',
-    '----------- anEl: ElementRef',
-    '----- Injecting a Directive',
-    '-------- <input #pIP >',
-    '------- @ViewChild(\'pIP\', {read: BDirective)',
-    '---------- colP: BDirective',
-    '---------- this.copP.xxx',
+    '--------------- Using 2nd arg - read',
+    '--------------- { read: ElementRef}',
+    '---------------- anEl: ElementRef',
+    '----------- Injecting a Directive',
+    '---------------- <input #pIP >',
+    '---------------- @ViewChild(\'pIP\', {read: BDirective)',
+    '---------------- colP: BDirective',
+    '---------------- this.copP.xxx',
     ' -- ',
     '- @ViewChildren',
     '--- Queries multiple Children',
@@ -9440,7 +9535,10 @@ les -
     ' -------- from View DOM',
     '---- QuearyList updated when',
     '------- Add | Remove | move',
-    '--- ngAfterViewInit LCH',
+    `--- ngAfterViewInit LCH
+    <br/>------ after Angular has initialised Cpmponent's Views or ChildViews
+    <br/>------ always the place to access DOM els
+    `,
     `--- ViewContainerRef 
     <br/>------ lets you attach several views to it
     `
@@ -9738,6 +9836,9 @@ les -
     <br/>--- and Event driven systems - 
     <br/>------- 3 diff action types - Events | Document messages | Commands  
     <br/>
+    <br/>--- Note dont use ngrx with GraphQL and Apolo client
+    <br/>
+
     <br/>--- 3 main building blocks of ngrx
     <br/>-------- actions | reducers| selectors
     <br/>
@@ -10477,6 +10578,9 @@ les -
     <br/>------
     `],
     [`Testing 
+     <br/>--- Unit | Integration | End to End | Mocking | AAA 
+    <br/>
+
       <br/>--- Tools 
       <br/>--- Unit Testing -  Jasmine | Karma 
       <br/>--- Integration Testing - 
@@ -10485,74 +10589,150 @@ les -
       <br/>--- is very important to ensure the validity of your programs and that there are no problems with the code!
       <br/>--- There are three forms of test 1: Unit 2: Integration 3: End 2 End
       <br/>
+      <br/>--- Test Environments
+      <br/>------ 1: Devt - Development Server - using an older copy of production server
+      <br/>------ 2: Staging - using has a recent copy of production server 
+      <br/>------ 3: Production - Production Server - not for testing
+      <br/>
       <br/>--- Unit testing 
       <br/>------ is the simplest and most important type of testing. 
       <br/>------ It normally involves Jasmine and the Karma (Test runner)
       <br/>------ Jasmine spies are very useful for mocking parts of the Angular Component structure 
       <br/>
-      <br/>------ TestBed tool is used to create dummy components in a live envt etc 
-      <br/>------ Jasmine spies -
+      <br/>---- TestBed tool 
+      <br/>------ is used to create dummy components in a live envt etc 
+      <br/>-------------- Jasmine spies -
       <br/>------ Async and fakeAsync - take adv of Zone.js to test async code
       <br/>------ MockBackend - helps in testing code which makes HTTP calls
       <br/>------ HttpInterceptor - can help with HTTP calls 
       <br/>
-      <br/>--- Integration testing - has 2 types - shallow and deep 
-      <br/>------- Shallow integration testing - is where the child components are simple
+      <br/>------- AAA (Arrange Act Assert)
       <br/>
-      <br/>------- Deep integration testing is where child components have dependecies like services
+      <br/>
+      <br/>--- Integration testing - 
+      <br/>------- Testing components with children and or services
+      <br/>
+      <br/>------- has 2 types - shallow and deep 
+      <br/>------- Shallow integration testing 
+      <br/>------------- is where the child components are simple
+      <br/>
+      <br/>------- Deep integration testing 
+      <br/>------------- is where child components have dependecies like services
       <br/>
       <br/>--- End to End testing 
+      <br/>------- testing the full workflow as if a user has clicked a button
+      <br/>------- using a Staging Server with recent copy of production server - wrt mocks 
       <br/>------- is not so important but using Protractor and the more modern Cypress
       <br/>
-      <br/>------- Protractor has a page object to be shared across diff components - 
+      <br/>------- Protractor 
+      <br/>------------ has a page object to be shared across diff components - 
       <br/>------- Cypress - more modern 
-
-      `, 
+      <br/>------------ has a time travelling debugger 
+      `,
+      `--- Test Environments
+      <br/>------ 1: Devt - Development Server - using an older copy of production server
+      <br/>------ 2: Staging - using has a recent copy of production server 
+      <br/>------ 3: Production - Production Server - not for testing
+      `,
+      
     'PoC - Proof of Concept',
-    '- Unit', 
-    '-- spec.ts', 
-    '--- describe', 
-    '--- beforeEach()', 
-    '--- it - fit - xit', 
-    '--- afterEach', 
-    '---- TestBed', 
-    '-- Jasmine', 
-    '-- Karma', 
-    '-- Mocking', 
-    '--- Wallaby', 
+    '--- Unit testing', 
+    '-------- spec.ts', 
+    '-------- describe', 
+    '------------ beforeEach()', 
+    '------------ it - fit - xit', 
+    '------------ afterEach', 
+    `--- TestBed
+    <br/>------- is used to dynamically create an Angular Test Module   
+    <br/>------- emulating an @NgModule 
+    <br/>--------TestBed.configureTestingModule()
+    <br/>----------- takes metadata that have most properties of @NgModule
+    <br/>
+    `, 
+    `--- ComponentFixture
+     <br/>------ is a test harness for interacting with created components and its element
+     <br/>------ access the Component instance via the fixture and confirm it exists 
+     <br/>----- Note DebugElement.nativeelement has any type 
+     <br/>
+     <br/>---- ComponentFixture | DebugElement | QuerySelector | nativeelement | 
+     <br/>
+     <br/>
+     <br/>----- describe('BannerComponent (with beforeEach)', () => {
+     <br/>-----  let component: BannerComponent;
+     <br/>----- let fixture: ComponentFixture<BannerComponent>;
+     <br/>
+     <br/>----- beforeEach(() => {
+     <br/>----- TestBed.configureTestingModule({declarations: [BannerComponent]});
+     <br/>----- fixture = TestBed.createComponent(BannerComponent);
+     <br/>---------   component = fixture.componentInstance;
+     <br/>----- });
+     <br/>
+     <br/>-----it('should create', () => {
+      <br/>--------- expect(component).toBeDefined();
+     <br/>-----});
+     <br/>
+     <br/>----- it('should contain "banner works!"', () => {
+     <br/>--------- const bannerElement: HTMLElement = fixture.nativeElement;
+     <br/>--------- expect(bannerElement.textContent).toContain('banner works!');
+     <br/>----- });
+    `,
+    '-------- Jasmine', 
+    '-------- Karma'  , 
+    '-------- Mocking', 
+    '-------- Wallaby', 
+    
+    `------- AAA (Arrange Act Assert)
+    <br/>---------- Arrange
+    <br/>---------- Act
+    <br/>---------- Assert
+    `,
     ' -- ',
-    '- Integration',
-    '-- Shallow',
-    '-- Deep', 
+    '--- Integration',
+    '------- Shallow',
+    '------- Deep', 
     ' -- ',
-    '- End to End', 
-    '-- Protractor', 
-    '-- Cypress'],
-    ['Why Design', 
-    '- SOLID',
-    '-- A Class should have 1 and only 1 (Job) reason to change',
-    '-- Open for extension but Closed for modification',
-    '-- Every subclass - Generics - should be able to replace the base (Parent class)',
-    '-- Never imp an Interface you dont use - nor methods they dont use',
-    '-- Entities must depend on the abstraction (not Concreations)   ', 
-    ' -- ','Dont Repeat Yourself', 
-    ' -- ',' Dep Injection is important for Scalability - large appns - Services injected into many Components', 
-    ' -- ',
-    `- ensure there is only 1 instance of the class 
-    - getInstance or DI system 
-     <br/> Services defined in the root (not those in Components which are instantiated for each Component)
-    `,  
-    ' -- ','- Instantiate diff child objects - of same parent Class dept on conditions - <br/>Object Creation Interface',    
-    ' -- ','- alternative to Subclasses for extending an Object - Composition instead of Inheritance<br/>An object which wraps another Object',  
-    ' -- ','Lazy Pattern',
-    ' -- ','Composition Pattern'],
+    '--- End to End', 
+    '-------- Protractor', 
+    '-------- Cypress'
+    ],
+    [`--- Unit Testing
+    <br/>------- tests an individual Component 
+    <br/>----------- with other services etc being mocked
+    <br/> 
+    `
+    ],
+    [`--- Integration Testing
+     <br/>------- lets you test 2+ units that work together
+     <br/>------------- to perform a specific task  
+     <br/>------------- eg Test component sends/receives correct data from a service 
+     <br/>------- often requiring use of ext network or db
+     `,
+   `-------- Shallow IT
+   
+   `,
+   `-------- Deep IT
+   
+    `
+    ],
+    [`--- End to End Testing
+    <br/>------ tests a workflow of appn frm start to finish
+    <br/>------ test for actions that real users can perform on appn
+    <br/>------ simulating click of a button etc.
+    <br/>------ utilizing actual services etc.
+
+    
+    `,
+   '------- Protractor',
+   '------- Cypress'
+    ],
     [`TDD Test Driven Devt - 
     `, 
     '- Test First fail',
     '- refactor',
     '--- pass',
     ' -- ',
-    `Behavoral Driven Design - eases conversion of user features specns to code reqd to imp them
+    `--- BDD - Behavoral Driven Design 
+    <br/>------ eases conversion of user features specns to code reqd to imp them
     <br/>
     `,
     '-- narrows gap between Business features and S/W impn',
@@ -10569,15 +10749,34 @@ les -
     '--- Formulation - what it should do',
     '--- Automation- what it actually does','--- Working S/W',
     ' -- ',   
-    `DDD Domain Driven Design - S/W design focusing on modeling S/W to match a domain wrt input from business experts
+    `--- DDD Domain Driven Design - S/W design focusing on modeling S/W to match a domain wrt input from business experts
     <br/>
     `,'- Business Domain',
-    '-- OO (Object Oriented) class | properties | methods - match business names',
+    '--- OO (Object Oriented) class | properties | methods - match business names',
     '-- connects impn to an evolving model',
-    '- Goals',
+    '--- Goals',
     '------ primary focus on domain and domain logic',
     '------ base complex design on domain model',
     '------ init creative collabn between technical and domain experts to iteratively refine a model wrt domain problems',
+    ],
+    ['Why Design', 
+    '- SOLID',
+    '-- A Class should have 1 and only 1 (Job) reason to change',
+    '-- Open for extension but Closed for modification',
+    '-- Every subclass - Generics - should be able to replace the base (Parent class)',
+    '-- Never imp an Interface you dont use - nor methods they dont use',
+    '-- Entities must depend on the abstraction (not Concreations)   ', 
+    ' -- ','Dont Repeat Yourself', 
+    ' -- ',' Dep Injection is important for Scalability - large appns - Services injected into many Components', 
+    ' -- ',
+    `--- ensure there is only 1 instance of the class 
+     <br/>--- getInstance or DI system 
+     <br/> Services defined in the root (not those in Components which are instantiated for each Component)
+    `,  
+    ' -- ','- Instantiate diff child objects - of same parent Class dept on conditions - <br/>Object Creation Interface',    
+    ' -- ','- alternative to Subclasses for extending an Object - Composition instead of Inheritance<br/>An object which wraps another Object',  
+    ' -- ','Lazy Pattern',
+    ' -- ','Composition Pattern'
     ],
     [`Angular Security -   
       --- XSS | CSRF - Dom Sanitiser -   
@@ -11181,6 +11380,85 @@ import fastify, {
   ' -- ',
   '-- Artifactory'
     ],
+    [`DevOps - Devt + Operational 
+    <br/>--- is for writing and deploying code
+    <br/>--- shifts Testing so it happens early in SDLC
+    <br/>-------- Planning and DevOps tools
+    <br/>-------- with seamless collaboration between
+    <br/>----------- developers | testers| QA teams
+    <br/>--- is a colln of ideas, practices, processes, technologies
+    <br/>-------- that allow devt and op teams to work together to streamline product devt
+    <br/>
+    <br/>-------- leads to quality appns fewer issues - stability + security
+    <br/>
+    <br/>--- SRE (S/W Reliability Engineering)
+    <br/>-------- fits in between Devt and Operations
+    <br/>-------- is more comprehensive 
+    <br/>-------- the team takes the end user's perspective
+    <br/>
+    <br/>8 DevOps features
+    <br/>--- 1: Defn -  
+    <br/>--- 2: Scope -
+    <br/>--- 3: Purpose -
+    <br/>--- 4: Process -  
+    <br/>--- 5: Impn -
+    <br/>--- 6: Stages - Cont Devt (Planning + SW coding) CI (new ftns + integn) CD 
+    <br/>----------- 1: Devops covers CI and CD
+    <br/>----------- 2: CI stage - new ftn integd with existing code (Daily)
+    <br/>------------------ All commits checked and problems detected early
+    <br/>------------------ Compilation | Integn Testing| Unit Testing| Packaging| Code review
+    <br/>
+    <br/>----------- 3: Cont Testing - S/W cont tested for bugs autd tools 
+    <br/>------------------- JUnit | TestNG | Selenium | QA - mult code bases in parallel
+
+    <br/>
+    <br/>----------- 4: Cont Monitoring - All opn factors of DevOps - checks problems
+    <br/>
+    <br/>----------- 5: Cont Feedback - cont improvement - analysis
+    <br/>
+    <br/>----------- 6: (CD) Deployment of code to prodn servers 
+    <br/>------------------- Docker containers helps scale up and down 
+    <br/>
+    <br/>----------- 7:   
+    <br/>
+    <br/>--- 7: Benefts -
+    <br/>--- 8: Use case -
+    
+    <br/> 
+    <br/>--- CI/CD 
+    <br/>-------- refers to a set of devt practices   
+    <br/>-------- that enables the rapid and reliable delivery of code changes
+    <br/>
+    <br/>8 CI/CD features
+    <br/>--- 1: Defn -   
+    <br/>--- 2: Scope -
+    <br/>--- 3: Purpose -
+    <br/>--- 4: Process -  
+    <br/>--- 5: Impn -
+    <br/>--- 6: Stages - Source | Build | Test | Deploy
+    <br/>--- 7: Benefts -
+    <br/>--- 8: Use case -
+    
+    `,
+     '------ Jenkins',
+     '-------- scriptive | declarative',
+     '-------- Scriptive Pipeline (initial)',
+     '------------ begin with word node',
+     '------------ imperative programming model',
+     '------------ Complex Groovy|JAVA Apis',    
+     '-------- Declarative Pipeline - now',
+     '------------ begine with word pipeline',
+     '------------ Jenkins DSL',
+     '------------ conditional statement logic',
+     '------------ access to env variables',      
+     '------------ add logging|error handling',
+     '------------ series of steps',
+     '------------ Jenkins plugins',
+     '------------ shared libraries',
+     ' -- ', 
+     '------ TeamCity',
+     '------ Artifactory' 
+    ],
     [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
     <br/> 
     <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
@@ -11398,16 +11676,195 @@ import fastify, {
     `,`--- Node.js    
     `  
 ],
+[`AWS (Amazon Web Services)
+<br/>--- provides on demand cloud computing platforms and APIs
+<br/>-------- on a metered pay as you go basis
+<br/>-------- These cloud computing Web Services 
+<br/>----------- provide distributed computing processing capacity and S/W tools via AWS server farms
+<br/>--- One of these services is
+<br/>------- EC2 (Amazon Elastic Compute Cloud)
+<br/>------------ lets users have a virtual cluster of Computers
+<br/>----------------- available all the time via the Intenet
+<br/>------------ AWS's virtual computers emulate 
+<br/>--------------- most of the attributes of a real computer
+<br/>-------------------- CPUs + GPUs + local RAM memory + SSD + OS + Networking
+<br/>---------------------- + preloaded appn S/W - Web servers| DBs| CRM
+<br/>--- delivered to customers via a network of AWS server farms around the world
+<br/>-------- Fees are on a PAYG (Pay as You Go model)
+<br/>------------ H/W | OS| S/W| or Networking features| reqd availability| redundancy| security| service options
+<br/>
+<br/>--- Subscribers can pay for 1 virtual AWS computer| a physical computer| or clusters 
+<br/>-------- AWS provides select portions of security for providers  
+<br/>------------ physical security of the data centers
+<br/>------------ other aspects of security by subscriber 
+<br/>--------------- Account mgmt | vulnerability scanning| patching  
+<br/>
+<br/>------ AWS provides a way of obtaining Large Scale computing capacity quicker + cheaper 
+<br/>---------- wrt building an actual physical server farm 
+<br/>--------------- based on usage | each service measures diff ways
+<br/>
+<br/>--- AWS has over 200 products and services
+<br/>-------- computing | storage| networking| db| analytics| appn services| 
+<br/>-------- deployment| management| ML| mobile| dev tools| RobOps| tools for IoT
+<br/>
+<br/>--- Most popular services are
+<br/>------- EC2 (Amazon Elastic Compute Cloud)
+<br/>------- S3 (Amazon Simple Storage Service)
+<br/>------- Amazon Connect
+<br/>------- AWS Lambda (a serverless ftn enabling serverless ETL)(extract |transform| load)
+`,
+  `--- S3 - Amazon Simple Storage Service
+  <br/>--- Cloud storage - Enforce DACs (Data access controls) Hghly scalable, reliable & low latency data storage 
+  <br/>
+  <br/>------ is an object storage service 
+  <br/>------ offering industry leading scalability| daa availabilit| security and performance
+  `,
+  `--- EC2 - Amazon Elastic Compute Cloud
+  <br/>--- provides secure + resizable compute capacity with easy scalability
+  <br/>
+  <br/>------ provides scalable computing capacity in the AWS Cloud 
+  <br/>------ eliminates need to invest in H/W up front 
+  <br/>------ so you can develop and deploy appns faster
+  <br/>--------- launch as many or as few virtual servers as you need 
+  <br/>--------- configure security and networking
+  <br/>--------- manage storage 
+  <br/>------- scale up/down to handle changes in reqts 
+  <br/>
+  <br/>------- Virtual computing envts, known as instances
+  <br/>------- Preconfigured templates for instances - AMIs (Amazon Machine Images)
+  <br/>------- Various confign of instanct type = CPU| memory| storage| networking capacity|  
+  <br/>------- Secure login for instances - using key pairs 
+  <br/>------- Instance store volumes = Storage Volumes for temp data thats deleted when you stop| hybernate|terminate instance
+  <br/>------- Persistant Store Volumes for data using EBS (Amazon Elastic Block Store) EBS Volumes
+  <br/>------- Multiple physical locations for resources 
+  <br/>----------- Instances | EBS Volumes (Regions) | Availability Zones
+  <br/>------- Firewall lets you specify protocols| ports| source IP ranges - security groups
+  <br/>------- Static IPv4 Addresses for dynamic cloud computing - Elastic IP Addresses
+  <br/>------- Metadata known as tags - create + assgn to EC2 resources
+  <br/>------- Virtual networks - logically isolated from rest of cloud and connect to your own network 
+  <br/>------------ known as VPCs (Virtual Private Clouds)
+  `,  
+  `--- Amazon Connect
+  <br/>--- uses S3 to store recorded conversns and exported reports  
+  <br/>
+  <br/>------ Omnichannel cloud contact center 
+  <br/>------ set up in a few steps | add agents| start engaging with customers
+  <br/>------ build reusable reliable + cheap auto calling services
+  <br/>------------ dyn offer chat or voice contact 
+  <br/>------------ Agents handle all customers from 1 interface
+  <br/>
+  <br/>------ Storage - uses S3 
+  <br/>------ Database DynamoDB 
+  <br/>------ Analytics - contact records - 
+  <br/>------ Messaging - Pinpoint| SNS (Notificn Service)| SES (Simple Email Service)
+  <br/>------ Management - CloudWatch| CloudFormation| CloudTrail
+  <br/>------ Security - IAM (Identity and Access Management) + Directory Service - MAD| ADFS or SAML 2.0
+  <br/>------ ML + AI - Amazon Lex| Transcribe | Comprehend   
+  `,
+  `--- AWS Lambda
+  <br/>--- runs code in response to events + auto manages resources
+  <br/>
+  <br/>----- serverless, event-driven compute service 
+  <br/>----- is a compute service that lets you run code without provisioning or managing servers
+  <br/>----- runs your code on a high availability compute infrastructure 
+  <br/>----- and performs all of the admin of the compute resources
+  <br/>------- including 
+  <br/>----------- Server + OS maintenance | capacity provisioning | auto scaling| logging   
+  `,    
+  ' -- ',
+  '--- AWS Lambda',
+  '----- AWS Lambda Properties',
+  '----- AWS Lambda Reqts',
+  '----- AWS Lambda Users',
+  '----- AWS Lambda Uses',
+  '----- AWS Lambda Languaged',
+  '----- AWS Lambda Advantages',
+  '----- AWS Lambda Limitations',
+  '--- AWS Web Service',
+ 
+  '--- AWS Cloud Compute Service',
+   
+  '--- AWS Management Console'
+  ],
+  ['Azure',
+  '--- MS Azure',
+  '-------- services - ',
+  '-------- virtual m/c - IaaS',
+  '-------- App Services - PaaS',
+  '-------- Websites - ',
+  '-------- WebJobs - ',
+  '----------- Identity',
+  '----------- AAD ',
+  '----------- AAD - B2C',
+  '----------- AAD Domain Services  ',
+  '----------- Azure Info Protn',
+  '----------- location',
+  '----------- on-premise - ',
+  '----------- hybrid -',
+  '----------- multicloud -',
+  '----------- at the edge -',
+  ],
+  ['Google Cloud', 
+  '--- GCP | G Suite', 
+  '--- Google Cloud Platform (GCP)',
+  '--- suite of modular cloud services',
+  '--- Computing',
+  '------ Data Storage',
+  '------ Data Analytics',
+  '------ ML Machine Learning',
+  '---- management tools',
+  '------- Envts',
+  '----------- IAAS',
+  '----------- PAAS',
+  '----------- Serverless Computing',
+  '------ G Suite (Google Workspace)',
+  '------ Enterprise Chrome',
+  '------ Enterprise Android',
+  '------ APIs for M/L and enterprise mapping',
+  ],
+  ['--- CloudFlare',
+  
+  ],
     [`Accessability -
     <br/>
-    <br/>ARIA attributes
-    <br/>WCAG
-    <br/>POUR
+    <br/>--- ARIA attributes
+    <br/>--- WCAG
+    <br/>--- POUR
+    <br/>--- Amgular ESLint
+    <br/>
     `,
-    '- ARIA attrbutes', 
-    '- WCAG', 
-    '- POUR'
-  ],
+    `--- WAI (Web Accessability Initiative) 
+    <br/>------ ARIA (Accessabilty Rich Internet Appns) attrbutes
+    <br/>------ is good for bridging areas with accessability issues 
+    <br/>------ that can't be managed with native HTML      
+    <br/>
+    `, 
+    `--- WCAG (Web Content Accessability Guidelines)
+    <br/>----- built on POUR
+    <br/>
+    `, 
+    `------- POUR (4 main accessability principles)
+    <br/>------- breaks Accessability down into 4 aspects
+    <br/>--------- Percievable
+    <br/>--------- Operable
+    <br/>--------- Understandable
+    <br/>--------- Robust 
+    `,
+    `--- Angular ESLint   
+    <br/>----- https://dev.to/bitovi/angular-a11y-eslint-rules-2fjc
+    <br/>----- @angular/eslint repo includes several lintint rules 
+    <br/>----- that can enforce accessability best practices 
+    <br/>----- within Angular component templates
+    <br/>
+    <br/>----- 1: ARIA roles and attributes
+    <br/>
+    <br/>----- 2: Rules related to textual repn of content 
+    <br/>
+    <br/>----- 3: Interactivity - User interactivity and Event handling
+    <br/>
+    <br/> 
+    `
+   ],
     [' -- '],
     [`Schematics - is a template based code generator - that supports complex logic 
       <br/>A set of instructions for transforming a S/W project by generating or modifying code  
@@ -11453,10 +11910,12 @@ import fastify, {
     [`Ang Material - 
     `, 
     ' -- ',
-    'Ang CDK'],
+    'Ang CDK'
+    ],
     [`Flex-layout - 
     `, 
-        'display:flex'],
+        'display:flex'
+    ],
     [`PWA (Progressive Web Appn) - are Web appns that use Service Workers 
     <br/>- manifests - caching - progressive appns - to give a similar exp with a native appn 
     <br/>- apps leverage modern browser capabilities 
@@ -12928,6 +13387,8 @@ import fastify, {
           <br/>----- using GraphQL Yaga
           <br/>-------- bind JS GraphQL schema to an HTTP Server
         `,
+        '--- Dont use ngrx with GraphQL and Apolo client',
+        ' -- ',
         '--- GraphQL Language Service',
         ' -- ',
         `--- GraphQL-ws library for - 
@@ -12952,6 +13413,7 @@ import fastify, {
         '----- Ionic',  
         ' -- ',
         `TypeGraphQL - TypeScript and GraphQL 
+
         <br/>--- 
 
         `
