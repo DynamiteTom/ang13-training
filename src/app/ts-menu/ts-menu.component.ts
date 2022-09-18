@@ -39,6 +39,8 @@ const features = `
     'APF',
     'ESBuild',
     'Ivy_Locality', 
+    '--- Locality',
+    '--- Incremental DOM',
     'View-Engine',
     'Template Rendering',
     'Promises',
@@ -55,6 +57,8 @@ const features = `
     'ContentDOM',
     'Content-Projection',
     'HTTP_HttpClient',
+    '--- HttpClient',
+    '--- HttpInterceptors'
     'Custom Libraries',  
     'Caching',
     'Storage mechanisms',
@@ -707,24 +711,35 @@ const subTopics = [
       ' -- ',
       '--- Commands',
       '----- ng new',
+      '--------- options',
+      '------------- -S=true skip tests',
+      '--------- npm cache clean -f',
+      '--------- npm audit fix -f',
+      ' -- ',
       '----- ng add',
+      ' -- ',
       '----- ng generate',
+      ' -- ',
       '----- ng build',
+      ' -- ',
       '----- ng update',
+      ' -- ',
       '----- ng serve',
       '------- uses build dev-server',
+      ' -- ',
       '----- ng test',
+      ' -- ',
       '----- hg help',  
       ' -- ',
       '---- uses Schematics',
-      '------ virtual file system',
-      '--------  tree',
-      '----------  base + staging area (changes)',
-      '--------  Rule object = transformations',
-      '--------  4 Actions',
-      '--------  SchematicContext',
-      '---------- logging API',
-      '------------  merge strategy',
+      '-------- virtual file system',
+      '----------- tree',
+      '----------- base + staging area (changes)',
+      '-------- Rule object = transformations',
+      '----------  4 Actions',
+      '----------  SchematicContext',
+      '------------- logging API',
+      '------------- merge strategy',
       ' -- ',
       '---- uses Webpack',
       ' ------ uses Webpack (5 since Ang 12)',
@@ -736,10 +751,10 @@ const subTopics = [
       '--------- Custom Webpack'  
     ],
     ['lodash',
-    '- simplifies JS ',
-    '- simplifies manipulating TS types',
-    '- ES6 replacements',
-    '-- Map | Filter |  Reduce'
+    '--- simplifies JS ',
+    '--- simplifies manipulating TS types',
+    '--- ES6 replacements',
+    '--- Map | Filter |  Reduce'
     ],
     ['important files',
     '--- package.json', 
@@ -767,7 +782,6 @@ const subTopics = [
       ' -- ',
       '---- possible solutions',
       '------ ngrx store',
-    
     ],
     ['Template Ref Variables',
       '--- use of the # character',
@@ -786,7 +800,7 @@ const subTopics = [
     'ex', 
     '--- 2-way data binding','ex'
   ],  
-    ['Sstyle - color-size-position', 
+  ['Sstyle - color-size-position', 
     '--- position',
     '--- CSS',
     ' -- ', 
@@ -807,7 +821,7 @@ const subTopics = [
     '---------- ngStyle',
     '---------- ngClass', 
     ' -- ',
-    '--- Document.querySelector()',
+    '---- Document.querySelector()',
     ' -- ',
      '--- SCSS - variables etc.',
      '------- variables', 
@@ -823,7 +837,7 @@ const subTopics = [
      '--- mixins',
      '--- inheritance'
     ],
-     ['ViewEncapsulation',
+    ['ViewEncapsulation',
      '--- Browser\'s builtin ShadowDOM',
      '------- ShadowRoot',
      '--- ',
@@ -835,21 +849,20 @@ const subTopics = [
      '--- :host',
      '--- :host-context',
      '--- _content'
- 
      ], 
      ['Modules','NgModule', 
-    'dynamic imports (Ang 08)',
-    '- Libraries ', 'decorator', 
-    '- declares Components', 
-    '- imports Modules', 
-    '- exports Modules',
-    '- Can define Service',
-    '- bootstrapping - ',
-    'min 1 Module',
-    'Lazy Loading'
+    '--- dynamic imports (Ang 08)',
+    '--- Libraries ', 'decorator', 
+    '--- declares Components', 
+    '--- imports Modules', 
+    '--- exports Modules',
+    '--- Can define Service',
+    '--- bootstrapping - ',
+    '--- min 1 Module',
+    '--- Lazy Loading'
     ],
-    ['- Bootstrapping', 
-    '-- initializing/loading appn',
+    ['Bootstrapping', 
+    '--- initializing/loading appn',
     '---- platformBrowserDynamic()',
     '------- bootstrapModule()',
     '---------- root ModuleInjector (now R3Injector)',
@@ -859,15 +872,15 @@ const subTopics = [
     '------- NullInjector',    
     ' -- ',
     '--- angular.json file',
-     '--- Loading index.html etc.',
-     '---- 3rd party libs + appn',
-     '---- main.ts',
-     '----- platformBrowserDynamic',
-     '------ AppModule',
-     '------- BrowserModule',  
-     '------- AppRoutingModule',  
-     '------- AppComponent',  
-     '---- root Module/Component', 
+     '------ Loading index.html etc.',
+     '------ 3rd party libs + appn',
+     '------ main.ts',
+     '---------- platformBrowserDynamic',
+     '---------- AppModule',
+     '------------- BrowserModule',  
+     '------------- AppRoutingModule',  
+     '---------- AppComponent',  
+     '------------- root Module/Component', 
      ' -- ',
      '----- faster appn',
      '----- APP_INITIALIZER',
@@ -1166,6 +1179,14 @@ const subTopics = [
     '---- NodeInjector (ElementInjector)',
     '-------- TNode object',
     '-------- LView object'
+    ],
+    [`--- Locality
+   
+    `,
+    ],
+    [`--- Incremental DOM
+   
+    `,
     ],
     ['- ViewEngine old', 
     '- Renderer2', 
@@ -1566,7 +1587,12 @@ const subTopics = [
      '------ HttpClientInMemoryWebApiModule',
      '---------- angular/in-memory-web-api'
     ],
-    
+    ['--- HttpClient'
+  
+    ],
+    ['--- HttpInterceptors'
+  
+    ],
     ['appns vers custom libraries',
     'Appns',
     'Custom Libraries',
@@ -2080,7 +2106,9 @@ const subTopics = [
   '----- AWS Lambda Uses',
   '----- AWS Lambda Languaged',
   '----- AWS Lambda Advantages',
-  '----- AWS Lambda Limitations' 
+  '----- AWS Lambda Limitations',
+  '----- AWS Templates',
+  '---------- AWS Terraform' 
   ],
   ['Azure',
   '--- MS Azure',
@@ -6397,29 +6425,29 @@ const subTopicsInfo = [
     <br/>------- type type_alias = number | string | boolean;  
       `,
     `-------- Path aliases
-    <br/>import { User } from '../../user/model';
-    <br/>import { Article } from '../../article/model';
+    <br/>--- import { User } from \'../../user/model\';
+    <br/>--- import { Article } from \'../../article/model\';
     <br/>
-    <br/>import { Cache } from '../../../../cache';
-    <br/>import { MongoDB } from '../../../../mongodb';
+    <br/>--- import { Cache } from \'../../../../cache\';
+    <br/>--- import { MongoDB } from \'../../../../mongodb\';
     <br/>
-    <br/>Much better look
-    <br/>import { User } from '@modules/user/model';
-    <br/>import { Article } from '@modules/article/model';
+    <br/>--- Much better look
+    <br/>--- import { User } from '@modules/user/model';  
+    <br/>--- import { Article } from '@modules/article/model';
     <br/>
-    <br/>import { Cache } from '@services/cache';
-    <br/>import { MongoDB } from '@services/mongodb';
+    <br/>--- import { Cache } from '@services/cache';
+    <br/>--- import { MongoDB } from '@services/mongodb';
     <br/>
     <br/>---- npm i --save module-alias 
     <br/>------- module registers the path aliases in compiled js files
     <br/>-------- 
-    <br/>"_moduleAliases": {
+    <br/>--- "_moduleAliases": {
     <br/>--- "@modules": "dist/rest/modules",
     <br/>--- "@services": "dist/services"
     <br/>}    
     <br/>
-    <br/>"baseUrl": "./src",
-    <br/>"paths": {
+    <br/>--- "baseUrl": "./src",
+    <br/>--- "paths": {
     <br/>--- "@modules/*": ["rest/modules/*"],
     <br/>--- "@services/*": ["services/*"]    
     `,
@@ -6458,7 +6486,6 @@ const subTopicsInfo = [
       '--- Inferred Types - TS determines the types',
       `--- Reduce()
        <br/>------- 
-
       `,
       `--- duck typing 
        <br/>------ powerful feature which brings strong typing concepts in TS code  
@@ -6466,7 +6493,7 @@ const subTopicsInfo = [
        `,
         '--- tooling - auto-completion | navigation | refactoring',  
         '--- TypeScript Compiler - MS - transpiles ts with type information to js files', 
-      '--- .ts files - files with Type Infon - makes data TypeSafe',
+      '--- .ts fisles - files with Type Infon - makes data TypeSafe',
       '--- transpilation ts files down to JavaScript files', 
       `--- tsconfig.json - identifies the project or appn as a TypeScript appn 
        <br/> - with this ids root path - CompilerOptions - AngularCompilerOptions
@@ -6477,17 +6504,19 @@ const subTopicsInfo = [
       '--- JS files - ES5 files - with std JavaScript' , 
       '--- ngc - (Angular Compiler ) uses tsc to transpile ts to js files',
       `--- Barrels - (index.ts) is a way to rollup exports from several modules into one convenient module
-      <br/>The barrel itself is a module file that re-exports selected exports of other modules
-      <br/> - module file which provides a centralised place for exporting 
-      <br/> -- components | interfaces | services | directives | pipes
+      <br/>--- The barrel itself is a module file that re-exports selected exports of other modules
+      <br/>------- module file which provides a centralised place for exporting 
+      <br/>------ components | interfaces | services | directives | pipes
       `,
-          `-- Exs of Composite data types - sequence | set | list | Array | table | Record | ftn call | union | intersection   
-        `,  
+       `--- Exs of Composite data types - sequence | set | list | Array | table | Record | ftn call | union | intersection   
+       <br/>
+       `,  
       `--- Union types - A | B eg   let unionJack : number | string;
+      <br/>
       `,
       `--- intersection types - expressiveness of type system - are composite data types - used to assign diff types to an object
-      <br/>useful for defining overloaded functions  
-      <br/>class Egg { private kind: "Egg" } and class Milk { private kind: "Milk" }
+      <br/>------ useful for defining overloaded functions  
+      <br/>------ class Egg { private kind: "Egg" } and class Milk { private kind: "Milk" }
       `,
       `--- product types - assigned to a tuple `,
      
@@ -6499,58 +6528,58 @@ const subTopicsInfo = [
       '--- readonly properties - export interface Course{ readonly title: string; descn: string; ageYears: number;}',
       '--- const myIfObj: Course = { title: \'My Course\', descn:\'My Descn\'',
       `--- Type Aliases - eg can be used with union type - 
-      <br/>type CourseStatus = "draft"| "published" | "unpublished";
-      <br/>  let x: CourseStatus = "draft"; 
+      <br/>--- type CourseStatus = "draft"| "published" | "unpublished";
+      <br/>--- let x: CourseStatus = "draft"; 
       `,
       `--- classes - helps structure reusable Angular objects  
        <br/>------ with multiple declarations for methods - properties - events 
       `,
       '-- index.ts'
-],
-    [`Angular CLI (Command Line Interface) tool - 
-        <br/>lets you initialize | develop | Scaffold | maintain | build| serve 
+     ],
+     [`Angular CLI (Command Line Interface) tool - 
+        <br/>--- lets you initialize | develop | Scaffold | maintain | build| serve 
         <br/>--- Angular apps directly from a Cmd line - prompt 
         <br/>
         <br/>--- uses ng xxx commands 
         <br/> 
-        <br/>--- uses Node.js | npm and Schematics and Webpack 
+        <br/>--- suses Node.js | npm and Schematics and Webpack 
         <br/>
-        <br/>CLI includes a Server to let you build, serve and test app locally  
-        <br/>--- uses builder dev-server 
-        <br/>----- when ng serve - port 4200 by default on localhost 
+        <br/>--- CLI includes a Server to let you build, serve and test app locally  
+        <br/>------ uses builder dev-server 
+        <br/>------ when ng serve - port 4200 by default on localhost 
         <br/> 
-        <br/>requires Node.js | npm (Node Package Manager)
+        <br/>--- requires Node.js | npm (Node Package Manager)
         <br/>
-        <br/>npm install -g @angular/cli   
+        <br/>--- npm install -g @angular/cli   
         <br/>
-         <br/>- CLI Commands
-         <br/>--- ng new
-         <br/>--- ng add
-         <br/>--- ng generate
-         <br/>--- ng build
-         <br/>--- ng update
-         <br/>--- ng serve
-         <br/>--- ng test
-         <br/>--- ng help
-         <br/>
-         <br/>- uses Schematics
-         <br/>--- Virtual file system 
-         <br/>----- base + staging area + add mod'ns to staging area 
-         <br/>---- Rule object - takes a Tree | applies transformations | returns tree
-         <br/>----- index.ts is main file for schematic - contains schematic logic    
-         <br/>---- Actions - Create | Rename|   Overwrite | Delete
-         <br/>---- Each schematic runs in a context - SchematicContext object 
-         <br/>  
-         <br/>--- Schematic JSON Schema file <schematic>/schema.json file 
-         <br/> --
-         <br/> uses Webpack 
-         <br/>--- behind the scenes - no webpack.config.js file to use
-         <br/>
-         <br/>-- Angular 12 and above uses Webpack 5 
-         <br/>---- long term caching - 
-         <br/>
-         <br/>---- Module Federation 
-         <br/>------ loading remote modules + stitch with appn at runtime 
+        <br/>- CLI Commands
+        <br/>--- ng new
+        <br/>--- ng add
+        <br/>--- ng generate
+        <br/>--- ng build
+        <br/>--- ng update
+        <br/>--- ng serve
+        <br/>--- ng test
+        <br/>--- ng help
+        <br/>
+        <br/>--- uses Schematics
+        <br/>--- Virtual file system 
+        <br/>----- base + staging area + add mod'ns to staging area 
+        <br/>---- Rule object - takes a Tree | applies transformations | returns tree
+        <br/>----- index.ts is main file for schematic - contains schematic logic    
+        <br/>---- Actions - Create | Rename|   Overwrite | Delete
+        <br/>---- Each schematic runs in a context - SchematicContext object 
+        <br/>  
+        <br/>--- Schematic JSON Schema file <schematic>/schema.json file 
+        <br/> --
+        <br/>- uses Webpack 
+        <br/>--- behind the scenes - no webpack.config.js file to use
+        <br/>
+        <br/>-- Angular 12 and above uses Webpack 5 
+        <br/>---- long term caching - 
+        <br/>
+        <br/>---- Module Federation 
+        <br/>------ loading remote modules + stitch with appn at runtime 
          <br/>-------- game changer in JS world 
          <br/>------ allows multiple Webpack builds to work together 
          <br/>
@@ -6560,29 +6589,51 @@ const subTopicsInfo = [
         '------- from a cmd shell',
         '------- Installation - npm install -g @angular/cli',
         ' -- ',  
-        '-- ng Commands',
-        `---- ng new`,
+        '--- ng Commands',
+        `------- ng new
+        <br/>---------- ng new my-app
+        `,
+        `----------- options
+        <br/>
+        H
+        `,
+        `------------- npm cache clean -f
+        <br/>
+        `,
+        `------------- npm audit fix -f
+        <br/>
+        `,
+        ' -- ',
         `---- ng add
+        <br/>
         `,
+        ' -- ',
         `---- ng generate
-      
+        <br/>-------
         `,
+        ' -- ',
         `---- ng build
-        
+        <br/>-------
         `,
+        ' -- ',
+  
         `---- ng update
-      `,
-        `---- ng serve
-      <br/>----- launches the server | watches your files | rebuilds app on change to files  
-      <br/>----- launches server by default on port 4200 on localhost
-      <br/>----- localhost:4200 
-      <br/>
-      <br/>----- uses builder dev-server
+        <br/>------ 
         `,
+        ' -- ',
+        `---- ng serve
+       <br/>----- launches the server | watches your files | rebuilds app on change to files  
+       <br/>----- launches server by default on port 4200 on localhost
+       <br/>----- localhost:4200 
+       <br/>
+       <br/>----- uses builder dev-server
+        `,
+        ' -- ',
         `---- ng test
-      `,
-      `---- ng help
-      `,
+        `,
+        ' -- ',
+        `---- ng help
+        `,
       ' -- ',
       `--- uses Schematics to apply transforms to a web-app project
       <br/>---- guard against errors by creating a virtual file system      
@@ -6593,12 +6644,16 @@ const subTopicsInfo = [
       <br/>
       <br/>---- custom schematics - 
       `,
-
       '------ virtual file system',
       '--------  tree',
       '----------  base + staging area (changes)',
       '--------  Rule object = transformations',
-      '--------  4 Actions - Create | Rename | Overwrite | Delete',
+      `--------  4 Actions - Create | Rename | Overwrite | Delete
+        <br/>------ Create 
+        <br/>------ Rename
+        <br/>------ Overwrite
+        <br/>------ Delete
+      `,
       `--------  SchematicContext - Each Schematic runs in a context repd by a SchematicContext object 
       <br/>------- The context object passed into a rule provides access to utility ftns + metadata - wrt schematic 
       <br/>---------- including logging API to help debugging
@@ -6639,8 +6694,7 @@ const subTopicsInfo = [
       `,
       '--- simplifies JS ',
     `--- simplifies Array | numbers | objects | strings - manipn
-    `,
-    
+    `,    
     `--- ES6 replacements for lodash
     <br/>---- Map -    
     <br/>---- Filter
@@ -6723,8 +6777,8 @@ const subTopicsInfo = [
       <br/>------   
      `,  
      ' -- ',
-     '-- dist folder',
-     `----- vendor.js - 
+     '--- dist folder',
+     `------ vendor.js - 
      <br/>-------- contains all libraries 
      <br/>------------ imported into your appn AppModule (including Angular library)     
      `,
@@ -6752,25 +6806,25 @@ const subTopicsInfo = [
      `,
     ],
     [`innerHtml
-    <br/>--- used with square brackets to implement an expression
-    <br/>--- &lt;div [innerHtml]="exp">abc&lt;/div>
-    <br/>--- whereas inerpolation does not implement the expn
+     <br/>---s used with square brackets to implement an expression
+     <br/>--- &lt;div [innerHtml]="exp">abc&lt;/div>
+     <br/>--- whereas inerpolation does not implement the expn
       `,
       `--- [innerHtml]
-        <br/>----- is a std HTML element attribute
-        <br/>----- to which Angular can bind 
-        <br/>
-        <br/>----- as opposed to interpolation 
-        <br/>-----  htmlContent = '<h1>Hello Angular 14!</h1>';
-        <br/>----- {{ HtmlContent }}
-        <br/>---------- just displays the <h1>... etc
-        <br/>
-        <br/>----- <p [innerHtml]="htmlContent"></p>
-        <br/>---------- displays the data in bold
+     <br/>----- is a std HTML element attribute
+     <br/>----- to which Angular can bind 
+     <br/>
+     <br/>----- as opposed to interpolation 
+     <br/>-----  htmlContent = '<h1>Hello Angular 14!</h1>';
+     <br/>----- {{ HtmlContent }}
+     <br/>---------- just displays the <h1>... etc
+     <br/>
+     <br/>----- <p [innerHtml]="htmlContent"></p>
+     <br/>---------- displays the data in bold
       `
     ], 
     [`Events - DOM vs Custom
-  `,
+    `,
     `--- DOM Events 
     <br/>------ to react to DOM els div, span, button  
     <br/>------ events used wrt functions  
@@ -6813,7 +6867,6 @@ const subTopicsInfo = [
     '----- TemplateRef in ng-template',
     '----- Web Component'
     ],
-
     [`Data Binding 
     <br/>--- is a technique where data stays in sync between the Component and the View
     <br/>--------- automatically keeps your page up to date based on appn state
@@ -6834,15 +6887,17 @@ const subTopicsInfo = [
     `-------- {{ val }}
     <br/>
     `,
-    `- String sinterpolation {{x}} - from data source to target view
+    `--- String sinterpolation {{x}} 
+    <br/>------ from data source to target view
     <br/>
     <br/>--- {{ val }}
-    <br/>--- Property binding - [] 
-    <br/>--- Properties are features of DOM nodes 
-    <br/>----- from view target to data source
-    <br/>------- RHS of binding is a template expression
-    <br/>--------- It should equate type of value - number | string| etc
-    <br/>----- Ex Property Binding
+    <br/>------- Property binding - [] 
+    <br/>------- Properties are features of DOM nodes 
+    <br/>---------- from view target to data source
+    <br/>---------- RHS of binding is a template expression
+    <br/>---------- It should equate type of value - number | string| etc
+    <br/>
+    <br/>------- Ex Property Binding
     <br/>-------- @Input() childItem=''; // string
     <br/>---------using selector
     <br/>------------ &lt;app-item [childItem]='parentItem'>&lt;/app-item>
@@ -6902,7 +6957,7 @@ const subTopicsInfo = [
     `--- display:none 
      <br/>------ normally used with JS to hide/show els without deleting and recreating them `,
     ' -- ',     
-    `--- Z-index 
+    `--- sZ-index 
     <br/>------ specifies the stack order of an element
     <br/>------ Only works on positioned elements - 
     <br/>------ position: absolute, relative, fixed, sticky - flex items
@@ -8541,7 +8596,7 @@ const subTopicsInfo = [
     <br/>------- has an evaluation engine to evaluate simple expressions 
     <br/>------- supports most libraries out of the box
   `],  
-  [`Ivy - is new Compilation and Rendering Pipeline 
+   [`Ivy - is new Compilation and Rendering Pipeline 
   <br/>---- which creates template instructions to render info to the DOM
   <br/>
   <br/>- features - Template Instructions | Incremental DOM | Locality | TreeShaking | 
@@ -8652,8 +8707,16 @@ const subTopicsInfo = [
     '---- NodeInjector (ElementInjector)',
     '-------- TNode object',
     '-------- LView object',
-  ], 
-  [`ViewEngine old 
+   ],
+   [`--- Locality
+   
+   `,    
+   ],
+   [`--- Incremental DOM
+   
+   `,
+   ],
+   [`ViewEngine old 
     <br/>--- legacy compilation and rendering pipeline
     <br/>
     `, 
@@ -9656,13 +9719,13 @@ les -
      '--- Angulars mechanism for Communication with a remote Server over HTTP',
      '-- HttpClientModule - ',
      ' -- ',
-     `HttpInterceptors 
+     `--- HttpInterceptors 
      <br/>--- is a special Angular service 
      <br/>--- provides a way to intercept HTTP Requests and Responses 
      <br/>------- and modify them the way we wish
      <br/>------- can cache HTTP requests and responses - 
      `,
-     '- Service',
+     '------- Service',
      '- intercepts an HttpRequest or HttpResponse',
      '- caches HttpRequests | HttpResponsee',
      `-- interface HttpInterceptor {
@@ -9694,8 +9757,17 @@ les -
       '--- angular/in-memory-web-api'
       
   ],
+  [`--- HttpClient
   
-    ['appns vers custom libraries',
+  `,
+  ],
+  [`--- HttpInterceptors
+   
+
+  `,
+
+  ],
+  ['appns vers custom libraries',
     '--- Appns',
     '--- use ng g library',
     '--- ng-packagr', 
@@ -10244,9 +10316,36 @@ les -
       `,    
     ],
     [`GIT
-    <br/>--- is a free open source distributed VCS (Version Control System) 
-    <br/>--- designed to handle small to large projects with speed and efficiency
+    <br/>--- distributed VCS| decentralized| share devs work between teams| revert back to snapshot
+    <br/>--- working dir| staging area (index)| local repo| remote repo| git clone| local repo
+    <br/>--- git init| .git folder| git config| branches| .gitignore 
+    <br/>--- git add| staging| git status| git status| git commit| local repo| git push| git pull 
+    <br/>--- branches - git branch my-login  | git commit | git checkout my-login|
+    <br/>--- git remote add and git push and git commit - git remote 
+    <br/>--- merge  conflicts and fixing 
+    <br/>--- Object DB -     
     <br/>
+    <br/>--- is a free open source distributed VCS (Version Control System) 
+    <br/>-------- decentralized - devs dont need to be on same OS or network
+    <br/>--- designed to handle small to large projects with speed and efficiency
+    <br/>--- coordinates work between multiple developers
+    <br/>--- who made what changes and when via commits
+    <br/>-------- snapshots of files 
+    <br/>--- revert back to a commit at any time 
+    <br/>-------- visit a snapshot at any time
+    <br/>--- local and remote repositories 
+    <br/>-------- make changes to local repos and push to a remote - github| BitBucket
+    <br/>-------- Once you push data to remote folder - other devs can pull your changes
+    <br/>--- it just stores files in the .git folder
+    <br/>--- staging of files before a commit 
+    <br/>-------- using the add command - staging area is called the index
+    <br/>--- you can create branches 
+    <br/>--- git bash (linux envt on windows)  | SSH keys so you dont need to enter username|pwd
+    <br/>--- git remote add origin https://github.com/gordoncumming/myappsimple
+    <br/>--- git push -u origin master |  git remote - gives all remote files and repos
+    <br/>--- merge conflicts - when other people have modified same file as you
+    <br/>--- has an Object DB - 
+    <br/>--- GUI git 
     <br/>
     <br/>--- Distributed Revision Control System 
     <br/>------- A bit more complex wrt SubVersion client server system
@@ -10259,6 +10358,15 @@ les -
     <br/>-------------- 20 bytes or 40 hex digits 
     <br/>------------ a filname + permissions are stored in the tree that points to the blob
     <br/>---------------  A blob is the content of a file
+    <br/>
+    <br/>--- git config --global user.name 'Gordon Cumming'
+    <br/>--- git config --global user.email 'dynaphoneimages@hotmail.com'
+    <br/>--- add/remove staging area - git add index.html |  git rm --cached index.html
+    <br/>--- git add . to add everything and git status then git commit message
+    <br/>--- git commit -m "My changes" 
+    <br/>--- branches - MASTER - git branch my-login | git commit -m "another change"
+    <br/>--- switch branches - git checkout my-login  | git checkout master | git merge login    
+    <br/>git remote and git push  
     <br/>
     <br/>--- Object Database (git/objects directory)
     <br/>-------- gives unique key that refers to that data object 
@@ -11642,7 +11750,8 @@ import fastify, {
      <br/>---- Fully managed infrastructure
      <br/>---- Automatic scaling 
      <br/>---- Tight integration with other AWS products
-     `,`--- AWS Lambda Limitations -
+     `,
+     `--- AWS Lambda Limitations -
      <br/>---- Cold Start Time
      <br/>---- Function Limits
      <br/>------ Execute time/run time 15 minutes       
@@ -11654,6 +11763,9 @@ import fastify, {
      <br/>----- Maybe AWS EC2 might be better in some cases  
      <br/>---- Ltd number of supported runtimes
      `,
+     '----- AWS Templates',
+     '---------- AWS Terraform',
+   
      `--- Deployment - 
      <br/>----- ng deploy (Ang 8.3)    
      <br/>
@@ -11780,10 +11892,10 @@ import fastify, {
   '----- AWS Lambda Languaged',
   '----- AWS Lambda Advantages',
   '----- AWS Lambda Limitations',
+  '----- AWS Templates',
+  '---------- AWS Terraform',
   '--- AWS Web Service',
- 
   '--- AWS Cloud Compute Service',
-   
   '--- AWS Management Console'
   ],
   ['Azure',
@@ -13765,9 +13877,10 @@ import fastify, {
 ' -- ',
  
 `Ang 09 TS 3.6/7 
-    <br/>- Ivy enabled by default 
-    <br/>- Updates to Zone.js and RxJS 
-    <br/>- smaller bundle size
+    <br/>--- Ivy enabled by default 
+    <br/>--- Updates to Zone.js and RxJS 
+    <br/>--- smaller bundle size
+    <br/>--- uses Dynamic imports wrt string
     <br/>    ModuleWithProviders - Language Service 
     <br/>    - Faster Testing with ComponentHarness
     <br/>
@@ -13778,44 +13891,71 @@ import fastify, {
     '-- Ivy enabled by default',
     '-- Smaller bundle size',
     '-- Update to Zone.js and RxJS',
-    '-- ModuleWithProviders',
+    `--- uses Dynamic imports wrt string
+    
+    `,
+    `-- ModuleWithProviders
+    
+    `,
     '-- Language Service',
-    '-- Faster Tesing with ComponentHarness',
-'-- ',
-    `Ang 08 TS 3.4 - Differenctial Loading 
-    - ES5 | ES2015 - 
-    <br/>new lazy loading syntax 
-    - uses dynamic import syntax -    
-    <br/>Simplifies Web Worker creation -   ng g 
-    <br/>new APIs 
-    <br/>bazel and Ivy are coming -
+    `-- Faster Tesing with ComponentHarness
+    
+    `,
+    ' -- ',
+    `Ang 08 TS 3.4 
+    <br/>--- Differenctial Loading 
+    <br/>--- ES5 | ES2015 - 
+    <br/>--- new lazy loading syntax 
+    <br/>--- uses dynamic import syntax -    
+    <br/>--- Simplifies Web Worker creation -   ng g 
+    <br/>--- new APIs 
+    <br/>--- bazel and Ivy are coming -
     <br/>
     <br/>- still used NgModuleFactory for ViewEngine based Jit API  
-    <br/>----- Deprecated in Ivy JIT mode
+    <br/>------ Deprecated in Ivy JIT mode
     `,
-    '-- TS 3.4',
-    '-- Differential loading ES5 | ES2015',
-    '-- new lazy loading syntax - uses dynamic imports',
-    '-- simplifies Web Worker creation',
-    '-- new APIs',
-    '-- bazel and Ivy are coming',
- ' -- ',
- `Ang 07 TS 3.1  Ang Material and CDK - Virtual scrolling | Drag n Drop  
-      <br/>Performance improvements -reflect-metadata polyfill - 
-      <br/> CLI prompts       
-      <br/>Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
-      <br/>new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
-      <br/>Angular Error handling - 
-      <br/>Angular Elements - 
-      <br/>Native Script - 
-  `,
-    '-- TS 3.1',
-    '-- Ang Material | SDK',
-    '-- CLI Prompts',
-    '-- Angullar Do-Bootstrap',
-    '-- new Angular Compiler -  8 phase rotating AOT Compilation',
-    '-- Angular error handling'
-]
+    `--- TS 3.4
+    
+    `,
+    `--- Differential loading ES5 | ES2015
+    
+    `,
+    `--- new lazy loading syntax - uses dynamic imports
+    <br/>
+    `,
+    `--- simplifies Web Worker creation
+    `,
+    '--- new APIs',
+    '--- bazel and Ivy are coming',
+     ' -- ',
+    `Ang 07 TS 3.1
+      <br/>--- Ang Material and CDK - Virtual scrolling | Drag n Drop  
+      <br/>--- Performance improvements -reflect-metadata polyfill - 
+      <br/>--- CLI prompts       
+      <br/>--- Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
+      <br/>--- new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
+      <br/>--- Angular Error handling - 
+      <br/>--- Angular Elements - 
+      <br/>--- Native Script - 
+    `,
+    `-- TS 3.1
+    
+    `,
+    `-- Ang Material | SDK
+    
+    `,
+    `-- CLI Prompts
+    
+    `,
+    ` -- Angullar Do-Bootstrap
+    `  ,
+    `--- new Angular Compiler -  
+    <br/>------ 8 phase rotating AOT Compilation
+    `,
+     `--- improved Angular error handling
+     
+     `
+  ]
 ];
 
 @Component({
