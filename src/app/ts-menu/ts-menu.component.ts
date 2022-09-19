@@ -10319,33 +10319,55 @@ les -
     <br/>--- distributed VCS| decentralized| share devs work between teams| revert back to snapshot
     <br/>--- working dir| staging area (index)| local repo| remote repo| git clone| local repo
     <br/>--- git init| .git folder| git config| branches| .gitignore 
-    <br/>--- git add| staging| git status| git status| git commit| local repo| git push| git pull 
+    <br/>--- git add| staging| git status| git restore --staged login.js
+    <br/>--- git commit| local repo| git push | remote repos - git remote lists remote repos like Master 
+    <br/>------- git reset long-hash
+    <br/>-------- moved to not staged area   
     <br/>--- branches - git branch my-login  | git commit | git checkout my-login|
+    <br/>-------- HEAD on Master or  if my-login then HEAD points to that
+    <br/>--- git log - gives the history of project commits
     <br/>--- git remote add and git push and git commit - git remote 
-    <br/>--- merge  conflicts and fixing 
+    <br/>--- merge  conflicts and fixing   
+    <br/>--- Stashing - saves working directory and staged changes
+    <br/>--- Forking - creates a completely indept copy of a remote repository 
+    <br/>--- Cloning - copies a local or remote repo which is synchronised with the local or remot repository   
+    <br/>
     <br/>--- Object DB -     
     <br/>
     <br/>--- is a free open source distributed VCS (Version Control System) 
     <br/>-------- decentralized - devs dont need to be on same OS or network
     <br/>--- designed to handle small to large projects with speed and efficiency
     <br/>--- coordinates work between multiple developers
-    <br/>--- who made what changes and when via commits
+    <br/>--- 3 parts - working directory | staging area (index) | local repository
+    <br/>--- git init - .git folder and .gitignore folder for to ignore folders or files
+    <br/>-------- it just stores files in the .git folder
+    <br/>--- staging of files before a commit - 
+    <br/>-------- using the add command - staging area is called the index
+    <br/>--- staged changes - with git add login.js or git add . but then 
+    <br/>-------- unstage git restore --staged login.js   
+    <br/>--- commit - history of project - who made what changes and when
     <br/>-------- snapshots of files 
-    <br/>--- revert back to a commit at any time 
+    <br/>-------- each commit is stacked on top of each other 
+    <br/>-------- git reset long-digits  - removes the commits above it
     <br/>-------- visit a snapshot at any time
+    <br/>-------- revert back to a commit at any time 
     <br/>--- local and remote repositories 
     <br/>-------- make changes to local repos and push to a remote - github| BitBucket
+    <br/>------------ github - allows us to host git repositories
     <br/>-------- Once you push data to remote folder - other devs can pull your changes
-    <br/>--- it just stores files in the .git folder
-    <br/>--- staging of files before a commit 
-    <br/>-------- using the add command - staging area is called the index
-    <br/>--- you can create branches 
-    <br/>--- git bash (linux envt on windows)  | SSH keys so you dont need to enter username|pwd
     <br/>--- git remote add origin https://github.com/gordoncumming/myappsimple
-    <br/>--- git push -u origin master |  git remote - gives all remote files and repos
+    <br/>-------- git push -u origin master |  git remote - gives all remote files and repos
     <br/>--- merge conflicts - when other people have modified same file as you
+    <br/>--- branches - git branch abc | git checkout abc  | HEAD changes o abc
+    <br/>-------- work on your own branch before merging with Master  
+    <br/>-------- git checkout -b abc - same as git branch 123 and git checkout 123
+    <br/>--- stashing - git stash takes the dirty state of working directory and staged changes
+    <br/>------- before you change to a diff branch to continue other work
+    <br/>------- saves it to a named stash for returning later
+    <br/>
     <br/>--- has an Object DB - 
     <br/>--- GUI git 
+    <br/>--- git bash (linux envt on windows)  | SSH keys so you dont need to enter username|pwd
     <br/>
     <br/>--- Distributed Revision Control System 
     <br/>------- A bit more complex wrt SubVersion client server system
@@ -10435,7 +10457,6 @@ les -
     <br/>
     <br/>--- Git Commits - 
     <br/>
-    <br/>
     <br/>--- Branches - part of everyday devt process 
     <br/>------ A pointer to a snapshot of your changes 
     <br/>------ spawn a new branch to make changes 
@@ -10457,9 +10478,8 @@ les -
     <br/>----------- git cache
     <br/>------------------ git --rm --cached (one file or entire working directory)
     <br/>---------------------- git --rm --cached  
-
-
-    <br/>?--- Forking - creates a indept copy of a Git repository 
+    <br/>
+    <br/>--- Forking - creates a indept copy of a Git repository 
     <br/>
     <br/>--- git clone 
     <br/>---- creates a linked copy that will continue to sync with the target repo
