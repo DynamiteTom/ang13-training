@@ -210,70 +210,71 @@ const subTopics = [
     '----- accessing a DOM el',
     '------- @ViewChild()',
     '--- Most important Ang el', 
-    '- class',
-    '- constructor(){}',
-    '-- properties',
-    '-- methods',
-    '-- Services',
-    '-- Directives',
-    '--- Observables',
-    '--- Subjects',
+    '--- class',
+    '------ constructor(){}',
+    '------ properties',
+    '------ methods',
+    '------ Services',
+    '------ Directives',
+    '------ Observables',
+    '------ Subjects',
     ' -- ', 
-    '- template',
-    '-- pipes',
+    '--- template',
+    '------- pipes',
     ' -- ', 
-    'Decorators',
-    '- @Component({})', 
-    '-= selector', 
-    '-- templateUrl', 
-    '-- styleUrl',
+    '--- Decorators',
+    '------ @Component({})', 
+    '----------- selector', 
+    '----------- templateUrl or template', 
+    '----------- styleUrl',
+    '----------- providers',
+    '----------- standalone',
     ' -- ', 
-    ' Template Ref Variable', 
+    '--- Template Ref Variable', 
     ' -- ', 
-    '- Data Binding', 
+    '--- Data Binding', 
     ' -- ', 
-    '- LC-hooks',
+    '--- LC-hooks',
     ' -- ', 
-    '-- Component Tree',
+    '--- Component Tree',
     ' -- ', 
-    '- Change detection',
+    '--- Change detection',
     ' -- ', 
-    'this',
-    'globalThis', 
+    '--- this',
+    '------- globalThis', 
     ' -- ', 
-    '- ng g c xyz',
+    '--- ng g c xyz',
     ' -- ',
-    '--- Smart Components',
-    '----- keep track of state',
-    '----- how components work together',
-    '--- Dumb Components - presentation components'
+    '------- Smart Components',
+    '----------- keep track of state',
+    '------- how components work together',
+    '------- Dumb Components - presentation components'
    ],
     ['Directives',
-     '@Directive({})', 
-     '--- have no views (template)',
-     '--- have no views',
-     '----- work directly with the el - ElementRef',
-     '--- 2 Directive Types',
-     '------ attribute-directives', 
-     '------ template-directives *ngIf',
+     '--- @Directive({})', 
+     '------- have no views (template)',
+     '------- work directly with the el - ElementRef',
+     '------- 2 Directive Types',
+     '----------- attribute-directives', 
+     '----------- template-directives *ngIf',
      ' -- ',
-     ' -- Types of Template Directives',
-     '----- *ngIf',
-     '------- *ngIf ; else ng-tmp',
-     '--------- ng-template #ng-tmp',
+     ' --- Types of Template Directives',
+     '------- *ngIf',
+     '------------ *ngIf ; else ng-tmp',
+     '---------------- ng-template #ng-tmp',
      ' -- ', 
-     '----- *ngFor',
-     '------ trackBy performance',
+     '-------- *ngFor',
+     '------------ trackBy performance',
      ' -- ',   
-     '----- *ngSwitch()',
-     '------- case',
+     '-------- *ngSwitch()',
+     '------------- case',
      ' -- ', 
-     '----- ng-template <ng-template>',
+     '-------- ng-template <ng-template>',
      '--------- not displayed by default',
-     '---------- determine when display',
-     '--------- has 1+ input named values',
+     '------------ determine when display',
+     '------------ has 1+ input named values',
      '----------- template vars', 
-     '--------- use of let-x',
+     '----------- use of let-x',
      '--- section off ng-templae',
     '-------- ng-container <ng-container',
     '------------ no element displayed',
@@ -306,12 +307,12 @@ const subTopics = [
     '-------- chaining pipes',
     ' -- ',
     '--- inbuilt Pipes',
-    '----- DatePipe',
-    '----- CurrencyPipe',
-    '----- DecimalPipe',
-    '----- UpperCasePipe',
-    '----- LowerCasePipe',
-    '----- Percent  Pipe',
+    '------- DatePipe',
+    '------- CurrencyPipe',
+    '------- DecimalPipe',
+    '------- UpperCasePipe',
+    '------- LowerCasePipe',
+    '------- Percent  Pipe',
     ' -- ',
     '----- async Pipe - Observable',
    ' -- ', 
@@ -322,16 +323,16 @@ const subTopics = [
     '------- every CD cycle',
     '------- pure: false',  
     ' -- ',  
-    '---Custom Pipes', 
-    '------ @Pipe({})',
-    '------ PipeTransform - transform',
-    '------ Declared once',
-    '--------- used throughout app',
-    '------ @Pipe({})',
+    '--- Custom Pipes', 
+    '-------- @Pipe({})',
+    '-------- PipeTransform - transform',
+    '-------- Declared once',
+    '------------ used throughout app',
+    '-------- @Pipe({})',
     '--------- attributes - name, pure',  
     ' -- ',  
-    '--- pipe wrt ftn',
-    '--- pipe parameters'
+    '------ pipe wrt ftn',
+    '------ pipe parameters'
   ],
   ['Services and DI',
     '--- wrt Components',
@@ -343,8 +344,8 @@ const subTopics = [
     '------ service',
     '---------- Reuse',
     ' -- ',
-    '- providers section',
-    '--- Appn or Component',
+    '--- providers section',
+    '------- Appn or Component',
     '----- Appn - Module',
     '-------- @NgModule({})',
     '----- Component',
@@ -760,12 +761,19 @@ const subTopics = [
     '--- package.json', 
     '--- angular.json', 
     '--- tsconfig.json',
+    '------- TypeScript confign file',
     '--- index.html',
     '--- main.js',
     '--- dist folder',
-    '----- vendor.js',
-    '----- main.js',
-    '----- runtime.js',
+    '------ main.js',
+    '---------- lazy loading',
+    '---------- preloadingStrategy',
+    '------ runtime.js',
+    '---------- webpack bundler',
+    '------ scripts.js',
+    '------ styles.js',
+    '------ polyfills.js',
+    '------ vendor.js',
     '--- node_modules folder',
     '--- core.d.ts' 
     ],
@@ -2397,24 +2405,24 @@ const subTopics = [
 '------- security of cert + conn\'n'
 ],
 ['Angular Performance - ',
-'--- largest contentful paint', 
-'',
+'--- FCP (First Contentful Paint)',
+'--- LCP (Largest Contentful Paint)',
 '--- Lazy Loading',
-'--- Angular Universal',
-'--- PWA-SW',
-'--- Ivy', 
+'--- Webpack bundle analyzer',
 '--- AOT Compilation',
 '--- Tree-Shaking', 
 '--- Modern Angular',
+'--- Ivy', 
+' -- ',
+'--- Angular Universal',
+'--- PWA-SW',
 '--- Chrome User Experience Report',
 '--- PageSpeed Insights',
 '--- Core Web Vitals',
 '--- Chrome DevTools',
-'--- Light  house',
+'--- Lighthouse',
 '--- Web-Vitals',
 '--- LogRocket',
-'--- FCP (First Contentful Paint)',
-'--- LCP (Largest Contentful Paint)',
 ''
 ],
 [`SourceMap Explorer
@@ -6729,10 +6737,16 @@ const subTopicsInfo = [
     <br/>
     <br/>--- dist folder
     <br/>------ main.js
+    <br/>---------- lazy loading
+    <br/>---------- preloadingStrategies
     <br/>------ runtime.js
+    <br/>---------- webpack 
     <br/>------ polyfill.js
     <br/>------ styles.js
+    <br/>---------- angular.json
     <br/>------ scrips.js
+    <br/>---------- angular.json
+    <br/>------ vendor.js 
     <br/>
     <br/>--- node_modules folder
       `,
@@ -6778,26 +6792,50 @@ const subTopicsInfo = [
      `,  
      ' -- ',
      '--- dist folder',
-     `------ vendor.js - 
-     <br/>-------- contains all libraries 
-     <br/>------------ imported into your appn AppModule (including Angular library)     
-     `,
-     `----- main.js
+     `------ main.js
+     <br/>------- contains all our code including Components (ts |html| css/scss)
+     <br/>------------ pipes | directives | services| and all imported modules (+ 3rd party modules)
      <br/>------- contains the action related code of the appn
-     <br/>------- contains the code of Angular appn  
+     <br/>
+     <br/>------ If we dont lazy load this main.js can be very large 
+     <br/>------ but by lazy loading we only load the modules or files that are initially required
+     <br/>----------- hence the main.js is much smaller
+     <br/>------ and then dynamically load up the module or component thats required 
+     <br/>
+     <br/>------ Preloading strategy - helps performance - 
+     <br/>---------- { preloadingStrategy: PreloadAllModules }
+     <br/>
+     <br/>------ faster download and render of the main page 
+     `,
+     `------- Lazy loading 
+     <br/>------ If we dont lazy load this main.js can be very large 
+     <br/>------ but by lazy loading we only load the modules or files that are initially required
+     <br/>----------- hence the main.js is much smaller
+     <br/>------ and then dynamically load up the module or component thats required 
+     `,
+     `---------- PreloadingStrategy
+     <br/>---------- { preloadingStrategy: PreloadAllModules }
      `,
      `----- runtime.js
      <br/>------- used by webpack to load code at runtime  
      <br/>------- bundles are generated by webpack 
      `,
+     `---------- webpack 
+     <br/>------------ bundler and loader
+     `,
      `------ polyfills.js
-     
+     <br/>------- to allow modern features in other browsers
      `,
      `------ styles.js
-     
+     <br/>------- styles applied throughout the appn
+     <br/>------- in the styles section of angular.json
      `,
      `------ scripts.js
-     
+     <br/>------- scripts from the angular.json scripts section
+     `,
+     `------ vendor.js - 
+     <br/>-------- contains all libraries 
+     <br/>------------ imported into your appn AppModule (including Angular library)     
      `,
      
     ' -- ',
@@ -8073,8 +8111,15 @@ const subTopicsInfo = [
     <br/>]
     <br/>})
     `,
-    '-- Shared Modules',
-    '-- PreloadingStrategy',
+    `------ preloadingStrategy
+    
+    `,
+    `--- Shared Modules
+    <br/>----- you can have several shared modules 
+    <br/>----- to ensure it doesnt get too large 
+    <br/>----- especaially the HomeSharedModule 
+    `,
+    '------ PreloadingStrategy',
     '--- PreloadAllModules - to initially fetch all modules', 
     ' -- ',
     '-- Lazy Load Components (not Modules)',
@@ -10820,8 +10865,12 @@ les -
     '------- Deep', 
     ' -- ',
     '--- End to End', 
-    '-------- Protractor', 
-    '-------- Cypress'
+    `-------- Protractor
+    <br/>---------- shared file
+    `, 
+    `-------- Cypress
+    <br/>---------- ng add @cypress/schematic
+    `
     ],
     [`--- Unit Testing
     <br/>------- tests an individual Component 
@@ -11283,7 +11332,13 @@ import fastify, {
     '------- lets you enforce a set of style | formatting | coding stds for your codebase',
     '------- ESLint 8.09 (7th Feb 2022) -  ',
     '------- ESLint 8.15 (7th May 2022) -  ',
-    ],
+    `--- Add ESLint 
+    <br/>------ npm i @angular-eslint/eslint-plugin
+    `,
+    `------- Add ESLint and Remove TSLint
+    <br/>-------- ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
+    `  
+  ],
     [`ALS (Angular Language Service ) - for templates
       <br/>  
       <br/>--- ALS reads the tsconfig.json file
@@ -12775,10 +12830,11 @@ import fastify, {
   `,
   '-- inspects all loaded resources','-- ',
 ],                                                                                                                                                                                                                                                                                                    
-  [`How - Angular Performance - 
+  [`Performance - 
     <br/>--- Ivy 
     <br/>--- AoT 
-    <br/>--- Lazy loading - 
+    <br/>--- Lazy loading -
+    <br/>--- Webpack Bundle Analyzer 
     <br/>--- tree shaking - 
     <br/>--- Modern Angular
     <br/>--- RxJS
@@ -12789,6 +12845,7 @@ import fastify, {
     <br/>--- Use trackBy option For Loop
     <br/>--- optimize bundling and preloading  
     <br/>--- virtual scroll| infinite scroll| pagination
+    <br/>--- Lazy load images (not visible till we scroll down)
     <br/>--- use smart and dumb components
     <br/>--- NgZone.runOutsideAngular()
     <br/>--- ES2015 to 2022
@@ -12818,9 +12875,26 @@ import fastify, {
   `,
   `--- Lazy Loading
   `,
+   `--- Webpack Bundle Analyzer 
+   <br/>--- npm install --save-dev webpack-bundle-analyzer
+   <br/>
+   <br/>--- "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json"
+   <br/>
+   <br/>--- npm run bundle-report
+   `,
+   `------- zoomable treemap
+   <br/>--------- webpack bundle analyzer
+   `,
+   `--- Several small shared modules
+   <br/>------ so they dont grow too big 
+   <br/>------ especially one for HomeSharedMoule which might simplify things
+   `,
   `--- Tree-Shaking
+  <br/?------- Dead code elimination
   `, 
   `--- Modern Angular
+  <br/>------- Mpst new major versions of Angular
+  <br/>----------- speeds up and reduces the size of the previous
   `,
   `--- RxJS 
   `,
@@ -12828,12 +12902,14 @@ import fastify, {
   
   `,
   `--- use Pipes instead of methods
+  <br/>------- they are cached and shareable - just declared
+  <br/>
   `,
   `--- Pure pipes
-  
+  <br/>------ Pure: true
   `,
   `--- OnPush CD (Change Detection)
-  
+  <br/>------ ChangeDetectionStrategy.onPush()
   `,
   `--- trackBy in for loop
   
@@ -12852,11 +12928,18 @@ import fastify, {
   `--- ES (EcmaScript) 2015 - 2022
   
   `,
+  `--- Fonts
+  <br/>------ use FOUT instead of FOIT
+  <br/>----------- FOUT - Flash of Unstyled Text 
+  <br/>----------- FOIT - Flush of Invisible Text 
+  
+  `,
+  `--- `,
   `--- unsubscribe from Observables
   `,
   `--- Observables and BehaviorSubjects
   `,
-  `--- Unsubscribe from Observables
+  `--- Observables | async pipe 
    `,
    `--- Webpack 
    `, 
