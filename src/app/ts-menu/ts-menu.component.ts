@@ -147,6 +147,8 @@ const subTopics = [
     ' -- ',
     '--- EcmaScript',
     '------ ESM (ES Modules)',
+    '--------- Vite using ESBuild',
+    ' -- ',
     '--- TypeScript',
     ' -- ',
     '--- Template Ref Variables',
@@ -1134,6 +1136,7 @@ const subTopics = [
     ['ESBuild',
       '--- CommonJS',
       '--- ESMs',
+      '------ Vite using ESBuild',
       ' -- ',
       '--- Node.js - Backend',
       '-------- fastify wrt express.js',
@@ -2009,7 +2012,10 @@ const subTopics = [
     '--- AST based pattern checker - JS',
     '------ enforce style | formatting| coding',
     '------ ESLint 8.9 - ',
-    '------ ESLint 8.15 - '
+    '------ ESLint 8.15 - ',
+    '------ ESLint 8.23 - ',
+    '------ ESLint 8.23.1 - ',
+    
     ],
     ['Why CI/CD', 
     '--- CI - Continuous Integration',
@@ -3497,12 +3503,12 @@ const subTopicsInfo = [
     <br/>----- configure the injector and the compiler 
     <br/>-------- and help organize related things together
     <br/>
-    <br/>-- Diff between JS Module and Angular Module
-    <br/>1: JS Module (ESM) is a file 
-    <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
+    <br/>--- Diff between JS Module and Angular Module
+    <br/>------ 1: JS Module (ESM) is a file 
+    <br/>------ 2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
     <br/>
     <br/>----- @NgModule
-    <br/>------ base class of Std Angular libraries
+    <br/>------base class of Std Angular libraries
     <br/>------  
     <br/>
     <br/>----- Bootstrapping
@@ -3591,7 +3597,27 @@ const subTopicsInfo = [
   <br/> 
   <br/>------ Es2015 (ES6) - is associated with 1st ES roll out
   `,
-  
+  `--- Vite
+  <br/>------ ESMs (ES Modules to file) direct to browser | PreBunles | 1 request | when starting server
+  <br/>--- a dev server - for answering browser requests
+  <br/>--- serving the reqd ESMs
+  <br/>   
+  <br/>--------- modern browsers can use ES Modules directly 
+  <br/>--------- no need to generate a bundle 
+  <br/>--------- just load the few ESM needed for the page
+  <br/>--------- browser loads reqd imports using HTTP Requests  
+  <br/>
+  <br/>--------- Vite sometimes needs to transform files into ESMs using ESBuild
+  <br/>------------ then sends the ESM to the browser  
+  <br/>------------ Modifying a file just means changing 1 ESM and sending it to browser
+  <br/>---------------- Webpack tools must rebuild the whole bundle 
+  <br/>
+  <br/>------------ Prebundles thousands of files into 1 file using esbuild 
+  <br/>--------------- serves to browser in 1 request   
+  <br/>
+  <br/>---------- need to use RollUp at the moment for code splitting etc
+  <br/>------------- 
+  `,
   `TypeScript - JS with the power of types - 
       <br/>data types - number | string | boolean | Array | 
       <br/>---- null | undefined
@@ -4253,20 +4279,21 @@ const subTopicsInfo = [
     <br/>-------- and provides adequate support as you open a template 
     `,
   ' -- ',
-  `ESLint - statically analyses your code to quickly find problems 
+  `ESLint 
+    <br/>--- statically analyses your code to quickly find problems 
     <br/>
-    <br/>- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
+    <br/>--- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
     <br/>
-    <br/>- is a JavaScript Linter to lint either JS + TS code 
-    <br/>(TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>--- is a JavaScript Linter to lint either JS + TS code 
+   = <br/>------(TSLint only used by TypeScript) - A large project can contain both JS + TS
     <br/>
-    <br/>- is built into most Web Editors VS Code or as part of your CI pipeline  -
+    <br/>--- is built into most Web Editors VS Code or as part of your CI pipeline  -
     <br/>
-      <br/>- enables you to enforce a set of style | formatting | coding stds for your codebase  
+    <br/>--- enables you to enforce a set of style | formatting | coding stds for your codebase  
     <br/>
-    <br/>ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
+    <br/>--- ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
     <br/>
-    <br/>ESLint8.15 - May 2022 - 
+    <br/>--- ESLint8.15 - May 2022 - 
     `,
   ' -- ',
   `GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
@@ -4325,17 +4352,17 @@ const subTopicsInfo = [
     <br/> ------- Staged changes
     <br/> --------- Name changes
     <br/> -- 
-    <br/>- Local Repository
-    <br/>-- Local computers
-    <br/>---- git Push
+    <br/>--- Local Repository
+    <br/>-------- Local computers
+    <br/>-------- git Push
     <br/> --   
-    <br/>- Remote Repository
-    <br/>-- Server for Team
-    <br/>---- git Pull 
+    <br/>--- Remote Repository
+    <br/>-------- Server for Team
+    <br/>-------- git Pull 
     <br/> --  
-    <br/>-- Branches - 
-    <br/>--- lightweight movable ptr   
-    <br/>----- Commits
+    <br/>--- Branches - 
+    <br/>------- lightweight movable ptr   
+    <br/>------- Commits
     <br/>----- Snapshot of changes
     <br/>------- New branch per change
     <br/>--- default = master',
@@ -6254,13 +6281,14 @@ const subTopicsInfo = [
         `
       ],
     [`TypeScript - JS with the power of types - 
-      <br/>data types - number | string | boolean | Array | 
-      <br/>---- null | undefined
-      <br/>---- helps avoid static type errors - discover at Compile time (not runtime)
+      <br/>--- data types - number | string | boolean | Array | 
+      <br/>--- null | undefined
+      <br/>-------- helps avoid static type errors (compilation errors) 
+      <br/>-------- discover at Compile time (not runtime)
       <br/> 
-      <br/>- Object Oriented Language
-      - strongly typed and uses inferred types 
-      - interfaces and types   
+      <br/>--- Object Oriented Language
+      <br/>---- strongly typed and uses inferred types 
+      <br/>---------- interfaces and types   
       <br/>
       <br/>A Strongly Typed Programming Language
       <br/>- Can be used in any browser or JS engine (ES6) ie. Node.js   
@@ -6791,7 +6819,9 @@ const subTopicsInfo = [
       <br/>------   
      `,  
      ' -- ',
-     '--- dist folder',
+     `--- dist folder
+     <br/>------ contains js files called chunks
+     `,
      `------ main.js
      <br/>------- contains all our code including Components (ts |html| css/scss)
      <br/>------------ pipes | directives | services| and all imported modules (+ 3rd party modules)
@@ -6816,6 +6846,7 @@ const subTopicsInfo = [
      `---------- PreloadingStrategy
      <br/>---------- { preloadingStrategy: PreloadAllModules }
      `,
+
      `----- runtime.js
      <br/>------- used by webpack to load code at runtime  
      <br/>------- bundles are generated by webpack 
@@ -6834,8 +6865,8 @@ const subTopicsInfo = [
      <br/>------- scripts from the angular.json scripts section
      `,
      `------ vendor.js - 
-     <br/>-------- contains all libraries 
-     <br/>------------ imported into your appn AppModule (including Angular library)     
+     <br/>-------- contains all libraries and frameworks 
+     <br/>------------ imported into your appn AppModule (including Angular libraries)     
      `,
      
     ' -- ',
@@ -11258,13 +11289,12 @@ import fastify, {
 <br/>----  return app;
 <br/>};
 <br/>
-<br/>startServer()
-<br/>----  .then((app) => app.listen(3333))
-<br/>----  .catch(console.error);    
+<br/>--- startServer()
+<br/>------  .then((app) => app.listen(3333))
+<br/>------  .catch(console.error);    
 `,
-
-    '-- transpiled to *.js',
-    `------- esbuild
+ '------ transpiled to *.js',
+ `------- esbuild
     <br/> ------- superfast transpiler from ts to js
     <br/> ------- npm install -D nodemon esbuild esbuild-node-tsc 
     `
@@ -11280,7 +11310,7 @@ import fastify, {
     <br/>
     <br/>
     <br/>VS Code Extensions
-    <br/>--- Prettier - an opinionated code formatter 
+    <br/>--- Prettier - an opinionated code formatter and linter (code analysis) 
     <br/>------- ensure 1 code format - 
     <br/>
     <br/>------- format files when saving or commiting them to VCS eg Git 
@@ -11342,46 +11372,47 @@ import fastify, {
     `------- Add ESLint and Remove TSLint
     <br/>-------- ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
     `  
-  ],
+    ],
     [`ALS (Angular Language Service ) - for templates
       <br/>  
       <br/>--- ALS reads the tsconfig.json file
       <br/>------ finds all templates in app'n -provides Lang Services for any open templates
-    `,
-    `--- inside Angular templates
+      <br/>
+      <br/>---- npm i @angular/language-service
+      <br/>--- provides code editors with a way to get 
+      <br/>------- completions| errors| hints| navigation 
+      <br/>------- inside Angular external and internal templates 
+      `,
+    `--- outside and inside Angular templates
     
     `,
     `------ completions
-    
     `,
     `------ errors
-    
     `,
     `------ hints
     `,
     `------ Quick info and navigations
-    
     `,
     ' -- ',
     `--- tsconfig.json
-      <br/>has both
-      <br/>---- compilerOptions
-      <br/>---- angularCompilerOptions
+      <br/>--- has both
+      <br/>------ compilerOptions
+      <br/>------ angularCompilerOptions
     `,
     `------ strictTemplates: true
-    <br/>"angularCompilerOptions": {
-      <br/>"      strictTemplates": true
-    <br/>}
+    <br/>----- "angularCompilerOptions": {
+    <br/>-------- "strictTemplates": true
+    <br/>----- }
     `,
     ' -- ',
     `----------- GetSamanticsDiagnostics
     `
-    ],
-    [
-      `CI/CD
+     ],
+     [`CI/CD
     
       `, 
-    `--- Jenkins | TeamCity | BitBucket
+     `--- Jenkins | TeamCity | BitBucket
     `,
     `--- CI (Continuous Integration)
    <br/>--- is a DevOps SD Practice  
@@ -11389,7 +11420,7 @@ import fastify, {
    <br/>-------- from multiple contributers into 1 S/W project
    <br/>------ Developers merge code changes to central repository
    <br/>--------- after which automated builds and tests are run
- 
+   <br/>
    <br/>------- CI is generally used alongside an agile S/W dev\'t workflow
    <br/>--------- org\'n compiles a list of tasks - comprising product roadmap
    <br/>----------- Tasks allocated to diff team members
@@ -11397,10 +11428,10 @@ import fastify, {
    <br/>------ helps build DevOps and agile workflows
    <br/>------- Faster feedback on Business decisions is a side effect of CI
   `,
-  '---- is a DevOps SD Practice   ',
-  '--- TDD (Test Driven Devt) - ',
-  '--- Bamboo - ',
-  '--- JIRA - agile | DevOps project management tools',
+  '--- is a DevOps SD Practice   ',
+  '------ TDD (Test Driven Devt) - ',
+  '------ Bamboo - ',
+  '------ JIRA - agile | DevOps project management tools',
   
   ' -- ',
   `- CD - Continuous Delivery Pipeline
@@ -11453,9 +11484,9 @@ import fastify, {
   <br/>------------ Jenkins plugins
   <br/>------------ shared libraries
   <br/> 
-  <br/>pipeline{
-    <br/>agent any
-    <br/>--- stages {
+  <br/>----- pipeline{
+    <br/>------ agent any
+    <br/>------ stages {
     <br/>------ stage('Build'){     
     <br/>-----------  steps{
     <br/>--------------  echo "Database engine is \${DB_ENGINE}"
@@ -11482,7 +11513,6 @@ import fastify, {
     <br/>
   <br/>}
   `,
-  
   `------------ begine with word pipeline
   
   `,
@@ -11518,8 +11548,8 @@ import fastify, {
   '-------- Jenkinsfile',  
   '-------- check it into your repository',
   '-------- nightly builds',
-  ' -- ',
-  `-- TeamCity
+  '-- ',
+  `--- TeamCity
   <br/>---- a Build Management and CI Server (JetBrains)
   <br/>---- DevOps centric teams
   <br/>---- Build faster wrt Jenkins with fewer bugs
@@ -11527,12 +11557,12 @@ import fastify, {
   <br/>---- FREE
   `,
   '---- a Build Management and CI Server (JetBrains)',
-  '---- DevOps centric teams',  
-  '---- Build faster wrt Jenkins with fewer bugs',
-  '---- Flexibility',
-  '---- FREE',
-  '------ licence needed > 3 agents and 100 builds',
-  '--------- 3 agents and 100 builds',
+  '------- DevOps centric teams',  
+  '------- Build faster wrt Jenkins with fewer bugs',
+  '---------- Flexibility',
+  '---------- FREE',
+  '---------- licence needed > 3 agents and 100 builds',
+  '-------- 3 agents and 100 builds',
   '------- complex UI',
   '------- upgrade is tedious',
   '---- no need for plugins',
@@ -11548,24 +11578,23 @@ import fastify, {
   '-------- Professional',
   '-------- Enterprise',
   ' -- ',
-  `-- Bitbucket pipelines (Atlassian) - automate code from test to production - integd with Bitbucket cloud
+  `--- Bitbucket pipelines (Atlassian) 
+  <br/>----- automate code from test to production - integd with Bitbucket cloud
   <br/> ---- BitBucket cloud - is a Git based code and CI/CD tool
   <br/> ---- Git based source code repository - hosting service 
-  <br/> ---- optimized for teams using Jira  
-  
+  <br/> ---- optimized for teams using Jira 
   `,
   ' -- ',
-  `-- Github - 
+  `--- Github - 
   <br/> 
   <br/>
   `,
-  ' ----',
   ' -- ',
-  `-- Travis CI
+  `--- Travis CI
   `,
 
   ' -- ',
-  '-- Artifactory'
+  '--- Artifactory'
     ],
     [`DevOps - Devt + Operational 
     <br/>--- is for writing and deploying code
@@ -11573,6 +11602,7 @@ import fastify, {
     <br/>-------- Planning and DevOps tools
     <br/>-------- with seamless collaboration between
     <br/>----------- developers | testers| QA teams
+    <br/>
     <br/>--- is a colln of ideas, practices, processes, technologies
     <br/>-------- that allow devt and op teams to work together to streamline product devt
     <br/>
@@ -11646,58 +11676,74 @@ import fastify, {
      '------ TeamCity',
      '------ Artifactory' 
     ],
-    [`Webpack - is a module bundler with its main purpose is to bundle JS files for usage in a browser
+    [`Webpack 
+    <br/>--- is a module bundler with its main purpose is to bundle JS files for usage in a browser
     <br/> 
-    <br/>It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
+    <br/>--- It scans appn looking for JS files - merging them into 1+ large files - bundles any kind of file
     <br/>
-    <br/>Once installed you can interact with webpack either with CLI or API
+    <br/>--- Once installed you can interact with webpack either with CLI or API
     <br/> 
-    <br/>A tool that lets you compile JS modules
+    <br/>--- A tool that lets you compile JS modules
      <br/> 
-     <br/>It generates 1 file (or a few files) to run your app
+     <br/>--- It generates 1 file (or a few files) to run your app
      <br/>
-     <br/>npm install --save-dev webpack 
+     <br/>--- npm install --save-dev webpack 
      <br/>
-     <br/>The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
-     <br/>- performs clever static analysis of the AST of your code - 
-     <br/>--- has an evaluation engine to evaluate simple expressions 
-     <br/> ------ supports most libraries out of the box
+     <br/>--- The most modern modules are ESM (EcmaScript Modules) supports ES2015+ | CommonJS| AMD modules out of the box  
+     <br/>------ performs clever static analysis of the AST of your code - 
+     <br/>------ has an evaluation engine to evaluate simple expressions 
+     <br/>------ supports most libraries out of the box
      <br/>
-     <br/>Code Splitting - lets you split your codebase - into multiple chunks 
+     <br/>--- Code Splitting - lets you split your codebase - into multiple chunks 
      <br/>
-     <br/> - Chunks are loaded asynchronously at runtime - Reduces the initial loading time
+     <br/>--- Chunks are loaded asynchronously at runtime - Reduces the initial loading time
      <br/>
-     <br/>Optimizations - Webpack can do many optns to reduce the output size of your JS by dedup freq used modules - minifying and giving you full control of what is loaded initially
-     <br/>- and what is loaded at runtime through code splitting 
+     <br/>--- Optimizations - Webpack can do many optns to reduce the output size of your JS by dedup freq used modules - minifying and giving you full control of what is loaded initially
+     <br/>------- and what is loaded at runtime through code splitting 
      <br/>
-     <br/>- It can also make your code chunks cache friendly by using hashes  
+     <br/>--- It can also make your code chunks cache friendly by using hashes  
      <br/>
-     <br/>Has a rich plugin interface - very flexible - 
+     <br/>--- Has a rich plugin interface - very flexible - 
      <br/>
-     <br/>Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
+     <br/>--- Enables use of Loaders to preprocess files - lets you bundle any static resource - beyond JS Use Node.js to write your own
      <br/>
-     <br/>uses async I/O and has multiple caching levels - very fast on inc compilations
+     <br/>--- uses async I/O and has multiple caching levels - very fast on inc compilations
     `, 
-    '- Angular CLI build process uses Webpack behind the scenes for',
-    '-- transpile TS to JS',
-    '-- transform SASS files to CSS',
-    '-- transpile HTML to JS',
-    'module bundler - which lets you bundle JS modules together',
-    `- Terser is an industry std minifier for JS code - 
-    <br/>Webpack performs minification mode using Terser by default 
-    <br/> It minifies JS + HTML + CSS - requires loaders + plugins 
+    `------- Custom Webpack Builders - for Angular's build facade   
+    <br/>------- 
+    <br/>
+    <br/>
+    <br/>------- npm i -D @angular-builders/custom-webpack
+    <br/>------- "architect": {
+    <br/>------- ...
+    <br/>------- "[architect-target]": {
+    <br/>------- "builder": "@angular-builders/custom-webpack:[browser|server|karma|dev-server|extract-i18n]"
+    <br/>--- without ejecting 
+    <br/>-------- instead of  "builder": "@angular-devkit/build-angular:browser",
     `,
-    `Terser plugin - TerserWebpackPlugin - 3rd party package - plugin uses terser to minify your JS  
-    <br/>- Webpack v5 has latest terser-webpack-plugin out of the box
-    <br/>- const TerserPlugin = require("terser-webpack-plugin");
+    `--- Angular CLI build process 
+    <br/>------ uses Webpack behind the scenes for
+    `,
+    '--- transpile TS to JS',
+    '--- transform SASS files to CSS',
+    '--- transpile HTML to JS',
+    '--- module bundler - which lets you bundle JS modules together',
+    `--- Terser is an industry std minifier for JS code - 
+     <br/>------ Webpack performs minification mode using Terser by default 
+     <br/>------ It minifies JS + HTML + CSS - requires loaders + plugins 
+    `,
+    `--- Terser plugin 
+    <br/>------ TerserWebpackPlugin - 3rd party package - plugin uses terser to minify your JS  
+    <br/>------ Webpack v5 has latest terser-webpack-plugin out of the box
+    <br/>------- const TerserPlugin = require("terser-webpack-plugin");
     `, 
-    'Entry Points -', 
-    '-- Entry',
-    '-- Output', 
-    'Loaders',
-    'Plugins',
+    '--- Entry Points -', 
+    '------- Entry',
+    '------- Output', 
+    '------- Loaders',
+    '------- Plugins',
     ' -- ',
-    `-- Webpack 5 introduced the Module Federation -
+    `--- Webpack 5 introduced the Module Federation -
     <br/> ---- multiple Webpack builds can work together
     <br/> ---- create multiple sep indept builds (without deps on eachother)
     <br/> ------ developed and deployed independently
@@ -11706,13 +11752,14 @@ import fastify, {
     <br/> ---------- same as a set of users too - 
     <br/> ---- initially created to allow async loading of JS bundles
     <br/> -- 
-    <br/> - RemoteEntry.js (Host) - is Mod Fed way for your App 
-    <br/> --- to be loaded from a remote Server - 
-    <br/> --- a file used by Mod Fed to bootstrap remotes - 
-    <br/> ----- is considered a local chunk in remote repo
+    <br/>--- RemoteEntry.js (Host) 
+    <br/>-------- is Mod Fed way for your App 
+    <br/> ------ to be loaded from a remote Server - 
+    <br/> ------ a file used by Mod Fed to bootstrap remotes - 
+    <br/> ------ is considered a local chunk in remote repo
     <br/> ------- We grap the endpoint for each remote   
-    <br/>- Shell - load MFE (MicroFrontends) into a Shell appn on demand 
-    <br/>-- Webpack 5s Module Federation simplifies this wrt before 
+    <br/>-------- Shell - load MFE (MicroFrontends) into a Shell appn on demand 
+    <br/>-------- Webpack 5s Module Federation simplifies this wrt before 
     `
     ],
     ['Machine Learning',
@@ -11752,22 +11799,24 @@ import fastify, {
     <br/>------ MS - Cloud computing - for appn management via MS-managed data centers
     <br/>
     `,
-    '- services - ',
-    '-- virtual m/c - IaaS (Infrastrucure as a Service) - lets users launch GP Windows and Linxu VMs - Linux on Azure',
-    '-- App Services - PaaS (Platform as a Service) - letting devs easily publsh and manage websites',
-    '-- Websites - allow devs to develop using a raft of Server side langs - ',
-    '-- WebJobs - apps can be deployed to an App Service envt to imp background processing on a schedule|on demand| run continuously ',
-    '- Identity',
-    '--- AAD (Azure Active Directory) - sync on premisees directories + enables SSO',
-    '--- AAD (Azure Active Directory) - B2C - use of consumer identity and access management',
-    '--- AAD (Azure Active Directory) - Domain Services - join Azure virtual machines to a domain',
-    '--- Azure Info Protn - used to protect sensitive info',
+    '------ services - ',
+    '--------- virtual m/c - IaaS (Infrastrucure as a Service) - lets users launch GP Windows and Linxu VMs - Linux on Azure',
+    '--------- App Services - PaaS (Platform as a Service) - letting devs easily publsh and manage websites',
+    '--------- Websites - allow devs to develop using a raft of Server side langs - ',
+    '--------- WebJobs - apps can be deployed to an App Service envt to imp background processing on a schedule|on demand| run continuously ',
+    '--------- Identity',
+    '------------- AAD (Azure Active Directory) - sync on premisees directories + enables SSO',
+    '------------- AAD (Azure Active Directory) - B2C - use of consumer identity and access management',
+    '------------- AAD (Azure Active Directory) - Domain Services - join Azure virtual machines to a domain',
+    '------------- Azure Info Protn - used to protect sensitive info',
     '--- location',
     '------- on-premise - ',
     '------- hybrid -',
     '------- multicloud -',
     '------- at the edge -',
     ' -- ',
+
+    
     `--- Serverless 
     <br/>------ Angular - Cloud based architecture
     <br/>------ FAAS (Function as a Service)
@@ -12502,6 +12551,12 @@ import fastify, {
     <br/>----- template directives (Control Flow Directives)
     <br/>------ to be able to use the template directives 
     <br/>------ *ngIf | *ngFor| * etc.
+     `,
+     `------- use imports: [NgIf],
+     <br/>------- instead of importing the whole CommonModule
+     <br/>------- where we import { NgIf } from '@angular/common';
+     <br/>
+     <br/>  &lt;p *ngIf="show">Toggled&lt;/p>
      `,
     '--- Optional Modules',  
     '------- main.ts',
@@ -13877,7 +13932,7 @@ import fastify, {
     <br/>--- NgOptimizedImage  
     <br/>--- Angular Elements with Standalone
      <br/>--- Component Mirror - 
-     <br/>------ 
+     <br/>--- ESBuild instead of Webpack
      `,
      `--- Ng OptimizedImage 
      <br/>------ is te biggest new feature
@@ -13914,6 +13969,15 @@ import fastify, {
       <br/>----------- outputs, for example [{ propName: 'userSaved', templateName: 'userSaved' }]
       <br/>----------- ngContentSelectors, for example ['*']
       <br/>----------- isStandalone, for example false
+      `,
+      `--- use ESBuild instead of Webpack 
+      <br/>------ for a much faster build speed 
+      <br/>------ in angular.json
+      <br/>------ "build": {
+      <br/>------   "builder": "@angular-devkit/build-angular:browser",
+      <br/>
+      <br/>-------- "builder": "@angular-devkit/build-angular:browser-esbuild 
+    
       `,
     `Ang 14 TS 4.7 - 
     <br/>--- Strictly typed Reactive Forms | 
