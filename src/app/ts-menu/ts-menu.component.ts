@@ -11331,9 +11331,13 @@ import fastify, {
     '--- AST based pattern checker - JS',
     '------- lets you enforce a set of style | formatting | coding stds for your codebase',
     '------- ESLint 8.09 (7th Feb 2022) -  ',
-    '------- ESLint 8.15 (7th May 2022) -  ',
+    `------- ESLint 8.15 (7th May 2022) -  `,
+    `------- ESLint 8.23 (26th Aug 2022) -  `,
+    `------- ESLint 8.23.1 (12th Sept 2022) -  
+    `,
     `--- Add ESLint 
     <br/>------ npm i @angular-eslint/eslint-plugin
+    <br/>------ ng add @angular-eslint/schematics
     `,
     `------- Add ESLint and Remove TSLint
     <br/>-------- ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
@@ -12872,6 +12876,13 @@ import fastify, {
    
   `,
   `--- AOT Compilation
+  <br/>------ converts HTML and TS code into efficient JS during build phase
+  <br/>------ before browser downloads and runs the code
+  <br/>------ compiling in build phase means a faster rendering in browser (without compiler)
+  <br/>---------- as compiler is 50% size of Angular  
+  <br/>------ Compiler inlines ext files - HTML and CSS   - no sep ajax requests
+  <br/>------ detects and reports template binding errors before user spies them
+  <br/>------ better Security - fewer opportunity for injection attacks      
   `,
   `--- Lazy Loading
   `,
@@ -13924,13 +13935,18 @@ import fastify, {
      <br/>--- CLI now uses ESBuild 
      <br/>--- Simpler dyn Component creation - no Factory reqd
      <br/>-------- (JS Bundler works with Terser)
-     <br/>--- Node package exports 
+     <br/>--- Node package exports
+     <br/>--- TSLint (deprecated) replaced by ESLint
+     <br/>--- ESLint is optional  
      <br/>--- ES2020 - 
      <br/>--- cli.cache 
     `, 
-      '-- TS 4.5',
-      '-- new APF',
-      '-- ESBuild ',
+      '--- TS 4.5',
+      '--- new APF',
+      '--- ESBuild ',
+      `--- TSLint deprecated
+      `,
+      `--- ESLint is optional`,
       '-- Node Package Exports',
       '-- cli.cache',
       '-- ES 2020',
@@ -13981,6 +13997,7 @@ import fastify, {
  
 `Ang 09 TS 3.6/7 
     <br/>--- Ivy enabled by default 
+    <br/>--- AOT compliation the default
     <br/>--- Updates to Zone.js and RxJS 
     <br/>--- smaller bundle size
     <br/>--- uses Dynamic imports wrt string
@@ -13990,8 +14007,18 @@ import fastify, {
     <br/>Deprecated NgModuleFactory&lt;T>  
     <br/>
     `,
-    '-- TS 3.6',
-    '-- Ivy enabled by default',
+    '--- TS 3.6',
+    `--- Ivy enabled by default
+    <br/>------ Locality
+    <br/>------ Incremental DOM
+    `,
+    `--- AOT compilation default 
+    <br/>------- 3 Phases
+    <br/>------- 1: Code Analysis - tsc and AOT collector repn of source as metadata (No Arrow ftns) 
+    <br/>------- 2: Code Generation - StaticReflector interprets and validates phase 1 metadata and throws errors  
+    <br/>------- 3: Template Type Checking = tsc used to validate binding expns in template
+    <br/>------------ FullTemplateTypeCheck: true     
+    `,
     '-- Smaller bundle size',
     '-- Update to Zone.js and RxJS',
     `--- uses Dynamic imports wrt string
@@ -14010,6 +14037,7 @@ import fastify, {
     <br/>--- ES5 | ES2015 - 
     <br/>--- new lazy loading syntax 
     <br/>--- uses dynamic import syntax -    
+    <br/>--- default JIT Compiler
     <br/>--- Simplifies Web Worker creation -   ng g 
     <br/>--- new APIs 
     <br/>--- bazel and Ivy are coming -
@@ -14025,6 +14053,9 @@ import fastify, {
     `,
     `--- new lazy loading syntax - uses dynamic imports
     <br/>
+    
+    `,
+    `--- default JIT Compiler
     `,
     `--- simplifies Web Worker creation
     `,
