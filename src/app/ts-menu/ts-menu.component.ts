@@ -11816,7 +11816,7 @@ import fastify, {
     '------- at the edge -',
     ' -- ',
 
-    
+
     `--- Serverless 
     <br/>------ Angular - Cloud based architecture
     <br/>------ FAAS (Function as a Service)
@@ -11825,9 +11825,9 @@ import fastify, {
     <br/>---------- written using Node.js - dev'd for building appns on AWS Lamda - 
     <br/>---------- no need to maintain your own servers  
     `,
-    '-- Cloud based architecture',
-    '-- FAAS',
-    '-- Advantages',
+    '--- Cloud based architecture',
+    '--- FAAS',
+    '--- Advantages',
     `--- AWS S3 -   
      <br/>------ Serverless S3 service - requires an AWS Account
      <br/>------ 5GB of std storage - Secure | Durable | Scalable - object storage infrastructure
@@ -11838,16 +11838,16 @@ import fastify, {
      <br/>------ Select region -  
     `,
     `--- Properties
-    <br/>Versioning
-    <br/>Server access logging
-    <br/>Static website hosting - entry page and error page  
-    <br/>Object level logging -
-    <br/>Default encryption -
-    <br/>Object lock
-    <br/>Tags - 
-    <br/>Transfer acceleration -
-    <br/>Events
-    <br/>Requester pays
+    <br/>--- Versioning
+    <br/>--- Server access logging
+    <br/>--- Static website hosting - entry page and error page  
+    <br/>--- Object level logging -
+    <br/>--- Default encryption -
+    <br/>--- Object lock
+    <br/>--- Tags - 
+    <br/>--- Transfer acceleration -
+    <br/>--- Events
+    <br/>--- Requester pays
     `,
      `-- AWS Lambda - Serverless Event driven compute service
      <br/>--- lets you run code for virtually any type of app'n or backend service 
@@ -11856,10 +11856,12 @@ import fastify, {
      `, `----- AWS Lambda Reqts - Computing Service | DB | HTTP Gateway Service 
      <br/>------ DynamoDB and RDS is the bases of a Serverless soln    
      `,
-     `--- AWS Lambda Users - create functions - self contained appns  
-     <br/>---- written in a supported language and runtimes 
-     <br/>---- uploaded to AWS Lambda for effic exection     
-     `,`--- AWS Lambda Uses  
+     `--- AWS Lambda Users 
+     <br/>------ create functions - self contained appns  
+     <br/>------ written in a supported language and runtimes 
+     <br/>------ uploaded to AWS Lambda for effic exection     
+     `,
+     `--- AWS Lambda Uses  
      <br/>---- Serving web pages
      <br/>---- Processing streams of data 
      <br/>---- Calling APIs 
@@ -11873,7 +11875,8 @@ import fastify, {
      <br/>---- Go 1.x
      <br/>---- C# Net Core 1.0 | 2.1   
      <br/>---- Powershell Core 6.0
-     `,`--- AWS Lambda Advantages -
+     `,
+     `--- AWS Lambda Advantages -
      <br/>---- Pay per use
      <br/>---- Fully managed infrastructure
      <br/>---- Automatic scaling 
@@ -11893,7 +11896,6 @@ import fastify, {
      `,
      '----- AWS Templates',
      '---------- AWS Terraform',
-   
      `--- Deployment - 
      <br/>----- ng deploy (Ang 8.3)    
      <br/>
@@ -11903,168 +11905,168 @@ import fastify, {
      <br/>----- AWS - Amazon Cloud S3  @jefiozie/ngx-aws-deploy
      <br/>---- Angular.json
      <br/>----"deploy": {
-      <br/>---- "builder": "@jefiozie/ngx-aws-deploy:deploy",
-      <br/>----"options": {}
-      <br/>----}
-      <br/>----- Azure - using Node and github 
-      <br/>-------- 
-      
+     <br/>---- "builder": "@jefiozie/ngx-aws-deploy:deploy",
+     <br/>----"options": {}
+     <br/>----}
+     <br/>----- Azure - using Node and github 
+     <br/>--------  
      `,
      `--- Dynamic Data 
     
+
     
     `,`--- Node.js    
     `  
-],
-[`AWS (Amazon Web Services)
-<br/>--- provides on demand cloud computing platforms and APIs
-<br/>-------- on a metered pay as you go basis
-<br/>-------- These cloud computing Web Services 
-<br/>----------- provide distributed computing processing capacity and S/W tools via AWS server farms
-<br/>--- One of these services is
-<br/>------- EC2 (Amazon Elastic Compute Cloud)
-<br/>------------ lets users have a virtual cluster of Computers
-<br/>----------------- available all the time via the Intenet
-<br/>------------ AWS's virtual computers emulate 
-<br/>--------------- most of the attributes of a real computer
-<br/>-------------------- CPUs + GPUs + local RAM memory + SSD + OS + Networking
-<br/>---------------------- + preloaded appn S/W - Web servers| DBs| CRM
-<br/>--- delivered to customers via a network of AWS server farms around the world
-<br/>-------- Fees are on a PAYG (Pay as You Go model)
-<br/>------------ H/W | OS| S/W| or Networking features| reqd availability| redundancy| security| service options
-<br/>
-<br/>--- Subscribers can pay for 1 virtual AWS computer| a physical computer| or clusters 
-<br/>-------- AWS provides select portions of security for providers  
-<br/>------------ physical security of the data centers
-<br/>------------ other aspects of security by subscriber 
-<br/>--------------- Account mgmt | vulnerability scanning| patching  
-<br/>
-<br/>------ AWS provides a way of obtaining Large Scale computing capacity quicker + cheaper 
-<br/>---------- wrt building an actual physical server farm 
-<br/>--------------- based on usage | each service measures diff ways
-<br/>
-<br/>--- AWS has over 200 products and services
-<br/>-------- computing | storage| networking| db| analytics| appn services| 
-<br/>-------- deployment| management| ML| mobile| dev tools| RobOps| tools for IoT
-<br/>
-<br/>--- Most popular services are
-<br/>------- EC2 (Amazon Elastic Compute Cloud)
-<br/>------- S3 (Amazon Simple Storage Service)
-<br/>------- Amazon Connect
-<br/>------- AWS Lambda (a serverless ftn enabling serverless ETL)(extract |transform| load)
-`,
-  `--- S3 - Amazon Simple Storage Service
-  <br/>--- Cloud storage - Enforce DACs (Data access controls) Hghly scalable, reliable & low latency data storage 
-  <br/>
-  <br/>------ is an object storage service 
-  <br/>------ offering industry leading scalability| daa availabilit| security and performance
-  `,
-  `--- EC2 - Amazon Elastic Compute Cloud
-  <br/>--- provides secure + resizable compute capacity with easy scalability
-  <br/>
-  <br/>------ provides scalable computing capacity in the AWS Cloud 
-  <br/>------ eliminates need to invest in H/W up front 
-  <br/>------ so you can develop and deploy appns faster
-  <br/>--------- launch as many or as few virtual servers as you need 
-  <br/>--------- configure security and networking
-  <br/>--------- manage storage 
-  <br/>------- scale up/down to handle changes in reqts 
-  <br/>
-  <br/>------- Virtual computing envts, known as instances
-  <br/>------- Preconfigured templates for instances - AMIs (Amazon Machine Images)
-  <br/>------- Various confign of instanct type = CPU| memory| storage| networking capacity|  
-  <br/>------- Secure login for instances - using key pairs 
-  <br/>------- Instance store volumes = Storage Volumes for temp data thats deleted when you stop| hybernate|terminate instance
-  <br/>------- Persistant Store Volumes for data using EBS (Amazon Elastic Block Store) EBS Volumes
-  <br/>------- Multiple physical locations for resources 
-  <br/>----------- Instances | EBS Volumes (Regions) | Availability Zones
-  <br/>------- Firewall lets you specify protocols| ports| source IP ranges - security groups
-  <br/>------- Static IPv4 Addresses for dynamic cloud computing - Elastic IP Addresses
-  <br/>------- Metadata known as tags - create + assgn to EC2 resources
-  <br/>------- Virtual networks - logically isolated from rest of cloud and connect to your own network 
-  <br/>------------ known as VPCs (Virtual Private Clouds)
-  `,  
-  `--- Amazon Connect
-  <br/>--- uses S3 to store recorded conversns and exported reports  
-  <br/>
-  <br/>------ Omnichannel cloud contact center 
-  <br/>------ set up in a few steps | add agents| start engaging with customers
-  <br/>------ build reusable reliable + cheap auto calling services
-  <br/>------------ dyn offer chat or voice contact 
-  <br/>------------ Agents handle all customers from 1 interface
-  <br/>
-  <br/>------ Storage - uses S3 
-  <br/>------ Database DynamoDB 
-  <br/>------ Analytics - contact records - 
-  <br/>------ Messaging - Pinpoint| SNS (Notificn Service)| SES (Simple Email Service)
-  <br/>------ Management - CloudWatch| CloudFormation| CloudTrail
-  <br/>------ Security - IAM (Identity and Access Management) + Directory Service - MAD| ADFS or SAML 2.0
-  <br/>------ ML + AI - Amazon Lex| Transcribe | Comprehend   
-  `,
-  `--- AWS Lambda
-  <br/>--- runs code in response to events + auto manages resources
-  <br/>
-  <br/>----- serverless, event-driven compute service 
-  <br/>----- is a compute service that lets you run code without provisioning or managing servers
-  <br/>----- runs your code on a high availability compute infrastructure 
-  <br/>----- and performs all of the admin of the compute resources
-  <br/>------- including 
-  <br/>----------- Server + OS maintenance | capacity provisioning | auto scaling| logging   
-  `,    
-  ' -- ',
-  '--- AWS Lambda',
-  '----- AWS Lambda Properties',
-  '----- AWS Lambda Reqts',
-  '----- AWS Lambda Users',
-  '----- AWS Lambda Uses',
-  '----- AWS Lambda Languaged',
-  '----- AWS Lambda Advantages',
-  '----- AWS Lambda Limitations',
-  '----- AWS Templates',
-  '---------- AWS Terraform',
-  '--- AWS Web Service',
-  '--- AWS Cloud Compute Service',
-  '--- AWS Management Console'
-  ],
-  ['Azure',
-  '--- MS Azure',
-  '-------- services - ',
-  '-------- virtual m/c - IaaS',
-  '-------- App Services - PaaS',
-  '-------- Websites - ',
-  '-------- WebJobs - ',
-  '----------- Identity',
-  '----------- AAD ',
-  '----------- AAD - B2C',
-  '----------- AAD Domain Services  ',
-  '----------- Azure Info Protn',
-  '----------- location',
-  '----------- on-premise - ',
-  '----------- hybrid -',
-  '----------- multicloud -',
-  '----------- at the edge -',
-  ],
-  ['Google Cloud', 
-  '--- GCP | G Suite', 
-  '--- Google Cloud Platform (GCP)',
-  '--- suite of modular cloud services',
-  '--- Computing',
-  '------ Data Storage',
-  '------ Data Analytics',
-  '------ ML Machine Learning',
-  '---- management tools',
-  '------- Envts',
-  '----------- IAAS',
-  '----------- PAAS',
-  '----------- Serverless Computing',
-  '------ G Suite (Google Workspace)',
-  '------ Enterprise Chrome',
-  '------ Enterprise Android',
-  '------ APIs for M/L and enterprise mapping',
-  ],
-  ['--- CloudFlare',
-  
-  ],
+   ], 
+   [`AWS (Amazon Web Services)
+    <br/>--- provides on demand cloud computing platforms and APIs
+    <br/>-------- on a metered pay as you go basis
+    <br/>-------- These cloud computing Web Services 
+      <br/>----------- provide distributed computing processing capacity and S/W tools via AWS server farms
+      <br/>--- One of these services is
+      <br/>------- EC2 (Amazon Elastic Compute Cloud)
+      <br/>------------ lets users have a virtual cluster of Computers
+      <br/>----------------- available all the time via the Intenet
+      <br/>------------ AWS's virtual computers emulate 
+      <br/>--------------- most of the attributes of a real computer
+      <br/>-------------------- CPUs + GPUs + local RAM memory + SSD + OS + Networking
+      <br/>---------------------- + preloaded appn S/W - Web servers| DBs| CRM
+      <br/>--- delivered to customers via a network of AWS server farms around the world
+      <br/>-------- Fees are on a PAYG (Pay as You Go model)
+      <br/>------------ H/W | OS| S/W| or Networking features| reqd availability| redundancy| security| service options
+      <br/>
+      <br/>--- Subscribers can pay for 1 virtual AWS computer| a physical computer| or clusters 
+      <br/>-------- AWS provides select portions of security for providers  
+      <br/>------------ physical security of the data centers
+      <br/>------------ other aspects of security by subscriber 
+      <br/>--------------- Account mgmt | vulnerability scanning| patching  
+      <br/>
+      <br/>------ AWS provides a way of obtaining Large Scale computing capacity quicker + cheaper 
+      <br/>---------- wrt building an actual physical server farm 
+      <br/>--------------- based on usage | each service measures diff ways
+      <br/>
+      <br/>--- AWS has over 200 products and services
+      <br/>-------- computing | storage| networking| db| analytics| appn services| 
+      <br/>-------- deployment| management| ML| mobile| dev tools| RobOps| tools for IoT
+      <br/>
+      <br/>--- Most popular services are
+      <br/>------- EC2 (Amazon Elastic Compute Cloud)
+      <br/>------- S3 (Amazon Simple Storage Service)
+      <br/>------- Amazon Connect
+      <br/>------- AWS Lambda (a serverless ftn enabling serverless ETL)(extract |transform| load)
+      `,
+      `--- S3 - Amazon Simple Storage Service
+      <br/>--- Cloud storage - Enforce DACs (Data access controls) Hghly scalable, reliable & low latency data storage 
+      <br/>
+      <br/>------ is an object storage service 
+      <br/>------ offering industry leading scalability| daa availabilit| security and performance
+      `,
+        `--- EC2 - Amazon Elastic Compute Cloud
+        <br/>--- provides secure + resizable compute capacity with easy scalability
+        <br/>
+        <br/>------ provides scalable computing capacity in the AWS Cloud 
+        <br/>------ eliminates need to invest in H/W up front 
+        <br/>------ so you can develop and deploy appns faster
+        <br/>--------- launch as many or as few virtual servers as you need 
+        <br/>--------- configure security and networking
+        <br/>--------- manage storage 
+        <br/>------- scale up/down to handle changes in reqts 
+        <br/>
+        <br/>------- Virtual computing envts, known as instances
+        <br/>------- Preconfigured templates for instances - AMIs (Amazon Machine Images)
+        <br/>------- Various confign of instanct type = CPU| memory| storage| networking capacity|  
+        <br/>------- Secure login for instances - using key pairs 
+        <br/>------- Instance store volumes = Storage Volumes for temp data thats deleted when you stop| hybernate|terminate instance
+        <br/>------- Persistant Store Volumes for data using EBS (Amazon Elastic Block Store) EBS Volumes
+        <br/>------- Multiple physical locations for resources 
+        <br/>----------- Instances | EBS Volumes (Regions) | Availability Zones
+        <br/>------- Firewall lets you specify protocols| ports| source IP ranges - security groups
+        <br/>------- Static IPv4 Addresses for dynamic cloud computing - Elastic IP Addresses
+        <br/>------- Metadata known as tags - create + assgn to EC2 resources
+        <br/>------- Virtual networks - logically isolated from rest of cloud and connect to your own network 
+        <br/>------------ known as VPCs (Virtual Private Clouds)
+        `,  
+        `--- Amazon Connect
+        <br/>--- uses S3 to store recorded conversns and exported reports  
+        <br/>
+        <br/>------ Omnichannel cloud contact center 
+        <br/>------ set up in a few steps | add agents| start engaging with customers
+        <br/>------ build reusable reliable + cheap auto calling services
+        <br/>------------ dyn offer chat or voice contact 
+        <br/>------------ Agents handle all customers from 1 interface
+        <br/>
+        <br/>------ Storage - uses S3 
+        <br/>------ Database DynamoDB 
+        <br/>------ Analytics - contact records - 
+        <br/>------ Messaging - Pinpoint| SNS (Notificn Service)| SES (Simple Email Service)
+        <br/>------ Management - CloudWatch| CloudFormation| CloudTrail
+        <br/>------ Security - IAM (Identity and Access Management) + Directory Service - MAD| ADFS or SAML 2.0
+        <br/>------ ML + AI - Amazon Lex| Transcribe | Comprehend   
+        `,
+        `--- AWS Lambda
+        <br/>--- runs code in response to events + auto manages resources
+        <br/>
+        <br/>----- serverless, event-driven compute service 
+        <br/>----- is a compute service that lets you run code without provisioning or managing servers
+        <br/>----- runs your code on a high availability compute infrastructure 
+        <br/>----- and performs all of the admin of the compute resources
+        <br/>------- including 
+        <br/>----------- Server + OS maintenance | capacity provisioning | auto scaling| logging   
+        `,    
+        ' -- ',
+        '--- AWS Lambda',
+        '----- AWS Lambda Properties',
+      '----- AWS Lambda Reqts',
+      '----- AWS Lambda Users',
+      '----- AWS Lambda Uses',
+      '----- AWS Lambda Languaged',
+      '----- AWS Lambda Advantages',
+      '----- AWS Lambda Limitations',
+      '----- AWS Templates',
+      '---------- AWS Terraform',
+      '--- AWS Web Service',
+      '--- AWS Cloud Compute Service',
+      '--- AWS Management Console'
+      ],
+      ['Azure',
+      '--- MS Azure',
+      '-------- services - ',
+      '-------- virtual m/c - IaaS',
+      '-------- App Services - PaaS',
+      '-------- Websites - ',
+      '-------- WebJobs - ',
+      '----------- Identity',
+      '----------- AAD ',
+      '----------- AAD - B2C',
+      '----------- AAD Domain Services  ',
+      '----------- Azure Info Protn',
+      '----------- location',
+      '----------- on-premise - ',
+      '----------- hybrid -',
+      '----------- multicloud -',
+      '----------- at the edge -',
+      ],
+      ['Google Cloud', 
+    '--- GCP | G Suite', 
+    '--- Google Cloud Platform (GCP)',
+    '--- suite of modular cloud services',
+    '--- Computing',
+    '------ Data Storage',
+    '------ Data Analytics',
+    '------ ML Machine Learning',
+    '---- management tools',
+    '------- Envts',
+    '----------- IAAS',
+    '----------- PAAS',
+    '----------- Serverless Computing',
+    '------ G Suite (Google Workspace)',
+    '------ Enterprise Chrome',
+    '------ Enterprise Android',
+    '------ APIs for M/L and enterprise mapping',
+    ],
+    ['--- CloudFlare',
+    
+    ],
     [`Accessability -
     <br/>
     <br/>--- ARIA attributes
@@ -12168,8 +12170,6 @@ import fastify, {
     `, 
     `- SW (Service Workers) - added to an app - turns it into a PWA  
     <br/>
-    
-    
     `, 
     '- manifests', 
     '- other Web-platform features',
@@ -12262,7 +12262,6 @@ import fastify, {
     <br/>--- Build Combine Deploy locally
     <br/>----- Define a Custom Element called ButtonComponent
     <br/>
-
     <br/>@Component({
     <br/>--- selector: 'ngsd-button',
     <br/>--- templateUrls: 
@@ -12280,7 +12279,6 @@ import fastify, {
      <br/>
      <br/>In template file
      <br/>&lt;button (click)="onClick()">{{buttonLabel}}&lt;/button>
-
      <br/>
      <br/>Create a HTML page - 
      <br/>&lt;!doctype="html">
@@ -12332,15 +12330,15 @@ import fastify, {
     <br/>----- const fs = require('fs-extra');
     <br/>----- const concat = require('concat');
     <br/>----- (async files=[
-      <br/>------- './dist/ng-elements/runtime.js',
-      <br/>------- './dist/ng-elements/polyfill.js',
-      <br/>------- './dist/ng-elements/main.js'
-      <br/>]
-      <br/>await fs.ensureDir('elements');  
-      <br/>await concat(files, 'elements/elements.js');
-      <br/>await fs.copyFile('./dist/ng-elements/styles.css','elements/styles'))()      
-      <br/>
-      <br/>"build:elements" : 'ng build --prod --output-hashing none && node concat.js'
+    <br/>------- './dist/ng-elements/runtime.js',
+    <br/>------- './dist/ng-elements/polyfill.js',
+    <br/>------- './dist/ng-elements/main.js'
+    <br/>]
+    <br/>await fs.ensureDir('elements');  
+    <br/>await concat(files, 'elements/elements.js');
+    <br/>await fs.copyFile('./dist/ng-elements/styles.css','elements/styles'))()      
+    <br/>
+    <br/>"build:elements" : 'ng build --prod --output-hashing none && node concat.js'
     <br/>
     <br/>
     <br/>
@@ -12475,15 +12473,13 @@ import fastify, {
     <br/>------------ Starts with a Shadow Root 
     <br/> 
     <br/>--------- a set of JS APIs for attaching 
-     <br/>------------- an encapsulated "Shadow DOM tree" to an element
-     <br/>------------- rendered sep from main document DOM
-     <br/>------------- and controlled associated functionality
-
-     <br/>--------- this.attachShadow();
-     const shadow = this.attachShadow({mode: 'open'});
-     <br/>-------- const para = document.createElement('p');
-     <br/>--------- shadow.appendChild(para);
-
+    <br/>------------- an encapsulated "Shadow DOM tree" to an element
+    <br/>------------- rendered sep from main document DOM
+    <br/>------------- and controlled associated functionality
+    <br/>--------- this.attachShadow();
+    const shadow = this.attachShadow({mode: 'open'});
+    <br/>-------- const para = document.createElement('p');
+    <br/>--------- shadow.appendChild(para);
     `,
     `---------- 3 - ES Modules
     
@@ -12502,9 +12498,10 @@ import fastify, {
     '--- Dynamic Content',
     '--- NgElement class',
     '--- let us add Type Infon to the NgElement class'
-  ],
-  ['Web Workers permit multithreading in Angular', 'Threading', 
-      ''],
+    ],
+    ['Web Workers permit multithreading in Angular', 'Threading', 
+     ''
+    ],
     [`Angular Universal - is a UI Framework - Accessability 
     <br/>- mobile friendly
     <br/>--- SSR (Server Side Rendering)
@@ -13070,21 +13067,26 @@ import fastify, {
   <br/>------ a Web Vitals lane that displays some of 
   <br/>------ the core vitals scores  
   `,
-  `Lighthouse 
+  `--- Lighthouse 
+  <br/>------ is an automated tool that can be run on any web page
+  <br/>----------- public accessable | requiring authentication 
+  <br/>----------- to improve quality of page 
   <br/>--- can generate reports that includes Web Vitals metrics
-  <br/>------- 
+  <br/>------- audits for performance | accessability | PWAs| SEO
+  
   `,
-  `Web vitals - 
-  <br/>--- JS Library that can be integrated into your web appn  
-  <br/>--- It includes a simple set of ftns that capture
+  `--- Web vitals - 
+  <br/>------ JS Library that can be integrated into your web appn  
+  <br/>------ It includes a simple set of ftns that capture
   <br/>------ Web Vital events and data 
   `,
   `LogRocket 
   <br/>--- correlates Web Vitals metrics with businss impact  
-  <br/>------- it monitors page load times
+  <br/>--- it monitors 
+  <br/>------- page load times
   <br/>------- CPU/memory usage
   <br/>------- browser crashes 
-  <br/>------- React computer rendering  
+  <br/>------- Reactive computer rendering  
   `,
 
 
@@ -13103,11 +13105,19 @@ import fastify, {
   <br/>------ rx-angular/cdk
   <br/>------ rx-angular/state
   <br/>------ rx-angular/template
-  `
- ],
+  `,
+  s `------ rx-angular/cdk
+
+  `,
+   `------ rx-angular/state
+   
+   `,
+   `------ rx-angular/template
+   `
+   ],
   ['SourceMap Explorer', 
-  'sourceMaps: true',
-  `ng build --prod --source-map
+  '--- sourceMaps: true',
+  `--- ng build --prod --source-map
   <br/>--- Every JS file has a corresponding SourceMap
   <br/>
   <br/>--- maps production bundle code to original dev code
@@ -13219,9 +13229,9 @@ import fastify, {
     ' -- ',
     '- IDL for RESTful APIs expressed using JSON',
     `---- RAML - (RESTful API Modelling Language)
-    <br/>------ YAML based modeling language to describe RESTful APIs 
-    <br/?------ Defn of HTML based APIs 
-    <br/>---------- allows any file content - code fragments wrt OpenAPI (only ext files)
+      <br/>------ YAML based modeling language to describe RESTful APIs 
+      <br/?------ Defn of HTML based APIs 
+      <br/>---------- allows any file content - code fragments wrt OpenAPI (only ext files)
     `, 
     '-- design & Doc APIs','-- ',
     '-- Interface Defn Language',
@@ -13243,59 +13253,60 @@ import fastify, {
     <br/>
     <br/>---------   uses HttpClientModule from @angular/common/http
    `,
-   `REST - API architectual style hat uses HTTP requests 
-   <br/>---- to access and use data
+   `REST 
+   <br/>--- API architectual style hat uses HTTP requests 
+   <br/>------- to access and use data
    `,
-    '-- APIs',
-    '-- IDLs',
+    '--- APIs',
+    '--- IDLs',
     '--- humans/auto machine procing',
-    '-- List REST API DLs',
+    '--- List REST API DLs',
     '--- WSDL',
     '--- WADL',
     '--- OData',
     '--- OpenAPI',
     '--- RSDL',
     '--- RAML',
-   `- IDL for RESTful APIs expressed using JSON
-   <br/>-- design & Doc API
-   <br/>-- Interface Defn Language
-   <br/>-- RESTful APIs
-   <br/>-- JSON
-   <br/>-- CRUD methods
-   <br/>--- REST Servers
-   <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
-   <br/> requires server.js and a db.json file for your database
-   <br/>---- (jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
-   <br/>
-   <br/> ---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
-   <br/>powerful enough for production usage - 
-   <br/>simple and hackable to be used for testing | local devt | learning
-   `,
-   `--  Swagger - rules | specifications | tools  
+    `--- IDL for RESTful APIs expressed using JSON
+    <br/>-- design & Doc API
+    <br/>-- Interface Defn Language
+    <br/>-- RESTful APIs
+    <br/>-- JSON
+    <br/>-- CRUD methods
+    <br/>--- REST Servers
+    <br/>---- json-server - JS library for mocking REST APIs - npm install -g json-server
+    <br/>-------- requires server.js and a db.json file for your database
+    <br/>-------- (jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+    <br/>
+    <br/>---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
+    <br/>--- powerful enough for production usage - 
+    <br/>--------simple and hackable to be used for testing | local devt | learning
+    `,
+   `--- Swagger - rules | specifications | tools  
    <br/>------ for developing and describing RESTful APIs
    <br/>
    <br/>------ Swagger framework - lets us develop
    <br/>----------- interactive m/c + human readable API documentation
    <br/>------ 
-   `,
-   `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
-   <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
-   <br/>    
-   <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
-   <br/>------  and redirects them to an in-memory data store 
-   <br/>--------- that you control on the frontend.
-   <br/>
-   <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
-   <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
-   <br/>  
-   <br/>------- Angular Demos | Tests 
-   <br/>------- Emulates CRUD ops wrt REST
-   <br/>------- in-memory data store
-   <br/>---------- npm install angular-in-memory-web-api --save 
-   <br/>---------- HttpClientInMemoryWebApiModule
-   <br/>---------- angular/in-memory-web-api
-  `,
-  `-- Postman
+    `,
+    `------ HttpClientInMemoryWebApiModule - angular-in-memory-web-api 
+    <br/>- for Angular demos and tests that emulates CRUD opns over a RESTify API -  
+    <br/>    
+    <br/>------ is a library that intercepts Angular Http and HttpClient requests that would normally go to the remote server
+    <br/>------  and redirects them to an in-memory data store 
+    <br/>--------- that you control on the frontend.
+    <br/>
+    <br/>----- angular/in-memory-web-api -  HttpClientInMemoryWebApiModule
+    <br/>-------- .forRoot(InMemoryDataService, {delay: 1000})   
+     <br/>  
+     <br/>------- Angular Demos | Tests 
+     <br/>------- Emulates CRUD ops wrt REST
+     <br/>------- in-memory data store
+     <br/>---------- npm install angular-in-memory-web-api --save 
+     <br/>---------- HttpClientInMemoryWebApiModule
+     <br/>---------- angular/in-memory-web-api
+    `,
+    `-- Postman
   <br/>--- sending | observing the HTTP requests + responses 
   <br/>------ has a GUI and and can be used on Linux | Windows | Mac
   <br/>
@@ -13326,9 +13337,9 @@ import fastify, {
   <br/>
   <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
   <br/>
-  <br/>Angular Apolo is the GraphQL client for Angular
-  <br/>--- works with Angular schematics | router | nativeScript | ionic
-  <br/>--- simplifies building UI Components that fetch data with GraphQL
+  <br/>--- Angular Apolo is the GraphQL client for Angular
+  <br/>------ works with Angular schematics | router | nativeScript | ionic
+  <br/>------ simplifies building UI Components that fetch data with GraphQL
   <br/>------ should use with View Layer Integrations - 
   <br/>---------- Angular | React | Vue | WebComponents
   <br/>
@@ -13345,7 +13356,7 @@ import fastify, {
   <br/>--- "errors": [ ... ]  
   <br/>}   
   <br/>
-  <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
+  <br/>--- GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
   <br/>
   <br/>--- uses schema to know what properties are queryable - 
   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
@@ -13382,7 +13393,7 @@ import fastify, {
   <br/>
   <br/>--- Schemas - used to know what properties are queryable - 
   <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
-  <br/>s-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
+  <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
   <br/>
   <br/>----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
   <br/> 
@@ -13392,107 +13403,107 @@ import fastify, {
       <br/>
       <br/>var schema = buildSchema(\`
       <br/>type Query {
-        <br/>hello: String
-        <br/> }
-        <br/>\`);
-        <br/>
-        <br/>var rootValue = { hello: () => 'Hello world!' };
-        <br/>
-        <br/>var source = 's{ hello }';
-        <br/>
-        <br/>graphql({ schema, source, rootValue }).then((response) => {
-        <br/>console.log(response);
-        <br/>});
-        <br/>
-        <br/>------ C#/Net        
-        <br/>public static async Task Main(string[] args)
-        <br/>{
-          <br/>var schema = Schema.For(@"
-          <br/>type Query {
-            <br/>hello: String
-            <br/>}
-            <br/>");
-            <br/>
-            <br/>var json = await schema.ExecuteAsync(_ =>
-              <br/>{
-                <br/> _.Query = "{ hello }";
-                <br/> _.Root = new { Hello = "Hello World!" };
-                <br/>});
-                <br/>
-                <br/>Console.WriteLine(json);
-                <br/>}
-                <br/>}
-                <br/> 
-       <br/>------ Python
-       <br/>------ C/C++
-       <br/>
-       <br/>------ Elm
-        <br/> -- 
-        <br/>--- GraphQL CLI
-        <br/>--- GraphQL TS
-        <br/>--- GraphQL Config
-        <br/>--- GraphQL ESLint
-        <br/>--- GraphQL Tools (@graphql-tools/*)-
-        <br/>is a set of npm packages 
-        <br/>and an opinionated structure for 
-        <br/>how to build a GraphQL schema and resolvers in JS
-        <br/>
-        <br/>------ GraphCMS
-        <br/>-------- is a powerful, easy to use Headless CMS
-        <br/>-------- that allows you to build the essential back end infrastructure reqd
-        <br/>-------- creates a GraphQL endpoint - + endpt for trying out GrpahQL too 
-        <br/>------------ (no need for a server)
-        <br/>
-        <br/>------ GraphQL Voyager
-        <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
-        <br/>
-        <br/>
-        <br/>------ GraphQL Docs
-        <br/>------ Swagger schema to GraphQL
-        <br/>------ GraphQL IDE - GraphQL Playground
-        <br/>------ GraphQL Network - style tab
-        <br/>------ GraphQL Editor - Create backends from schema
-        <br/>
-        <br/>------ GraphQL with HTTP
-        <br/>----- using GraphQL Yaga
-        <br/>-------- bind JS GraphQL schema to an HTTP Server
-        <br/>        <br/>
-        <br/>--- GraphQL Language Service
-        <br/> -- 
-        <br/>--- GraphQL-ws library for - 
-        <br/>
-        <br/>--- GraphQL WS (Web Sockets)
-        <br/>execute subscriptions (or other opns) over WebSocket
-        <br/> with the subscriptions-transport-ws library
-        <br/>
-        <br/>------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
-        <br/>--------- Server holds a steady conection to the client
-        <br/> -- 
-        <br/>--- GraphQL introspection - for developer tooling 
-        <br/>
-        <br/>--- GraphQL Live Query
-        <br/> -- 
-        <br/>--- Apollo - clients  
-        <br/>----- Angular Schematics
-        <br/>----- Angular Router
-        <br/>-------- Angular Universal (SSR)
-        <br/>----- NativeScript
-        <br/>----- Ionic
-  `,
+      <br/>hello: String
+      <br/> }
+      <br/>\`);
+      <br/>
+      <br/>var rootValue = { hello: () => 'Hello world!' };
+      <br/>
+      <br/>var source = 's{ hello }';
+      <br/>
+      <br/>graphql({ schema, source, rootValue }).then((response) => {
+      <br/>console.log(response);
+      <br/>});
+      <br/>
+      <br/>------ C#/Net        
+      <br/>public static async Task Main(string[] args)
+      <br/>{
+      <br/>var schema = Schema.For(@"
+      <br/>type Query {
+      <br/>hello: String
+      <br/>}
+      <br/>");
+      <br/>
+      <br/>var json = await schema.ExecuteAsync(_ =>
+      <br/>{
+      <br/> _.Query = "{ hello }";
+      <br/> _.Root = new { Hello = "Hello World!" };
+      <br/>});
+      <br/>
+      <br/>Console.WriteLine(json);
+      <br/>}
+      <br/>}
+      <br/> 
+      <br/>------ Python
+      <br/>------ C/C++
+      <br/>
+      <br/>------ Elm
+      <br/> -- 
+      <br/>--- GraphQL CLI
+      <br/>--- GraphQL TS
+      <br/>--- GraphQL Config
+      <br/>--- GraphQL ESLint
+      <br/>--- GraphQL Tools (@graphql-tools/*)-
+      <br/>is a set of npm packages 
+      <br/>and an opinionated structure for 
+      <br/>how to build a GraphQL schema and resolvers in JS
+      <br/>
+      <br/>------ GraphCMS
+      <br/>-------- is a powerful, easy to use Headless CMS
+      <br/>-------- that allows you to build the essential back end infrastructure reqd
+      <br/>-------- creates a GraphQL endpoint - + endpt for trying out GrpahQL too 
+      <br/>------------ (no need for a server)
+      <br/>
+      <br/>------ GraphQL Voyager
+      <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
+      <br/>
+      <br/>
+      <br/>------ GraphQL Docs
+      <br/>------ Swagger schema to GraphQL
+      <br/>------ GraphQL IDE - GraphQL Playground
+      <br/>------ GraphQL Network - style tab
+      <br/>------ GraphQL Editor - Create backends from schema
+      <br/>
+      <br/>------ GraphQL with HTTP
+      <br/>----- using GraphQL Yaga
+      <br/>-------- bind JS GraphQL schema to an HTTP Server
+      <br/>        <br/>
+      <br/>--- GraphQL Language Service
+      <br/> -- 
+      <br/>--- GraphQL-ws library for - 
+      <br/>
+      <br/>--- GraphQL WS (Web Sockets)
+      <br/>execute subscriptions (or other opns) over WebSocket
+      <br/> with the subscriptions-transport-ws library
+      <br/>
+      <br/>------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
+      <br/>--------- Server holds a steady conection to the client
+      <br/> -- 
+      <br/>--- GraphQL introspection - for developer tooling 
+      <br/>
+      <br/>--- GraphQL Live Query
+      <br/> -- 
+      <br/>--- Apollo - clients  
+      <br/>----- Angular Schematics
+      <br/>----- Angular Router
+      <br/>-------- Angular Universal (SSR)
+      <br/>----- NativeScript
+      <br/>----- Ionic
+   `,
     ' -- ',
-  `NoSQL - 
-  <br/>DynamoDB - Amazon flexible   NoSQL db service 
-  <br/>--- for single-digit millisec performance at any scale  
-  <br/>------ a fully managed | serverless | key-value db
-  <br/>------ designed to run high perf app'ns at any scale
-  <br/>------ offers built-in security | continuous backups| auto multi-Region repn
-  <br/>------ in-memory caching | data export tools 
-  `,
+   `NoSQL - 
+    <br/>DynamoDB - Amazon flexible   NoSQL db service 
+    <br/>--- for single-digit millisec performance at any scale  
+    <br/>------ a fully managed | serverless | key-value db
+    <br/>------ designed to run high perf app'ns at any scale
+    <br/>------ offers built-in security | continuous backups| auto multi-Region repn
+    <br/>------ in-memory caching | data export tools 
+    `,
     ' -- ',
     '--- REST Servers',
     `---- json-server - JS library for mocking REST APIs - npm install -g json-server
-      <br/> requires server.js and a db.json file for your database
-      <br/>(jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
+    <br/> requires server.js and a db.json file for your database
+    <br/>(jsonServer.router(\‘apps/fake-backend/src/json-server-backend/db.json\’)
     `,
     ' -- ',
     `---- http-server - simple zero configuration Command Line - http server - npm install --g http-server
@@ -13504,9 +13515,9 @@ import fastify, {
     `GraphQL-a Query Language for   your API 
     <br/>- provides a complete descn of data in the API
     `,
-    '-- Quey language for API',
-    '-- description of data in API',
-    '-- Server side runtime',
+    '--- Quey language for API',
+    '--- description of data in API',
+    '--- Server side runtime',
     `--- exec queries`
     ],
     [`GraphQL (2012) Facebook 
@@ -13530,52 +13541,52 @@ import fastify, {
     <br/>
     <br/>--- Servers - Node/JS | DotNet C# | C/C++ | Python| etc.
     <br/>
-    <br/>Angular Apolo is the GraphQL client for Angular
-    <br/>--- works with Angular schematics | router | nativeScript | ionic
-    <br/>--- simplifies building UI Components that fetch data with GraphQL
-    <br/>------ should use with View Layer Integrations - 
+    <br/>--- Angular Apolo is the GraphQL client for Angular
+    <br/>------ works with Angular schematics | router | nativeScript | ionic
+    <br/>------ simplifies building UI Components that fetch data with GraphQL
+    <br/>------- should use with View Layer Integrations - 
     <br/>---------- Angular | React | Vue | WebComponents
     <br/>
-    <br/>GraphQL is designed to make APIs  
-    <br/>---- fast | flexible| developer friendly 
-    <br/>---- can be deployed within an IDE known as GraphiQL - 
-    <br/>----- alternative to REST 
+    <br/>--- GraphQL is designed to make APIs  
+    <br/>------ fast | flexible| developer friendly 
+    <br/>------ can be deployed within an IDE known as GraphiQL - 
+    <br/>------ alternative to REST 
     <br/>-------- constructs requests that pull data from multiple data sources in 1 API call
     <br/>----------- Its for extending + expanding upon their services 
     <br/>
     <br/>
-    <br/>GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
+    <br/>--- GraphQL API - is a nested graph of types - dependencies (not a flat structure) 
     <br/>
     <br/>--- uses schema to know what properties are queryable - 
     <br/>----- and the type of queries (limited to schema Objects) that are to be accepted
     <br/>-------- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
     <br/>
-    <br/>GraphCMS - has grown to a widely adapted Query Language 
-    <br/>All the new tools being developed for GraphQL   
+    <br/>--- GraphCMS - has grown to a widely adapted Query Language 
+    <br/>------ All the new tools being developed for GraphQL   
     <br/>
     <br/>
-    <br/>GraphQL server and Angular Apollo 
-    <br/>GraphQL - is a server - is a query language for API - descn of data in API
+    <br/>--- GraphQL server and Angular Apollo 
+    <br/>--- GraphQL - is a server - is a query language for API - descn of data in API
     <br/>
-    <br/>GraphQL CLI - 
+    <br/>--- GraphQL CLI - 
     <br/>
-    <br/>GraphQL TS - 
+    <br/>--- GraphQL TS - 
     <br/>--- TypeGraphQL - to improve Typed GraphQL
     <br/>
-    <br/>GraphQL Config - 
+    <br/>--- GraphQL Config - 
     <br/>
-    <br/>GraphQL ESLint - 
+    <br/>--- GraphQL ESLint - 
     <br/>
-    <br/>GraphQL Tools - set of npm packages + structure for schema+resolvers
+    <br/>--- GraphQL Tools - set of npm packages + structure for schema+resolvers
     <br/>--- A simpler way to create GraphQL APIs
     <br/>
     <br/>------ GraphCMS - API first Headless CMS to build GraphQL 
     <br/>
-    <br/>GraphQL Language Service - 
+    <br/>--- GraphQL Language Service - 
     <br/>
-    <br/>GraphQL-WS - WebSockets - 
+    <br/>--- GraphQL-WS - WebSockets - 
     <br/>
-    <br/>GraphQL Live-Query -
+    <br/>--- GraphQL Live-Query -
     `, 
     `--- Advantages of GraphQL
     <br/>------- get exacly what data you asked for
@@ -13589,27 +13600,27 @@ import fastify, {
     `,
     `----- Schema Objects - Tables | Views| Indexes | Indexed-tables| Clusters | Hash-Clusters| Synonyms
     `, 
-  `----- TypeScript and GraphQL
-      <br/>-------- TypeGraphQL
-  `,
+    `----- TypeScript and GraphQL
+    <br/>-------- TypeGraphQL
+    `,
     '--- Servers',
     `------ JS via Node.js
-        <br/>var { graphql, buildSchema } = require(\'graphql\');
-        <br/>
-        <br/>var schema = buildSchema(\`
-        <br/>type Query {
-        <br/>hello: String
-        <br/> }
-        <br/>\`);
-        <br/>
-        <br/>var rootValue = { hello: () => 'Hello world!' };
-        <br/>
-        <br/>var source = '{ hello }';
-        <br/>
-        <br/>graphql({ schema, source, rootValue }).then((response) => {
-        <br/>console.log(response);
-        <br/>});
-        `,
+    <br/>var { graphql, buildSchema } = require(\'graphql\');
+    <br/>
+    <br/>var schema = buildSchema(\`
+    <br/>type Query {
+    <br/>hello: String
+    <br/> }
+    <br/>\`);
+    <br/>
+    <br/>var rootValue = { hello: () => 'Hello world!' };
+    <br/>
+    <br/>var source = '{ hello }';
+    <br/>
+    <br/>graphql({ schema, source, rootValue }).then((response) => {
+    <br/>console.log(response);
+    <br/>});
+    `,
     `Angular Apolo is the GraphQL client for Angular
     <br/>--- works with Angular schematics | router | nativeScript | ionics
     <br/>--- simplifies building UI Components that fetch data with GraphQL
@@ -13617,87 +13628,87 @@ import fastify, {
     <br/>---------- Angular | React | Vue | WebComponents
      `,
      `------ C#/Net        
-        <br/>public static async Task Main(string[] args)
-          <br/>{
-            <br/>var schema = Schema.For(@"
-            <br/>type Query {
-              <br/>hello: String
-              <br/>}
-              <br/>");
-              <br/>
-              <br/>var json = await schema.ExecuteAsync(_ =>
-                <br/>{
-                  <br/> _.Query = "{ hello }";
-                  <br/> _.Root = new { Hello = "Hello World!" };
-                  <br/>});
-                  <br/>
-                  <br/>Console.WriteLine(json);
-                  <br/>}
-                  <br/>}
-                  <br/> 
-         `,
-        '------ Python',
-        `------ C/C++
-        `,
-        '------ Elm',  
-        ' -- ',
-        '--- GraphQL CLI',
-        '--- GraphQL TS',
-        '--- GraphQL Config',
-        '--- GraphQL ESLint',
-        `--- GraphQL Tools (@graphql-tools/*)-
-          <br/>is a set of npm packages 
-          <br/>and an opinionated structure for how to build a GraphQL schema and resolvers in JS
-        `,
-        `------ GraphCMS
-            <br/>-------- is a powerful, easy to use Headless CMS
-            <br/>-------- that allows you to build the essential back end infrastructure reqd
-            <br/>-------- creates a GrpahQL endpoint - + endpt for trying out GrpahQL too (no need for a server)
-        `,
-        `------ GraphQL Voyager
-        <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
-        <br/>
-        `,
-        '------ GraphQL Docs',
+    <br/>public static async Task Main(string[] args)
+    <br/>{
+    <br/>var schema = Schema.For(@"
+    <br/>type Query {
+    <br/>hello: String
+    <br/>}
+    <br/>");
+    <br/>
+    <br/>var json = await schema.ExecuteAsync(_ =>
+    <br/>{
+    <br/> _.Query = "{ hello }";
+    <br/> _.Root = new { Hello = "Hello World!" };
+    <br/>});
+    <br/>
+    <br/>Console.WriteLine(json);
+    <br/>}
+    <br/>}
+    <br/> 
+    `,
+    '------ Python',
+    `------ C/C++
+    `,
+    '------ Elm',  
+    ' -- ',
+    '--- GraphQL CLI',
+    '--- GraphQL TS',
+    '--- GraphQL Config',
+    '--- GraphQL ESLint',
+    `--- GraphQL Tools (@graphql-tools/*)-
+      <br/>is a set of npm packages 
+      <br/>and an opinionated structure for how to build a GraphQL schema and resolvers in JS
+    `,
+    `------ GraphCMS
+    <br/>-------- is a powerful, easy to use Headless CMS
+    <br/>-------- that allows you to build the essential back end infrastructure reqd
+    <br/>-------- creates a GrpahQL endpoint - + endpt for trying out GrpahQL too (no need for a server)
+    `,
+    `------ GraphQL Voyager
+    <br/>------- is a tool that you can use to visualise your GraphQL APIs schema
+    <br/>
+    `,
+    '------ GraphQL Docs',
         '------ Swagger schema to GraphQL',
-        '------ GraphQL IDE - GraphQL Playground',
-        '------ GraphQL Network - style tab',
-        '------ GraphQL Editor - Create backends from schema',
+    '------ GraphQL IDE - GraphQL Playground',
+    '------ GraphQL Network - style tab',
+    '------ GraphQL Editor - Create backends from schema',
 
-        `------ GraphQL with HTTP
-          <br/>----- using GraphQL Yaga
-          <br/>-------- bind JS GraphQL schema to an HTTP Server
-        `,
-        '--- Dont use ngrx with GraphQL and Apolo client',
-        ' -- ',
-        '--- GraphQL Language Service',
-        ' -- ',
-        `--- GraphQL-ws library for - 
-        `,
-        `--- GraphQL WS (Web Sockets)
-            <br/>execute subscriptions (or other opns) over WebSocket
-            <br/> with the subscriptions-transport-ws library
-        `,
-        '------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
-        '--------- Server holds a steady conection to the client',
-        ' -- ',
-        `--- GraphQL introspection - for developer tooling  ', 
-        
-        `,
-        '--- GraphQL Live Query',
-        ' -- ',
-        '--- Apollo - clients',  
-        '----- Angular Schematics',
-        '----- Angular Router',
-        '-------- Angular Universal (SSR)',
-        '----- NativeScript',
-        '----- Ionic',  
-        ' -- ',
-        `TypeGraphQL - TypeScript and GraphQL 
+    `------ GraphQL with HTTP
+      <br/>----- using GraphQL Yaga
+      <br/>-------- bind JS GraphQL schema to an HTTP Server
+    `,
+    '--- Dont use ngrx with GraphQL and Apolo client',
+      ' -- ',
+      '--- GraphQL Language Service',
+      ' -- ',
+      `--- GraphQL-ws library for - 
+      `,
+      `--- GraphQL WS (Web Sockets)
+          <br/>execute subscriptions (or other opns) over WebSocket
+          <br/> with the subscriptions-transport-ws library
+      `,
+      '------ Subscriptions are normally impd with WebSockets',                                                                                                                                                
+      '--------- Server holds a steady conection to the client',
+      ' -- ',
+      `--- GraphQL introspection - for developer tooling  ', 
+      
+      `,
+      '--- GraphQL Live Query',
+      ' -- ',
+      '--- Apollo - clients',  
+      '----- Angular Schematics',
+      '----- Angular Router',
+      '-------- Angular Universal (SSR)',
+      '----- NativeScript',
+      '----- Ionic',  
+      ' -- ',
+      `TypeGraphQL - TypeScript and GraphQL 
 
-        <br/>--- 
+      <br/>--- 
 
-        `
+      `
       ],
     
     [`Real time appns - 
@@ -13730,30 +13741,30 @@ import fastify, {
     `- ag-grid Data - 
     <br/>
     <br/>  export class AppComponent {
-      <br/>   title = 'app';
-      <br/>  
-      <br/>   columnDefs = [
-        <br/> {headerName: 'Make', field: 'make' },
-        <br/>{headerName: 'Model', field: 'model' },
-        <br/>{headerName: 'Price', field: 'price'}
-  <br/>   ];
-      <br/>
- <br/>     rowData = [
-  <br/>      { make: 'Toyota', model: 'Celica', price: 35000 },
-  <br/>      { make: 'Ford', model: 'Mondeo', price: 32000 },
-  <br/>      { make: 'Porsche', model: 'Boxster', price: 72000 }
-  <br/>    ];
-  <br/>   }
+    <br/>   title = 'app';
+    <br/>  
+    <br/>   columnDefs = [
+    <br/> {headerName: 'Make', field: 'make' },
+    <br/>{headerName: 'Model', field: 'model' },
+    <br/>{headerName: 'Price', field: 'price'}
+    <br/>   ];
+    <br/>
+    <br/>     rowData = [
+    <br/>      { make: 'Toyota', model: 'Celica', price: 35000 },
+    <br/>      { make: 'Ford', model: 'Mondeo', price: 32000 },
+    <br/>      { make: 'Porsche', model: 'Boxster', price: 72000 }
+    <br/>    ];
+    <br/>   }
     `,
     `-- ag-grid example
     <br/>
-    &lt;ag-grid-angular 
-      	style="width: 500px; height: 500px;" 
-      	class="ag-theme-balham"
-      	[rowData]="rowData" 
-      	[columnDefs]="columnDefs">
-    &lt;/ag-grid-angular>
-    `
+    <br/>&lt;ag-grid-angular 
+    <br/>  	style="width: 500px; height: 500px;" 
+    <br/>  	class="ag-theme-balham"
+    <br/>  	[rowData]="rowData" 
+    <br/>  	[columnDefs]="columnDefs">
+    <br/>&lt;/ag-grid-angular>
+    <br/>`
     ],
     [`Databases
     <br/>
@@ -13808,8 +13819,8 @@ import fastify, {
      <br/>-- an image is a lightweight | standalone | exec package of S/W
      <br/>-- that includes everything needed to run an appn code | runtime | system tools | system libs | seettings
      `
-  ],
-  [`- Kubernetties K8s
+   ],
+   [`- Kubernetties K8s
   <br/>-- Cluster orchestration system  
    
   `,
