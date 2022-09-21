@@ -732,6 +732,8 @@ const subTopics = [
       ' -- ',
       '----- ng test',
       ' -- ',
+      '----- ng deploy',
+      ' -- ',
       '----- hg help',  
       ' -- ',
       '---- uses Schematics',
@@ -860,16 +862,31 @@ const subTopics = [
      '--- :host-context',
      '--- _content'
      ], 
-     ['Modules','NgModule', 
-    '--- dynamic imports (Ang 08)',
-    '--- Libraries ', 'decorator', 
-    '--- declares Components', 
-    '--- imports Modules', 
-    '--- exports Modules',
-    '--- Can define Service',
-    '--- bootstrapping - ',
-    '--- min 1 Module',
-    '--- Lazy Loading'
+     ['Modules',
+     '--- NgModule', 
+     '--- Angular vs JS modules',
+     '------- Angular @NgModules',
+     '------------ @NgModule decorator', 
+     '------------ bootstrapping',
+     '------------ main.ts',
+     '------------ min 1 Module',
+     '---------------- Lazy Loading',
+     '------------ imports Modules',
+     '------------ exports Modules',
+     '------------ standalone: true',
+     '----------------- declares Components',
+     '------------- Libraries ', 
+     '------------- Can define Service',
+     '------------- dynamic imports (Ang 08)',
+     '----------------- TS 2.4',
+     '----------------- improves speed',
+     '-------- JS Modules',
+     '------------- CommonJS',
+     '------------------ Node.js',
+     '------------- ESMs',
+     '------------------- Browsers or Node.js',
+     '---------------- output-hashing',
+     '---------------- type="module',
     ],
     ['Bootstrapping', 
     '--- initializing/loading appn',
@@ -3411,6 +3428,7 @@ const subTopicsInfo = [
          <br/>--- ng serve
          <br/>------- uses build dev-server
          <br/>--- ng test
+         <br/>--- ng deploy
          <br/>--- ng help
          <br/>
          <br/>- uses Schematics
@@ -6649,7 +6667,7 @@ const subTopicsInfo = [
         `,
         ' -- ',
         `---- ng build
-        <br/>-------
+        <br/>------ Building
         `,
         ' -- ',
   
@@ -6658,14 +6676,21 @@ const subTopicsInfo = [
         `,
         ' -- ',
         `---- ng serve
-       <br/>----- launches the server | watches your files | rebuilds app on change to files  
-       <br/>----- launches server by default on port 4200 on localhost
-       <br/>----- localhost:4200 
+       <br/>------ Serving
+       <br/>------ launches the server | watches your files | rebuilds app on change to files  
+       <br/>------ launches server by default on port 4200 on localhost
+       <br/>------ localhost:4200 
        <br/>
-       <br/>----- uses builder dev-server
+       <br/>------ uses builder dev-server
         `,
         ' -- ',
         `---- ng test
+        <br/>------- Testing 
+        `,
+        ' -- ',
+        `---- ng deploy
+        <br/>------- Deployment
+        
         `,
         ' -- ',
         `---- ng help
@@ -7158,16 +7183,22 @@ const subTopicsInfo = [
     <br/>--- Note Angular 14 introduced the concept of 
     <br/>-------- Modduleless (Standalone) Components 
     `,
-    `-- Diff between JS Module and Angular Module
-    <br/>1: JS Module (ESM) is a file 
-    <br/>2: Angular Module is a class with related Components, Directives, Pipes, Services etc.
+    `--- Diff between JS Module and Angular Module
+    <br/>--- 1: JS Module (ESM) is a file - normally an ESModule
+    <br/>------ which can be loaded into a browser
+    <br/>------ A script should have type="module" with ESMs
+    <br/> 
+    <br/>--- 2: Angular Module is a @NgModule based class 
+    <br/>------ with related Components, Directives, Pipes, Services etc.
       
     `, 
-    `ESMs (EcmaScript Modules) - are the official std format  
-    <br/>--- leads to fast reload speeds and smaller bundles 
+    `--- ESMs (EcmaScript Modules)
+    <br/>------ are the official std format  
+    <br/>------ leads to fast reload speeds and smaller bundles 
     <br/>------ to package JS code for reuse 
     <br/>------ defined using import and export statements
     <br/>----------- for interoperability 
+    <br/>
     <br/>--- <script type="module"> fires off lots of dependencies
     <br/>------ but due to caching and HTTP2 support on Server - it works
     <br/>------ APF (Angular Package Format) - uses 1 flat ESM per entry pt
@@ -7175,11 +7206,27 @@ const subTopicsInfo = [
     `,  
     `--- dynamic imports (Ang 08) - 
     <br/>--- TypeScript 2.4 included support for dynamic import() expressions 
-    <br/>--- lets us asynchronously load and execute ESMs (EcmaScript Modules) on demand    
-    <br/> --- means we can conditionally and Lazy import other modules and libraries
+    <br/>------ lets us asynchronously load and execute ESMs (EcmaScript Modules) on demand    
+    <br/>------ means we can conditionally and Lazy import other modules and libraries
     <br/>
     <br/>--- In Angular - import statements 
-    <br/>--- are written as inline function calls within modules    
+    <br/>------ are written as inline function calls within modules    
+    `,
+     
+    `------- Output Hashing determines if JS files in dist folder
+    <br/>--------- have a hash number to stop them being cached
+    <br/>--------- output-hashing when we build  
+    <br/>------------ ng build --output-hashing none 
+    <br/>--------------- we output main.js and runtime.js etc
+    <br/>------------ ng build --output-hashing all 
+    <br/>--------------- we output main.4354534553.js and runtime.345435345345.js etc    
+    <br/>-------- determines if the JS output files are cashed
+    `,
+    `--------- type="module" to load esms into browser
+    <br/>--------- either in script files
+    <br/>--------- or in package.json
+    <br/>------------- lets the browser run ESMs
+    
     `,
     `--- static import of modules is preferred for most modules 
     `,
@@ -7188,7 +7235,25 @@ const subTopicsInfo = [
     ' -- ',
     '@NgModule({}) decorator',
     '- declares relavent Components', 
-    '- imports Modules','exports Modules', 
+    `--- imports Modules
+    <br/>------ Modules means you can split an appn into several files (modules)
+    <br/>------ 
+    
+    `,
+    '--',
+    `------- CommonJS (CJS)
+    <br/>-------- synchronous
+    <br/>-------- run in server side Node.js
+    <br/>-------- Browsers cant run CommonJS modules  
+    `,  
+    `------- ESMs (EcmaScript Modules)
+    <br/>-------- EcmaScript6 (2015)
+    <br/>-------- asynchronous
+    <br/>-------- can import CJS
+    <br/>-------- used in client side - Angular
+    <br/>-------- Node also supports ESMs 
+    `,
+    '--- exports Modules', 
     '- Can define Service Providers - providers',
     '- bootstrap: [AppComponent]',
     '- required by every Ang appn',
@@ -7247,7 +7312,6 @@ const subTopicsInfo = [
        `,
        `-------- Child injector of Platform injector
        ------------- 
-       
        `,
        `-------- APP_INITIALIZER (@angular/core)
        <br/>--------- a special injection token
@@ -8620,11 +8684,11 @@ const subTopicsInfo = [
     <br/>
     <br/>uses schematics to apply transforms to a web-project 
     <br/>- modify these schematics | define new  one (update code |  
-      <br/>
-      <br/>  fix breaking changes in a dep | add new confign | add a framewok)  
-     <br/>
-     <br/>---- Added in the @schematis/angular colln 
-     <br/>---- ng g   and ng add     
+    <br/>
+    <br/>  fix breaking changes in a dep | add new confign | add a framewok)  
+    <br/>
+    <br/>---- Added in the @schematis/angular colln 
+    <br/>---- ng g   and ng add     
     `,
     'ng-packagr - a build tool - Angular CLI uses',   
     'esm and fesm (flattened)',
@@ -12340,9 +12404,6 @@ import fastify, {
     <br/>
     <br/>"build:elements" : 'ng build --prod --output-hashing none && node concat.js'
     <br/>
-    <br/>
-    <br/>
-  
     <br/> or
     <br/>------- npm library ngx-build-plus lets you combine files during a build
     <br/>--------- ng build --single-build 
