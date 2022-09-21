@@ -13931,17 +13931,17 @@ import fastify, {
     '- Dynamic MicroFrontEnds', 
     '-- We can tell Module Federation about MFEs at runtime',
     `--- loadRemoteModule() 
-      <br/> ---- @angular-architects/module-federation - 
-      <br/> ---- along with Lazy routes - 
-    `,
+    <br/> ---- @angular-architects/module-federation - 
+    <br/> ---- along with Lazy routes - 
+   `,
     '---- ng serve shell',
     '---- ng serve mfe1',
     ],  
    
     ['- Ang Versions',
     `Ang 14.2.0 TS 4.8
-    <br/>--- NgOptimizedImage  
-    <br/>--- Angular Elements with Standalone
+     <br/>--- NgOptimizedImage  
+     <br/>--- Angular Elements with Standalone
      <br/>--- Component Mirror - 
      <br/>--- ESBuild instead of Webpack
      `,
@@ -13981,15 +13981,14 @@ import fastify, {
       <br/>----------- ngContentSelectors, for example ['*']
       <br/>----------- isStandalone, for example false
       `,
-      `--- use ESBuild instead of Webpack 
-      <br/>------ for a much faster build speed 
-      <br/>------ in angular.json
-      <br/>------ "build": {
-      <br/>------   "builder": "@angular-devkit/build-angular:browser",
-      <br/>
-      <br/>-------- "builder": "@angular-devkit/build-angular:browser-esbuild 
-    
-      `,
+    `--- use ESBuild instead of Webpack 
+    <br/>------ for a much faster build speed 
+    <br/>------ in angular.json
+    <br/>------ "build": {
+    <br/>------   "builder": "@angular-devkit/build-angular:browser",
+    <br/>
+    <br/>-------- "builder": "@angular-devkit/build-angular:browser-esbuild 
+    `,
     `Ang 14 TS 4.7 - 
     <br/>--- Strictly typed Reactive Forms | 
     <br/>--- adv extended template diagnostics | 
@@ -14022,10 +14021,10 @@ import fastify, {
       `--- TSLint deprecated
       `,
       `--- ESLint is optional`,
-      '-- Node Package Exports',
-      '-- cli.cache',
-      '-- ES 2020',
-      `-- Simpler Dynamic Component Creation 
+      '--- Node Package Exports',
+      '--- cli.cache',
+      '--- ES 2020',
+      `--- Simpler Dynamic Component Creation 
       <br/>---- no need for Factories
       `,
  ' -- ',
@@ -14050,11 +14049,11 @@ import fastify, {
     <br/>--- Webpack 5 Module Fedn
     `,  
     '-- TS 4.0',
-    '-- Font inlining',
-    '-- ESLint - stricter types',
-    '-- Partial Compilation - linker',
-    '-- HMR (Hot Module Replacement',
-    '-- webpack 5 - Module Federation',
+    '--- Font inlining',
+    '--- ESLint - stricter types',
+    '--- Partial Compilation - linker',
+    '--- HMR (Hot Module Replacement',
+    '--- webpack 5 - Module Federation',
 ' -- ',
     `Ang 10 TS 3.9 - major release - 
     <br/>--- new default browser config - 
@@ -14068,9 +14067,8 @@ import fastify, {
     '-- Ivy ngcc optional strict',
     '-- performance improvements',
     '-- ModuleWithProviders<T>',
-' -- ',
- 
-`Ang 09 TS 3.6/7 
+  ' -- ',
+  `Ang 09 TS 3.6/7 
     <br/>--- Ivy enabled by default 
     <br/>--- AOT compliation the default
     <br/>--- Updates to Zone.js and RxJS 
@@ -14094,16 +14092,16 @@ import fastify, {
     <br/>------- 3: Template Type Checking = tsc used to validate binding expns in template
     <br/>------------ FullTemplateTypeCheck: true     
     `,
-    '-- Smaller bundle size',
-    '-- Update to Zone.js and RxJS',
+    '--- Smaller bundle size',
+    '--- Update to Zone.js and RxJS',
     `--- uses Dynamic imports wrt string
     
     `,
-    `-- ModuleWithProviders
+    `--- ModuleWithProviders
     
     `,
-    '-- Language Service',
-    `-- Faster Tesing with ComponentHarness
+    '--- Language Service',
+    `--- Faster Tesing with ComponentHarness
     
     `,
     ' -- ',
@@ -14138,14 +14136,14 @@ import fastify, {
     '--- bazel and Ivy are coming',
      ' -- ',
     `Ang 07 TS 3.1
-      <br/>--- Ang Material and CDK - Virtual scrolling | Drag n Drop  
-      <br/>--- Performance improvements -reflect-metadata polyfill - 
-      <br/>--- CLI prompts       
-      <br/>--- Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
-      <br/>--- new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
-      <br/>--- Angular Error handling - 
-      <br/>--- Angular Elements - 
-      <br/>--- Native Script - 
+    <br/>--- Ang Material and CDK - Virtual scrolling | Drag n Drop  
+    <br/>--- Performance improvements -reflect-metadata polyfill - 
+    <br/>--- CLI prompts       
+    <br/>--- Angular DO-Bootstrap (interface DoBootstrap - ngDoBootstrap) and Angular Compiler - 
+    <br/>--- new Angular Compiler - offers an 8 phase rotating AOT compilation - NGCC libraries 
+    <br/>--- Angular Error handling - 
+    <br/>--- Angular Elements - 
+    <br/>--- Native Script - 
     `,
     `-- TS 3.1
     
@@ -14161,19 +14159,17 @@ import fastify, {
     `--- new Angular Compiler -  
     <br/>------ 8 phase rotating AOT Compilation
     `,
-     `--- improved Angular error handling
-     
+     `--- improved Angular error handling     
      `
   ]
 ];
 
 @Component({
-  selector: 'app-ts-menu',
-  templateUrl: './ts-menu.component.html',
-  styleUrls: ['./ts-menu.component.scss']
+    selector: 'app-ts-menu',
+    templateUrl: './ts-menu.component.html',
+    styleUrls: ['./ts-menu.component.scss']
 })
-export class TsMenuComponent implements OnInit {
-  
+export class TsMenuComponent implements OnInit {  
   static x = 5;
   isScreenSmall = false;
 
