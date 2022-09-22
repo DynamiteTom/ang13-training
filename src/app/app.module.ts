@@ -45,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { Test2InfoSysComponent } from './test2-info-sys/test2-info-sys.component';
+import { SubjectDataEntryComponent } from './subject-data-entry/subject-data-entry.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,6 @@ import { Test2InfoSysComponent } from './test2-info-sys/test2-info-sys.component
     IntersectionTypesComponent,
     RestDotsComponent,
     SpreadDotsComponent,
-    
     TscTranspilesJsComponent,
     TsconfigJsonComponent,
     TscToolingComponent,
@@ -82,7 +82,8 @@ import { Test2InfoSysComponent } from './test2-info-sys/test2-info-sys.component
     NarrowingComponent,
     PartialTypesComponent,
     TsMenuComponent,
-    Test2InfoSysComponent
+    Test2InfoSysComponent,
+    SubjectDataEntryComponent
   ],
   imports: [
     BrowserModule,

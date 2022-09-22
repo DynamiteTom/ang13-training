@@ -8,6 +8,7 @@ const features = `
     'directive',
     'pipes',
     'services',
+    'appn root',
     'Dependency Injection',
     'Decorators', 
     'interf_class',
@@ -373,6 +374,15 @@ const subTopics = [
     '------- providedIn: \'<T>\'',
     'providers'
     ], 
+    ['Application root',
+     '--- root level Component',
+     '------- index.html | app-root',
+     '--- root folder - angular.json',   
+     '--- src/',
+     '--- root module - AppModule',
+
+     
+    ],
     ['Dependency Injection',
     '--- DI Guide',
     '--- Loosely coupled architecture',
@@ -470,10 +480,11 @@ const subTopics = [
     '------------- LView.   - array',
     ' -- ',
     '----------- using Bloom filter',
-    '- DI - Dep Injection',
+    '--- DI - Dep Injection',
     '--- Design pattern',
-    '--- DI Tokens',
-    '-- DI parts',
+    '------- DI Tokens',
+    '------------ Injectors',
+    '--- DI parts',
     '---- Dependency Provider',
     '---- Defining Providers',
     '------ provide example',
@@ -612,7 +623,9 @@ const subTopics = [
   '------ every()',
   '------ entries()',
   '------ join()',
-  '------ concat()'    
+  '------ concat()',
+  '--- Exs',
+  '------ Fibinaci sequence',    
   ],
   ['ES EcmaScript - modern JavaScript',
         '-- modern JavaScript',
@@ -1358,6 +1371,7 @@ const subTopics = [
      '--------- subscribes and waits to finish'  
     ],
     ['Forms',
+    '--- Why we need forms',
     '--- Capture view user inputs',
     '--- Data field binding',
     '------ create a Form Modal',
@@ -2213,9 +2227,12 @@ const subTopics = [
     ['Flex-layout', 
     '--- display:flex'
     ],
-    ['PWA (Progressive Web Appns)', 
+    ['PWA (Progressive Web Appns)',
+    '--- @angular/pwa',
+
     '--- SW (Service Workers)', 
     '------- manifests', 
+    '------------ manifest.webmanifest file',
     '------- Web-platform features',
     '------- Progressive Enhancement ',
     '------- native apps',
@@ -5212,14 +5229,54 @@ const subTopicsInfo = [
      `,       
      'other values',
      'privders:[MyService]'
-    ], 
-    [
-     `DI (Dependency Injection) 
-    <br/>---- is a design pattern 
-    <br/>--- a class requests dependencies from external sources 
-    <br/>------ (instead of creatng them) 
+    ],
+    [`Application root
+    
+    
+    `,
+    `--- root level Component
+    
+    `,
+    `------- index.html | app-root
+     <br/>------- normally AppComponent is the root component
+     <br/>------- with a tree of components sprouting upwards
+     <br/>------- events bubble downwards 
+    `,
+    `--- root folder - angular.json
+    
+    `,   
+    `--- src/
+    
+    `,
+    `--- root module - AppModule
+    
+    `,
+    
+    
+   ],
+    [`DI (Dependency Injection) 
+    <br/>--- involves 
+    <br/>--- Dependencies| tokens| injectors|  
+    <br/> 
+    <br/>--- An Angular injector facilitates interaction between
+    <br/>-------- dependency consumers (Components) and dependency providers (service)  
+    <br/>-------- but as well as services | other schematics - pipes| directives| benefit from DI
+    <br/>
+    <br/>-------- Injectors are data structure that specify 
+    <br/>------------- where and how services (dependencies) form       
+    <br/>------------- Modules | Directives| Components contain injector metadata 
+    <br/>------------- iterator tree mirrors the Component tree   
+    <br/>------------------ providers:[] metadata - accept services - reg with class injector   
+    <br/>--------------------- creates an instance of service for the class
+    <br/>------------------ Services can register with any iterator up to the application root itself  
+    <br/>
+    <br/>--- is a design pattern 
+    <br/>------  a class requests dependencies from external sources 
+    <br/>--------- (instead of creatng them) 
     <br/>-------  
     <br/>--- DI GUIDE
+    <br/>
+    <br/>--- DI keeps code flexible| testable| mutable
     <br/>
     <br/>--- happens automatically most of the time
     <br/>
@@ -5265,7 +5322,8 @@ const subTopicsInfo = [
     <br/>   
     Using provide with providers
     <br/>
-    `,` @Component({
+    `,
+    ` @Component({
     <br/>--- selector: 'app-hero-of-the-month'
     <br/>--- templateUrl: './hero-of-the-month.component.html'
     <br/>--- providers: [
@@ -5383,29 +5441,29 @@ const subTopicsInfo = [
     <br/>----------- provides an additional level of Type safety
     <br/>
     <br/>
-    <br/>Injectors can have 1+   child Injectors - 
+    <br/>--- Injectors can have 1+   child Injectors - 
     <br/>
     <br/>
-    <br/>ReflectiveInjector implements Injector 
-    <br/>---- ReflectiveDependency Injection container 
-    <br/>-------- used for instantiating objects and resolving dependencies
-    <br/>---------DEPRECATED
+    <br/>--- ReflectiveInjector implements Injector 
+    <br/>------- ReflectiveDependency Injection container 
+    <br/>----------- used for instantiating objects and resolving dependencies
+    <br/>----------- DEPRECATED
     <br/>  
-    <br/>StaticInjector - Angular 5 
-    <br/>---- much faster thant ReflectiveInjector          
-    <br/>---- doesent resolve implicit deps at all
-    <br/>---- developer must explicitly spec deps for each provider
+    <br/>--- StaticInjector - Angular 5 
+    <br/>------- much faster thant ReflectiveInjector          
+    <br/>------- doesent resolve implicit deps at all
+    <br/>------- developer must explicitly spec deps for each provider
     <br/>
     <br/>--- New Provider Type
     <br/>
-    <br/>export interface StaticClassProvider {
-    <br/> ---- provide: any;
-    <br/> ---- useClass: Type<any>;
-    <br/> ---- deps: any[];
-    <br/> ---- multi?: boolean;
+    <br/>--- export interface StaticClassProvider {
+    <br/>------- provide: any;
+    <br/> ------ useClass: Type<any>;
+    <br/> ------ deps: any[];
+    <br/> ------ multi?: boolean;
     <br/>}
     <br/>
-    <br/>Injector.create(providers);
+    <br/>--- Injector.create(providers);
     `,
     
     `--- DI GUIDE
@@ -5424,9 +5482,15 @@ const subTopicsInfo = [
     <br/>-------- 3:  Property Injection - setter inection
     `,
     
-    '--- 1 Constructor injection',
-    '--- 2 Method injection',
-    '--- 3 Property injection',
+    `--- 1 Constructor injection
+    
+    `,
+    `--- 2 Method injection
+    
+    `,
+    `--- 3 Property injection
+    
+    `,
     
   ' -- ',
     `--- Providers -
@@ -6208,6 +6272,23 @@ const subTopicsInfo = [
       `,
         `---------- concat()
   
+      `,
+      '--- Exs',
+      `------- Fibinaci Series
+
+      C# demo 
+      var yourself = {
+        fibonacci : function(n) {
+            if (n > 1) {
+              return this.fibonacci(n - 1) +
+                           this.fibonacci(n - 2);
+    
+            }
+            return n;
+        }
+      };
+    
+      
       `
     
     
@@ -9299,12 +9380,37 @@ const subTopicsInfo = [
     `,
     ],
     [`Forms 
-    <br/>--- to handle user input - eg Login - Register
+    <br/>--- Uses for Forms
+    <hr/>------- 1: Login and Registration
+    <br/>------- 2: Data entry
+    <br/>------- 3: Validatng Data entry
+    <br/>------ Template Forms
+    <br/>----------- Template Approach uses directives in template
+    <br/>----------- uses NgForm 
+    <br/>----------- for small and   simple forms   
+    <br/>----------- use 2 way data binding to update the data Model
+    <br/>--------------- to keep model data and template display in sync     
+    <br/>----------- assynchronous   
+    <br/>----------- dont scale well 
     <br/>
+    <br/>------- Reactive Forms
+    <br/>------------ Reactive Forms declare a model driven approach in the class 
+    <br/>------------ Values change over time
+    <br/>------------ immutable data model 
+    <br/>------------ access Control info via properties and methods 
+    <br/>---------------- control form state    
+    <br/>------------- more powerful and easier to control
+    <br/>------------- synchronous
+    <br/>------------ Dynamic Form Validation
+  
     <br/>--- Both Template and Reactive forms 
-    <br/>--- track value changes between form Input elements and form data 
-    <br/>--- in the Component Model
+    <br/>------ track value changes between form Input elements and form data 
+    <br/>--------- in the Component Model
     <br/>
+    <br/>------ Validation is an integral part of managing any type of forms 
+    <br/>---------- Angular provides a set of built-in validators + ability to create custom validators
+    
+    
     <br/>--- Data Binding
     <br/>--- Form Validation
     <br/>
@@ -9362,7 +9468,6 @@ const subTopicsInfo = [
     <br/>
     <br/>--- 2: ReactiveFormsModule - 
     <br/> -- 
-    <br/>
     <br/>--- Validation is an integral part of managing any type of forms 
     <br/>
     <br/>--- Angular provides a set of built-in validators + ability to create custom validators
@@ -9372,6 +9477,17 @@ const subTopicsInfo = [
     <br/>--- Angular 14
     <br/>------- Typed Reactive Forms  
       `,
+      `--- Why do we need forms 
+      <br/>------ 1: Login and Registration
+      <br/>------ 2: Data entry 
+      <br/>------ 3: Validating data entry
+      `,
+      `--- Template forms - 
+      
+      `,
+      `--- Reactive Forms - 
+      `,
+      ' -- ',
       `--- Data Binding
       
       `,
@@ -9385,7 +9501,6 @@ const subTopicsInfo = [
       `,
       `--- 2 types of Forms
       `,
-
       `------ 1: Template Forms 
       <br/>-------- Template Driven Approach using directives)
       `,
@@ -9419,6 +9534,7 @@ const subTopicsInfo = [
       '----- Unstructured and Mutable',
       '----- More complex Testing',
       '----- &lt;form (ngSubmit)="onSubmit()" #heroForm="ngForm">',
+      ' -- ',
       `--- 2: Reactive Forms 
       <br/>------ (Model Driven Approach)
       <br/>
@@ -9442,6 +9558,7 @@ const subTopicsInfo = [
       <br/>
       <br/>--- &lt;/form>
       `,
+      ' -- ',
       `------- uses FormGroup and FormControl for fields 
        <br/>-------- and validation
        <br/>-------- directives 
@@ -12222,53 +12339,59 @@ import fastify, {
     `, 
         'display:flex'
     ],
-    [`PWA (Progressive Web Appn) - are Web appns that use Service Workers 
-    <br/>- manifests - caching - progressive appns - to give a similar exp with a native appn 
-    <br/>- apps leverage modern browser capabilities 
-    <br/>- even with no Network or sparse Networks
+    [`PWA (Progressive Web Appn) 
+    <br/>--- are Web appns that use Service Workers 
+    <br/>--- manifests - caching - progressive appns - to give a similar exp with a native appn 
+    <br/>--- apps leverage modern browser capabilities 
+    <br/>--- even with no Network or sparse Networks
+    <br/>------- ng add @angular/pwa
     <br/>
-    <br/>- SW (Service Workers) - added to an app - turns it into a PWA  
+    <br/>------- SW (Service Workers)
+    <br/>------------ added to an app - turns it into a PWA  
     <br/>
-    
-    
+    <br/>------- "@angular/service-worker": "14.2.3",
     `, 
-    `- SW (Service Workers) - added to an app - turns it into a PWA  
-    <br/>
-    `, 
-    '- manifests', 
-    '- other Web-platform features',
-    '- Progressive Enhancement ',
-    '--- native apps ',
-    '---- Works Offline',
-    ' -- ',
-    '- Requirements',
-    '-- Runs on almost every desktop | mobile | tablet', 
-    '-- Due to SW - keeps it always updated',
-    '-- due to HTTPS - secure',
-    '-- SWs to make it work offline and on sparse networks',
-    '-- employs modern web capabilities to produce an app-like experrience',
-    '-- via SE due to web app manifest',
-    '-- does not require downloading - easily shared via simple link or URL', 
-    '-- engages same interaction methodology as a native app  ',
-    '-- fully installable on users mobile home screen (no App Store)',
-    '-- up to date via Push Notification - offers latest updates', 
-    ' -- ',
-    `- Service Workers 
-    <br/>- is a script runs in Web browser to manage and manages caching of appn
+    `--- @angular/pwa is a library with SW support 
+    
     `,
-    '-- For SW to be registered it requires HTTPS', 
-    '-- Caching is like installing a native appn - appn is cached as 1 unit - all files updated together ',
-    '-- SW loads Manifest file - ngsw.json from Server using CLI generated config file- ngsw-tsconfig.json - (not the Web App Manifest file) - Caching - describes resources to cache - includes hashes of every files content',
-    '--- Update to appn deployed - Contents of manifest changes - hence new ver of appn should be downloaded and cached - Updates happen in background quickly after changes are published',
-    '-- SW is preserved after user closes tab - next time browser loads appn - it loads SW first - appn very fast - intercepts every resource request - no need for Network',    
-    '-- interactions are handled using the SwPush service - ensure protect against CSRF/XSRF   attacks ',
-    '--- interfaces',
+  
+    `------ SW (Service Workers) - added to an app - turns it into a PWA  
+    <br/>
+    `, 
+    '------- manifests', 
+    '- other Web-platform features',
+    '------- Progressive Enhancement ',
+    '------- native apps ',
+    '------------ Works Offline',
+    ' -- ',
+    '--- Requirements',
+    '------- Runs on almost every desktop | mobile | tablet', 
+    '------- Due to SW - keeps it always updated',
+    '------- due to HTTPS - secure',
+    '------- SWs to make it work offline and on sparse networks',
+    '------- employs modern web capabilities to produce an app-like experrience',
+    '------- via SE due to web app manifest',
+    '------- does not require downloading - easily shared via simple link or URL', 
+    '------- engages same interaction methodology as a native app  ',
+    '------- fully installable on users mobile home screen (no App Store)',
+    '------- up to date via Push Notification - offers latest updates', 
+    ' -- ',
+    `--- Service Workers 
+    <br/>------ is a script runs in Web browser to manage and manages caching of appn
+    `,
+    '---------- For SW to be registered it requires HTTPS', 
+    '---------- Caching is like installing a native appn - appn is cached as 1 unit - all files updated together ',
+    '---------- SW loads Manifest file - ngsw.json from Server using CLI generated config file- ngsw-tsconfig.json - (not the Web App Manifest file) - Caching - describes resources to cache - includes hashes of every files content',
+    '---------- Update to appn deployed - Contents of manifest changes - hence new ver of appn should be downloaded and cached - Updates happen in background quickly after changes are published',
+    '--------- SW is preserved after user closes tab - next time browser loads appn - it loads SW first - appn very fast - intercepts every resource request - no need for Network',    
+    '--------- interactions are handled using the SwPush service - ensure protect against CSRF/XSRF   attacks ',
+    '--------- interfaces',
     '---- PushEvent',
     '---- PushManager',
     '---- PushMessageData',
     '---- PushSubscription',
     '---- PushSubscriptionOptions',
-    '-- Background Sync - ',
+      '-- Background Sync - ',
     '--- defer actions',
     '---- Store when offline',
     '----- caches small static assets',
@@ -12567,7 +12690,19 @@ import fastify, {
     <br/>- mobile friendly
     <br/>--- SSR (Server Side Rendering)
     `,
-    '- SSR - Server Side Rendering'
+    `--- SSR - Server Side Rendering
+    
+    `,
+    `--- @angular/platform-server
+    <br/>--------- for SSR 
+    <br/>--------- supports delivery of Ang apps on the server
+    <br/>--------- npm i @angular/platform-server
+    `,
+    `--- BrowserModule.withServerTransition()
+    <br/>--------- configures a browser based app to     
+    <br/>--------- transition from a server rendering app (if one exists on page)
+    <br/>--------- BrowserModule.withServerTransition({ appId: 'angular-starter' }),
+    `
   ],
    [`Standalone Components - (Module-less) 
    <br/>--- are components that can be used without declaring them inside the NgModule decorators  
@@ -13167,7 +13302,7 @@ import fastify, {
   <br/>------ rx-angular/state
   <br/>------ rx-angular/template
   `,
-  s `------ rx-angular/cdk
+   `------ rx-angular/cdk
 
   `,
    `------ rx-angular/state
