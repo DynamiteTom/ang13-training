@@ -4867,7 +4867,7 @@ const subTopicsInfo = [
    <br/>
    <br/>-------- are used in Components --- |--- Directives--- | --- Pipes --- | ----- Services
    <br/>-------- using decorator objects starting with a @ 
-   <br/>sssssssss------------------ @Component({}) - | - @Directive({}) | --- @Pipe({}) | --- @Injectable({})
+   <br/>------------------ @Component({}) - | - @Directive({}) | --- @Pipe({}) | --- @Injectable({})
    <br/>
    <br/>--- Component is the most common example of a class 
    <br/>--- Here is an example of what a Component looks like
@@ -4884,13 +4884,19 @@ const subTopicsInfo = [
    <br/>------------ StyleUrls:['./my.component.css'],
    <br/>------------ providers: ''
    <br/>------- })
-   <br/>------- export class MyComponent{
+   <br/>--- uses the OnInit Life Cycle Hook
+   <br/>------- export class MyComponent implements OnInit{
    <br/>--------- // Properties
    <br/>----------- nVal1: number = 4;
    <br/>----------- sVal2 = "Hello";
    <br/>
    <br/>--------- // Constructor
    <br/>----------- constructor(){
+   <br/>
+   <br/>----------- }
+   <br/>
+   <br/>--------- // imp LCH (Life Cycle Hook)
+   <br/>----------- ngOnInit(){
    <br/>
    <br/>----------- }
    <br/>
@@ -4948,16 +4954,17 @@ const subTopicsInfo = [
   `,
   `------ property binding []
   <br/>-------
-  
   `,
   `------ event binding ()
   <br/>-------
- 
   `,
   `------ two way binding [()]
   <br/>------- banana in a box
   <br/>------- 
- 
+  `,
+  ' -- ',
+  `--- Components have 
+   <br/>------ Lify Cycle Hooks 
   `,
   ' -- ',
   `--- View DOM
@@ -4969,6 +4976,7 @@ const subTopicsInfo = [
   `--- Transclusion
   <br/>------- 
   `,
+  
   ' -- ',
   `--- implements
   <br/>-------
