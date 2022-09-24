@@ -3,14 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 
 const features = `
-    'angular', 
-    'component', 
-    'directive',
-    'pipes',
-    'services',
-    'appn root',
-    'Dependency Injection',
+    'angular',
+    'classes',
     'Decorators', 
+    '--- component', 
+    '--- directive',
+    '--- pipes',
+    '--- simple services',
+    'appn root',
+    'package managers',
     'interf_class',
     'JavaScript', 
     'EcmaScript',
@@ -30,6 +31,7 @@ const features = `
     'life-cycle-hooks',
     'routing_router',
     '@Input_@Output',
+    'Dependency Injection',
     'Event Bubbling',
     'funny operators',
     ' -- ',
@@ -206,6 +208,36 @@ const subTopics = [
     '--- Angular/PWA/SW',
     '--- Angular Universal',
     '--- Angular/WebWorkers'
+    ],
+    ['classes',
+     '--- constructor()',
+     '--- properties',
+     '--- methods',
+     '------- TypeScript',
+     '----------- data types',
+     ' -- ',
+     '--- Decorators ', 
+     '------- metadata',
+     '------- annotations',
+     ' -- ',
+     '--- constants',
+     '--- enums',
+     '--- interfaces',
+     ' -- ',
+     '--- DataBinding',
+     '------ interpolation',
+     '------ property binding []',
+     '------ event binding ()',
+     '------ two way binding',
+     ' -- ',
+     '--- View DOM',
+     '--- Content DOM',
+     '--- Transclusion',
+     ' -- ',
+     '--- implements',
+     '------ interface',
+     '--- extends',
+     '------ inheritance'    
     ],
     ['Components - ',
     '--- @Component({})',
@@ -2569,9 +2601,15 @@ const subTopics = [
     '--- ag-grid ex',
     ],
     ['Databases',
-     '--- RxDB - Reactive DB',
-     '--- SQL Server',
-     '--- NoSQL Dbs',
+    '--- DOM Storage',
+    '--- IndexedDB',
+    '--- LocalForage',
+    '-------- IndexedDB',
+    '--- Firebase',
+    '-------- '.
+    '--- RxDB - Reactive DB',
+    '--- SQL Server',
+    '--- NoSQL Dbs',
 
     ],
     ['Docker ',   
@@ -4822,10 +4860,131 @@ const subTopicsInfo = [
    `--- Angular Universal lets Angular work on the Server and use SSR - Server Side Rendering - Also a way to speed up the initial load time by only loading static code and then dynamically loading the Angular framework after behind the scenes - very fast load time
    `,
     `--- Angular/WebWorkers -
-  `
+   `
  ], 
+ [`classes
+   <br/>--- can have a constructor, properties, methods
+   <br/>
+   <br/>-------- are used in Components --- |--- Directives--- | --- Pipes --- | ----- Services
+   <br/>-------- using decorator objects starting with a @ 
+   <br/>sssssssss------------------ @Component({}) - | - @Directive({}) | --- @Pipe({}) | --- @Injectable({})
+   <br/>
+   <br/>--- Component is the most common example of a class 
+   <br/>--- Here is an example of what a Component looks like
+   <br/>--- defining a class 
+   <br/>
+   <br/>--- The @Component decorator 
+   <br/>
+   <br/>------- @Component({
+   <br/>------------ selector: 'app-my',
+   <br/>------------ template: \`  
+   <br/>----------------  // example of interpolation data binding
+   <br/>----------------- {{ nVal1 }} {{ sVal2 }}
+   <br/>------------ \`,
+   <br/>------------ StyleUrls:['./my.component.css'],
+   <br/>------------ providers: ''
+   <br/>------- })
+   <br/>------- export class MyComponent{
+   <br/>--------- // Properties
+   <br/>----------- nVal1: number = 4;
+   <br/>----------- sVal2 = "Hello";
+   <br/>
+   <br/>--------- // Constructor
+   <br/>----------- constructor(){
+   <br/>
+   <br/>----------- }
+   <br/>
+   <br/>---------- // Method example 
+   <br/>----------- getData(x: string){
+   <br/>---------------- console.log('Val x is ', x);  
+   <br/>----------- }
+   <br/>
+   <br/>------- }
+   <br/>
+   <br/>--- }
+ 
+ 
+  `,
+   `--- constructor()
+   
+   `,
+   `--- properties
+   
+   `,
+   `--- methods
+   `,
+   ' -- ',
+   `------- TypeScript
+   `,
+   `----------- data types
+   <br/>-------
+ 
+   `,
+   ' -- ',
+   `--- Decorators 
+   <br/>-------
+   
+   `, 
+   `------- metadata
+   
+   `,
+  `------- annotations
+  
+  `,
+   ' -- ',
+   `--- constants`,
+   `--- enums
+   <br/>-------
+ 
+   `,
+  `--- interfaces
+  <br/>-------
+  `,
+  ' -- ',
+  
+  `--- DataBinding
+  `,
+  `------ interpolation
+  `,
+  `------ property binding []
+  <br/>-------
+  
+  `,
+  `------ event binding ()
+  <br/>-------
+ 
+  `,
+  `------ two way binding [()]
+  <br/>------- banana in a box
+  <br/>------- 
+ 
+  `,
+  ' -- ',
+  `--- View DOM
+  <br/>----- 
+  `,
+  `--- Content DOM
+  <br/>----- 
+  `,
+  `--- Transclusion
+  <br/>------- 
+  `,
+  ' -- ',
+  `--- implements
+  <br/>-------
+  `,
+  `------ interface
+  <br/>--------
+  `,
+  `--- extends
+  <br/>-------
+  `,
+  `------ inheritance
+  <br/>-------
+  `    
+  ],
   [`Components 
-  <br/>are the most important part of an Ang appn 
+    <br/>are the most important part of an Ang appn 
     <br/>- they have a @Component decorator with a selector - template and optional style
     <br/>
     <br/>- They must have a template - either internal or external with HTML   
@@ -6669,7 +6828,12 @@ const subTopicsInfo = [
       `--- classes - helps structure reusable Angular objects  
        <br/>------ with multiple declarations for methods - properties - events 
       `,
-      '-- index.ts'
+      '--- index.ts',
+      `--- TypeScript Exression Engine 
+       <br/>------ evaluates expressions in realtime against arbitrary data 
+       <br/>
+    
+    `
      ],
      [`Angular CLI (Command Line Interface) tool - 
         <br/>--- lets you initialize | develop | Scaffold | maintain | build| serve 
@@ -13128,7 +13292,7 @@ import fastify, {
   <br/>------ before browser downloads and runs the code
   <br/>------ compiling in build phase means a faster rendering in browser (without compiler)
   <br/>---------- as compiler is 50% size of Angular  
-  <br/>------ Compiler inlines ext files - HTML and CSS   - no sep ajax requests
+  <br/>>------ Compiler inlines ext files - HTML and CSS   - no sep ajax requests
   <br/>------ detects and reports template binding errors before user spies them
   <br/>------ better Security - fewer opportunity for injection attacks      
   `,
@@ -13137,9 +13301,15 @@ import fastify, {
    `--- Webpack Bundle Analyzer 
    <br/>--- npm install --save-dev webpack-bundle-analyzer
    <br/>
+   <br/>--- using stats.json with WBA
    <br/>--- "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json"
    <br/>
    <br/>--- npm run bundle-report
+   `,
+   `------- stats.json
+   <br/>--------- ng build --stats-json
+   <br/>--------- generates stats.json file in dist folder
+   <br/>--------- 
    `,
    `------- zoomable treemap
    <br/>--------- webpack bundle analyzer
@@ -13966,6 +14136,65 @@ import fastify, {
     <br/>
 
     `,
+    `--- DOM storage 
+    <br/>------- for storing small amounts of data
+    
+    `,
+    `--- IndexedDB
+    <brH/>------ is a large scale NoSQL DB   
+    <br/>------ A low level API for Client Side Storage for significat amts of structured data
+    <br/>------------- including files | blobs   
+    <br/>------ uses indexes for high perf searches of this data
+    <br/>------ uses Object store
+   
+    <br/>------ store almost anything in the user's browser   
+    <br/>------ supports search, get and put and transactions 
+    <br/>---------- Diff browsers store data differently  
+    <br/>------ uses computer's HDD disk space - limits size
+    `,
+    `------ Object Store
+    <br/>--------- like tables in SQL Server  
+    <br/>--------- One Object Store for each type you are storing   
+    <br/>--------- data can be diff JS data types - numbers, strings for same table data
+    `,
+    `------ Index
+    <br/>--------- storing peopel - ref by name, age or favorite animal
+    
+    `,
+    `------ Operation
+    <br/>---------- interaction with the DB
+    `,
+    `------- Transaction
+    <br/>--------- wrapper around an operation or group of operations
+    <br/>--------- ensureing DB Integrity 1 fails the txn does not work
+    <br/>-------------- DB remains in the same state it was in before
+    <br/>--------- All R/W opns must be part of a txn   
+    <br/>--------- allows auto read-modify-write for simultaneous threads    
+    `,
+    `------- Cursor
+    <br/>--------- operate over multiple records in a DB
+
+    `,
+    ' -- ',
+    `--- LocalForage 
+    <br/>------ uses IndexedDB with fallback to LocalStorage
+    <br/>------  at the storage backend
+    <br/>------- is synschronous API and accepts simple key value srings
+    <br/>----------- use Promises to get/set values  
+    `,
+    `------ IndexedDB 
+    <br/>-------
+    `,
+    ' -- ',
+    `--- Firebase
+    <br/>------ Google's DB 
+    <br/>------ a set of hosting services for any type of appn
+    <br/>------ offers NoSQL and real-time hosting of dbs| content| authn| notifications   
+    Kbr/>
+    <br/>------ Firebase cloud hosted backend - 
+    `,
+    `------ Firebase cloud hosted backend  
+    `,
     `--- RxDB - Reactive DB
      <br/>--- real time - No SQL DB for JS based app'ns 
      <br/>------- including webpages
@@ -13979,7 +14208,10 @@ import fastify, {
      <br/>---------- PouchDB + SQLLite adapter for a capacitor app
      <br/>---------- LokiJS RxStorage with IndexedDB adapter for a browser appn
      <br/>---------- Node.js - filesystem based adapters
-    `,
+     <br/>
+     <br/>------- Can replicate with any CouchDB server or GraphQL endpoints
+    
+     `,
     `--- SQL Server
     
     `,
