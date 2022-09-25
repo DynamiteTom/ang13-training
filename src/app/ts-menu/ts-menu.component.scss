@@ -103,6 +103,18 @@ mat-list-item{
   font-size: 16px; 
 }
 
+
+.noscroll{
+   overflow: scroll;
+}
+
+.overlay { 
+  position: fixed; 
+  overflow-y: scroll;
+  top: 0; right: 0; bottom: 0; left: 0; 
+}
+
+
 .tsHead{
   position: relative;
   font-weight: bold;

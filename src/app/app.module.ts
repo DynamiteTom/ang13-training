@@ -39,7 +39,6 @@ import { GetterSetterComponent } from './ts-features/ts-other/getter-setter/gett
 import { NullishCoalescingComponent } from './ts-features/ts-other/nullish-coalescing/nullish-coalescing.component';
 import { CatchBugsEarlyComponent } from './ts-features/ts-other/catch-bugs-early/catch-bugs-early.component';
 import { TsMenuComponent } from './ts-menu/ts-menu.component';
-
 // import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { FlexLayoutModule } from '@angular/flex-layout';

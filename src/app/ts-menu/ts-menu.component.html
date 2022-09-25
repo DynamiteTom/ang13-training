@@ -5,8 +5,15 @@
     <a class="arr-op2" (click)="showTSFeatures(i)"> {{ removeQuote(feature_) }}</a>
     <span class="tsResultBox">  
         <div *ngIf="i===tsFeatureIndex" class="tsHead">{{ removeQuote(feature_).split('_') }}</div>
+       <!--
+        <mat-card>
+            <mat-list-item>
+
+            </mat-list-item>        
+        </mat-card>
+    -->
         <div *ngFor="let arrEl of ts_sublist[i]; let j=index">
-            
+
             <span class="arr-topics" *ngIf="arrEl !== ' -- ' && i === tsFeatureIndex">
                 
                 <a (mouseover)="getInfo(i,j)"> {{ arrEl }} </a>
