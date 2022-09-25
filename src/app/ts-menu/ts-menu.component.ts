@@ -6844,6 +6844,8 @@ const subTopicsInfo = [
     `
      ],
      [`Angular CLI (Command Line Interface) tool - 
+        <br/>--- based on Node.js (best to use LTS version)
+        <br/>
         <br/>--- lets you initialize | develop | Scaffold | maintain | build| serve 
         <br/>--- Angular apps directly from a Cmd line - prompt 
         <br/>
@@ -10649,7 +10651,8 @@ les -
 
     [' -- '],
     ['install from GitHub', 
-    'npm install to create the node_modules folder'],
+    'npm install to create the node_modules folder'
+    ],
     [`Core libraries`,
       `- @angular/core - imps Angular core functionality - low level services and utilities  
         <br/>BrowserModule - included auto in root AppModule when create a new app with CLI
@@ -10745,6 +10748,10 @@ les -
       `,    
     ],
     [`GIT
+    <br/>--- useful when downloading ex programs from github etc
+    <br/>------- where you switch branches of diff versions of ex code
+    <br/>------- eg final solution wrt initial setup and inbetween steps
+    <br/>
     <br/>--- distributed VCS| decentralized| share devs work between teams| revert back to snapshot
     <br/>--- working dir| staging area (index)| local repo| remote repo| git clone| local repo
     <br/>--- git init| .git folder| git config| branches| .gitignore 
@@ -14195,10 +14202,10 @@ import fastify, {
     `,
     ' -- ',
     `--- Firebase
-    <br/>------ Google's DB 
+    <br/>------ Google's - realtime NoSQL Cloud DB 
     <br/>------ a set of hosting services for any type of appn
     <br/>------ offers NoSQL and real-time hosting of dbs| content| authn| notifications   
-    Kbr/>
+    Kbr/>  
     <br/>------ Firebase cloud hosted backend - 
     `,
     `------ Firebase cloud hosted backend  
