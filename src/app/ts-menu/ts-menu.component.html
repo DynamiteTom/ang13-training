@@ -6,8 +6,10 @@
     <span class="tsResultBox">  
         <div *ngIf="i===tsFeatureIndex" class="tsHead">{{ removeQuote(feature_).split('_') }}</div>
         <div *ngFor="let arrEl of ts_sublist[i]; let j=index">
-            <span class="arr-topics" *ngIf="i === tsFeatureIndex">
-               <a (mouseover)="getInfo(i,j)"> {{ arrEl }} </a>
+            
+            <span class="arr-topics" *ngIf="arrEl !== ' -- ' && i === tsFeatureIndex">
+                
+                <a (mouseover)="getInfo(i,j)"> {{ arrEl }} </a>
                <div class="infoHead" *ngIf="j === tsFeatureSubIndex">{{ ts_sublist[i][j] }}</div>
                <br/> 
                <div class="info" *ngIf="j === tsFeatureSubIndex" [innerHTML]="tsInfo"></div>

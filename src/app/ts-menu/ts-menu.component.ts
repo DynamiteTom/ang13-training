@@ -61,7 +61,7 @@ const features = `
     'Content-Projection',
     'HTTP_HttpClient',
     '--- HttpClient',
-    '--- HttpInterceptors'
+    '--- HttpInterceptors',
     'Custom Libraries',  
     'Caching',
     'Storage mechanisms',
@@ -80,15 +80,15 @@ const features = `
     'TDD/BDD/DDD',
     'Design Patterns',
     'Security',
-    'Authorizatn/Authenticatn',
+    'Authorization/Authentication',
     'Node.js',
     'npm',
     'express',
-    'VS-Code',
+    'IDEs and VS Code',
     'Angular Language Service',
     'TSServer',
-    'ALS (Language Service)',
     'ESLint',
+    'AST',
     'CI_CD_Jenkins',
     '--- DevOps',
     'Webpack',
@@ -238,6 +238,89 @@ const subTopics = [
      '------ interface',
      '--- extends',
      '------ inheritance'    
+    ],
+    ['Decorators',
+    '- Metadata',
+    '- Annotations', 
+    '- Class', 
+    '-- Types of decorators',
+    ' -- ',
+    '--- Class',
+    '----- @Component()',
+    '----- @Directive()',
+    '----- @Pipe()',
+    '----- @Injectable()',
+    '----- @NgModule()',
+    ' -- ',
+    '--- Property',
+    '----- @Input()',
+    '------- Parent to child',
+    '------- 3 ways to use',
+    '------- 1: std',
+    '------- 2: aliase',
+    '------- 3: getter | setter',
+    ' -- ',
+    '----- @Output()',
+    '------- Child to Parent',
+    '------- EventEmitter()',
+    '--------- Ex',
+    '-------- using emit()',
+    '---------- using myOutput event',
+    ' -- ',
+    '----- @HostBinding()',
+    '------- host property binding',
+    '------- binds prop to host el',
+    '---------- Ex @HostBinding()',
+    '------------ value of toggle',
+    '--------- on change - checked by CD',
+    ' -- ',
+    '----- @ContentChild()', 
+    '------- selects projected content',
+    '---------- Content DOM',
+    ' -- ',
+    '-------  @ContentChildren()',
+    '--------- fetch a QueryList',
+    '----------- configure content query',
+    '------------- list of queries',
+    ' -- ', 
+    '----- @ViewChild()', 
+    '------- simple @ViewChild Ex',
+    '------- config a View Query', 
+    '--------- from template of Comp',    
+    '--------- View DOM tree',
+    '----------- instance in parent comp',
+    '---- parent comp access methods',
+    '---- ngAfterViewInit LCH',  
+    '------ read - ',
+    '------ static - ',
+    ' -- ',
+    '---- Ex @ViewChild', 
+    ' -- ',
+    '------- @ViewChildren()',
+    '------- child els View DOM',
+    '--------- View Queries',
+    ' -- ',
+    '--- Method',
+    '----- @HostListener()',
+    '------- provides an event',
+    '--------- event handler ',
+    ' -- ',
+    '--- Parameter',
+    '----- @Inject()',
+    '------- DI Token',
+    '----- @Self()',
+    '------- local injector',
+    '----- @Optional()',
+    '------- returns null if not found',
+    '----- @skipSelf()',  
+    '------- parent injector',
+    '----- @Host()',
+    '------- similar to @Self',
+    '-------  search till host',
+    '----- @Override()',
+    '------- overrides method',
+    ' -- ',
+    'Decorator examples'
     ],
     ['Components - ',
     '--- @Component({})',
@@ -412,215 +495,21 @@ const subTopics = [
      '--- root folder - angular.json',   
      '--- src/',
      '--- root module - AppModule',
-
-     
     ],
-    ['Dependency Injection',
-    '--- DI Guide',
-    '--- Loosely coupled architecture',
-    ' -- ',
-    '---- DI - Helps in Unit Testing',
-    '--',
-    '--- 3 types of DI',
-    '------ 1 Constructor injection',
-    '------ 2 Method injection',
-    '------ 3 Property injection',
-    ' -- ',
-    '--- Providers',
-    '-------- Dependencies (Services)',
-    '----------- class | ftn| value| alias',
-    '-------- Metadata - accept deps',
-    ' -- ',
-    '-------- How create dep instance',
-    '----------- provider-definitin key',    
-    '----------- 1:   useClass (Class prov)',
-    '----------- 2:   useValue (Value prov)',
-    '----------- 3:   useFactory (Factory prov)',
-    '----------- 4:   useExisting (Alias prov)',
-    '----------- providers and provider',
-    ' -- ',
-    '----- Sandboxing',
-    '-------- multiple services',
-    ' -- ',
-    '--- Injector',
-    '-------  Configure inj with Providers',
-    '----------- create|obtain dependencies',
-    '----------- injector instance per class',
-    '-------- map of internal deps',
-    '------------ DI Token is map key',
-    '---------------- Runtime version of dep',
-    '--------------- DI token on Injector',
-    '--------------- Runtime value',
-    '--------------- ProviderToken',
-    '--------------- Type| String| Injection',
-    ' -- ',
-    '-------- StaticProvider',
-    '------------ in Injector abstract class',
-    '------------ provides Tokens to injector',
-  
-    ' -- ',
-  
-    '------- Injector.create()',
-    '------------ get()',
-    ' -- ',
-    '--- Injectors', 
-    '------ backbone of DI framework',
-    '------- injectors - key-value pairs ',
-    '------ container of dep instances',
-    ' -- ',
-    '------- for each Component/Directive',
-    '------- for each Lazy loaded Modules',
-    ' -- ',
-    '------ 2 types of Injector Hierarchy DI system',
-    '--------- 2 Injector trees',
- '----1: ModuleInjector (14- EnvironmentInjector)',
-    '---------- A: Providers Metadata and @NgModule',  
-    '---------------- null injector - top',  
-    '---------------- Platform injector',
-    '---------------- Root Module injector',
-    ' -- ',
-    '---------- B: @Injectable({providedIn:\'\'})',
-    ' -- ',
-    '------- Automatic Provisioning',
-    '----------- @Injectable({providedIn: })',
-    '------------- Providing a Service', 
-    '---------------- providedIn: \'root\'',
-    '---------------- providedIn: \'any\'',
-    '---------------- providedIn: \'platform\'',
-    '---------------- providedIn: \'any<T>\'',
-    '------------ other values',
-    ' -- ',
-   
-    '-----------',
-    '----2: ElementInjector (Ivy NodeInjector)',
-    ' -- ',
-    '--------- NodeInjector implements Injector',
-    '--------- Injector Tree',
-    '------------ parallel Component Tree',
-    '--------- providers',
-    '--------- viewProviders',
-    '--------- Injector Bubbling',
-    '------------ Components local injector',
-    '------------ root injector',
-    '--- Resolution Modifiers',
-    '----- @Optional()',
-    '----- @SkipSelf()',
-    '----- @Host()',
-    '----- @Self()',
-    '----------- object refs to',
-    '------------- TNode - TView.data array',
-    '------------- LView.   - array',
-    ' -- ',
-    '----------- using Bloom filter',
-    '--- DI - Dep Injection',
-    '--- Design pattern',
-    '------- DI Tokens',
-    '------------ Injectors',
-    '--- DI parts',
-    '---- Dependency Provider',
-    '---- Defining Providers',
-    '------ provide example',
-    '------ provider-definition key',
-    ' -- ',
-    '--- Providers',
-    '-- Providers with deps',
-    '--- aliasing class providers',
-    '--- aliasing class interface',
-    '--- aliasing multi class i/fs',
-    '--- injecting an Object',
-    '--- injecting a config Object',
-    '--- InjectionToken object',
-    '--- interfaces and DI',
-    '---- Using factory providers'
-  ],
- 
-  ['Decorators',
-    '- Metadata',
-    '- Annotations', 
-    '- Class', 
-    '-- Types of decorators',
-    ' -- ',
-    '--- Class',
-    '----- @Component()',
-    '----- @Directive()',
-    '----- @Pipe()',
-    '----- @Injectable()',
-    '----- @NgModule()',
-    ' -- ',
-    '--- Property',
-    '----- @Input()',
-    '------- Parent to child',
-    '------- 3 ways to use',
-    '------- 1: std',
-    '------- 2: aliase',
-    '------- 3: getter | setter',
-    ' -- ',
-    '----- @Output()',
-    '------- Child to Parent',
-    '------- EventEmitter()',
-    '--------- Ex',
-    '-------- using emit()',
-    '---------- using myOutput event',
-    ' -- ',
-    '----- @HostBinding()',
-    '------- host property binding',
-    '------- binds prop to host el',
-    '---------- Ex @HostBinding()',
-    '------------ value of toggle',
-    '--------- on change - checked by CD',
-    ' -- ',
-    '----- @ContentChild()', 
-    '------- selects projected content',
-    '---------- Content DOM',
-    ' -- ',
-    '-------  @ContentChildren()',
-    '--------- fetch a QueryList',
-    '----------- configure content query',
-    '------------- list of queries',
-    ' -- ', 
-    '----- @ViewChild()', 
-    '------- simple @ViewChild Ex',
-    '------- config a View Query', 
-    '--------- from template of Comp',    
-    '--------- View DOM tree',
-    '----------- instance in parent comp',
-    '---- parent comp access methods',
-    '---- ngAfterViewInit LCH',  
-    '------ read - ',
-    '------ static - ',
-    ' -- ',
-    '---- Ex @ViewChild', 
-    ' -- ',
-    '------- @ViewChildren()',
-    '------- child els View DOM',
-    '--------- View Queries',
-    ' -- ',
-    '--- Method',
-    '----- @HostListener()',
-    '------- provides an event',
-    '--------- event handler ',
-    ' -- ',
-    '--- Parameter',
-    '----- @Inject()',
-    '------- DI Token',
-    '----- @Self()',
-    '------- local injector',
-    '----- @Optional()',
-    '------- returns null if not found',
-    '----- @skipSelf()',
-    '------- parent injector',
-    '----- @Host()',
-    '------- similar to @Self',
-    '-------  search till host',
-    '----- @Override()',
-    '------- overrides method',
-    ' -- ',
-    'Decorator examples'
+    ['Package Managers',
+     '--- npm',
+     '--- yarn',
     ],
     ['Interfaces',    
-      '- export', 
-    '- interface defn', 'Classes','- constructor', '- properties', '- methods', '- events', '-- this'
-  ],
+      '--- export', 
+      '--- interface defn', 
+      '--- Classes',
+      '--- constructor', 
+      '--- properties', 
+      '--- methods', 
+      '--- events', 
+      '--- this'
+   ],
   ['JavaScript',
   '--- browser scripting lang',
   '--- Interpreter based',
@@ -686,8 +575,8 @@ const subTopics = [
         '--- JavaScript features'
       ],
     ['TypeScript',
-    '- Object Oriented Language',
-    '- Strong Data Types',
+    '--- Object Oriented Language',
+    '--- Strong Data Types',
     '--- VS Code',
     '--- Compile time - Type checking',
     '----- Type Annotations',
@@ -857,7 +746,7 @@ const subTopics = [
     'ex', 
     '--- 2-way data binding','ex'
   ],  
-  ['Sstyle - color-size-position', 
+  ['Style - color-size-position', 
     '--- position',
     '--- CSS',
     ' -- ', 
@@ -1073,6 +962,124 @@ const subTopics = [
   '------ captured by Outer element',
   '------ propagated by inner els'
   ],
+  ['Dependency Injection',
+    '--- DI Guide',
+    '--- Loosely coupled architecture',
+    ' -- ',
+    '---- DI - Helps in Unit Testing',
+    '--',
+    '--- 3 types of DI',
+    '------ 1 Constructor injection',
+    '------ 2 Method injection',
+    '------ 3 Property injection',
+    ' -- ',
+    '--- Providers',
+    '-------- Dependencies (Services)',
+    '----------- class | ftn| value| alias',
+    '-------- Metadata - accept deps',
+    ' -- ',
+    '-------- How create dep instance',
+    '----------- provider-definitin key',    
+    '----------- 1:   useClass (Class prov)',
+    '----------- 2:   useValue (Value prov)',
+    '----------- 3:   useFactory (Factory prov)',
+    '----------- 4:   useExisting (Alias prov)',
+    '----------- providers and provider',
+    ' -- ',
+    '----- Sandboxing',
+    '-------- multiple services',
+    ' -- ',
+    '--- Injector',
+    '-------  Configure inj with Providers',
+    '----------- create|obtain dependencies',
+    '----------- injector instance per class',
+    '-------- map of internal deps',
+    '------------ DI Token is map key',
+    '---------------- Runtime version of dep',
+    '--------------- DI token on Injector',
+    '--------------- Runtime value',
+    '--------------- ProviderToken',
+    '--------------- Type| String| Injection',
+    ' -- ',
+    '-------- StaticProvider',
+    '------------ in Injector abstract class',
+    '------------ provides Tokens to injector',
+  
+    ' -- ',
+  
+    '------- Injector.create()',
+    '------------ get()',
+    ' -- ',
+    '--- Injectors', 
+    '------ backbone of DI framework',
+    '------- injectors - key-value pairs ',
+    '------ container of dep instances',
+    ' -- ',
+    '------- for each Component/Directive',
+    '------- for each Lazy loaded Modules',
+    ' -- ',
+    '------ 2 types of Injector Hierarchy DI system',
+    '--------- 2 Injector trees',
+    '----1: ModuleInjector (14- EnvironmentInjector)',
+    '---------- A: Providers Metadata and @NgModule',  
+    '---------------- null injector - top',  
+    '---------------- Platform injector',
+    '---------------- Root Module injector',
+    ' -- ',
+    '---------- B: @Injectable({providedIn:\'\'})',
+    ' -- ',
+    '------- Automatic Provisioning',
+    '----------- @Injectable({providedIn: })',
+    '------------- Providing a Service', 
+    '---------------- providedIn: \'root\'',
+    '---------------- providedIn: \'any\'',
+    '---------------- providedIn: \'platform\'',
+    '---------------- providedIn: \'any<T>\'',
+    '------------ other values',
+    ' -- ',
+   
+    '-----------',
+    '----2: ElementInjector (Ivy NodeInjector)',
+    ' -- ',
+    '--------- NodeInjector implements Injector',
+    '--------- Injector Tree',
+    '------------ parallel Component Tree',
+    '--------- providers',
+    '--------- viewProviders',
+    '--------- Injector Bubbling',
+    '------------ Components local injector',
+    '------------ root injector',
+    '--- Resolution Modifiers',
+    '----- @Optional()',
+    '----- @SkipSelf()',
+    '----- @Host()',
+    '----- @Self()',
+    '----------- object refs to',
+    '------------- TNode - TView.data array',
+    '------------- LView.   - array',
+    ' -- ',
+    '----------- using Bloom filter',
+    '--- DI - Dep Injection',
+    '--- Design pattern',
+    '------- DI Tokens',
+    '------------ Injectors',
+    '--- DI parts',
+    '---- Dependency Provider',
+    '---- Defining Providers',
+    '------ provide example',
+    '------ provider-definition key',
+    ' -- ',
+    '--- Providers',
+    '-- Providers with deps',
+    '--- aliasing class providers',
+    '--- aliasing class interface',
+    '--- aliasing multi class i/fs',
+    '--- injecting an Object',
+    '--- injecting a config Object',
+    '--- InjectionToken object',
+    '--- interfaces and DI',
+    '---- Using factory providers'
+   ],
    ['Funny Operators',
       'Non null operator !',
       'Safe navigation operator ?.',
@@ -1779,7 +1786,8 @@ const subTopics = [
 ],
     [' -- '],
     ['install from Github', 
-    'npm install'
+    '--- npm install',
+    '--- npm ci'
   ],  
   ['Core libraries',
       '- @angular/core',
@@ -2000,11 +2008,9 @@ const subTopics = [
     '------- OWASP', 
     '------- SNYK'
   ],
-  ['Security', 
+  ['Authorization | Authentication', 
     '--- Auhtorization',
-
     '--- Authentication', 
-    
     '------ Auth0', 
     '------ OAuth2'
   ],
@@ -2027,6 +2033,8 @@ const subTopics = [
      '----- traspiled to *.js',
      '--------- esbuild',
     ],
+    ['npm',
+    ],
     ['express',
     '--- node.js web appn frmwork',
     '--- node.js',
@@ -2034,39 +2042,28 @@ const subTopics = [
     '------ get()',
     '------ listen()'
     ],
-    ['Package managers',
-      '--- installs libraries as deps',
-      '--- npm',
-      '------- installs packages sequentially',
-      '--- yarn',
-      '------- installs in parallel '
-    ],
-    ['IDEs',
+    ['IDEs eg VS Code',
       '--- VS-Code',
-      '------ Git',
-      '------ Extensions'
-    ],
+      '--- Coding',
+      '--- Run and Debug',
+      '--- Git',
+      '--- Extensions',
+      '--- Accounts',
+      '--- Settings'
+     ],
     ['Angular Language Service',
     '--- Code completions', 
     '--- Errors', 
     '--- Hints', 
     '--- Navigation', 
-    '--- Angular Templates'
-  ],
-  ['TSServer-',
-  ''
-  ],  
-  ['Angular Language Service',
-        '--- inside Angular templates',
-        '------ completions',
-        '------ errors',
-        '------ hints',
-        '------ navigations',
-        ' -- ',
-        '--- tsconfig.json',
-        '------ strictTemplates: true',
-        ' -- ',
-        '----------- GetSamanticsDiagnostics'
+    '--- Angular Templates',
+    '--- tsconfig.json',
+    '------ strictTemplates: true',
+    ' -- ',
+    '----------- GetSamanticsDiagnostics'
+    ],
+    ['TSServer'
+    
     ],
     ['ESLint', 
     '--- JS + TS', 
@@ -2077,7 +2074,9 @@ const subTopics = [
     '------ ESLint 8.9 - ',
     '------ ESLint 8.15 - ',
     '------ ESLint 8.23 - ',
-    '------ ESLint 8.23.1 - ',
+    '------ ESLint 8.23.1 - '
+    ],
+    ['AST (Abstract Syntax Tree)',
     
     ],
     ['Why CI/CD', 
@@ -2606,9 +2605,13 @@ const subTopics = [
     '--- LocalForage',
     '-------- IndexedDB',
     '--- Firebase',
-    '-------- '.
+    '-------- cloud   firestore db',
+    '------ Angular fire db',
+    ' -- ',
     '--- RxDB - Reactive DB',
+    ' -- ',
     '--- SQL Server',
+    ' -- ',
     '--- NoSQL Dbs',
 
     ],
@@ -4341,8 +4344,9 @@ const subTopicsInfo = [
   <br/>--
   `,
   ' -- ',
-  `Angular Language Service - provides code editors eg VS Code 
-    <br/>with completions | erroers | hints | navigation 
+  `Angular Language Service 
+    <br/>--- provides code editors eg VS Code 
+    <br/>--- with completions | erroers | hints | navigation 
     <br/>
     <br/>- eg VS Code with a way to get 
     <br/>Completions | Errors | Hints | Navigation inside Angular templates
@@ -4351,14 +4355,14 @@ const subTopicsInfo = [
     <br/>----- and finds out about all the templates in your project 
     <br/>-------- and provides adequate support as you open a template 
     `,
-  ' -- ',
-  `ESLint 
+    ' -- ',
+    `ESLint 
     <br/>--- statically analyses your code to quickly find problems 
     <br/>
     <br/>--- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
     <br/>
     <br/>--- is a JavaScript Linter to lint either JS + TS code 
-   = <br/>------(TSLint only used by TypeScript) - A large project can contain both JS + TS
+    <br/>------(TSLint only used by TypeScript) - A large project can contain both JS + TS
     <br/>
     <br/>--- is built into most Web Editors VS Code or as part of your CI pipeline  -
     <br/>
@@ -4368,36 +4372,37 @@ const subTopicsInfo = [
     <br/>
     <br/>--- ESLint8.15 - May 2022 - 
     `,
-  ' -- ',
-  `GIT (Global Infon Tracker) - is a free open source distributed VCS (Version Control System) 
-    <br/>- designed to handle small to large projects with speed and efficiency
+   ' -- ',
+   `GIT (Global Infon Tracker) 
+    <br/>--- is a free open source distributed VCS (Version Control System) 
+    <br/>--- designed to handle small to large projects with speed and efficiency
     <br/>
-    <br/>- has 3 parts 
+    <br/>--- has 3 parts 
     <br/>---- 1: Working tree 
     <br/>---- 2: Staging area (Index) 
     <br/>---- 3: Local repository 
     <br/>--------- Remote repository - 
     <br/>
-    <br/>Git Commits - 
+    <br/>--- Git Commits - 
     <br/>
     <br/>
-    <br/>- Branches - part of everyday devt process 
+    <br/>--- Branches - part of everyday devt process 
     <br/>---- A pointer to a snapshot of your changes 
     <br/>---- spawn a new branch to make changes 
     <br/>
-    <br/>- Forking - creates a indept copy of a Git repository 
+    <br/>--- Forking - creates a indept copy of a Git repository 
     <br/>
-    <br/>- git clone 
+    <br/>--- git clone 
     <br/>---- creates a linked copy that will continue to sync with the target repo
     <br/>
-    <br/>- Stashing - lets you change to a diff project 
+    <br/>--- Stashing - lets you change to a diff project 
     <br/>---- and store the current staged file info 
     <br/>
     <br/>- Staging area (Index) and Committing -  
     <br/>
     <br/> Parts - ---Working tree | Staging area | Local repository
     <br/> -- 
-    <br/>- Working directory
+    <br/>--- Working directory
     <br/>--- current work files
     <br/>----- history of all the files + changes
     <br/>--- current state of project',
@@ -4406,8 +4411,8 @@ const subTopicsInfo = [
     <br/>----- git folder - history of project
     <br/>----- working directory - 
     <br/>-- 
-    <br/>- Staging area - holds files to be used in the next commit 
-    <br/> -- lets git know what file changes will exist in next commit
+    <br/>--- Staging area - holds files to be used in the next commit 
+    <br/>---- lets git know what file changes will exist in next commit
     <br/>
     <br/>--- Git index - a crucial Git data structure
     <br/>---- Staging Area between files on Git filesystem and commit history 
@@ -4909,7 +4914,6 @@ const subTopicsInfo = [
    <br/>
    <br/>--- }
  
- 
   `,
    `--- constructor()
    
@@ -4991,7 +4995,190 @@ const subTopicsInfo = [
   <br/>-------
   `    
   ],
-  [`Components 
+  [`Decorators 
+    <br/>--- add metadata to a class | objects or methods 
+    <br/>---  which defines annotations 
+    <br/>--- used by TypeScript compiler tsc
+    `,
+     '- Metadata - describes other data',
+     `--- Annotations - 
+     <br/>------- are hard coded language features - 
+     <br/>------- set on a class - reflect metadata library
+     `, 
+     '--- class',
+     'Decorator Types', 
+     '- Class - ',
+     '----- @Component()',
+     '----- @Directive()',
+     '----- @Pipe()',
+     '----- @Injectable()',
+     '----- @NgModule()',
+     ' -- ',  
+     '--- Property',
+     `----- @Input() - most used decorators 
+     <br/>------ passes data from parent (host) component to child
+     <br/>------ related to DOM property in template where child is used     
+     `,
+     '-------- passes data from parent to child',
+     '--- 3 ways to use @Input()',
+     `------ 1: plain - @Input() message: string;
+     <br/>------- &lt;child-one message="hi there">&lt;/child-one>
+     <br/>------- In he child-one - &lt;p>{{ message }}&lt;/p>
+     `,
+     `------ 2: alias - @Input("msg") message: string;
+     <br/>------- &lt;child-two msg="hi there">&lt;/child-two>
+     <br/>------- In the child-two - &lt;p>{{ message }}&lt;/p>
+     `,
+     `------ 3: setter/getter 
+     <br/>------ use the TS get and set auto-properties
+     <br/>------ private _message: string;
+     <br/>
+     <br/>------ @Input() // specify Input decorator here
+     <br/>------ set message(inputMessage: string) {
+     <br/>------ this._message = inputMessage && inputMessage.toUpperCase(); // uppercase message here
+     <br/>--- }
+     <br/>
+     <br/>--- get message(): string {
+     <br/>--- return this._message;
+     <br/>}
+     `,
+     ' -- ',
+     `--- @Output() 
+     <br/>-------- marks property in child 
+     <br/>------ to let data travel from a child to a parent 
+     <br/>------ binds a property of type EventEmitter class   
+     <br/>
+     <br/>------ @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
+     `,
+       '------ pass data from child to a parent class',
+       '-------- EventEmitter()',
+      `------- Ex @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
+      <br/>--- Using emit()
+      <br/>--- sendValues(){  
+      <br/>--- this.myOutput.emit(this.outputMessage);  
+      <br/>}  
+      `,
+      `---------- using emit() 
+      <br/>--- sendValues(){  
+      <br/>------- this.myOutput.emit(this.outputMessage);  
+      <br/>---}  
+      <br/> 
+      <br/>--- &lt;app-student 
+      <br/>--- [myinputMsg]="myInputMessage" 
+      <br/>--- (myOutput) ="GetChildData($event)">
+      <br/>--- &lt;/app-student>   
+     `, 
+     ` using the myOutput() event
+       <br/>--- &lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)">
+       <br/>--- &lt;/app-student>   
+     `, 
+     ' -- ',
+     `----- @HostBinding() 
+     <br/>------- declares a host property binding
+     <br/>------- Angular automatically checks Host property bindings during CD
+     <br/>------- If binding changes - it updates the host element of directive  
+     `,
+     '------- declares a host property binding',
+     '------- binds a property to the host element',
+     '---------- Ex @HostBinding(\'class.box1\') toggle: boolean = false;',
+     '------------ value of toggle determines if box1 class is applied',
+     '--------- on change - checked by CD',
+    ' -- ',
+     `----- @ContentChild() 
+      <br/>------ selects project content 
+      <br/>------ 1st el matching selector from Content DOM
+     `,
+     '------- selects projected content - 1st el matching selector from Content DOM',
+     '---------- Content DOM',
+     ' -- ',
+     `------- @ContentChildren() 
+     <br/>-------- fetch a QueryList of els from Content DOM
+     <br/>-------- configures a content query 
+   `,
+   `------------- list of queries
+   `,
+   '----------- configure content query',
+   '------------- list of queries',
+     ' -- ',
+     `--- @ViewChild()
+     <br/>------- configures a View Query from template of Component    
+     <br/>------- matching selector in View DOM tree
+     <br/>------- Provides instance of another component in a parent component 
+     <br/>------- parent component can access methods of  
+     <br/>------- used in ngAfterViewInit LCH
+     `,
+     `----- Simple Ex - 
+     <br/>------- @ViewChild(ColorSampleComponent)
+     <br/>------- primarySampleComponent: ColorSampleComponent;
+     `,
+    '------- config a View Query', 
+    '--------- from template of Comp',    
+    '--------- View DOM tree',
+    '----------- instance in parent comp',
+    '---- parent comp access methods',
+    `--- ngAfterViewInit() Life Cycle Hook
+      <br/>----- use to write initialization code 
+    `,
+    '--- read - ',
+    '--- static - ',
+     `-------- Ex ViewChild 
+     <br/>------- @ViewChild(DemoComponent, { static: false }) hello: DemoComponent;
+     <br/>------- ngAfterViewInit() {
+     <br/>-----------   console.log("Hello ", this.hello.componentName);
+     <br/>--- }
+     <br/>}
+   `,
+    ' -- ',
+    `------- @ViewChildren()
+     <br/>provide access to child els in the View DOM
+     <br/>by setting up View Queries
+     `,
+     '---------- child els in View DOM',
+     '------------- View Queries',
+     ' -- ',
+     '--- Method',
+     `----- @HostListener() 
+     <br/>------ decorator that declares a DOM event to listen for  
+     <br/>-------- also provides a handler method to run when event occurs
+     <br/>---------- which is invoked when host element emits specified event 
+     <br/>
+     <br/>------- provides a handler
+     <br/>------- triggered on event
+     `,  
+    ' -- ',
+     '--- Parameter',
+     `----- @Inject() - 
+       <br/>------ A DI token that maps to the dep to be injected 
+       <br/>--------- a par decorator on a dep par of a class constructor 
+       <br/>------ specifying a cust provider of the dep
+     `,
+     '--- DI token',
+     `------ @Self() - instructs Ang to look for dep only in local injector  
+     <br/>------ part of current Component or Directive
+     <br/>------ Resolution Modifiers - mod injector behavior
+     `,
+     '------- local injector',
+     `----- @Optional() - marks dep as being an optional parameter 
+     <br/>------ if dep not found it returns null instead of an error
+     `,
+     '------- returns null if not found',
+    `----- @skipSelf() - instructs Ang to look for dep only in parent injector  
+     <br/>------- parent of current Component or Directive
+     <br/>------- Resolution Modifiers - mod injector behavior
+     `,
+     '------- parent injector',
+     `----- @Host() - instructs Ang to look for injector on Component itself
+     <br/>----- similar to @Self() but 
+     <br/>------- if not found in current Component 
+     <br/>------- continues to search till it reaches the host i Component   
+     `,
+     '------- similar to @Self',
+     '-------  search till host',
+     `----- @Override()
+     `,
+     '------- overrides method',
+     ], 
+     [`Components 
     <br/>are the most important part of an Ang appn 
     <br/>- they have a @Component decorator with a selector - template and optional style
     <br/>
@@ -5421,934 +5608,15 @@ const subTopicsInfo = [
     
     
    ],
-    [`DI (Dependency Injection) 
-    <br/>--- involves 
-    <br/>--- Dependencies| tokens| injectors|  
-    <br/> 
-    <br/>--- An Angular injector facilitates interaction between
-    <br/>-------- dependency consumers (Components) and dependency providers (service)  
-    <br/>-------- but as well as services | other schematics - pipes| directives| benefit from DI
-    <br/>
-    <br/>-------- Injectors are data structure that specify 
-    <br/>------------- where and how services (dependencies) form       
-    <br/>------------- Modules | Directives| Components contain injector metadata 
-    <br/>------------- iterator tree mirrors the Component tree   
-    <br/>------------------ providers:[] metadata - accept services - reg with class injector   
-    <br/>--------------------- creates an instance of service for the class
-    <br/>------------------ Services can register with any iterator up to the application root itself  
-    <br/>
-    <br/>--- is a design pattern 
-    <br/>------  a class requests dependencies from external sources 
-    <br/>--------- (instead of creatng them) 
-    <br/>-------  
-    <br/>--- DI GUIDE
-    <br/>
-    <br/>--- DI keeps code flexible| testable| mutable
-    <br/>
-    <br/>--- happens automatically most of the time
-    <br/>
-    <br/>--- Loosely coupled architecture
-    <br/>------- more mainable appns 
-    <br/>
-    <br/>--- is used to increase flexibility + modularity in your appns
-    <br/>
-    <br/>--- DI - Helps in Unit Testing
-    <br/>
-    <br/>--- 3 types of DI 
-    <br/>-------- 1:  Constructor Injection - interface passed to constructor
-    <br/>-------- 2:  Method Injection - interface based injection
-    <br/>-------- 3:  Property Injection - setter inection
-    <br/>
-    <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
-    <br/>   
-    <br/>--- Providers -
-    <br/>------ how to get value for a Dependency (Service)
-    <br/>
-    <br/>------ provides dependencies to a class upon instantiation 
-    <br/> ----- 3 types of Dependencies - class | functions | values
-    <br/>------------------ Class - Service
-    <br/>------------------ Function - 
-    <br/>------------------ Values - 
-    <br/>
-    <br/>------ Providers metadata accept services 
-    <br/>--------- that register within class injector
-    <br/>--------- Provider field adds instns to let injector ftn
-    <br/>
-    <br/>--------- providers :[{ provide: ProductService, useClass: ProductService }]
-    <br/>
-    <br/>------- useClass| useValue| useFactory| useExisting
-    <br/>---------- can never use an interface 
-    <br/>---------- can only be classes or InjectionToken 
-    <br/>-------------- get around shortcomings of JS  
-    <br/> 
-    <br/>------ 4 ways to create a Dependency - Provider tells Injector How  
-    <br/>---------- 1:   useClass (Class provider)
-    <br/>---------- 2:   useValue (Value provider)
-    <br/>---------- 3:   useFactory (Factory provider)
-    <br/>---------- 4:   useExisting (Alias provider)
-    <br/>   
-    Using provide with providers
-    <br/>
-    `,
-    ` @Component({
-    <br/>--- selector: 'app-hero-of-the-month'
-    <br/>--- templateUrl: './hero-of-the-month.component.html'
-    <br/>--- providers: [
-    <br/>----- { provide: Hero,          useValue:    someHero },
-    <br/>----- { provide: TITLE,         useValue:   'Hero of the Month' },
-    <br/>----- { provide: HeroService,   useClass:    HeroService },
-    <br/> ----- { provide: MinimalLogger, useExisting: LoggerService },
-    <br/>----- { provide: RUNNERS_UP,    useFactory:  runnersUpFactory(2), deps: [Hero, HeroService] }
-    <br/>--- ]
-    <br/>})
-    <br/>
-    <br/>------ Providers configure an Injector with a DI token
-    <br/>---------- injector provides runtime value of dependency value
-    <br/>-------------- 3 types Token - Type| String| Injection
-    <br/>
-    <br/>--- Root Injector - 1st Module appn loads - normally AppModule - 
-    <br/>------- AppModule root injector has a parent NgZoneInjector
-    <br/>---------- has parent PlatformInjector 
-    <br/>
-    <br/>--- PlatformInjector 
-    <br/>
-    <br/>--- ModuleInjector - 
-    <br/>------- can be configured in 1 of 2 ways
-    <br/>---------- 1: @Injectable() providedIn - to @NgModule() or root 
-    <br/>---------- 2: @NgModule() providers array
-    <br/>------- is a flattening of all the providers arrays  
-    <br/>------- that can be reached by following the NgModules.imports recursively
-    <br/>
-    <br/>--- NullInjector - top of the tree
-    <br/>------- doesn't keep any tokens
-    <br/>------- always throws an error except @Optional - null
-    <br/>
-    <br/>
-    <br/>--------- Sandboxing
-    <br/> ---------- Multiple Service Instances
-    <br/> ------------- at same level of Component hierarchy
-    <br/> ---------- a service that holds state for its Component Instance
-    <br/> ---------- a separate instance of service for each Component
-    <br/> ------------- work-state isolated from other Component dep
-    <br/> ---------- Each service + component instance has its own sandbox 
-    <br/>
-    <br/>Components - @Component can have providers: [] 
-    <br/>---- limits service to that Component
-    <br/>
-    <br/>Modules - @NgModule can have providers: []
-    <br/>---- a singleton instance available all over appn
-    <br/>
-    <br/>Lazy Loaded Modules - can have providers: []
-    <bfr/>---- a singleton instance available all over feature Module
-    <br/>
-    <br/>--------- Sandboxing - 
-    <br/>
-    <br/>--- Injectors 
-    <br/>------ form the backbone of the DI framework
-    <br/>------ key-value pairs ',
-    <br/>
-    <br/>---- First injector found 
-    <br/>------- configured with a provider (matching) 
-    <br/>------- supplies the dependency
-    <br/>
-    <br/>--- Injector Hierarchy DI system
-    <br/>--- 2 types of Hierarchy
-    <br/>
-    <br/>--- 1: ModuleInjector - @NgModule or @Injectable
-    <br/>----------- Null Injector (At top of this is instance of the 
-    <br/>----------- PlaformModule - 
-    <br/>----------- Root Module (Eaguerly loaded Modules - share Root Module Injector) 
-    <br/>----------- and every Lazy loaded Module
-    <br/>
-    <br/>-------- Automatic Provisioning - @Injectable({providedIn}) class 
-    <br/>----------- can have dependencies injected into it 
-    <br/>----------- providedIn property configures a ModuleInjector -  
-    <br/>------------- root | any | platform| any&lt;T>
-    <br/>----------- 1: root - (Ang 6+) 
-    <br/>---------------- default + most common 
-    <br/>---------------- specify a certain Module class - where to position class
-    <br/>---------------- Service (dep) is provided as a singleton throughout the appn
-    <br/>---------------- 2 possibilities
-    <br/>-------------------- 1: Single Module depends on service
-    <br/>-------------------------- class provided within a module
-    <br/>-------------------- 2: 2+ Modules depend on the service
-    <br/>-------------------------- its provided in appn root injector (AppModule)
-    <br/>
-    <br/>----------- 2: any - (Ang 9+) 
-    <br/>---------------- allows multi-module 
-    <br/>---------------- ensure each module gets its own instance of dep (service)
-    <br/>---------------- eg if each module defines alt child deps (services) of any dep
-    <br/>---------------- Eagerly loaded modules - Ang 10 - share 1 instance of service
-    <br/>---------------- Lazily loaded modules - get their own instance of any deps (service)
-    <br/>
-    <br/>----------- 3: platform - (Ang 9+)
-    <br/>---------------- deps (services) to be regd at Platform level 
-    <br/>-------------------- parent of root level of current app  
-    <br/>-------------------- truely global singletons - shared among Ang apps
-    <br/>-------------------- Micro-Frontend | Web Components  
-    <br/>
-    <br/>------- 2: ElementInjector - at each DOM el - Component | Directive
-    <br/>
-    <br/>----------- Injector Tree echoes the Component Tree
-    <br/>--------------- providing a service (dep) in a @Component  
-    <br/> -------------- every Component/Directive has its own injector
-    <br/>
-    <br/>--------------- can use providers or viewProviders
-    <br/>------------------- viewProviders - only ViewDOM accessable (not ContentDOM)
-    <br/>
-    <br/> ------------- When a Component requests a dependency 
-    <br/>----------------- Angular uses a Provider regd in the Components Injector
-    <br/>
-    <br/>-------------- if Component injector has no provider 
-    <br/>----------------- passes to parent Components Injector
-    <br/>
-    <br/>------- InjectionToken 
-    <br/>----------- creates a token that can be used in a DI Provideer
-    <br/>----------- parameterized on T - type of object to be returned by Injector
-    <br/>----------- provides an additional level of Type safety
-    <br/>
-    <br/>
-    <br/>--- Injectors can have 1+   child Injectors - 
-    <br/>
-    <br/>
-    <br/>--- ReflectiveInjector implements Injector 
-    <br/>------- ReflectiveDependency Injection container 
-    <br/>----------- used for instantiating objects and resolving dependencies
-    <br/>----------- DEPRECATED
-    <br/>  
-    <br/>--- StaticInjector - Angular 5 
-    <br/>------- much faster thant ReflectiveInjector          
-    <br/>------- doesent resolve implicit deps at all
-    <br/>------- developer must explicitly spec deps for each provider
-    <br/>
-    <br/>--- New Provider Type
-    <br/>
-    <br/>--- export interface StaticClassProvider {
-    <br/>------- provide: any;
-    <br/> ------ useClass: Type<any>;
-    <br/> ------ deps: any[];
-    <br/> ------ multi?: boolean;
-    <br/>}
-    <br/>
-    <br/>--- Injector.create(providers);
-    `,
-    
-    `--- DI GUIDE
-    `,
-    `--- Loosely coupled architecture
-    ------- more mainable appns 
-    `,
-    ' -- ',
-    `---- DI - Helps in Unit Testing
-    
-    `,
-    ' -- ',
-    `3 types of DI
-    <br/>-------- 1:  Constructor Injection - interface passed to constructor
-    <br/>-------- 2:  Method Injection - interface based injection
-    <br/>-------- 3:  Property Injection - setter inection
-    `,
-    
-    `--- 1 Constructor injection
-    
-    `,
-    `--- 2 Method injection
-    
-    `,
-    `--- 3 Property injection
-    
-    `,
-    
-  ' -- ',
-    `--- Providers -
-    <br/>------ how to get value for a Dependency (Service)
-    <br/>---------- using DI system  
-    <br/>
-    <br/>------ Providers metadata accept services - that register within class injector
-    <br/>--------- Provider field adds instns to let injector <ftn
-    <br/>
-    <br/>------- useClass| useValue| useFactory| useExisting
-    <br/>---------- can never use an interface 
-    <br/>------- can only be classes or InjectionToken 
-    <br/>---------- get around shortcomings of JS  
-    <br/>
-    <br/>------ Providers configure an Injector with a DI token
-    <br/>---------- injector provides runtime value of dependency value
-    <br/>-------------- 3 types Token - Type| String| Injection
-    <br/>
-    <br/>
-    <br/>------ by default - DI searches for a Provider 
-    <br/>--------- in the Injector Hierarchy
-    <br/> -    
-    <br/>Components - @Component can have providers: [] 
-    <br/>---- limits service to that Component
-    <br/>
-    <br/>Modules - @NgModule can have providers: []
-    <br/>---- a singleton instance available all over appn
-    <br/>
-    <br/>Lazy Loaded Modules - can have providers: []
-    <br/>---- a singleton instance available all over feature Module
-    
-    `,
-    `-------------- Dependencies (Services)
-    <br/>-------------- normally Services but can be Objects 
-    <br/>------------------- class | functions | values 
-    <br/>---------------------- that a class needs to perform itsftn 
-    <br/>
-    <br/>-------------- Runtime value - DI token on injector via Provider    
-    <br/>
-    <br/>------------ Providers metadata accept services 
-    <br/>---------------- that register within class injector
-    <br/>---------------- Provider field adds instns to let injector ftn
-    <br/>
-    `,
-    `------------------ 3 types of Dependencies - class | functions | values
-    <br/>------------------ Class - 
-    <br/>------------------ Function - 
-    <br/>------------------ Values - 
-    `,  
-    `------------ Providers metadata accept services 
-    <br/>------------- that register within class injector
-    <br/>------------- Provider field adds instns to let injector ftn
-   `,
-    ' -- ',
-    `-------- 4 ways to create dep instance
-    `,
-    `----------- Provider definition Key
-    <br/>----------  useClass | useValue| useFactory| useExisting
-    `,
-    `----------- 1:   useClass (Class provider)
-    <br/>
-    <br/>------------- inject a class
-    `,
-    `----------- 2:   useValue (Value provider)
-    <br/>
-    <br/>------------- inject a boolean or string, etc.
-    `,
-    `----------- 3:   useFactory (Factory provider)
-    <br/>
-    <br/>------------- inject a function - returns value
-    <br/>------------- return objects based on a condition
-    <br/>------------- can have a deps array of extra deps
-    `,
-    `----------- 4:   useExisting (Alias provider)
-    <br/>
-    <br/>------------- replace provider with a new one
-    `,
-   
-    `Using provide with providers
-    <br/> 
-    <br/>@Component({
-      <br/>--- selector: \'app-hero-of-the-month\',
-      <br/>--- templateUrl:
-      <br/> \'./hero-of-the-month.component.html\',
-      <br/>--- providers: [
-        <br/>----- { provide: Hero,          useValue:    someHero },
-        <br/>----- { provide: TITLE,         useValue:   'Hero of the Month' },
-        <br/>----- { provide: HeroService,   useClass:    HeroService },
-        <br/>----- { provide: MinimalLogger, useExisting: LoggerService },
-        <br/>----- { provide: RUNNERS_UP,    useFactory:  runnersUpFactory(2), deps: [Hero, HeroService] }
-    <br/>--- ]
-    <br/>})
-    `,
-    ' -- ',
-     `----- Sandboxing - Multiple service instances 
-      <br/> ------ at the same level of the Component
-      <br/> ------ eg A Service that holds state for its companion comp instance       
-      `,
-        '------- Multiple Service Instances',
-     ' -- ',
-    `--- Injector
-    <br/>----- provides a runtime version of dependency 
-    <br/>--------- by dependency provider configuring injector with DI Token 
-    <br/>
-    <br/>----- for instantiating the dependency 
-    <br/>---------- and injecting it into the Component/Service 
- 
-    <br/>
-    <br/>----- looks for dependency in Angular Providers
-    <br/>---------- using the Injection token   
-    `,
-    `------- Configure injectors with Providers
-    `,
-    `---------- Provider - lets injector - obtain | create deps
-    `,
-    `------- Injector instance / class 
-    `,
-    `----------- map of dependencies
-    
-    `,
-    `--------------- DI Token is the key
-    `,
-    `------------------ DI Token and Runtime version of Dependency value 
-    `,
-    `--------------- DI Token on injector
-    <br/> 
-    <br/>---------------- registers the provider
-    <br/>---------------- used to locate the depenency
-    <br/>---------------- provides Runtime value of Dependency   
-    <br/>
-    <br/>-------------------- 3 types Token - Type| String| Injection
-    `,
-
-    `-------------------- Runtime value of Dependency
-    `,
-    `---------------- ProviderToken
-   <br/>-------------- Token that can be used to retrieve instance from injector (or by query)
-   <br/>-------------- type ProviderToken<T> = Type<T> | AbstractType<T> | InjectionToken<T>;
- `,
- `---- DI Tokens uniquely identify a provider
-    <br/>-------------------- 3 types Token'
-    <br/> ------------------------ 1: Type
-    <br/> ------------------------ 2: String
-    <br/> ------------------------ 3: Injection
-    `,
-    ' -- ',
-    `------- StaticProvider 
-    <br/>--------- type StaticProvider = 
-    <br/>--------- ValueProvider | ExistingProvider | StaticClassProvider | ConstructorProvider | FactoryProvider | any[];
-    <br/>
-    <br/>--------- provides tokens to an injector for various types of dependencies
-    <br/>
-    <br/>--------- injector should be configured as static (without Reflection)
-    `,
-    `------------ used in Injector static class
-    `,
-    `------------ returns deps to Injector
-    `,
-    `------- ENVIRONMENT_INITIALIZER Injection Token 
-    <br/>---- multi-provider token for initn ftns 
-    <br/>------- that run on construction of an environment injector
-    <br/>   
-    <br/>const ENVIRONMENT_INITIALIZER: InjectionToken<() => void>;
-    <br/>
-    <br/>--- bootstrapApplication(AppComponent, {
-    <br/>-------  providers: [
-    <br/>-----------  {
-    <br/>-----------------      provide: ENVIRONMENT_INITIALIZER,
-    <br/>-----------------      multi: true,
-    <br/>-----------------      useValue() {
-    <br/>-------------------        inject(FooService).init()
-    <br/>-----------------      }
-    <br/>------------  }
-    <br/>-------  ]
-    <br/>--- })
-    <br/>
-    <br/>
-    <br/>export const todosRoutes: Routes = [
-      <br/>{
-      <br/>---  path: '',
-      <br/>---  loadComponent: () =>
-      <br/>------    import('./todos-page.component').then((m) => m.TodosPageComponent),
-      <br/>--------- providers: \[
-      <br/>------------- {
-      <br/>-----------------  provide: ENVIRONMENT_INITIALIZER,
-      <br/>-----------------  multi: true,
-      <br/>-----------------  useValue() {
-      <br/>---------------------  inject(TodosService).init();
-      <br/>----------------- },
-      <br/>------------- },
-      <br/>-------\],
-      <br/>--- },
-      <br/>\];
-      <br/>
-  `,
-    `--- Environment Injector - (Angular 14)
-    <br/>------- is a generalized version of NgModuleRef (Module Injector)
-    <br/>------- one of the primitives supporting standalone component APIs
-    <br/>
-    <br/>--- import { ENVIRONMENT_INITIALIZER, inject } from '@angular/core';
-    <br/>--- import { bootstrapApplication } from '@angular/platform-browser';
-    <br/>
-    <br/>Angular 14 Injectors - since we can be Module-less
-    <br/>ModuleInjector was renamed EnvironmentInjector
-    <br/>---- EnvironmentInjector is a generalized version of NgModuleRef 
-    <br/>-------- also known as Module Injector
-    <br/>
-    <br/>NodeInjector (ElementInjector) service has priority over EnvironmentInjector
-    <br/>---- (priority over EnvironmentInjector)
-    <br/>
-    <br/>RouterInjector (New Ang 14)
-    <br/>-------- Providers in Angular Route  
-    <br/>------------ has a 
-    <br/>--------------- can be parent to Lazy Loaded Modules
-    <br/>
-    <br/>------------ Normally our Routes 
-    <br/>---------------- use path and Component
-    <br/>---------------- or path and loadChildren
-    <br/>
-    <br/>@Component({
-    <br/>----- selector: '',
-    <br/>----- standalone: true,
-    <br/>----- imports: [CommonModule, UsersModule],
-    <br/>----- templateUrl: 'x.component.html',
-    <br/>----- styleUrls: ['x.component.scss'],
-    <br/>})
-    <br/>------------- RouterInjector
-    <br/>----------------- path: 'admin', 
-    <br/>----------------- providers : \[
-    <br/>-------------------- { provide: UserService, useExisting: ExperimentUserService}
-    <br/>----------------- \],
-    <br/>----------------- loadComponent: () => import('./feature/admin/admin.component').
-    <br/>--------------------- then(c => c.then(m => m.adminComponent))   
-    <br/>
-    <br/>NgModuleRef&lt;T>{
-    <br/> abstract  injector: EnvironmentInjector
-    <br/>----    abstract  instance: T  
-    <br/>----    abstract  destroy(): void
-    <br/>----    abstract  onDestroy(callback: () => void): void 
-    <br/>}  
-    <br/>
-    <br/>Angular 13
-    <br/>ViewContainerRef.createComponent(x:MyComponent);
-   `,
-    ' -- ',
-     `----- Injector.create()
-    <br/>-------- static create(options: {providers: StaticProvider\[\]: parent?: Injector; name?: string;}): Injector
-    <br/>
-    `,
-    `------------ get() - 
-    `,
-    ' -- ',
-    `--- Injectors 
-    <br/>--- form backbone of DI framework
-    <br/>
-    <br/>------ create + retrieve services (Deps) in an app
-    <br/>
-    <br/>------ are data structures storing instns
-    <br/>--------- detailing where + how services form
-    <br/>--------- instantiate services 
-
-    <br/>
-    <br/>------ Acting as intermediaries within Ang DI system
-    <br/>
-    <br/>------ Module | Directive| Component classes 
-    <br/>----------- contain metadata specific wrt injectors
-    <br/>----------- each class contains a new injector instance
-    <br/>
-    <br/>------ Providers metadata accept services - that register within class injector
-    <br/>--------- Provider field adds instns to let injector ftn
-    <br/>
-    `,
-    '------ backbone of DI framework',
-    '------ injectors - key-value pairs ',      
-    '--------- Injector Hierarchy DI system',
-  `---------------- Injector Bubbling - 
-  
-  `,
-  '-- 2 Injector Hierarchies',
-  `-------1: ModuleInjector 
-  <br/>---------- (Ivy R3Injector)
-  <br/>---------- (Angular 14 - EnvironmentInjector)
-  `,
-  `----------- a Module level injector
-      <br/>------- Angular creates the Module Injector tree when the appn starts
-      <br/>  
-      <br/>---------- has a Records property that stores DI info 
-      <br/>-------------- and stores instances of injectables    
-      <br/>
-      <br/>------- can be configured in 1 of 2 ways
-      <br/>----------- 1:s @NgModule() providers array
-      <br/>----------- 2: @Injectable() providedIn - to @NgModule() or root 
-      <br/>------- is a flattening of all the providers arrays  
-      <br/>------- that can be reached by following the NgModules.imports recursively 
-      <br/>
-      <br/>------------- get() records a Map collection
-      <br/>---------------- key is a token 
-      <br/>---------------- value is instance corresponding to token    
-      `,
-      '----------- A: Providers Metadata of the @NgModule',
-      `--------------- nullInjector - top of tree
-      <br/>------------------ doesnt keep any tokens
-      <br/>------------------ always throws error unless @Optional - null
-      `,
-      `--------------- platformInjector
-      <br/>----------------- under nullInjector is an instance of the PlatformInjector
-      <br/>--------------------- usually has built in providers like DomSanatizer   
-      `,
-      `--------------- RootModuleInjector
-      <br/>-----------------  under platformInjector is an injector for the Root Module
-      <br/>-----------------  root (alias) -  
-      `,
-      `---- When a dynamically loaded component is created
-      <br/>-------- gives you option to create child ModuleInjector hierarchies
-      <br/>-------- such as with the Router 
-      `,
-      ' and ',
-      `--------------- for each Lazy Loaded Module`,
-      ' -- ',
-      `----------- B: - Providing a Service
-      <br/>------------ Service @Injectable({ providedIn: \'xxx\'\})
-      <br/>------------ root | platform | any | Type<any> | other values
-      `,
-       `-------------- 'root'
-       <br/>-- @Injectable({ providedIn : \'root\',}) - 
-       <br/>(appn - or root level injector) you can now inject the service anywhere in your appn
-       <br/>
-       <br/>---------------- default + most common 
-       <br/>---------------- specify a certain Module class - where to position class
-       <br/>---------------- Service (dep) is provided as a singleton throughout the appn
-       <br/>---------------- 2 possibilities
-       <br/>-------------------- 1: Single Module depends on service
-       <br/>-------------------------- class provided within a module
-       <br/>-------------------- 2: 2+ Modules depend on the service
-       <br/>-------------------------- its provided in appn root injector (AppModule)
-       `,     
-       `-------------- 'any'
-       <br/>-- @Injectable({ providedIn : \'any\',}) 
-       <br/>---- provides a unique instance in each lazy loaded module | 
-       <br/>
-       <br/>---- all eagerly loaded modules share one instance
-       <br/>---------------- allows multi-module 
-       <br/>---------------- ensure each module gets its own instance of dep (service)
-       <br/>---------------- eg if each module defines alt child deps (services) of any dep
-       <br/>---------------- Eagerly loaded modules - Ang 10 - share 1 instance of service
-       <br/>---------------- Lazily loaded modules - get their own instance of any deps (service)
-       `, 
-       `-------------- 'platform'
-       <br/>-- @Injectable({ providedIn : \'platform\',}) 
-       <br/>--- a special singleton platform injector via a service 
-       <br/>- shared by all appns on page
-       <br/>---------------- deps (services) to be regd at Platform level 
-       <br/>-------------------- parent of root level of current app  
-       <br/>-------------------- truely global singletons - shared among Ang apps
-       <br/>-------------------- Micro-Frontend | Web Components
-       `,    
-       `-------------- 'Type&lt;any>'
-       <br/>-- @Injectable({ providedIn : \'Type&lt;any>\',}) 
-       <br/>---- associates the injectable with an @NgModule or other injector types
-       `,       
-       'other values',
-       ' -- ',  
-  `-------2: ElementInjector (Ivy NodeInjector)
-  <br/> ------------ Injector Tree echoes the Component Tree
-  <br/> -------------- every Component has its own injector
-  <br/> -------------- has priority over Module(Environment) Injector
-  <br/>
-  <br/> ----------- When a Component requests a dependency 
-  <br/>----------------- Angular uses a Provider regd in the Components Injector
-  <br/>
-  <br/>------- if Component injector has no provider 
-  <br/>--------- passes to parent Components Injector
-  <br/>
-  <br/>@Component({
-   <br/>----- providers: [{ provide: ItemService, useValue: { name: 'lamp' } }]
-   <br/>})
-   <br/>export class TestComponent
-   <br/>  
-   `,
-  `--- Resolution Modifiers
-  <br/>------ 3 categories
-`,
-'------------ @Optional()',
-'------------ @SkipSelf()',
-`------------ @Host() and @Self 
-  <br/>---------- @Host - limits the search for a matching provider
-  <br/>------------ root injector -  
-  `,
-  '----- @Self()',    
-
-  ' -- ',
-     
-  `--------- NodeInjector implements Injector is saved in
-  <br/>-------- is an injector that belongs to a node
-  <br/>-------- is an object that has ref to TNode and LView objects
-  `, 
-  `----------- 9 contiguous slots in LView +
-  `, 
-  `----------- 9 contiguous slots in TView.data
-  
-  `,  
-  '----------- object refs to',
-  `------------- TNode - any kind of object : 
-  <br/> - element| ng-template| ng-container
-  <br/>
-  <br/> - Ang creates a injectorIndex property on TNode 
-  <br/>--- where bloom filter is located. 
-  <br/> - The NodeInjector gets required provider by looking at the data 
-  <br/> - contained in TNode and LView objects
-  <br/> - Ivy renderer - stores injection info for the Node in the view data  
-  <br/> - start from a header (17 slots) 
-  <br/> --- contains ref to parent injector at index 10  
-  <br/> - It allocates allocates slots in LView + TView.data arrays    
-  `,
-  `------------- LView - contains DI info 
-  <br/>  array contains data 
-  <br/>------------- describing a specific template
-     <br/> stores instances -
-     <br/> After each bloom filter - Ang stores parentLocation ptr  
-     <br/> ---   we can walk through all parent injectors     
-  `,
-  `------------- TView.data array - Ang keeps data shared x templates    
-   <br/> stores all tokens 
-  `,
-  `--------------- These slots rep 2 bloom filters - Cumulative + template    
-   <br/> - 1 view can have as many bloom filters or injectors 
-   <br/> - for nodes located on the view
-  `,
-  '- ',
-  `--------------- using Bloom filter
-    <br/> -   8 slots long ([n, n+7] indices) - 
-    <br/>Their number is directly proportional to the num of nodes  
-    <br/>-- for which the injector is created
-    <br/>
-    <br/>Each bloom filter has a ptr to the parent bloom filter 
-    <br/>--- in the "packed" parentLocation slot (n + 8)
-    <br/>
-    <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
-    <br/>---   
-  `,
-  `---------------------- ENVIRONMENT_INITIALIZER
-  <br/>---------------------- multi-provider token for initialization ftns 
-  <br/>---------------------- that will run on construction of an environment injector
-  <br/>
-  <br/>---------------------- const ENVIRONMENT_INITIALIZER: InjectionToken<() => void>;
-  `,
-
-  '- View object - an internal object that reps Ang template',
-  `--- Ang builds a tree of views 
-    <br/>----- which always starts with a fake root View
-    <br/>----- that only contains 1 root element
-    <br/>----- Ivy uses LView and TView.data arrays   
-  `,
-  '----- ',
-  `- DI Tokens - When you configure an injector with a provider 
-  <br/>- you are associating that provider with a DI token
-  <br/>The injector lets Angular create a map of any internal dependencies.
-  <br/>
-  <br/>The DI token - acts as a key to that map - 
-  <br/>The dep value is an instance & the class type serves as a look up key 
-  <br/>
-  <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
-  <br/>constructor(private heroService: HeroService){}  
-  `,
-  '-- DI Parts - injector | provide | dependency provider | provide defn key',
-  `-- Dependency Provider - configures provider with a DI token 
-  <br/>which that injector uses to provide the runtime version of a dep value
-  `,
-  `-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
-  <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
-  <br/>Above is a class provider syntax for providing a Logger class in the providers array
-  <br/>Note the provide property holds the token - key for locating a dep value and config injector
-  <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
-  `,
-  '-- [Logger] same as [{provide: Logger, useClass: Logger}]',
-  `-- provider defn key - useClass | useExisting | useValue | useFactory
-  <br/> to configure the injector - keys for tokens
-  `,
-  '--- Providers with deps',
-  `---- aliasing class providers - useClass
-  <br/>[{ provide: Logger, useClass: BetterLogger }]
-  `,
-  '---- aliasing class interface - useExisting',
-  '---- aliasing multi class i/fs',
-  `---- injecting an Object - configure with a useValue option
-    <br/>[{provide: Logger, useValue: SilentLogger}]
-  `,
-  '---- injecting a config Object',
-  '---- InjectionToken object',
-  '---- interfaces and DI  ',
-  `---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
-  <br/>export const heroServiceProvider =
-  { provide: HeroService,
-    useFactory: heroServiceFactory,
-    deps: [Logger, UserService]
-  };  
-  `,
-  'class +',
-  '@sInjectable({})', 
-  '- declare locn', '- nesting','- Sharing','typical tasks',
-  '- Providing a Service', 
-  '-- @injectable({ providedIn: \'root\'})',
-  '--- providedIn: \'root\'',
-  '--- providedIn: \'platform\'',
-  '--- providedIn: \'any\'',
-  '--- providedIn: &lt;T>\''
-  ],
-  [`Decorators 
-    <br/>--- add metadata to a class | objects or methods 
-    <br/>---  which defines annotations 
-    <br/>--- used by TypeScript compiler tsc
-    `,
-     '- Metadata - describes other data',
-     `--- Annotations - 
-     <br/>------- are hard coded language features - 
-     <br/>------- set on a class - reflect metadata library
-     `, 
-     '--- class',
-     'Decorator Types', 
-     '- Class - ',
-     '----- @Component()',
-     '----- @Directive()',
-     '----- @Pipe()',
-     '----- @Injectable()',
-     '----- @NgModule()',
-     ' -- ',  
-     '--- Property',
-     `----- @Input() - most used decorators 
-     <br/>------ passes data from parent (host) component to child
-     <br/>------ related to DOM property in template where child is used     
-     `,
-     '-------- passes data from parent to child',
-     '--- 3 ways to use @Input()',
-     `------ 1: plain - @Input() message: string;
-     <br/>------- &lt;child-one message="hi there">&lt;/child-one>
-     <br/>------- In he child-one - &lt;p>{{ message }}&lt;/p>
-     `,
-     `------ 2: alias - @Input("msg") message: string;
-     <br/>------- &lt;child-two msg="hi there">&lt;/child-two>
-     <br/>------- In the child-two - &lt;p>{{ message }}&lt;/p>
-     `,
-     `------ 3: setter/getter 
-     <br/>------ use the TS get and set auto-properties
-     <br/>------ private _message: string;
-     <br/>
-     <br/>------ @Input() // specify Input decorator here
-     <br/>------ set message(inputMessage: string) {
-     <br/>------ this._message = inputMessage && inputMessage.toUpperCase(); // uppercase message here
-     <br/>--- }
-     <br/>
-     <br/>--- get message(): string {
-     <br/>--- return this._message;
-     <br/>}
-     `,
-     ' -- ',
-     `--- @Output() 
-     <br/>-------- marks property in child 
-     <br/>------ to let data travel from a child to a parent 
-     <br/>------ binds a property of type EventEmitter class   
-     <br/>
-     <br/>------ @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
-     `,
-       '------ pass data from child to a parent class',
-       '-------- EventEmitter()',
-      `------- Ex @Output() myOutput:EventEmitter&lt;string>= new EventEmitter();  
-      <br/>--- Using emit()
-      <br/>--- sendValues(){  
-      <br/>--- this.myOutput.emit(this.outputMessage);  
-      <br/>}  
-      `,
-      `---------- using emit() 
-      <br/>--- sendValues(){  
-      <br/>------- this.myOutput.emit(this.outputMessage);  
-      <br/>---}  
-      <br/> 
-      <br/>--- &lt;app-student 
-      <br/>--- [myinputMsg]="myInputMessage" 
-      <br/>--- (myOutput) ="GetChildData($event)">
-      <br/>--- &lt;/app-student>   
-     `, 
-     ` using the myOutput() event
-       <br/>--- &lt;app-student [myinputMsg]="myInputMessage" (myOutput) ="GetChildData($event)">
-       <br/>--- &lt;/app-student>   
-     `, 
-     ' -- ',
-     `----- @HostBinding() 
-     <br/>------- declares a host property binding
-     <br/>------- Angular automatically checks Host property bindings during CD
-     <br/>------- If binding changes - it updates the host element of directive  
-     `,
-     '------- declares a host property binding',
-     '------- binds a property to the host element',
-     '---------- Ex @HostBinding(\'class.box1\') toggle: boolean = false;',
-     '------------ value of toggle determines if box1 class is applied',
-     '--------- on change - checked by CD',
-    ' -- ',
-     `----- @ContentChild() 
-      <br/>------ selects project content 
-      <br/>------ 1st el matching selector from Content DOM
-     `,
-     '------- selects projected content - 1st el matching selector from Content DOM',
-     '---------- Content DOM',
-     ' -- ',
-     `------- @ContentChildren() 
-     <br/>-------- fetch a QueryList of els from Content DOM
-     <br/>-------- configures a content query 
-   `,
-   `------------- list of queries
-   `,
-   '----------- configure content query',
-   '------------- list of queries',
-     ' -- ',
-     `--- @ViewChild()
-     <br/>------- configures a View Query from template of Component    
-     <br/>------- matching selector in View DOM tree
-     <br/>------- Provides instance of another component in a parent component 
-     <br/>------- parent component can access methods of  
-     <br/>------- used in ngAfterViewInit LCH
-     `,
-     `----- Simple Ex - 
-     <br/>------- @ViewChild(ColorSampleComponent)
-     <br/>------- primarySampleComponent: ColorSampleComponent;
-     `,
-    '------- config a View Query', 
-    '--------- from template of Comp',    
-    '--------- View DOM tree',
-    '----------- instance in parent comp',
-    '---- parent comp access methods',
-    `--- ngAfterViewInit() Life Cycle Hook
-      <br/>----- use to write initialization code 
-    `,
-    '--- read - ',
-    '--- static - ',
-     `-------- Ex ViewChild 
-     <br/>------- @ViewChild(DemoComponent, { static: false }) hello: DemoComponent;
-     <br/>------- ngAfterViewInit() {
-     <br/>-----------   console.log("Hello ", this.hello.componentName);
-     <br/>--- }
-     <br/>}
-   `,
-    ' -- ',
-    `------- @ViewChildren()
-     <br/>provide access to child els in the View DOM
-     <br/>by setting up View Queries
-     `,
-     '---------- child els in View DOM',
-     '------------- View Queries',
-     ' -- ',
-     '--- Method',
-     `----- @HostListener() 
-     <br/>------ decorator that declares a DOM event to listen for  
-     <br/>-------- also provides a handler method to run when event occurs
-     <br/>---------- which is invoked when host element emits specified event 
-     <br/>
-     <br/>------- provides a handler
-     <br/>------- triggered on event
-     `,  
-    ' -- ',
-     '--- Parameter',
-     `----- @Inject() - 
-       <br/>------ A DI token that maps to the dep to be injected 
-       <br/>--------- a par decorator on a dep par of a class constructor 
-       <br/>------ specifying a cust provider of the dep
-     `,
-     '--- DI token',
-     `------ @Self() - instructs Ang to look for dep only in local injector  
-     <br/>------ part of current Component or Directive
-     <br/>------ Resolution Modifiers - mod injector behavior
-     `,
-     '------- local injector',
-     `----- @Optional() - marks dep as being an optional parameter 
-     <br/>------ if dep not found it returns null instead of an error
-     `,
-     '------- returns null if not found',
-    `----- @skipSelf() - instructs Ang to look for dep only in parent injector  
-     <br/>------- parent of current Component or Directive
-     <br/>------- Resolution Modifiers - mod injector behavior
-     `,
-     '------- parent injector',
-     `----- @Host() - instructs Ang to look for injector on Component itself
-     <br/>----- similar to @Self() but 
-     <br/>------- if not found in current Component 
-     <br/>------- continues to search till it reaches the host i Component   
-     `,
-     '------- similar to @Self',
-     '-------  search till host',
-     `----- @Override()
-     `,
-     '------- overrides method',
-     ], 
-     [`Interfaces 
+   ['Package managers',
+      '--- installs libraries as deps',
+      '--- npm',
+      '------- installs packages sequentially',
+      '------- ci',
+      '--- yarn',
+      '------- installs in parallel '
+    ],
+    [`Interfaces 
       <br/>--- define a contract with a set of properties and or methods - 
       <br/>--- to be implemented by a class
       <br/>--- export interface IGame:{ prop1: number; prop2: string; prop3: number;}
@@ -6370,6 +5638,7 @@ const subTopicsInfo = [
       '- events - ', 
       '-- this to ref the class object properties and methods'
     ],
+    
     ['JavaScript',
     '--- browser scripting lang',
     '--- Interpreter based',
@@ -8336,6 +7605,751 @@ const subTopicsInfo = [
      <br/>--------- [(NgModel)] 
      `
     ], 
+    [`DI (Dependency Injection) 
+    <br/>--- involves 
+    <br/>--- Dependencies| tokens| injectors|  
+    <br/> 
+    <br/>--- An Angular injector facilitates interaction between
+    <br/>-------- dependency consumers (Components) and dependency providers (service)  
+    <br/>-------- but as well as services | other schematics - pipes| directives| benefit from DI
+    <br/>
+    <br/>-------- Injectors are data structure that specify 
+    <br/>------------- where and how services (dependencies) form       
+    <br/>------------- Modules | Directives| Components contain injector metadata 
+    <br/>------------- iterator tree mirrors the Component tree   
+    <br/>------------------ providers:[] metadata - accept services - reg with class injector   
+    <br/>--------------------- creates an instance of service for the class
+    <br/>------------------ Services can register with any iterator up to the application root itself  
+    <br/>
+    <br/>--- is a design pattern 
+    <br/>------  a class requests dependencies from external sources 
+    <br/>--------- (instead of creatng them) 
+    <br/>-------  
+    <br/>--- DI GUIDE
+    <br/>
+    <br/>--- DI keeps code flexible| testable| mutable
+    <br/>
+    <br/>--- happens automatically most of the time
+    <br/>
+    <br/>--- Loosely coupled architecture
+    <br/>------- more mainable appns 
+    <br/>
+    <br/>--- is used to increase flexibility + modularity in your appns
+    <br/>
+    <br/>--- DI - Helps in Unit Testing
+    <br/>
+    <br/>--- 3 types of DI 
+    <br/>-------- 1:  Constructor Injection - interface passed to constructor
+    <br/>-------- 2:  Method Injection - interface based injection
+    <br/>-------- 3:  Property Injection - setter inection
+    <br/>
+    <br/>-- by default - DI searches for a Provider in the Injector Hierarchy
+    <br/>   
+    <br/>--- Providers -
+    <br/>------ how to get value for a Dependency (Service)
+    <br/>
+    <br/>------ provides dependencies to a class upon instantiation 
+    <br/> ----- 3 types of Dependencies - class | functions | values
+    <br/>------------------ Class - Service
+    <br/>------------------ Function - 
+    <br/>------------------ Values - 
+    <br/>
+    <br/>------ Providers metadata accept services 
+    <br/>--------- that register within class injector
+    <br/>--------- Provider field adds instns to let injector ftn
+    <br/>
+    <br/>--------- providers :[{ provide: ProductService, useClass: ProductService }]
+    <br/>
+    <br/>------- useClass| useValue| useFactory| useExisting
+    <br/>---------- can never use an interface 
+    <br/>---------- can only be classes or InjectionToken 
+    <br/>-------------- get around shortcomings of JS  
+    <br/> 
+    <br/>------ 4 ways to create a Dependency - Provider tells Injector How  
+    <br/>---------- 1:   useClass (Class provider)
+    <br/>---------- 2:   useValue (Value provider)
+    <br/>---------- 3:   useFactory (Factory provider)
+    <br/>---------- 4:   useExisting (Alias provider)
+    <br/>   
+    Using provide with providers
+    <br/>
+    `,
+    ` @Component({
+    <br/>--- selector: 'app-hero-of-the-month'
+    <br/>--- templateUrl: './hero-of-the-month.component.html'
+    <br/>--- providers: [
+    <br/>----- { provide: Hero,          useValue:    someHero },
+    <br/>----- { provide: TITLE,         useValue:   'Hero of the Month' },
+    <br/>----- { provide: HeroService,   useClass:    HeroService },
+    <br/> ----- { provide: MinimalLogger, useExisting: LoggerService },
+    <br/>----- { provide: RUNNERS_UP,    useFactory:  runnersUpFactory(2), deps: [Hero, HeroService] }
+    <br/>--- ]
+    <br/>})
+    <br/>
+    <br/>------ Providers configure an Injector with a DI token
+    <br/>---------- injector provides runtime value of dependency value
+    <br/>-------------- 3 types Token - Type| String| Injection
+    <br/>
+    <br/>--- Root Injector - 1st Module appn loads - normally AppModule - 
+    <br/>------- AppModule root injector has a parent NgZoneInjector
+    <br/>---------- has parent PlatformInjector 
+    <br/>
+    <br/>--- PlatformInjector 
+    <br/>
+    <br/>--- ModuleInjector - 
+    <br/>------- can be configured in 1 of 2 ways
+    <br/>---------- 1: @Injectable() providedIn - to @NgModule() or root 
+    <br/>---------- 2: @NgModule() providers array
+    <br/>------- is a flattening of all the providers arrays  
+    <br/>------- that can be reached by following the NgModules.imports recursively
+    <br/>
+    <br/>--- NullInjector - top of the tree
+    <br/>------- doesn't keep any tokens
+    <br/>------- always throws an error except @Optional - null
+    <br/>
+    <br/>
+    <br/>--------- Sandboxing
+    <br/> ---------- Multiple Service Instances
+    <br/> ------------- at same level of Component hierarchy
+    <br/> ---------- a service that holds state for its Component Instance
+    <br/> ---------- a separate instance of service for each Component
+    <br/> ------------- work-state isolated from other Component dep
+    <br/> ---------- Each service + component instance has its own sandbox 
+    <br/>
+    <br/>Components - @Component can have providers: [] 
+    <br/>---- limits service to that Component
+    <br/>
+    <br/>Modules - @NgModule can have providers: []
+    <br/>---- a singleton instance available all over appn
+    <br/>
+    <br/>Lazy Loaded Modules - can have providers: []
+    <bfr/>---- a singleton instance available all over feature Module
+    <br/>
+    <br/>--------- Sandboxing - 
+    <br/>
+    <br/>--- Injectors 
+    <br/>------ form the backbone of the DI framework
+    <br/>------ key-value pairs ',
+    <br/>
+    <br/>---- First injector found 
+    <br/>------- configured with a provider (matching) 
+    <br/>------- supplies the dependency
+    <br/>
+    <br/>--- Injector Hierarchy DI system
+    <br/>--- 2 types of Hierarchy
+    <br/>
+    <br/>--- 1: ModuleInjector - @NgModule or @Injectable
+    <br/>----------- Null Injector (At top of this is instance of the 
+    <br/>----------- PlaformModule - 
+    <br/>----------- Root Module (Eaguerly loaded Modules - share Root Module Injector) 
+    <br/>----------- and every Lazy loaded Module
+    <br/>
+    <br/>-------- Automatic Provisioning - @Injectable({providedIn}) class 
+    <br/>----------- can have dependencies injected into it 
+    <br/>----------- providedIn property configures a ModuleInjector -  
+    <br/>------------- root | any | platform| any&lt;T>
+    <br/>----------- 1: root - (Ang 6+) 
+    <br/>---------------- default + most common 
+    <br/>---------------- specify a certain Module class - where to position class
+    <br/>---------------- Service (dep) is provided as a singleton throughout the appn
+    <br/>---------------- 2 possibilities
+    <br/>-------------------- 1: Single Module depends on service
+    <br/>-------------------------- class provided within a module
+    <br/>-------------------- 2: 2+ Modules depend on the service
+    <br/>-------------------------- its provided in appn root injector (AppModule)
+    <br/>
+    <br/>----------- 2: any - (Ang 9+) 
+    <br/>---------------- allows multi-module 
+    <br/>---------------- ensure each module gets its own instance of dep (service)
+    <br/>---------------- eg if each module defines alt child deps (services) of any dep
+    <br/>---------------- Eagerly loaded modules - Ang 10 - share 1 instance of service
+    <br/>---------------- Lazily loaded modules - get their own instance of any deps (service)
+    <br/>
+    <br/>----------- 3: platform - (Ang 9+)
+    <br/>---------------- deps (services) to be regd at Platform level 
+    <br/>-------------------- parent of root level of current app  
+    <br/>-------------------- truely global singletons - shared among Ang apps
+    <br/>-------------------- Micro-Frontend | Web Components  
+    <br/>
+    <br/>------- 2: ElementInjector - at each DOM el - Component | Directive
+    <br/>
+    <br/>----------- Injector Tree echoes the Component Tree
+    <br/>--------------- providing a service (dep) in a @Component  
+    <br/> -------------- every Component/Directive has its own injector
+    <br/>
+    <br/>--------------- can use providers or viewProviders
+    <br/>------------------- viewProviders - only ViewDOM accessable (not ContentDOM)
+    <br/>
+    <br/> ------------- When a Component requests a dependency 
+    <br/>----------------- Angular uses a Provider regd in the Components Injector
+    <br/>
+    <br/>-------------- if Component injector has no provider 
+    <br/>----------------- passes to parent Components Injector
+    <br/>
+    <br/>------- InjectionToken 
+    <br/>----------- creates a token that can be used in a DI Provideer
+    <br/>----------- parameterized on T - type of object to be returned by Injector
+    <br/>----------- provides an additional level of Type safety
+    <br/>
+    <br/>
+    <br/>--- Injectors can have 1+   child Injectors - 
+    <br/>
+    <br/>
+    <br/>--- ReflectiveInjector implements Injector 
+    <br/>------- ReflectiveDependency Injection container 
+    <br/>----------- used for instantiating objects and resolving dependencies
+    <br/>----------- DEPRECATED
+    <br/>  
+    <br/>--- StaticInjector - Angular 5 
+    <br/>------- much faster thant ReflectiveInjector          
+    <br/>------- doesent resolve implicit deps at all
+    <br/>------- developer must explicitly spec deps for each provider
+    <br/>
+    <br/>--- New Provider Type
+    <br/>
+    <br/>--- export interface StaticClassProvider {
+    <br/>------- provide: any;
+    <br/> ------ useClass: Type<any>;
+    <br/> ------ deps: any[];
+    <br/> ------ multi?: boolean;
+    <br/>}
+    <br/>
+    <br/>--- Injector.create(providers);
+    `,
+    
+    `--- DI GUIDE
+    `,
+    `--- Loosely coupled architecture
+    ------- more mainable appns 
+    `,
+    ' -- ',
+    `---- DI - Helps in Unit Testing
+    
+    `,
+    ' -- ',
+    `3 types of DI
+    <br/>-------- 1:  Constructor Injection - interface passed to constructor
+    <br/>-------- 2:  Method Injection - interface based injection
+    <br/>-------- 3:  Property Injection - setter inection
+    `,
+    
+    `--- 1 Constructor injection
+    
+    `,
+    `--- 2 Method injection
+    
+    `,
+    `--- 3 Property injection
+    
+    `,
+    
+  ' -- ',
+    `--- Providers -
+    <br/>------ how to get value for a Dependency (Service)
+    <br/>---------- using DI system  
+    <br/>
+    <br/>------ Providers metadata accept services - that register within class injector
+    <br/>--------- Provider field adds instns to let injector <ftn
+    <br/>
+    <br/>------- useClass| useValue| useFactory| useExisting
+    <br/>---------- can never use an interface 
+    <br/>------- can only be classes or InjectionToken 
+    <br/>---------- get around shortcomings of JS  
+    <br/>
+    <br/>------ Providers configure an Injector with a DI token
+    <br/>---------- injector provides runtime value of dependency value
+    <br/>-------------- 3 types Token - Type| String| Injection
+    <br/>
+    <br/>
+    <br/>------ by default - DI searches for a Provider 
+    <br/>--------- in the Injector Hierarchy
+    <br/> -    
+    <br/>Components - @Component can have providers: [] 
+    <br/>---- limits service to that Component
+    <br/>
+    <br/>Modules - @NgModule can have providers: []
+    <br/>---- a singleton instance available all over appn
+    <br/>
+    <br/>Lazy Loaded Modules - can have providers: []
+    <br/>---- a singleton instance available all over feature Module
+    
+    `,
+    `-------------- Dependencies (Services)
+    <br/>-------------- normally Services but can be Objects 
+    <br/>------------------- class | functions | values 
+    <br/>---------------------- that a class needs to perform itsftn 
+    <br/>
+    <br/>-------------- Runtime value - DI token on injector via Provider    
+    <br/>
+    <br/>------------ Providers metadata accept services 
+    <br/>---------------- that register within class injector
+    <br/>---------------- Provider field adds instns to let injector ftn
+    <br/>
+    `,
+    `------------------ 3 types of Dependencies - class | functions | values
+    <br/>------------------ Class - 
+    <br/>------------------ Function - 
+    <br/>------------------ Values - 
+    `,  
+    `------------ Providers metadata accept services 
+    <br/>------------- that register within class injector
+    <br/>------------- Provider field adds instns to let injector ftn
+   `,
+    ' -- ',
+    `-------- 4 ways to create dep instance
+    `,
+    `----------- Provider definition Key
+    <br/>----------  useClass | useValue| useFactory| useExisting
+    `,
+    `----------- 1:   useClass (Class provider)
+    <br/>
+    <br/>------------- inject a class
+    `,
+    `----------- 2:   useValue (Value provider)
+    <br/>
+    <br/>------------- inject a boolean or string, etc.
+    `,
+    `----------- 3:   useFactory (Factory provider)
+    <br/>
+    <br/>------------- inject a function - returns value
+    <br/>------------- return objects based on a condition
+    <br/>------------- can have a deps array of extra deps
+    `,
+    `----------- 4:   useExisting (Alias provider)
+    <br/>
+    <br/>------------- replace provider with a new one
+    `,
+   
+    `Using provide with providers
+    <br/> 
+    <br/>@Component({
+      <br/>--- selector: \'app-hero-of-the-month\',
+      <br/>--- templateUrl:
+      <br/> \'./hero-of-the-month.component.html\',
+      <br/>--- providers: [
+        <br/>----- { provide: Hero,          useValue:    someHero },
+        <br/>----- { provide: TITLE,         useValue:   'Hero of the Month' },
+        <br/>----- { provide: HeroService,   useClass:    HeroService },
+        <br/>----- { provide: MinimalLogger, useExisting: LoggerService },
+        <br/>----- { provide: RUNNERS_UP,    useFactory:  runnersUpFactory(2), deps: [Hero, HeroService] }
+    <br/>--- ]
+    <br/>})
+    `,
+    ' -- ',
+     `----- Sandboxing - Multiple service instances 
+      <br/> ------ at the same level of the Component
+      <br/> ------ eg A Service that holds state for its companion comp instance       
+      `,
+        '------- Multiple Service Instances',
+     ' -- ',
+    `--- Injector
+    <br/>----- provides a runtime version of dependency 
+    <br/>--------- by dependency provider configuring injector with DI Token 
+    <br/>
+    <br/>----- for instantiating the dependency 
+    <br/>---------- and injecting it into the Component/Service 
+ 
+    <br/>
+    <br/>----- looks for dependency in Angular Providers
+    <br/>---------- using the Injection token   
+    `,
+    `------- Configure injectors with Providers
+    `,
+    `---------- Provider - lets injector - obtain | create deps
+    `,
+    `------- Injector instance / class 
+    `,
+    `----------- map of dependencies
+    
+    `,
+    `--------------- DI Token is the key
+    `,
+    `------------------ DI Token and Runtime version of Dependency value 
+    `,
+    `--------------- DI Token on injector
+    <br/> 
+    <br/>---------------- registers the provider
+    <br/>---------------- used to locate the depenency
+    <br/>---------------- provides Runtime value of Dependency   
+    <br/>
+    <br/>-------------------- 3 types Token - Type| String| Injection
+    `,
+
+    `-------------------- Runtime value of Dependency
+    `,
+    `---------------- ProviderToken
+   <br/>-------------- Token that can be used to retrieve instance from injector (or by query)
+   <br/>-------------- type ProviderToken<T> = Type<T> | AbstractType<T> | InjectionToken<T>;
+ `,
+ `---- DI Tokens uniquely identify a provider
+    <br/>-------------------- 3 types Token'
+    <br/> ------------------------ 1: Type
+    <br/> ------------------------ 2: String
+    <br/> ------------------------ 3: Injection
+    `,
+    ' -- ',
+    `------- StaticProvider 
+    <br/>--------- type StaticProvider = 
+    <br/>--------- ValueProvider | ExistingProvider | StaticClassProvider | ConstructorProvider | FactoryProvider | any[];
+    <br/>
+    <br/>--------- provides tokens to an injector for various types of dependencies
+    <br/>
+    <br/>--------- injector should be configured as static (without Reflection)
+    `,
+    `------------ used in Injector static class
+    `,
+    `------------ returns deps to Injector
+    `,
+    `------- ENVIRONMENT_INITIALIZER Injection Token 
+    <br/>---- multi-provider token for initn ftns 
+    <br/>------- that run on construction of an environment injector
+    <br/>   
+    <br/>const ENVIRONMENT_INITIALIZER: InjectionToken<() => void>;
+    <br/>
+    <br/>--- bootstrapApplication(AppComponent, {
+    <br/>-------  providers: [
+    <br/>-----------  {
+    <br/>-----------------      provide: ENVIRONMENT_INITIALIZER,
+    <br/>-----------------      multi: true,
+    <br/>-----------------      useValue() {
+    <br/>-------------------        inject(FooService).init()
+    <br/>-----------------      }
+    <br/>------------  }
+    <br/>-------  ]
+    <br/>--- })
+    <br/>
+    <br/>
+    <br/>export const todosRoutes: Routes = [
+      <br/>{
+      <br/>---  path: '',
+      <br/>---  loadComponent: () =>
+      <br/>------    import('./todos-page.component').then((m) => m.TodosPageComponent),
+      <br/>--------- providers: \[
+      <br/>------------- {
+      <br/>-----------------  provide: ENVIRONMENT_INITIALIZER,
+      <br/>-----------------  multi: true,
+      <br/>-----------------  useValue() {
+      <br/>---------------------  inject(TodosService).init();
+      <br/>----------------- },
+      <br/>------------- },
+      <br/>-------\],
+      <br/>--- },
+      <br/>\];
+      <br/>
+  `,
+    `--- Environment Injector - (Angular 14)
+    <br/>------- is a generalized version of NgModuleRef (Module Injector)
+    <br/>------- one of the primitives supporting standalone component APIs
+    <br/>
+    <br/>--- import { ENVIRONMENT_INITIALIZER, inject } from '@angular/core';
+    <br/>--- import { bootstrapApplication } from '@angular/platform-browser';
+    <br/>
+    <br/>Angular 14 Injectors - since we can be Module-less
+    <br/>ModuleInjector was renamed EnvironmentInjector
+    <br/>---- EnvironmentInjector is a generalized version of NgModuleRef 
+    <br/>-------- also known as Module Injector
+    <br/>
+    <br/>NodeInjector (ElementInjector) service has priority over EnvironmentInjector
+    <br/>---- (priority over EnvironmentInjector)
+    <br/>
+    <br/>RouterInjector (New Ang 14)
+    <br/>-------- Providers in Angular Route  
+    <br/>------------ has a 
+    <br/>--------------- can be parent to Lazy Loaded Modules
+    <br/>
+    <br/>------------ Normally our Routes 
+    <br/>---------------- use path and Component
+    <br/>---------------- or path and loadChildren
+    <br/>
+    <br/>@Component({
+    <br/>----- selector: '',
+    <br/>----- standalone: true,
+    <br/>----- imports: [CommonModule, UsersModule],
+    <br/>----- templateUrl: 'x.component.html',
+    <br/>----- styleUrls: ['x.component.scss'],
+    <br/>})
+    <br/>------------- RouterInjector
+    <br/>----------------- path: 'admin', 
+    <br/>----------------- providers : \[
+    <br/>-------------------- { provide: UserService, useExisting: ExperimentUserService}
+    <br/>----------------- \],
+    <br/>----------------- loadComponent: () => import('./feature/admin/admin.component').
+    <br/>--------------------- then(c => c.then(m => m.adminComponent))   
+    <br/>
+    <br/>NgModuleRef&lt;T>{
+    <br/> abstract  injector: EnvironmentInjector
+    <br/>----    abstract  instance: T  
+    <br/>----    abstract  destroy(): void
+    <br/>----    abstract  onDestroy(callback: () => void): void 
+    <br/>}  
+    <br/>
+    <br/>Angular 13
+    <br/>ViewContainerRef.createComponent(x:MyComponent);
+   `,
+    ' -- ',
+     `----- Injector.create()
+    <br/>-------- static create(options: {providers: StaticProvider\[\]: parent?: Injector; name?: string;}): Injector
+    <br/>
+    `,
+    `------------ get() - 
+    `,
+    ' -- ',
+    `--- Injectors 
+    <br/>--- form backbone of DI framework
+    <br/>
+    <br/>------ create + retrieve services (Deps) in an app
+    <br/>
+    <br/>------ are data structures storing instns
+    <br/>--------- detailing where + how services form
+    <br/>--------- instantiate services 
+
+    <br/>
+    <br/>------ Acting as intermediaries within Ang DI system
+    <br/>
+    <br/>------ Module | Directive| Component classes 
+    <br/>----------- contain metadata specific wrt injectors
+    <br/>----------- each class contains a new injector instance
+    <br/>
+    <br/>------ Providers metadata accept services - that register within class injector
+    <br/>--------- Provider field adds instns to let injector ftn
+    <br/>
+    `,
+    '------ backbone of DI framework',
+    '------ injectors - key-value pairs ',      
+    '--------- Injector Hierarchy DI system',
+  `---------------- Injector Bubbling - 
+  
+  `,
+  '-- 2 Injector Hierarchies',
+  `-------1: ModuleInjector 
+  <br/>---------- (Ivy R3Injector)
+  <br/>---------- (Angular 14 - EnvironmentInjector)
+  `,
+  `----------- a Module level injector
+      <br/>------- Angular creates the Module Injector tree when the appn starts
+      <br/>  
+      <br/>---------- has a Records property that stores DI info 
+      <br/>-------------- and stores instances of injectables    
+   
+      <br/>
+      <br/>------- can be configured in 1 of 2 ways
+      <br/>----------- 1:s @NgModule() providers array
+      <br/>----------- 2: @Injectable() providedIn - to @NgModule() or root 
+      <br/>------- is a flattening of all the providers arrays  
+      <br/>------- that can be reached by following the NgModules.imports recursively 
+      <br/>
+      <br/>------------- get() records a Map collection
+      <br/>---------------- key is a token 
+      <br/>---------------- value is instance corresponding to token    
+      `,
+      '----------- A: Providers Metadata of the @NgModule',
+      `--------------- nullInjector - top of tree
+      <br/>------------------ doesnt keep any tokens
+      <br/>------------------ always throws error unless @Optional - null
+      `,
+      `--------------- platformInjector
+      <br/>----------------- under nullInjector is an instance of the PlatformInjector
+      <br/>--------------------- usually has built in providers like DomSanatizer   
+      `,
+      `--------------- RootModuleInjector
+      <br/>-----------------  under platformInjector is an injector for the Root Module
+      <br/>-----------------  root (alias) -  
+      `,
+      `---- When a dynamically loaded component is created
+      <br/>-------- gives you option to create child ModuleInjector hierarchies
+      <br/>-------- such as with the Router 
+      `,
+      ' and ',
+      `--------------- for each Lazy Loaded Module`,
+      ' -- ',
+      `----------- B: - Providing a Service
+      <br/>------------ Service @Injectable({ providedIn: \'xxx\'\})
+      <br/>------------ root | platform | any | Type<any> | other values
+      `,
+       `-------------- 'root'
+       <br/>-- @Injectable({ providedIn : \'root\',}) - 
+       <br/>(appn - or root level injector) you can now inject the service anywhere in your appn
+       <br/>
+       <br/>---------------- default + most common 
+       <br/>---------------- specify a certain Module class - where to position class
+       <br/>---------------- Service (dep) is provided as a singleton throughout the appn
+       <br/>---------------- 2 possibilities
+       <br/>-------------------- 1: Single Module depends on service
+       <br/>-------------------------- class provided within a module
+       <br/>-------------------- 2: 2+ Modules depend on the service
+       <br/>-------------------------- its provided in appn root injector (AppModule)
+       `,     
+       `-------------- 'any'
+       <br/>-- @Injectable({ providedIn : \'any\',}) 
+       <br/>---- provides a unique instance in each lazy loaded module | 
+       <br/>
+       <br/>---- all eagerly loaded modules share one instance
+       <br/>---------------- allows multi-module 
+       <br/>---------------- ensure each module gets its own instance of dep (service)
+       <br/>---------------- eg if each module defines alt child deps (services) of any dep
+       <br/>---------------- Eagerly loaded modules - Ang 10 - share 1 instance of service
+       <br/>---------------- Lazily loaded modules - get their own instance of any deps (service)
+       `, 
+       `-------------- 'platform'
+       <br/>-- @Injectable({ providedIn : \'platform\',}) 
+       <br/>--- a special singleton platform injector via a service 
+       <br/>- shared by all appns on page
+       <br/>---------------- deps (services) to be regd at Platform level 
+       <br/>-------------------- parent of root level of current app  
+       <br/>-------------------- truely global singletons - shared among Ang apps
+       <br/>-------------------- Micro-Frontend | Web Components
+       `,    
+       `-------------- 'Type&lt;any>'
+       <br/>-- @Injectable({ providedIn : \'Type&lt;any>\',}) 
+       <br/>---- associates the injectable with an @NgModule or other injector types
+       `,       
+       'other values',
+       ' -- ',  
+  `-------2: ElementInjector (Ivy NodeInjector)
+  <br/> ------------ Injector Tree echoes the Component Tree
+  <br/> -------------- every Component has its own injector
+  <br/> -------------- has priority over Module(Environment) Injector
+  <br/>
+  <br/> ----------- When a Component requests a dependency 
+  <br/>----------------- Angular uses a Provider regd in the Components Injector
+  <br/>
+  <br/>------- if Component injector has no provider 
+  <br/>--------- passes to parent Components Injector
+  <br/>
+  <br/>@Component({
+   <br/>----- providers: [{ provide: ItemService, useValue: { name: 'lamp' } }]
+   <br/>})
+   <br/>export class TestComponent
+   <br/>  
+   `,
+  `--- Resolution Modifiers
+  <br/>------ 3 categories
+`,
+'------------ @Optional()',
+'------------ @SkipSelf()',
+`------------ @Host() and @Self 
+  <br/>---------- @Host - limits the search for a matching provider
+  <br/>------------ root injector -  
+  `,
+  '----- @Self()',    
+
+  ' -- ',
+     
+  `--------- NodeInjector implements Injector is saved in
+  <br/>-------- is an injector that belongs to a node
+  <br/>-------- is an object that has ref to TNode and LView objects
+  `, 
+  `----------- 9 contiguous slots in LView +
+  `, 
+  `----------- 9 contiguous slots in TView.data
+  
+  `,  
+  '----------- object refs to',
+  `------------- TNode - any kind of object : 
+  <br/> - element| ng-template| ng-container
+  <br/>
+  <br/> - Ang creates a injectorIndex property on TNode 
+  <br/>--- where bloom filter is located. 
+  <br/> - The NodeInjector gets required provider by looking at the data 
+  <br/> - contained in TNode and LView objects
+  <br/> - Ivy renderer - stores injection info for the Node in the view data  
+  <br/> - start from a header (17 slots) 
+  <br/> --- contains ref to parent injector at index 10  
+  <br/> - It allocates allocates slots in LView + TView.data arrays    
+  `,
+  `------------- LView - contains DI info 
+  <br/>  array contains data 
+  <br/>------------- describing a specific template
+     <br/> stores instances -
+     <br/> After each bloom filter - Ang stores parentLocation ptr  
+     <br/> ---   we can walk through all parent injectors     
+  `,
+  `------------- TView.data array - Ang keeps data shared x templates    
+   <br/> stores all tokens 
+  `,
+  `--------------- These slots rep 2 bloom filters - Cumulative + template    
+   <br/> - 1 view can have as many bloom filters or injectors 
+   <br/> - for nodes located on the view
+  `,
+  '- ',
+  `--------------- using Bloom filter
+    <br/> -   8 slots long ([n, n+7] indices) - 
+    <br/>Their number is directly proportional to the num of nodes  
+    <br/>-- for which the injector is created
+    <br/>
+    <br/>Each bloom filter has a ptr to the parent bloom filter 
+    <br/>--- in the "packed" parentLocation slot (n + 8)
+    <br/>
+    <br/> Ivy bloom size is 256 bits - divided into 8 parts - 
+    <br/>---   
+  `,
+  `---------------------- ENVIRONMENT_INITIALIZER
+  <br/>---------------------- multi-provider token for initialization ftns 
+  <br/>---------------------- that will run on construction of an environment injector
+  <br/>
+  <br/>---------------------- const ENVIRONMENT_INITIALIZER: InjectionToken<() => void>;
+  `,
+
+  '- View object - an internal object that reps Ang template',
+  `--- Ang builds a tree of views 
+    <br/>----- which always starts with a fake root View
+    <br/>----- that only contains 1 root element
+    <br/>----- Ivy uses LView and TView.data arrays   
+  `,
+  '----- ',
+  `- DI Tokens - When you configure an injector with a provider 
+  <br/>- you are associating that provider with a DI token
+  <br/>The injector lets Angular create a map of any internal dependencies.
+  <br/>
+  <br/>The DI token - acts as a key to that map - 
+  <br/>The dep value is an instance & the class type serves as a look up key 
+  <br/>
+  <br/>eg. Here the injector uses HeroService type as the token for looking up heroService 
+  <br/>constructor(private heroService: HeroService){}  
+  `,
+  '-- DI Parts - injector | provide | dependency provider | provide defn key',
+  `-- Dependency Provider - configures provider with a DI token 
+  <br/>which that injector uses to provide the runtime version of a dep value
+  `,
+  `-- Defining Providers - provide: [Logger] same as [{provide: Logger, useClass: Logger}]
+  <br/>class provider syntax - is a shorthand expression for a provider confign defined by the Provider interface
+  <br/>Above is a class provider syntax for providing a Logger class in the providers array
+  <br/>Note the provide property holds the token - key for locating a dep value and config injector
+  <br/>Note 2nd property is a provder defn object - which tells injector how to create the dependency value    
+  `,
+  '-- [Logger] same as [{provide: Logger, useClass: Logger}]',
+  `-- provider defn key - useClass | useExisting | useValue | useFactory
+  <br/> to configure the injector - keys for tokens
+  `,
+  '--- Providers with deps',
+  `---- aliasing class providers - useClass
+  <br/>[{ provide: Logger, useClass: BetterLogger }]
+  `,
+  '---- aliasing class interface - useExisting',
+  '---- aliasing multi class i/fs',
+  `---- injecting an Object - configure with a useValue option
+    <br/>[{provide: Logger, useValue: SilentLogger}]
+  `,
+  '---- injecting a config Object',
+  '---- InjectionToken object',
+  '---- interfaces and DI  ',
+  `---- Using factory providers - useFactory field - specifies provider is a factory ftn whose impn is here - heroServiceFactory
+  <br/>export const heroServiceProvider =
+  { provide: HeroService,
+    useFactory: heroServiceFactory,
+    deps: [Logger, UserService]
+  };  
+  `,
+  'class +',
+  '@sInjectable({})', 
+  '- declare locn', '- nesting','- Sharing','typical tasks',
+  '- Providing a Service', 
+  '-- @injectable({ providedIn: \'root\'})',
+  '--- providedIn: \'root\'',
+  '--- providedIn: \'platform\'',
+  '--- providedIn: \'any\'',
+  '--- providedIn: &lt;T>\''
+   ],
     [`Event Bubbling
       <br/>--- type of Event propagation 
       <br/>--- inner propagated to outer els 
@@ -11364,7 +11378,10 @@ les -
     '--- using Observables for data instead of the actual data - means the code cant be accidentally changed', 
     '--- JSON Web Tokens - appn talks to server that produces Token - passed as Authorization Header to prove authentication', 
     '- OWASP - a foundation works to improve security of S/W ', 
-    '- npm install -g snyk - snyk test - tracks over 23 security vulnerabilities for Angular related Modules'],
+    `- npm install -g snyk - snyk test 
+    <br/>--- tracks over 23 security vulnerabilities for Angular related Modules
+    `
+    ],
     [`Authorization and Authentication
     `,
       `--- Authentication 
@@ -11662,14 +11679,23 @@ import fastify, {
     [`npm (Node Package Manager) - 
     
     `,
-    `- Yarn`],
-    ['- Most popular Web framework - A backend web appn for Node.js for building Web appns and APIs - provides mechanisms for writing handlers for requests with diff HTTP verbs at diff URL Paths- routes ',
-    '-- const express = require(\'express\'); const app = express(); const port = 3000;','-- app.get(\'/\', function(req, res) {res.send(\'Hello World!\')}); - ','--  app.listen(port, function() { console.log(\`Example app listening on port ${port}!\`)}); ' 
+    `- Yarn`
     ],
-    [`VS-Code
+    [`Express
+    <br/>--- Most popular Web framework 
+    <br/>------ A backend web appn for Node.js for building Web appns and APIs 
+    <br/>------ provides mechanisms for writing handlers for requests with diff HTTP verbs at diff URL Paths- routes ',
+    <br/>--- const express = require(\'express\'); const app = express(); 
+    <br/>--- const port = 3000;',
+    <br/>--- app.get('', function(req, res) {res.send(\'Hello World!\')});
+    <br/>--- app.listen(port, function() { 
+    <br/>------- console.log('Example app listening on port \${port}!');
+    <br/>---- }); `
+    ],
+    [`IDE eg VS-Code
     <br/>
     <br/>
-    <br/>VS Code Extensions
+    <br/>--- VS Code Extensions
     <br/>--- Prettier - an opinionated code formatter and linter (code analysis) 
     <br/>------- ensure 1 code format - 
     <br/>
@@ -11681,70 +11707,29 @@ import fastify, {
       '--- VS Code Extensions',
       '----- Prettier',
       '------- Ctrl + Shift + P'
-    ],
-
-    [`Angular Language Service - provides code editors eg VS Code 
-    <br/>with completions | erroers | hints | navigation 
+    ], 
+    [`Angular Language Service - templates
+     <br/>
+     <br/>--- provides code editors eg VS Code 
+     <br/>--- with completions | erroers | hints | navigation 
+     <br/>
+     <br/>--- eg VS Code with a way to get 
+     <br/>--- Completions | Errors | Hints | Navigation inside Angular templates
+     <br/>
+     <br/>--- It goes straight to your config files 
+     <br/>------- and finds out about all the templates in your project 
+     <br/>------- and provides adequate support as you open a template 
+     `,
+     `--- ALS reads the tsconfig.json file
+    <br/>------ finds all templates in app'n 
+    <br/>----------- provides Lang Services for any open templates
     <br/>
-    <br/>- eg VS Code with a way to get 
-    <br/>Completions | Errors | Hints | Navigation inside Angular templates
-    <br/>
-    <br/>It goes straight to your config files and finds out about all the templates in your project and provides adequate support as you open a template 
+    <br/>--- npm i @angular/language-service
+    <br/>--- provides code editors with a way to get 
+    <br/>------- completions| errors| hints| navigation 
+    <br/>------- inside Angular external and internal templates 
     `,
-    '- Code completions', '- Errors', '- Hints', '- Navigation', '-- Angular Templates'
-    ],
-    
-    [`TSServer (Stand alone Server) - is a Node executable that executes the tsc (TypeScript Compiler) and Language Services 
-    <br/>- and exposes them through a JSON protocol
-    <br/>- used in Code editors and IDE support 
-    - VS Code - uses tsserver written in TypeScript     
-    `], 
-    [`ESLint - 
-    <br/>--- statically analyses your code to quickly find problems 
-    <br/>
-    <br/>--- is a static code analysis tool used to flag programming errors | bugs | stylistic errors and suspicious constructs
-    <br/>
-    <br/>--- is a JavaScript Linter to lint either JS + TS code 
-    <br/>------ (TSLint only used by TypeScript) - A large project can contain both JS + TS
-    <br/>
-    <br/>------ is built into most Web Editors VS Code or as part of your CI pipeline  -
-    <br/>
-    <br/>------ enables you to enforce a set of style | formatting | coding stds for your codebase  
-    <br/>
-    <br/>------ ESLint8.9 - released Feb 2022 - ES2022 added - ecmaVersion parser option to 13 
-    <br/>
-    <br/>---------ESLint8.15 - May 2022 - 
-    `,
-    '--- ESLint is a JavaScript Linter to lint either JS + TS code', 
-    '--- Static Analysis',
-    '--- VS Code + CI Pipeline',
-    '--- AST based pattern checker - JS',
-    '------- lets you enforce a set of style | formatting | coding stds for your codebase',
-    '------- ESLint 8.09 (7th Feb 2022) -  ',
-    `------- ESLint 8.15 (7th May 2022) -  `,
-    `------- ESLint 8.23 (26th Aug 2022) -  `,
-    `------- ESLint 8.23.1 (12th Sept 2022) -  
-    `,
-    `--- Add ESLint 
-    <br/>------ npm i @angular-eslint/eslint-plugin
-    <br/>------ ng add @angular-eslint/schematics
-    `,
-    `------- Add ESLint and Remove TSLint
-    <br/>-------- ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
-    `  
-    ],
-    [`ALS (Angular Language Service ) - for templates
-      <br/>  
-      <br/>--- ALS reads the tsconfig.json file
-      <br/>------ finds all templates in app'n -provides Lang Services for any open templates
-      <br/>
-      <br/>---- npm i @angular/language-service
-      <br/>--- provides code editors with a way to get 
-      <br/>------- completions| errors| hints| navigation 
-      <br/>------- inside Angular external and internal templates 
-      `,
     `--- outside and inside Angular templates
-    
     `,
     `------ completions
     `,
@@ -11756,9 +11741,9 @@ import fastify, {
     `,
     ' -- ',
     `--- tsconfig.json
-      <br/>--- has both
-      <br/>------ compilerOptions
-      <br/>------ angularCompilerOptions
+    <br/>--- has both
+    <br/>------ compilerOptions
+    <br/>------ angularCompilerOptions
     `,
     `------ strictTemplates: true
     <br/>----- "angularCompilerOptions": {
@@ -11767,9 +11752,66 @@ import fastify, {
     `,
     ' -- ',
     `----------- GetSamanticsDiagnostics
-    `
+    `,
+    '--- Code completions', 
+    '--- Errors', 
+    '--- Hints', 
+    '--- Navigation', 
+    '--- Angular Templates'
+    ],
+    [`TSServer (Stand alone Server) 
+    <br/>--- is a Node executable 
+    <br/>------ that executes the tsc (TypeScript Compiler) and Language Services 
+    <br/>--- and exposes them through a JSON protocol
+    <br/>--- used in Code editors and IDE support 
+    <br/>--- VS Code - uses tsserver written in TypeScript      
+    `],    
+    [`ESLint - 
+    <br/>--- statically analyses your code to quickly find problems 
+    <br/>
+    <br/>--- is a static code analysis tool used to flag 
+    <br/>-------- programming errors | bugs | stylistic errors and suspicious constructs
+    <br/>
+    <br/>--- is a JavaScript Linter to lint either JS + TS code 
+    <br/>------ (TSLint only used by TypeScript) 
+    <br/>- A large project can contain both JS + TS
+    <br/>
+    <br/>------ is built into most Web Editors VS Code or as part of your CI pipeline  -
+    <br/>
+    <br/>------ enables you to enforce a set of 
+    <br/>----------- style | formatting | coding stds for your codebase  
+    <br/>
+    <br/>------ ESLint8.9 - released Feb 2022 
+    <br/>---------- ES2022 added - ecmaVersion parser option to 13 
+    <br/>
+    <br/>------ ESLint8.15 - May 2022 - 
+    `,
+    '--- ESLint is a JavaScript Linter to lint either JS + TS code', 
+    '--- Static Analysis',
+    '--- VS Code + CI Pipeline',
+    '--- AST based pattern checker - JS',
+    `------- lets you enforce a set of 
+    <br/>--------- style | formatting | coding stds for your codebase
+    `,
+    `------- ESLint 8.09 (7th Feb 2022)
+    `,
+    `------- ESLint 8.15 (7th May 2022)  
+    `,
+    `------- ESLint 8.23 (26th Aug 2022) -  `,
+    `------- ESLint 8.23.1 (12th Sept 2022) -  
+    `,
+    `--- Add ESLint 
+    <br/>------ npm i @angular-eslint/eslint-plugin
+    <br/>------ ng add @angular-eslint/schematics
+    `,
+    `------- Add ESLint and Remove TSLint
+    <br/>-------- ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
+    `  
      ],
-     [`CI/CD
+      [`AST (Abstract Syntax Tree)
+        
+      `],
+      [`CI/CD
     
       `, 
      `--- Jenkins | TeamCity | BitBucket
