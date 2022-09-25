@@ -11765,7 +11765,8 @@ import fastify, {
     <br/>--- and exposes them through a JSON protocol
     <br/>--- used in Code editors and IDE support 
     <br/>--- VS Code - uses tsserver written in TypeScript      
-    `],    
+    `], 
+   
     [`ESLint - 
     <br/>--- statically analyses your code to quickly find problems 
     <br/>

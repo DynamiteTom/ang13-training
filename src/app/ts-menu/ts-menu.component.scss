@@ -66,7 +66,7 @@ mat-list-item{
     background-color: black;
     height: 600px;
     padding-bottom:600px;
-}
+}d
 */
 
 .arr-op2{ 
@@ -77,8 +77,23 @@ mat-list-item{
     padding-bottom: 5px;
 }
 
+.noscroll{
+  overflow: hidden;
+}
+
+/*
+.overlay { 
+  position: fixed; 
+  overflow-y: scroll;
+  top: 0; right: 0; bottom: 0; left: 0; 
+}
+*/
+
+// [aria-hidden="true"]  { display: none; }
+// [aria-hidden="false"] { display: block; }
 .arr-topics{
   position: relative;
+  scroll-snap-align: start;
   font-weight: bold;
   left: -200px;
   display: block;
@@ -139,5 +154,6 @@ mat-list-item{
 .main-container{
     padding: 20px;
     width: 80%;
+    scroll-snap-type: y mandatory;
     height: auto;
 }
